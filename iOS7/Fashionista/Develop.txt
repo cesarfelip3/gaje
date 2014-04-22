@@ -1,0 +1,6 @@
+Develop
+=========
+
+
+1. from template to create UI - introduction - login
+2. create local database
