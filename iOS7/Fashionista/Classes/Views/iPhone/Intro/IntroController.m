@@ -39,14 +39,12 @@
     
     [self.banner setFrame:size];
     
-    [self.cellRegister.textLabel setText:@"Register"];
-    [self.cellLogin.textLabel setText:@"Login"];
     
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    [self.navigationController setNavigationBarHidden:YES animated:animated];
+    //[self.navigationController setNavigationBarHidden:YES animated:animated];
     [super viewWillAppear:animated];
 }
 

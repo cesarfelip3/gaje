@@ -35,11 +35,13 @@
     UINavigationBar *navbar = self.navigationController.navigationBar;
     
     //[navbar setTintColor:[UIColor colorWithRed:125/255.0 green:178/255.0 blue:15/255.0 alpha:0.8]];
-    [navbar setBackgroundColor:[UIColor clearColor]];
+    [navbar setBackgroundColor:[UIColor whiteColor]];
     navbar.layer.shadowColor = [UIColor blackColor].CGColor;
-    navbar.layer.shadowOpacity = 0.2f;
+    //navbar.layer.shadowOpacity = 0.2f;
     navbar.layer.shadowRadius = 0.1f;
     navbar.layer.shadowOffset = CGSizeMake(0.0f, 0.0f);
+    
+    [navbar setBackgroundImage:[UIImage imageNamed:@"navigationBackground-7"] forBarMetrics:UIBarMetricsDefault];
 
 #endif
     
