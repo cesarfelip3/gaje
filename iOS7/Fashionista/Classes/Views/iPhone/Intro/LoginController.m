@@ -27,21 +27,23 @@
     //NSLog(@"login controller setup");
     
     
-    [self.navigationItem.backBarButtonItem setTintColor:[UIColor colorWithRed:125/255.0 green:178/255.0 blue:15/255.0 alpha:0.8]];
-    [self.navigationItem.rightBarButtonItem setTintColor:[UIColor colorWithRed:125/255.0 green:178/255.0 blue:15/255.0 alpha:0.8]];
+    //[self.navigationItem.backBarButtonItem setTintColor:[UIColor colorWithRed:125/255.0 green:178/255.0 blue:15/255.0 alpha:0.8]];
+    //[self.navigationItem.rightBarButtonItem setTintColor:[UIColor colorWithRed:125/255.0 green:178/255.0 blue:15/255.0 alpha:0.8]];
     
     
 #if true
     UINavigationBar *navbar = self.navigationController.navigationBar;
     
-    //[navbar setTintColor:[UIColor colorWithRed:125/255.0 green:178/255.0 blue:15/255.0 alpha:0.8]];
+    [navbar setTintColor:[UIColor colorWithRed:125/255.0 green:178/255.0 blue:15/255.0 alpha:0.8]];
     [navbar setBackgroundColor:[UIColor whiteColor]];
+    [navbar setBarStyle:UIBarMetricsDefault];
+    
     navbar.layer.shadowColor = [UIColor blackColor].CGColor;
-    //navbar.layer.shadowOpacity = 0.2f;
+    navbar.layer.shadowOpacity = 0.2f;
     navbar.layer.shadowRadius = 0.1f;
     navbar.layer.shadowOffset = CGSizeMake(0.0f, 0.0f);
     
-    [navbar setBackgroundImage:[UIImage imageNamed:@"navigationBackground-7"] forBarMetrics:UIBarMetricsDefault];
+    //[navbar setBackgroundImage:[UIImage imageNamed:@"navigationBackground-7"] forBarMetrics:UIBarMetricsDefault];
 
 #endif
     
@@ -60,37 +62,6 @@
     [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"Default"]]];
 #endif
     
-    self.view.alpha = 1;
-    [self.navigationController.navigationBar setTranslucent:YES];
-    self.navigationController.navigationBar.alpha = 0.2;
-    self.navigationItem.title = @"Welcome";
-    
-    [self.cellRegister.textLabel setText:@"Register"];
-    self.username.borderStyle = UITextBorderStyleNone;
-    self.password.borderStyle = UITextBorderStyleNone;
-    
-    [self.username setTag:0];
-    [self.password setTag:1];
-    
-    self.cellUsername.imageView.image = [UIImage imageNamed:@"cell_username"];
-    self.cellPassword.imageView.image = [UIImage imageNamed:@"cell_password"];
-    
-    [self.username setText:@"Your user name"];
-    [self.password setText:@"Your password"];
-    
-    [self.username setTextColor:[UIColor darkGrayColor]];
-    [self.password setTextColor:[UIColor darkGrayColor]];
-    
-    [self.username setDelegate:self];
-    [self.password setDelegate:self];
-    
-    [self.username setFrame:CGRectMake(44, 0, 150, self.cellUsername.contentView.frame.size.height)];
-    [self.cellUsername.contentView addSubview:self.username];
-    
-    [self.password setFrame:CGRectMake(44, 0, 150, self.cellPassword.contentView.frame.size.height)];
-    [self.cellPassword.contentView addSubview:self.password];
-    
-    //self.cellLogin.imageView.image = [UIImage imageNamed:@"cell_login"];
     
     AppConfig *config = [AppConfig getInstance];
     if (config.userIsLogin == 1) {
