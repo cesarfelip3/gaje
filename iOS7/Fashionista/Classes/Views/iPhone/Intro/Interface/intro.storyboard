@@ -10,7 +10,7 @@
             <objects>
                 <tableViewController id="3iO-3f-lI9" customClass="RegisterController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="static" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="ldo-Le-ioS">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="separatorColor" red="0.87058830259999997" green="0.87058830259999997" blue="0.87058830259999997" alpha="1" colorSpace="deviceRGB"/>
@@ -157,7 +157,7 @@
                             </subviews>
                         </view>
                         <button key="tableFooterView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="nI4-Xt-rGX">
-                            <rect key="frame" x="0.0" y="271" width="320" height="38"/>
+                            <rect key="frame" x="0.0" y="139" width="320" height="38"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                             <state key="normal" title="Forget Password">
@@ -172,57 +172,22 @@
                             </connections>
                         </button>
                         <sections>
-                            <tableViewSection id="nKG-8L-tYy">
+                            <tableViewSection id="934-Ag-Awa">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="mRY-hs-qgV" customClass="LoginCell">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="fAn-3l-ZJw">
                                         <rect key="frame" x="0.0" y="95" width="320" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mRY-hs-qgV" id="8ov-DK-3r6">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="Ko7-9a-uho" customClass="LoginCell">
-                                        <rect key="frame" x="0.0" y="139" width="320" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ko7-9a-uho" id="Prc-k4-QD7">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" id="bnp-rX-CMd" customClass="LoginCell">
-                                        <rect key="frame" x="0.0" y="183" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bnp-rX-CMd" id="Ag1-D6-qgC">
-                                            <rect key="frame" x="0.0" y="0.0" width="300" height="44"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fAn-3l-ZJw" id="27r-fe-eXF">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J00-ng-1XP">
-                                                    <rect key="frame" x="15" y="0.0" width="150" height="44"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                                                    <state key="normal" title="Login">
-                                                        <color key="titleColor" red="0.12834722535336227" green="0.48560262623453104" blue="0.83419667119565211" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                    </state>
-                                                    <connections>
-                                                        <action selector="onButtonTouched:" destination="gVC-He-0Ir" eventType="touchDown" id="8OB-Tw-efw"/>
-                                                    </connections>
-                                                </button>
+                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KLv-b6-Qj4" customClass="FBLoginView">
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                                </view>
                                             </subviews>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.16071216816187123" green="0.25864411838478985" blue="0.52042809311224492" alpha="1" colorSpace="calibratedRGB"/>
-                                    </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="1cr-Ng-0Tu" customClass="LoginCell">
-                                        <rect key="frame" x="0.0" y="227" width="320" height="44"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1cr-Ng-0Tu" id="6As-53-GFJ">
-                                            <rect key="frame" x="0.0" y="0.0" width="300" height="44"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="3iO-3f-lI9" kind="push" id="K21-zh-8M9"/>
-                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -252,10 +217,6 @@
                     <connections>
                         <outlet property="buttonLogin" destination="UC9-DE-g4b" id="oCj-wt-8aB"/>
                         <outlet property="buttonLogo" destination="HI6-vn-R54" id="87E-rc-NgJ"/>
-                        <outlet property="cellLogin" destination="bnp-rX-CMd" id="jg1-Xy-O2A"/>
-                        <outlet property="cellPassword" destination="Ko7-9a-uho" id="roI-JI-zQN"/>
-                        <outlet property="cellRegister" destination="1cr-Ng-0Tu" id="EGO-S7-NIq"/>
-                        <outlet property="cellUsername" destination="mRY-hs-qgV" id="dfg-GQ-ZSw"/>
                         <outlet property="password" destination="xPK-G2-e5g" id="LJ2-si-3mD"/>
                         <outlet property="username" destination="mSC-so-7tc" id="cge-0l-XYm"/>
                         <outlet property="view" destination="RK9-Du-1Oo" id="0gS-df-Vqv"/>
@@ -286,7 +247,7 @@
                     </state>
                 </button>
             </objects>
-            <point key="canvasLocation" x="-1082" y="195"/>
+            <point key="canvasLocation" x="-1049" y="33"/>
         </scene>
         <!--Help Controller - HELP-->
         <scene sceneID="nWm-xf-i1i">
@@ -404,7 +365,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wzE-jb-gC3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1522" y="379"/>
+            <point key="canvasLocation" x="-1470" y="51"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
