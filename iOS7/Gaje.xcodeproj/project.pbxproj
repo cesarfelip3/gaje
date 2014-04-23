@@ -1609,11 +1609,11 @@
 		CE695FCF1906A82500D464E4 /* Intro */ = {
 			isa = PBXGroup;
 			children = (
+				CE695FD81906A8A900D464E4 /* Interface */,
 				CE695FEA1906A9F000D464E4 /* RegisterProfileCell.h */,
 				CE695FEB1906A9F000D464E4 /* RegisterProfileCell.m */,
 				CE695FDE1906A95C00D464E4 /* LoginCell.h */,
 				CE695FDF1906A95C00D464E4 /* LoginCell.m */,
-				CE695FD81906A8A900D464E4 /* Interface */,
 				CE695FDB1906A92A00D464E4 /* InitController.h */,
 				CE695FDC1906A92A00D464E4 /* InitController.m */,
 				CE695FD31906A86100D464E4 /* IntroController.h */,
