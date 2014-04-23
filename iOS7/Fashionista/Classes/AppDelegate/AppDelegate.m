@@ -19,7 +19,7 @@ static AppDelegate *sharedDelegate;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    [ADVThemeManager customizeAppAppearance];
+    //[ADVThemeManager customizeAppAppearance];
     // Override point for customization after application launch.
 #if false
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {

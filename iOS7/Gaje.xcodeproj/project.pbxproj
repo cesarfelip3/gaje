@@ -283,7 +283,6 @@
 		AA0E67B417CC45BF00AA877F /* navigationBackground-7@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AA0E67B217CC45BF00AA877F /* navigationBackground-7@2x.png */; };
 		CE695FCD1906A76200D464E4 /* local.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = CE695FCC1906A76200D464E4 /* local.sqlite */; };
 		CE695FD21906A85200D464E4 /* LoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE695FD11906A85200D464E4 /* LoginController.m */; };
-		CE695FD51906A86100D464E4 /* IntroController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE695FD41906A86100D464E4 /* IntroController.m */; };
 		CE695FDA1906A91100D464E4 /* intro.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE695FD91906A91100D464E4 /* intro.storyboard */; };
 		CE695FDD1906A92A00D464E4 /* InitController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE695FDC1906A92A00D464E4 /* InitController.m */; };
 		CE695FE01906A95C00D464E4 /* LoginCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CE695FDF1906A95C00D464E4 /* LoginCell.m */; };
@@ -684,8 +683,6 @@
 		CE695FCC1906A76200D464E4 /* local.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = local.sqlite; sourceTree = "<group>"; };
 		CE695FD01906A85200D464E4 /* LoginController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginController.h; sourceTree = "<group>"; };
 		CE695FD11906A85200D464E4 /* LoginController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginController.m; sourceTree = "<group>"; };
-		CE695FD31906A86100D464E4 /* IntroController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntroController.h; sourceTree = "<group>"; };
-		CE695FD41906A86100D464E4 /* IntroController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntroController.m; sourceTree = "<group>"; };
 		CE695FD91906A91100D464E4 /* intro.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = intro.storyboard; sourceTree = "<group>"; };
 		CE695FDB1906A92A00D464E4 /* InitController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InitController.h; sourceTree = "<group>"; };
 		CE695FDC1906A92A00D464E4 /* InitController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InitController.m; sourceTree = "<group>"; };
@@ -1620,8 +1617,6 @@
 				CE695FDF1906A95C00D464E4 /* LoginCell.m */,
 				CE695FDB1906A92A00D464E4 /* InitController.h */,
 				CE695FDC1906A92A00D464E4 /* InitController.m */,
-				CE695FD31906A86100D464E4 /* IntroController.h */,
-				CE695FD41906A86100D464E4 /* IntroController.m */,
 				CE695FD01906A85200D464E4 /* LoginController.h */,
 				CE695FD11906A85200D464E4 /* LoginController.m */,
 				CE695FE11906A98A00D464E4 /* HelpController.h */,
@@ -2000,7 +1995,6 @@
 				CE69603A1906ACB800D464E4 /* FMDatabaseQueue.m in Sources */,
 				AA0E679017CBF19F00AA877F /* PSTCollectionView.m in Sources */,
 				7F2A5BE31734FB3800551439 /* ElementsViewController.m in Sources */,
-				CE695FD51906A86100D464E4 /* IntroController.m in Sources */,
 				CE695FE91906A9B500D464E4 /* ResetPasswordController.m in Sources */,
 				AA0E679317CBF19F00AA877F /* PSTCollectionViewData.m in Sources */,
 				CE695FF71906AACC00D464E4 /* DiskCache.m in Sources */,
