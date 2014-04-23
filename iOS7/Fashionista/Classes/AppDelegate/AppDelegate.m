@@ -21,8 +21,9 @@ static AppDelegate *sharedDelegate;
 {
     [ADVThemeManager customizeAppAppearance];
     // Override point for customization after application launch.
+#if false
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
-        self.mainVC = (((UINavigationController *)self.window.rootViewController).viewControllers)[0];
+        //self.mainVC = (((UINavigationController *)self.window.rootViewController).viewControllers)[0];
     } else {
         self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
         
@@ -33,7 +34,7 @@ static AppDelegate *sharedDelegate;
         
         self.navigationType = [[NSUserDefaults standardUserDefaults] integerForKey:@"NavigationType"];
         if (_navigationType == ADVNavigationTypeTab) {
-            [self setupTabbar];
+            //[self setupTabbar];
         } else {
             [self setupMenu];
         }
@@ -42,6 +43,7 @@ static AppDelegate *sharedDelegate;
         self.window.backgroundColor = [UIColor blackColor];
         [self.window makeKeyAndVisible];
     }
+#endif
     return YES;
 }
 

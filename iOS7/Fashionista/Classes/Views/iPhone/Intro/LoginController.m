@@ -34,7 +34,7 @@
 #if true
     UINavigationBar *navbar = self.navigationController.navigationBar;
     
-    [navbar setTintColor:[UIColor colorWithRed:125/255.0 green:178/255.0 blue:15/255.0 alpha:0.8]];
+    //[navbar setTintColor:[UIColor colorWithRed:125/255.0 green:178/255.0 blue:15/255.0 alpha:0.8]];
     [navbar setBackgroundColor:[UIColor clearColor]];
     navbar.layer.shadowColor = [UIColor blackColor].CGColor;
     navbar.layer.shadowOpacity = 0.2f;
@@ -55,14 +55,13 @@
     
 #if true
     self.view.backgroundView = nil;
-    //self.view.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bg.jpg"]];
-    [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"background_texture"]]];
+    [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"Default"]]];
 #endif
     
     self.view.alpha = 1;
     [self.navigationController.navigationBar setTranslucent:YES];
     self.navigationController.navigationBar.alpha = 0.2;
-    self.navigationItem.title = @"Pixcell8";
+    self.navigationItem.title = @"Welcome";
     
     [self.cellRegister.textLabel setText:@"Register"];
     self.username.borderStyle = UITextBorderStyleNone;

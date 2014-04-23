@@ -24,8 +24,19 @@
 	<string>1.0</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Avenir LT 85 Heavy.ttf</string>
+		<string>Cabin-Bold.otf</string>
+		<string>HelveticaNeueLTStd-Md.otf</string>
+		<string>helveticaneueltstdbd.ttf</string>
+		<string>Avenir-Heavy.ttf</string>
+		<string>OpenSans-Regular.ttf</string>
+		<string>OpenSans-Semibold.ttf</string>
+		<string>OpenSans-SemiboldItalic.ttf</string>
+	</array>
 	<key>UIMainStoryboardFile</key>
-	<string>MainStoryboard_iPhone</string>
+	<string>intro</string>
 	<key>UIMainStoryboardFile~ipad</key>
 	<string>MainStoryboard_iPad</string>
 	<key>UIRequiredDeviceCapabilities</key>
@@ -51,17 +62,6 @@
 		<string>UIInterfaceOrientationPortrait</string>
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
-	</array>
-	<key>UIAppFonts</key>
-	<array>
-		<string>Avenir LT 85 Heavy.ttf</string>
-		<string>Cabin-Bold.otf</string>
-		<string>HelveticaNeueLTStd-Md.otf</string>
-		<string>helveticaneueltstdbd.ttf</string>
-		<string>Avenir-Heavy.ttf</string>
-		<string>OpenSans-Regular.ttf</string>
-		<string>OpenSans-Semibold.ttf</string>
-		<string>OpenSans-SemiboldItalic.ttf</string>
 	</array>
 </dict>
 </plist>
