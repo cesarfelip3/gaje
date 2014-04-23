@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "QuartzCore/QUartzCore.h"
 #import "User.h"
+#import <FacebookSDK/FacebookSDK.h>
 
 @interface LoginController : UITableViewController <UITextFieldDelegate>
 {

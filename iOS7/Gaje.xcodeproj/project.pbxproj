@@ -316,6 +316,7 @@
 		CE6960451906AE5400D464E4 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE6960441906AE5400D464E4 /* SystemConfiguration.framework */; };
 		CE6960471906AE8400D464E4 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE6960461906AE8400D464E4 /* Security.framework */; };
 		CE69604D1906AF6D00D464E4 /* Develop.txt in Resources */ = {isa = PBXBuildFile; fileRef = CE69604C1906AF6D00D464E4 /* Develop.txt */; };
+		CE6E69E71908046D007EA7B0 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE6E69E61908046D007EA7B0 /* FacebookSDK.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -746,6 +747,7 @@
 		CE6960441906AE5400D464E4 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		CE6960461906AE8400D464E4 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		CE69604C1906AF6D00D464E4 /* Develop.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Develop.txt; sourceTree = "<group>"; };
+		CE6E69E61908046D007EA7B0 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -758,6 +760,7 @@
 				CE6960431906ADE500D464E4 /* libsqlite3.0.dylib in Frameworks */,
 				CE69603D1906ACD500D464E4 /* CFNetwork.framework in Frameworks */,
 				7F0107A8166BE639000425BE /* CoreText.framework in Frameworks */,
+				CE6E69E71908046D007EA7B0 /* FacebookSDK.framework in Frameworks */,
 				7F9F7D9516517FF600514B27 /* QuartzCore.framework in Frameworks */,
 				7F9F7D9316517FE800514B27 /* MapKit.framework in Frameworks */,
 				7F9F7D9116517FE100514B27 /* CoreLocation.framework in Frameworks */,
@@ -1248,6 +1251,7 @@
 		7FA4DA7C164AC7DC00556574 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CE6E69E61908046D007EA7B0 /* FacebookSDK.framework */,
 				CE6960461906AE8400D464E4 /* Security.framework */,
 				CE6960441906AE5400D464E4 /* SystemConfiguration.framework */,
 				CE6960421906ADE500D464E4 /* libsqlite3.0.dylib */,
@@ -2166,6 +2170,10 @@
 		7FA4DAA4164AC7DC00556574 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Fashionista/Gaje-Prefix.pch";
 				HEADER_SEARCH_PATHS = "";
@@ -2182,6 +2190,10 @@
 		7FA4DAA5164AC7DC00556574 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Fashionista/Gaje-Prefix.pch";
 				HEADER_SEARCH_PATHS = "";
