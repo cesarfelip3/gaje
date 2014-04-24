@@ -44,7 +44,12 @@
     [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"Default"]]];
 #endif
     
-    self.loginView.readPermissions = @[@"basic_info", @"email", @"user_likes"];
+    // why everytime is automatically login?
+    // FB saved some state in application....
+    // and everytime you will get delegate called....
+    // and user info too
+    
+    self.loginView.readPermissions = @[@"basic_info", @"email", @"user_likes", @"user_location"];
     self.loginView.delegate = self;
     
     AppConfig *config = [AppConfig getInstance];
@@ -76,6 +81,21 @@
 {
     NSLog(@"FB user = %@", user);
     
+    if (user) {
+     
+        NSString *username = [user objectForKey:@"first_name"];
+        NSString *email = [user objectForKey:@"email"];
+        NSString *fullname = [user objectForKey:@"name"];
+        NSString *token = [user objectForKey:@"id"];
+        
+        User *$user = [User getInstance];
+        
+        $user.username = username;
+        $user.email = email;
+        $user.fullname = fullname;
+        $user.token = token;
+        
+    }
 }
 
 - (void) loginViewShowingLoggedInUser:(FBLoginView *)loginView

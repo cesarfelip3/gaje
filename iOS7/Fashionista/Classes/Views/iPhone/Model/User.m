@@ -306,9 +306,24 @@
         return NO;
     }
     
+    self.username = [self escape:self.username];
+    self.description = [self escape:self.description];
+    self.fullname = [self escape:self.fullname];
+    self.email = [self escape:self.email];
+    self.birthday = [self escape:self.birthday];
+    self.city = [self escape:self.city];
+    self.state = [self escape:self.state];
+    self.country = [self escape:self.country];
+    self.address = [self escape:self.address];
+    self.postcode = [self escape:self.postcode];
+    self.postcode = [self escape:self.phone];
+    self.profileIcon = [self escape:self.profileIcon];
+    self.token = [self escape:self.token];
+    
+    
     [self.db executeUpdate:@"DELETE FROM user"];
     
-    [self.db executeUpdateWithFormat:@"INSERT INTO user (user_id, username, description, fullname, email, paypal, birthday, city, state, country, address, zipcode, phone, picture, token) VALUES (%ld, %@, %@, %@, %@, %@, %@, %@, %@, %@, %@, %@, %@, %@, %@);", (long)self.userId, self.username, self.description, self.fullname, self.email, self.paypal, self.birthday, self.city, self.state, self.country, self.address, self.postcode, self.phone, self.profileIcon, self.token];
+    [self.db executeUpdateWithFormat:@"INSERT INTO user (username, description, fullname, email, birthday, city, state, country, address, zipcode, phone, picture, token) VALUES (%@, %@, %@, %@, %@, %@, %@, %@, %@, %@, %@, %@, %@);", self.username, self.description, self.fullname, self.email, self.birthday, self.city, self.state, self.country, self.address, self.postcode, self.phone, self.profileIcon, self.token];
     
     [self.db executeUpdate:@"DELETE FROM setting WHERE name='user_is_login'"];
     [self.db executeUpdate:@"INSERT INTO setting (name, value) VALUES ('user_is_login', '1')"];

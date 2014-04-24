@@ -32,6 +32,8 @@
 #define URL_IMAGE_PATH @"http://pixcell8.com/uploads/media/user/images/"
 #define URL_IMAGE_PROFILE_PATH @"http://pixcell8.com/uploads/media/user/profile/"
 
+#define FB_PROFILE_ICON @"http://graph.facebook.com/%@/picture?type=large"
+
 #endif
 
 
