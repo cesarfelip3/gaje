@@ -14,6 +14,7 @@
 #import "PaperFoldNavigationController.h"
 
 #import <FacebookSDK/FacebookSDK.h>
+#import "AppConfig.h"
 
 static AppDelegate *sharedDelegate;
 
@@ -21,31 +22,40 @@ static AppDelegate *sharedDelegate;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    //[ADVThemeManager customizeAppAppearance];
-    // Override point for customization after application launch.
-#if false
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
-        //self.mainVC = (((UINavigationController *)self.window.rootViewController).viewControllers)[0];
-    } else {
-        self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    
+    AppConfig *config = [AppConfig getInstance];
+    
+    if (config.userIsLogin == 1) {
+    
+        [ADVThemeManager customizeAppAppearance];
+        // Override point for customization after application launch.
         
-        if (![[NSUserDefaults standardUserDefaults] valueForKey:@"NavigationType"]) {
-            [[NSUserDefaults standardUserDefaults] setInteger:ADVNavigationTypeMenu forKey:@"NavigationType"];
-            [[NSUserDefaults standardUserDefaults] synchronize];
-        }
-        
-        self.navigationType = [[NSUserDefaults standardUserDefaults] integerForKey:@"NavigationType"];
-        if (_navigationType == ADVNavigationTypeTab) {
-            //[self setupTabbar];
+#if true
+        if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
+            //self.mainVC = (((UINavigationController *)self.window.rootViewController).viewControllers)[0];
         } else {
-            [self setupMenu];
+            self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+            
+            if (![[NSUserDefaults standardUserDefaults] valueForKey:@"NavigationType"]) {
+                [[NSUserDefaults standardUserDefaults] setInteger:ADVNavigationTypeMenu forKey:@"NavigationType"];
+                [[NSUserDefaults standardUserDefaults] synchronize];
+            }
+            
+            self.navigationType = [[NSUserDefaults standardUserDefaults] integerForKey:@"NavigationType"];
+            if (_navigationType == ADVNavigationTypeTab) {
+                //[self setupTabbar];
+            } else {
+                [self setupMenu];
+            }
+            
+            self.window.rootViewController = self.mainVC;
+            self.window.backgroundColor = [UIColor blackColor];
+            [self.window makeKeyAndVisible];
         }
-        
-        self.window.rootViewController = self.mainVC;
-        self.window.backgroundColor = [UIColor blackColor];
-        [self.window makeKeyAndVisible];
-    }
 #endif
+    } else {
+        
+    }
     
     [FBLoginView class];
     return YES;
@@ -61,6 +71,14 @@ static AppDelegate *sharedDelegate;
     
     NSLog(@"%d", wasHandled);
     // You can add your app-specific url handling code here if needed
+    
+    AppConfig *config = [AppConfig getInstance];
+    
+    if (wasHandled) {
+        config.userIsLogin = 1;
+    } else {
+        config.userIsLogin = 0;
+    }
     
     return wasHandled;
 }
@@ -292,6 +310,42 @@ sizeOfItemForViewController:(UIViewController *)viewController
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    
+    AppConfig *config = [AppConfig getInstance];
+    
+    if (config.userIsLogin == 1) {
+        
+        [ADVThemeManager customizeAppAppearance];
+        // Override point for customization after application launch.
+        
+#if true
+        if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
+            //self.mainVC = (((UINavigationController *)self.window.rootViewController).viewControllers)[0];
+        } else {
+            self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+            
+            if (![[NSUserDefaults standardUserDefaults] valueForKey:@"NavigationType"]) {
+                [[NSUserDefaults standardUserDefaults] setInteger:ADVNavigationTypeMenu forKey:@"NavigationType"];
+                [[NSUserDefaults standardUserDefaults] synchronize];
+            }
+            
+            self.navigationType = [[NSUserDefaults standardUserDefaults] integerForKey:@"NavigationType"];
+            if (_navigationType == ADVNavigationTypeTab) {
+                //[self setupTabbar];
+            } else {
+                [self setupMenu];
+            }
+            
+            self.window.rootViewController = self.mainVC;
+            self.window.backgroundColor = [UIColor blackColor];
+            [self.window makeKeyAndVisible];
+        }
+#endif
+    } else {
+        
+    }
+    
+    [FBLoginView class];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application

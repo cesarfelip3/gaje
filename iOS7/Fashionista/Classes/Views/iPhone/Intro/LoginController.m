@@ -44,6 +44,7 @@
     [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"Default"]]];
 #endif
     
+    self.loginView = [self.loginView initWithReadPermissions:@[@"basic_info", @"email", @"user_likes"]];
     
     AppConfig *config = [AppConfig getInstance];
     if (config.userIsLogin == 1) {
@@ -52,6 +53,13 @@
         config.token = user.token;
         [self success];
     }
+    
+    
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    NSLog(@"%@", self.loginView);
 }
 
 - (void)didReceiveMemoryWarning
@@ -102,58 +110,6 @@
     //[[Posts getInstance] loadData];
 }
 
-- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
-{
-    [textField setText:@""];
-    return YES;
-}
-
-- (BOOL)textFieldShouldReturn:(UITextField *)textField
-{
-    if (textField.tag == 0) {
-        
-        if ([self.username.text length] <= 0) {
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Hint"
-                                                               message:@"User name or email is required"
-                                                              delegate:nil
-                                                     cancelButtonTitle:@"OK"
-                                                     otherButtonTitles:nil];
-            [alert show];
-        }
-        
-        NSError *error = NULL;
-        NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"^([a-zA-Z]{1,})|$"
-                                                                               options:NSRegularExpressionCaseInsensitive
-                                                                                 error:&error];
-        
-        NSUInteger numberOfMatches = [regex numberOfMatchesInString:self.username.text options:0 range:NSMakeRange(0, [self.username.text length])];
-        
-        if (numberOfMatches <= 0) {
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Hint"
-                                                               message:@"Invalid username or user email"
-                                                              delegate:nil
-                                                     cancelButtonTitle:@"OK"
-                                                     otherButtonTitles:nil];
-            [alert show];
-            return NO;
-        }
-        
-        
-        [textField resignFirstResponder];
-        [self.password becomeFirstResponder];
-    }
-    
-    if (textField.tag == 1) {
-        if ([textField.text length] <= 0) {
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Hint" message:@"Password shouldn't be empty" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-            [alert show];
-            return NO;
-        }
-        
-        [textField resignFirstResponder];
-    }
-    return YES;
-}
 
 #if false
 

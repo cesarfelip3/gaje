@@ -17,18 +17,7 @@
 }
 
 @property (atomic, retain) IBOutlet UITableView *view;
-
-@property (atomic, retain) IBOutlet UITableViewCell *cellUsername;
-@property (atomic, retain) IBOutlet UITableViewCell *cellPassword;
-
-@property (atomic, retain) IBOutlet UITextField *username;
-@property (atomic, retain) IBOutlet UITextField *password;
-
-@property (atomic, retain) IBOutlet UIButton *buttonLogo;
-@property (atomic, retain) IBOutlet UITableViewCell *cellRegister;
-
-@property (atomic, retain) IBOutlet UITableViewCell *cellLogin;
-@property (atomic, retain) IBOutlet UIButton *buttonLogin;
+@property (atomic, retain) IBOutlet FBLoginView *loginView;
 
 @property (atomic, retain) User *user;
 
