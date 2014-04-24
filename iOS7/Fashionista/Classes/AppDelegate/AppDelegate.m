@@ -13,6 +13,8 @@
 #import "NGTestTabBarController.h"
 #import "PaperFoldNavigationController.h"
 
+#import <FacebookSDK/FacebookSDK.h>
+
 static AppDelegate *sharedDelegate;
 
 @implementation AppDelegate
@@ -44,7 +46,23 @@ static AppDelegate *sharedDelegate;
         [self.window makeKeyAndVisible];
     }
 #endif
+    
+    [FBLoginView class];
     return YES;
+}
+
+- (BOOL)application:(UIApplication *)application
+            openURL:(NSURL *)url
+  sourceApplication:(NSString *)sourceApplication
+         annotation:(id)annotation {
+    
+    // Call FBAppCall's handleOpenURL:sourceApplication to handle Facebook app responses
+    BOOL wasHandled = [FBAppCall handleOpenURL:url sourceApplication:sourceApplication];
+    
+    NSLog(@"%d", wasHandled);
+    // You can add your app-specific url handling code here if needed
+    
+    return wasHandled;
 }
 
 - (void)setupTabbar {
