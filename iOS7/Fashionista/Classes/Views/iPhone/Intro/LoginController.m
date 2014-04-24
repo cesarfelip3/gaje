@@ -65,6 +65,9 @@
 
 - (void) loginView:(FBLoginView *)loginView handleError:(NSError *)error
 {
+    AppConfig *config = [AppConfig getInstance];
+    config.userIsLogin = 0;
+    
     NSLog(@"FB Login error");
     
 }
