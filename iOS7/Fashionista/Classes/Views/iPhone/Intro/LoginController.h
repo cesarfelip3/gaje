@@ -11,7 +11,7 @@
 #import "User.h"
 #import <FacebookSDK/FacebookSDK.h>
 
-@interface LoginController : UITableViewController <UITextFieldDelegate>
+@interface LoginController : UITableViewController <FBLoginViewDelegate>
 {
     NSInteger _timeout;
 }

@@ -44,7 +44,8 @@
     [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"Default"]]];
 #endif
     
-    self.loginView = [self.loginView initWithReadPermissions:@[@"basic_info", @"email", @"user_likes"]];
+    self.loginView.readPermissions = @[@"basic_info", @"email", @"user_likes"];
+    self.loginView.delegate = self;
     
     AppConfig *config = [AppConfig getInstance];
     if (config.userIsLogin == 1) {
@@ -62,41 +63,34 @@
     NSLog(@"%@", self.loginView);
 }
 
-- (void)didReceiveMemoryWarning
+- (void) loginView:(FBLoginView *)loginView handleError:(NSError *)error
 {
-    [super didReceiveMemoryWarning];
+    NSLog(@"FB Login error");
+    
 }
 
-- (BOOL)onCallback:(NSInteger)type
+- (void) loginViewFetchedUserInfo:(FBLoginView *)loginView user:(id<FBGraphUser>)user
 {
-    self.view.tag = 2;
+    NSLog(@"FB user = %@", user);
     
-    if (type == 0) {
-        
-        if ([self.user returnCode] != 0) {
-            NSString *message = [self.user errorMessage];
-            
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Hint" message:message delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-            [alert show];
-            return NO;
-        }
-        
-        [self success];
-    }
+}
+
+- (void) loginViewShowingLoggedInUser:(FBLoginView *)loginView
+{
     
-    if (type == 1) {
-        if ([self.user returnCode] != 0) {
-            NSString *message = [self.user errorMessage];
-            
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Hint" message:message delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-            [alert show];
-            return NO;
-        }
-        
-        [self success];
-    }
+    AppConfig *config = [AppConfig getInstance];
+    config.userIsLogin = 1;
     
-    return YES;
+    NSLog(@"FB Login");
+}
+
+- (void) loginViewShowingLoggedOutUser:(FBLoginView *)loginView
+{
+    AppConfig *config = [AppConfig getInstance];
+    config.userIsLogin = 0;
+    
+    NSLog(@"FB Logout");
+    
 }
 
 - (void)success {
@@ -119,5 +113,10 @@
 }
 
 #endif
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+}
 
 @end

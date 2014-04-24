@@ -70,16 +70,8 @@ static AppDelegate *sharedDelegate;
     BOOL wasHandled = [FBAppCall handleOpenURL:url sourceApplication:sourceApplication];
     
     NSLog(@"%d", wasHandled);
+    
     // You can add your app-specific url handling code here if needed
-    
-    AppConfig *config = [AppConfig getInstance];
-    
-    if (wasHandled) {
-        config.userIsLogin = 1;
-    } else {
-        config.userIsLogin = 0;
-    }
-    
     return wasHandled;
 }
 
