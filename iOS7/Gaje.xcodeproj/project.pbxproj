@@ -285,11 +285,7 @@
 		CE695FD21906A85200D464E4 /* LoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE695FD11906A85200D464E4 /* LoginController.m */; };
 		CE695FDA1906A91100D464E4 /* intro.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE695FD91906A91100D464E4 /* intro.storyboard */; };
 		CE695FDD1906A92A00D464E4 /* InitController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE695FDC1906A92A00D464E4 /* InitController.m */; };
-		CE695FE01906A95C00D464E4 /* LoginCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CE695FDF1906A95C00D464E4 /* LoginCell.m */; };
 		CE695FE31906A98A00D464E4 /* HelpController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE695FE21906A98A00D464E4 /* HelpController.m */; };
-		CE695FE61906A9A200D464E4 /* RegisterController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE695FE51906A9A200D464E4 /* RegisterController.m */; };
-		CE695FE91906A9B500D464E4 /* ResetPasswordController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE695FE81906A9B500D464E4 /* ResetPasswordController.m */; };
-		CE695FEC1906A9F000D464E4 /* RegisterProfileCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CE695FEB1906A9F000D464E4 /* RegisterProfileCell.m */; };
 		CE695FF11906AAA700D464E4 /* AppConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = CE695FF01906AAA700D464E4 /* AppConfig.m */; };
 		CE695FF41906AAB300D464E4 /* Bootstrap.m in Sources */ = {isa = PBXBuildFile; fileRef = CE695FF31906AAB300D464E4 /* Bootstrap.m */; };
 		CE695FF71906AACC00D464E4 /* DiskCache.m in Sources */ = {isa = PBXBuildFile; fileRef = CE695FF61906AACC00D464E4 /* DiskCache.m */; };
@@ -686,16 +682,8 @@
 		CE695FD91906A91100D464E4 /* intro.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = intro.storyboard; sourceTree = "<group>"; };
 		CE695FDB1906A92A00D464E4 /* InitController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InitController.h; sourceTree = "<group>"; };
 		CE695FDC1906A92A00D464E4 /* InitController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InitController.m; sourceTree = "<group>"; };
-		CE695FDE1906A95C00D464E4 /* LoginCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginCell.h; sourceTree = "<group>"; };
-		CE695FDF1906A95C00D464E4 /* LoginCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginCell.m; sourceTree = "<group>"; };
 		CE695FE11906A98A00D464E4 /* HelpController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelpController.h; sourceTree = "<group>"; };
 		CE695FE21906A98A00D464E4 /* HelpController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelpController.m; sourceTree = "<group>"; };
-		CE695FE41906A9A200D464E4 /* RegisterController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterController.h; sourceTree = "<group>"; };
-		CE695FE51906A9A200D464E4 /* RegisterController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterController.m; sourceTree = "<group>"; };
-		CE695FE71906A9B500D464E4 /* ResetPasswordController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResetPasswordController.h; sourceTree = "<group>"; };
-		CE695FE81906A9B500D464E4 /* ResetPasswordController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResetPasswordController.m; sourceTree = "<group>"; };
-		CE695FEA1906A9F000D464E4 /* RegisterProfileCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterProfileCell.h; sourceTree = "<group>"; };
-		CE695FEB1906A9F000D464E4 /* RegisterProfileCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterProfileCell.m; sourceTree = "<group>"; };
 		CE695FEF1906AAA700D464E4 /* AppConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppConfig.h; sourceTree = "<group>"; };
 		CE695FF01906AAA700D464E4 /* AppConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppConfig.m; sourceTree = "<group>"; };
 		CE695FF21906AAB300D464E4 /* Bootstrap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bootstrap.h; sourceTree = "<group>"; };
@@ -1611,20 +1599,12 @@
 			isa = PBXGroup;
 			children = (
 				CE695FD81906A8A900D464E4 /* Interface */,
-				CE695FEA1906A9F000D464E4 /* RegisterProfileCell.h */,
-				CE695FEB1906A9F000D464E4 /* RegisterProfileCell.m */,
-				CE695FDE1906A95C00D464E4 /* LoginCell.h */,
-				CE695FDF1906A95C00D464E4 /* LoginCell.m */,
 				CE695FDB1906A92A00D464E4 /* InitController.h */,
 				CE695FDC1906A92A00D464E4 /* InitController.m */,
 				CE695FD01906A85200D464E4 /* LoginController.h */,
 				CE695FD11906A85200D464E4 /* LoginController.m */,
 				CE695FE11906A98A00D464E4 /* HelpController.h */,
 				CE695FE21906A98A00D464E4 /* HelpController.m */,
-				CE695FE41906A9A200D464E4 /* RegisterController.h */,
-				CE695FE51906A9A200D464E4 /* RegisterController.m */,
-				CE695FE71906A9B500D464E4 /* ResetPasswordController.h */,
-				CE695FE81906A9B500D464E4 /* ResetPasswordController.m */,
 			);
 			path = Intro;
 			sourceTree = "<group>";
@@ -1989,16 +1969,13 @@
 				7F2A5BD71734FB3800551439 /* ADVCustomTheme.m in Sources */,
 				7F2A5BD81734FB3800551439 /* ADVDefaultTheme.m in Sources */,
 				CE6960341906ACB800D464E4 /* AFURLRequestSerialization.m in Sources */,
-				CE695FEC1906A9F000D464E4 /* RegisterProfileCell.m in Sources */,
 				7F2A5BD91734FB3800551439 /* ADVTheme.m in Sources */,
 				7F2A5BE01734FB3800551439 /* DetailViewController.m in Sources */,
 				CE69603A1906ACB800D464E4 /* FMDatabaseQueue.m in Sources */,
 				AA0E679017CBF19F00AA877F /* PSTCollectionView.m in Sources */,
 				7F2A5BE31734FB3800551439 /* ElementsViewController.m in Sources */,
-				CE695FE91906A9B500D464E4 /* ResetPasswordController.m in Sources */,
 				AA0E679317CBF19F00AA877F /* PSTCollectionViewData.m in Sources */,
 				CE695FF71906AACC00D464E4 /* DiskCache.m in Sources */,
-				CE695FE61906A9A200D464E4 /* RegisterController.m in Sources */,
 				CE6960351906ACB800D464E4 /* AFURLResponseSerialization.m in Sources */,
 				7F2A5BF11734FB3800551439 /* main.m in Sources */,
 				7F2A5D361735024000551439 /* NGTestTabBarController.m in Sources */,
@@ -2036,7 +2013,6 @@
 				7FA7DD7317384D3000A50E20 /* ADVGalleryBordered.m in Sources */,
 				7FA7DD7417384D3000A50E20 /* ADVGalleryPlain.m in Sources */,
 				7FA7DD7517384D3000A50E20 /* ADVGalleryShadowed.m in Sources */,
-				CE695FE01906A95C00D464E4 /* LoginCell.m in Sources */,
 				AA0E679417CBF19F00AA877F /* PSTCollectionViewFlowLayout.m in Sources */,
 				7FA7DD7617384D3000A50E20 /* ADVProgressBar.m in Sources */,
 				7FA7DD7717384D3000A50E20 /* CustomTabBarViewController.m in Sources */,

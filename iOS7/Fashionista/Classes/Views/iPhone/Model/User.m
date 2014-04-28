@@ -8,7 +8,6 @@
 
 #import "User.h"
 #import "LoginController.h"
-#import "RegisterController.h"
 
 @implementation User
 
@@ -168,14 +167,14 @@
             self.errorMessage = @"";
             
             [self add];
-            [((RegisterController *)self.delegate) onCallback:0];
+            //[((RegisterController *)self.delegate) onCallback:0];
             [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
             return;
         }
         
         self.returnCode = 1;
         self.errorMessage = [responseObject objectForKey:@"error"];
-        [((RegisterController *)self.delegate) onCallback:0];
+        //[((RegisterController *)self.delegate) onCallback:0];
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
         
         
@@ -185,7 +184,7 @@
         self.returnCode = 1;
         self.errorMessage = @"Network failed";
         
-        [((RegisterController *)self.delegate) onCallback:0];
+        //[((RegisterController *)self.delegate) onCallback:0];
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
         
     }];
@@ -282,7 +281,7 @@
         
         self.returnCode = 1;
         self.errorMessage = [responseObject objectForKey:@"error"];
-        [((RegisterController *)self.delegate) onCallback:0];
+        //[((RegisterController *)self.delegate) onCallback:0];
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
         
         
@@ -292,7 +291,7 @@
         self.returnCode = 1;
         self.errorMessage = @"Network failed";
         
-        [((RegisterController *)self.delegate) onCallback:0];
+        //[((RegisterController *)self.delegate) onCallback:0];
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
         
     }];

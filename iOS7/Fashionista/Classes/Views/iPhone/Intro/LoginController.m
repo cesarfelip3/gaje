@@ -52,15 +52,6 @@
     self.loginView.readPermissions = @[@"basic_info", @"email", @"user_likes", @"user_location"];
     self.loginView.delegate = self;
     
-    AppConfig *config = [AppConfig getInstance];
-    if (config.userIsLogin == 1) {
-        User *user = [User getInstance];
-        [user reload];
-        config.token = user.token;
-        [self success];
-    }
-    
-    
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -126,16 +117,6 @@
 #endif
     //[[Posts getInstance] loadData];
 }
-
-
-#if false
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    
-}
-
-#endif
 
 - (void)didReceiveMemoryWarning
 {
