@@ -21,7 +21,7 @@
 
 @property (atomic, retain) User *user;
 
-- (IBAction)onButtonTouched:(id)sender;
-- (BOOL)onCallback:(NSInteger)type;
+//- (IBAction)onButtonTouched:(id)sender;
+//- (BOOL)onCallback:(NSInteger)type;
 
 @end

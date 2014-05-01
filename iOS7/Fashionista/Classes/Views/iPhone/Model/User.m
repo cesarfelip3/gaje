@@ -83,7 +83,7 @@
             
             [self add];
             
-            [((LoginController *)self.delegate) onCallback:0];
+            //[((LoginController *)self.delegate) onCallback:0];
             [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
             
             return;
@@ -91,7 +91,7 @@
         
         self.returnCode = 1;
         self.errorMessage = [responseObject objectForKey:@"error"];
-        [((LoginController *)self.delegate) onCallback:0];
+        //[((LoginController *)self.delegate) onCallback:0];
         
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -101,7 +101,7 @@
         self.returnCode = 1;
         self.errorMessage = @"Network failed";
         
-        [((LoginController *)self.delegate) onCallback:0];
+        //[((LoginController *)self.delegate) onCallback:0];
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
         
     }];
@@ -221,14 +221,14 @@
         } else {
             self.errorMessage = [responseObject objectForKey:@"message"];
         }
-        [self.delegate onCallback:0];
+        //[self.delegate onCallback:0];
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         
         //NSLog(@"Error: %@", error);
         self.errorMessage = @"Network failed";
         
-        [self.delegate onCallback:0];
+        //[self.delegate onCallback:0];
         
     }];
     
@@ -274,7 +274,7 @@
             self.errorMessage = @"";
             
             [self add];
-            [((LoginController *)self.delegate) onCallback:0];
+            //[((LoginController *)self.delegate) onCallback:0];
             [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
             return;
         }
@@ -318,20 +318,13 @@
     self.postcode = [self escape:self.phone];
     self.profileIcon = [self escape:self.profileIcon];
     self.token = [self escape:self.token];
+    self.phone = [self escape:self.phone];
     
     
-    [self.db executeUpdate:@"DELETE FROM user"];
+    [self.db executeUpdateWithFormat:@"DELETE FROM user WHERE token=%@", self.token];
     
     [self.db executeUpdateWithFormat:@"INSERT INTO user (username, description, fullname, email, birthday, city, state, country, address, zipcode, phone, picture, token) VALUES (%@, %@, %@, %@, %@, %@, %@, %@, %@, %@, %@, %@, %@);", self.username, self.description, self.fullname, self.email, self.birthday, self.city, self.state, self.country, self.address, self.postcode, self.phone, self.profileIcon, self.token];
     
-    [self.db executeUpdate:@"DELETE FROM setting WHERE name='user_is_login'"];
-    [self.db executeUpdate:@"INSERT INTO setting (name, value) VALUES ('user_is_login', '1')"];
-    
-    
-    AppConfig *config = [AppConfig getInstance];
-    
-    config.userIsLogin = 1;
-    config.token = self.token;
     
     return YES;
 }
@@ -353,60 +346,104 @@
         return NO;
     }
     
-    [self.db executeUpdateWithFormat:@"DELETE FROM user WHERE user_id=%d", self.userId];
     AppConfig *config = [AppConfig getInstance];
+    self.token = config.token;
     
-    [self.db executeUpdate:@"DELETE FROM setting WHERE name='user_is_login'"];
-    [self.db executeUpdate:@"INSERT INTO setting (name, value) VALUES ('user_is_login', '0')"];
+    self.token = [self escape:self.token];
     
-    config.userIsLogin = 0;
-    config.token = self.token;
+    [self.db executeUpdateWithFormat:@"DELETE FROM user WHERE user_id=%d", self.userId];
+    [self.db executeUpdateWithFormat:@"DELETE FROM user WHERE token=%@", self.token];
+    
+    return YES;
+}
+
+- (BOOL)fetchByToken:(NSString *)token
+{
+    if (![self.db open]) {
+        return NO;
+    }
+    
+    FMResultSet *result;
+    
+    token = [self escape:token];
+    
+    result = [self.db executeQueryWithFormat:@"SELECT * FROM user WHERE token=%@", token];
+    
+    self.userId = 0;
+    
+    while ([result next]) {
+        
+        self.userId = [result intForColumn:@"user_id"];
+        self.username = [result stringForColumn:@"username"];
+        self.description = [result stringForColumn:@"description"];
+        
+        self.email = [result stringForColumn:@"email"];
+        self.profileIcon = [result stringForColumn:@"picture"];
+        
+        if (![[self.profileIcon stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] isEqualToString:@""]) {
+            self.profileIconUrl = [NSString stringWithFormat:@"%@%@", URL_IMAGE_PATH, self.profileIcon];
+        } else {
+            self.profileIconUrl = nil;
+        }
+        
+        self.fullname = [result stringForColumn:@"fullname"];
+        self.birthday = [result stringForColumn:@"birthday"];
+        self.paypal = [result stringForColumn:@"paypal"];
+        self.city = [result stringForColumn:@"city"];
+        self.state = [result stringForColumn:@"state"];
+        self.country = [result stringForColumn:@"country"];
+        self.address = [result stringForColumn:@"address"];
+        self.postcode = [result stringForColumn:@"zipcode"];
+        self.phone = [result stringForColumn:@"phone"];
+        
+        self.token = [result stringForColumn:@"token"];
+    }
     
     return YES;
 }
 
 - (BOOL)reload
-    {
-        if (![self.db open]) {
-            return NO;
-        }
-        
-        FMResultSet *result;
-        
-        result = [self.db executeQuery:@"SELECT * FROM user"];
-        
-        while ([result next]) {
-            
-            self.userId = [result intForColumn:@"user_id"];
-            self.username = [result stringForColumn:@"username"];
-            self.description = [result stringForColumn:@"description"];
-            
-            self.email = [result stringForColumn:@"email"];
-            self.profileIcon = [result stringForColumn:@"picture"];
-            
-            if (![[self.profileIcon stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] isEqualToString:@""]) {
-                self.profileIconUrl = [NSString stringWithFormat:@"%@%@", URL_IMAGE_PATH, self.profileIcon];
-            } else {
-                self.profileIconUrl = nil;
-            }
-            
-            self.fullname = [result stringForColumn:@"fullname"];
-            self.birthday = [result stringForColumn:@"birthday"];
-            self.paypal = [result stringForColumn:@"paypal"];
-            self.city = [result stringForColumn:@"city"];
-            self.state = [result stringForColumn:@"state"];
-            self.country = [result stringForColumn:@"country"];
-            self.address = [result stringForColumn:@"address"];
-            self.postcode = [result stringForColumn:@"zipcode"];
-            self.phone = [result stringForColumn:@"phone"];
-            
-            self.token = [result stringForColumn:@"token"];
-        }
-        
-        //NSLog(@"%@", self.token);
-        
-        return YES;
+{
+    if (![self.db open]) {
+        return NO;
     }
+    
+    FMResultSet *result;
+    
+    result = [self.db executeQuery:@"SELECT * FROM user"];
+    
+    while ([result next]) {
+        
+        self.userId = [result intForColumn:@"user_id"];
+        self.username = [result stringForColumn:@"username"];
+        self.description = [result stringForColumn:@"description"];
+        
+        self.email = [result stringForColumn:@"email"];
+        self.profileIcon = [result stringForColumn:@"picture"];
+        
+        if (![[self.profileIcon stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] isEqualToString:@""]) {
+            self.profileIconUrl = [NSString stringWithFormat:@"%@%@", URL_IMAGE_PATH, self.profileIcon];
+        } else {
+            self.profileIconUrl = nil;
+        }
+        
+        self.fullname = [result stringForColumn:@"fullname"];
+        self.birthday = [result stringForColumn:@"birthday"];
+        self.paypal = [result stringForColumn:@"paypal"];
+        self.city = [result stringForColumn:@"city"];
+        self.state = [result stringForColumn:@"state"];
+        self.country = [result stringForColumn:@"country"];
+        self.address = [result stringForColumn:@"address"];
+        self.postcode = [result stringForColumn:@"zipcode"];
+        self.phone = [result stringForColumn:@"phone"];
+        
+        self.token = [result stringForColumn:@"token"];
+    }
+    
+    //NSLog(@"%@", self.token);
+    
+    return YES;
+}
 
 
 @end

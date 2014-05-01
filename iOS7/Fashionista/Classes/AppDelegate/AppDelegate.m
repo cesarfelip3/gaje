@@ -14,7 +14,7 @@
 #import "PaperFoldNavigationController.h"
 
 #import <FacebookSDK/FacebookSDK.h>
-#import "AppConfig.h"
+#import "Bootstrap.h"
 
 static AppDelegate *sharedDelegate;
 
@@ -23,14 +23,17 @@ static AppDelegate *sharedDelegate;
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     
+    Bootstrap *bootstrap = [Bootstrap getInstance];
+    [bootstrap bootstrap];
+    
+#if false
     AppConfig *config = [AppConfig getInstance];
     
     if (config.userIsLogin == 1) {
     
         [ADVThemeManager customizeAppAppearance];
         // Override point for customization after application launch.
-        
-#if true
+
         if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
             //self.mainVC = (((UINavigationController *)self.window.rootViewController).viewControllers)[0];
         } else {
@@ -52,12 +55,13 @@ static AppDelegate *sharedDelegate;
             self.window.backgroundColor = [UIColor blackColor];
             [self.window makeKeyAndVisible];
         }
-#endif
     } else {
         
     }
     
     [FBLoginView class];
+#endif
+    
     return YES;
 }
 
@@ -303,6 +307,7 @@ sizeOfItemForViewController:(UIViewController *)viewController
 {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
     
+#if false
     AppConfig *config = [AppConfig getInstance];
     
     if (config.userIsLogin == 1) {
@@ -338,6 +343,9 @@ sizeOfItemForViewController:(UIViewController *)viewController
     }
     
     [FBLoginView class];
+    
+#endif
+    
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application

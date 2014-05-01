@@ -53,6 +53,7 @@
 
 - (BOOL)updateProfile:(NSDictionary *)values;
 
+- (BOOL)add;
 - (BOOL)reload;
 - (BOOL)remove;
 

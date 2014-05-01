@@ -49,7 +49,7 @@
     // and everytime you will get delegate called....
     // and user info too
     
-    self.loginView.readPermissions = @[@"basic_info", @"email", @"user_likes", @"user_location"];
+    self.loginView.readPermissions = @[@"basic_info", @"email", @"user_likes"];
     self.loginView.delegate = self;
     
 }
@@ -72,6 +72,9 @@
 {
     NSLog(@"FB user = %@", user);
     
+    // what if the user login with different FB id?
+    // how to know he is logged in or not?
+    
     if (user) {
      
         NSString *username = [user objectForKey:@"first_name"];
@@ -86,6 +89,7 @@
         $user.fullname = fullname;
         $user.token = token;
         
+        [$user add];
     }
 }
 
