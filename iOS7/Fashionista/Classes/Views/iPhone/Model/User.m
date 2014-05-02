@@ -299,6 +299,31 @@
     return NO;
 }
 
+- (BOOL)login
+{
+    if (![self.db open]) {
+        return NO;
+    }
+    
+    
+    return YES;
+}
+
+- (BOOL)logout
+{
+    if (![self.db open]) {
+        return NO;
+    }
+    
+    [self remove];
+    
+    AppConfig *config = [AppConfig getInstance];
+    config.userIsLogin = 0;
+    config.token = @"";
+    
+    return YES;
+}
+
 - (BOOL)add
 {
     if (![self.db open]) {
@@ -345,9 +370,6 @@
     if (![self.db open]) {
         return NO;
     }
-    
-    AppConfig *config = [AppConfig getInstance];
-    self.token = config.token;
     
     self.token = [self escape:self.token];
     

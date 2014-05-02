@@ -10,6 +10,9 @@
 #import "AppDelegate.h"
 #import "ADVTheme.h"
 #import "NavigationSelectViewController.h"
+#import "SettingCell.h"
+
+#import "User.h"
 
 @interface SettingsViewController ()
 
@@ -38,6 +41,8 @@
 //    UIBarButtonItem* reloadButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"navigation-btn-menu"] style:UIBarButtonItemStylePlain target:self action:@selector(showMenu:)];
 //    
 //    self.navigationItem.leftBarButtonItem = reloadButton;
+    
+    [self.loginView setDelegate:self];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -49,6 +54,39 @@
 
 - (void)showMenu:(id)sender {
     [[AppDelegate sharedDelegate] togglePaperFold:sender];
+}
+
+//==========================
+//
+//==========================
+- (void) loginView:(FBLoginView *)loginView handleError:(NSError *)error
+{
+    
+    NSLog(@"FB Login error");
+    
+}
+
+
+- (void) loginViewShowingLoggedInUser:(FBLoginView *)loginView
+{
+    NSLog(@"FB Login");
+}
+
+- (void) loginViewShowingLoggedOutUser:(FBLoginView *)loginView
+{
+    
+    User *user = [User getInstance];
+    [user logout];
+    
+    UIWindow *window = [[UIApplication sharedApplication].windows objectAtIndex:0];
+    
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"intro" bundle:nil];
+    UINavigationController *controller = [storyboard instantiateViewControllerWithIdentifier:@"intro_init"];
+    window.rootViewController = controller;
+    
+    
+    NSLog(@"FB Logout");
+    
 }
 
 #pragma mark - Table view data source
@@ -63,7 +101,16 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *CellIdentifier = @"DetailCell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    SettingCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    
+    cell.accessoryType = UITableViewCellAccessoryNone;
+    [cell setBackgroundColor:[UIColor clearColor]];
+    
+    if (cell.loginView.delegate != self) {
+        cell.loginView.delegate = self;
+    }
+    
+#if false
     
     cell.textLabel.text = @"Navigation Type";
     NSString *themeName;
@@ -78,6 +125,7 @@
             break;
     }
     cell.detailTextLabel.text = themeName;
+#endif
     
     return cell;
 }
@@ -88,7 +136,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    [self performSegueWithIdentifier:@"selectNavigationType" sender:self];
+    //[self performSegueWithIdentifier:@"selectNavigationType" sender:self];
 }
 
 

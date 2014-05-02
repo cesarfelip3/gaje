@@ -58,4 +58,6 @@
 - (BOOL)remove;
 - (BOOL)exits;
 
+- (BOOL)logout;
+
 @end

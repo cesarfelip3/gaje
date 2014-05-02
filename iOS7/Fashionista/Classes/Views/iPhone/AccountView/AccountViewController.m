@@ -16,6 +16,7 @@
 #import "AccountCell.h"
 #import "TimelineCell.h"
 
+#import "User.h"
 
 @interface AccountViewController (){
     NSIndexPath *currentIndex;
@@ -57,7 +58,16 @@
     
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 10)];
     
+    User *user = [User getInstance];
+    
+    NSLog(@"user = %@", user.token);
+    
     self.account = [DataSource userAccount];
+    [self.account setValue:user.username forKey:@"name"];
+    [self.account setValue:@"" forKey:@"followers"];
+    [self.account setValue:@"" forKey:@"following"];
+    
+    
     [self.tableView reloadData];
 }
 

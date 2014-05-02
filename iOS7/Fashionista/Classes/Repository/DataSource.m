@@ -27,9 +27,9 @@
     return [[NSArray alloc] initWithContentsOfFile:path];
 }
 
-+ (NSDictionary *)userAccount {
++ (NSMutableDictionary *)userAccount {
     NSString *path = [[NSBundle mainBundle] pathForResource:@"User-Account" ofType:@"plist"];
-    return [[NSDictionary alloc] initWithContentsOfFile:path];
+    return [[NSMutableDictionary alloc] initWithContentsOfFile:path];
 }
 
 + (NSInteger)itemIsFavorite:(NSDictionary *)item {

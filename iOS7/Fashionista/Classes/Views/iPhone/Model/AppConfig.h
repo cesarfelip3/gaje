@@ -21,6 +21,8 @@
 @property (atomic, retain) NSString *token;
 @property (atomic, assign) NSInteger stage;
 
+@property (atomic, assign) BOOL applicationLaunched;
+
 + (id)getInstance;
 
 @end

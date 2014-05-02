@@ -6,6 +6,7 @@
 //  Copyright (c) 2013-2014 
 //
 #import "LoginController.h"
+#import "AppDelegate.h"
 
 @interface LoginController ()
 
@@ -49,14 +50,16 @@
     // and everytime you will get delegate called....
     // and user info too
     
+    [AppDelegate sharedDelegate].loginView = self.loginView;
+    
     self.loginView.readPermissions = @[@"basic_info", @"email", @"user_likes"];
-    self.loginView.delegate = self;
+    self.loginView.delegate = [AppDelegate sharedDelegate];
     
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
-    NSLog(@"%@", self.loginView);
+    
 }
 
 - (void) loginView:(FBLoginView *)loginView handleError:(NSError *)error
@@ -91,6 +94,8 @@
         $user.token = token;
         
         [$user add];
+        
+        
     }
 }
 
@@ -105,8 +110,9 @@
 
 - (void) loginViewShowingLoggedOutUser:(FBLoginView *)loginView
 {
-    AppConfig *config = [AppConfig getInstance];
-    config.userIsLogin = 0;
+    User *user = [User getInstance];
+    [user logout];
+    
     
     NSLog(@"FB Logout");
     

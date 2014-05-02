@@ -8,7 +8,7 @@
         <!--Login Controller - WELCOME-->
         <scene sceneID="wIF-27-9r0">
             <objects>
-                <tableViewController id="gVC-He-0Ir" customClass="LoginController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="intro_login" id="gVC-He-0Ir" customClass="LoginController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="RK9-Du-1Oo">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -91,7 +91,7 @@
         <!--Init Controller-->
         <scene sceneID="SFA-kp-zWL">
             <objects>
-                <navigationController storyboardIdentifier="init" definesPresentationContext="YES" id="53v-79-Vqi" customClass="InitController" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="intro_init" definesPresentationContext="YES" id="53v-79-Vqi" customClass="InitController" sceneMemberID="viewController">
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <navigationBar key="navigationBar" alpha="0.59999999999999964" contentMode="scaleToFill" id="Xbg-yv-bQH">

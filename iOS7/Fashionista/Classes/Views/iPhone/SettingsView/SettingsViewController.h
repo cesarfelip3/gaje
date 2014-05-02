@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <FacebookSDK/FacebookSDK.h>
 
-@interface SettingsViewController : UITableViewController
+@class User;
+
+@interface SettingsViewController : UITableViewController <FBLoginViewDelegate>
+
+@property (atomic, retain) IBOutlet FBLoginView *loginView;
 
 @end

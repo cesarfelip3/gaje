@@ -13,7 +13,7 @@
 + (NSArray *)favorites;
 + (NSArray *)collections;
 
-+ (NSDictionary *)userAccount;
++ (NSMutableDictionary *)userAccount;
 + (NSInteger)itemIsFavorite:(NSDictionary *)item;
 
 + (NSArray *)menu;

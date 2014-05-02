@@ -58,7 +58,7 @@
     NSNumber *followers = data[@"followers"];
     NSNumber *following = data[@"following"];
     
-    _lblStats.text = [NSString stringWithFormat:@"%@ Following, %@ Followers", following, followers];
+    _lblStats.text = @""; //[NSString stringWithFormat:@"%@ Following, %@ Followers", following, followers];
     _lblStats.font = [UIFont fontWithName:@"Avenir-Heavy" size:10];
 }
 

@@ -8,19 +8,17 @@
 #import <UIKit/UIKit.h>
 #import "NGTabBarController.h"
 #import "MenuViewController.h"
+#import <FacebookSDK/FacebookSDK.h>
 
 @class NGTestTabBarController;
 @class PaperFoldNavigationController;
-
 
 typedef enum {
     ADVNavigationTypeTab = 0,
     ADVNavigationTypeMenu
 } ADVNavigationType;
 
-
-
-@interface AppDelegate : UIResponder <UIApplicationDelegate, NGTabBarControllerDelegate, MenuViewControllerDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate, NGTabBarControllerDelegate, MenuViewControllerDelegate, FBLoginViewDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 @property (strong, nonatomic) NGTestTabBarController *tabbarVC;
@@ -28,6 +26,8 @@ typedef enum {
 @property (strong, nonatomic) MenuViewController *menuVC;
 @property (strong, nonatomic) UIViewController *mainVC;
 @property (assign, nonatomic) ADVNavigationType navigationType;
+
+@property (nonatomic, retain) FBLoginView *loginView;
 
 + (AppDelegate *)sharedDelegate;
 + (void)customizeTabsForController:(UITabBarController *)tabVC;

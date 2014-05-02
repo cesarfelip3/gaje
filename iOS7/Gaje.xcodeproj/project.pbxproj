@@ -312,6 +312,7 @@
 		CE6960471906AE8400D464E4 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE6960461906AE8400D464E4 /* Security.framework */; };
 		CE69604D1906AF6D00D464E4 /* Develop.txt in Resources */ = {isa = PBXBuildFile; fileRef = CE69604C1906AF6D00D464E4 /* Develop.txt */; };
 		CE6E69E71908046D007EA7B0 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE6E69E61908046D007EA7B0 /* FacebookSDK.framework */; };
+		CEAABEB61913D8D30035BA47 /* SettingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CEAABEB51913D8D30035BA47 /* SettingCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -733,6 +734,8 @@
 		CE6960461906AE8400D464E4 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		CE69604C1906AF6D00D464E4 /* Develop.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Develop.txt; sourceTree = "<group>"; };
 		CE6E69E61908046D007EA7B0 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
+		CEAABEB41913D8D30035BA47 /* SettingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingCell.h; sourceTree = "<group>"; };
+		CEAABEB51913D8D30035BA47 /* SettingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -980,6 +983,7 @@
 		7F2A5D7B1736E1A000551439 /* TableCells */ = {
 			isa = PBXGroup;
 			children = (
+				CEAABEB31913D8990035BA47 /* SettingCell */,
 				7F2A5D801736E1B300551439 /* AccountCell */,
 				7F2A5D7C1736E1A100551439 /* TimelineCell */,
 				7F2A5D931736F03F00551439 /* StoreCell */,
@@ -1681,6 +1685,15 @@
 			path = fmdb;
 			sourceTree = "<group>";
 		};
+		CEAABEB31913D8990035BA47 /* SettingCell */ = {
+			isa = PBXGroup;
+			children = (
+				CEAABEB41913D8D30035BA47 /* SettingCell.h */,
+				CEAABEB51913D8D30035BA47 /* SettingCell.m */,
+			);
+			path = SettingCell;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1983,6 +1996,7 @@
 				CE695FE31906A98A00D464E4 /* HelpController.m in Sources */,
 				CE69603B1906ACB800D464E4 /* FMResultSet.m in Sources */,
 				7F2A5D721736E16E00551439 /* TimelineViewController.m in Sources */,
+				CEAABEB61913D8D30035BA47 /* SettingCell.m in Sources */,
 				AA0E678F17CBF19F00AA877F /* NSIndexPath+PSTCollectionViewAdditions.m in Sources */,
 				CE695FDD1906A92A00D464E4 /* InitController.m in Sources */,
 				7F2A5D791736E17500551439 /* FavoritesViewController.m in Sources */,

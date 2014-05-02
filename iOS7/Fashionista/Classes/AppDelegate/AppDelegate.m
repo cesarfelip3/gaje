@@ -16,6 +16,8 @@
 #import <FacebookSDK/FacebookSDK.h>
 #import "Bootstrap.h"
 
+#import "User.h"
+
 static AppDelegate *sharedDelegate;
 
 @implementation AppDelegate
@@ -79,6 +81,70 @@ static AppDelegate *sharedDelegate;
     // You can add your app-specific url handling code here if needed
     return wasHandled;
 }
+
+//===============================
+//
+//===============================
+- (void) loginView:(FBLoginView *)loginView handleError:(NSError *)error
+{
+    AppConfig *config = [AppConfig getInstance];
+    config.userIsLogin = 0;
+    
+    NSLog(@"FB Login error");
+    
+}
+
+- (void) loginViewFetchedUserInfo:(FBLoginView *)loginView user:(id<FBGraphUser>)user
+{
+    NSLog(@"FB user = %@", user);
+    
+    // here we store user id, but only one of them
+    // suppose there are different FB ids
+    // and we only retain the last one
+    
+    if (user) {
+        
+        NSString *username = [user objectForKey:@"first_name"];
+        NSString *email = [user objectForKey:@"email"];
+        NSString *fullname = [user objectForKey:@"name"];
+        NSString *token = [user objectForKey:@"id"];
+        
+        User *$user = [User getInstance];
+        
+        $user.username = username;
+        $user.email = email;
+        $user.fullname = fullname;
+        $user.token = token;
+        
+        [$user add];
+        
+        
+    }
+}
+
+- (void) loginViewShowingLoggedInUser:(FBLoginView *)loginView
+{
+    
+    AppConfig *config = [AppConfig getInstance];
+    config.userIsLogin = 1;
+    
+    NSLog(@"FB Login");
+}
+
+- (void) loginViewShowingLoggedOutUser:(FBLoginView *)loginView
+{
+    User *user = [User getInstance];
+    [user logout];
+    
+    
+    NSLog(@"FB Logout");
+    
+}
+
+
+//===============================
+//
+//===============================
 
 - (void)setupTabbar {
     if (!self.tabbarVC) {
@@ -308,7 +374,9 @@ sizeOfItemForViewController:(UIViewController *)viewController
 {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
     
-#if false
+    NSLog(@"app = become active");
+    
+#if true
     AppConfig *config = [AppConfig getInstance];
     
     if (config.userIsLogin == 1) {
