@@ -10,6 +10,7 @@
 #import <FacebookSDK/FacebookSDK.h>
 
 @class User;
+@class AppDelegate;
 
 @interface SettingsViewController : UITableViewController <FBLoginViewDelegate>
 

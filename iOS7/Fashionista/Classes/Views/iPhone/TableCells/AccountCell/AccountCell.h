@@ -7,6 +7,9 @@
 
 #import <UIKit/UIKit.h>
 
+@class DiskCache;
+@class User;
+
 @interface AccountCell : UITableViewCell
 
 @property (strong, nonatomic) NSDictionary *data;
@@ -16,5 +19,7 @@
 
 @property (strong, nonatomic) IBOutlet UILabel *lblTitle;
 @property (strong, nonatomic) IBOutlet UILabel *lblStats;
+
+@property (nonatomic, retain) DiskCache *cache;
 
 @end

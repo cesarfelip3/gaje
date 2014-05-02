@@ -13,6 +13,7 @@
 #import "SettingCell.h"
 
 #import "User.h"
+#import "AppDelegate.h"
 
 @interface SettingsViewController ()
 
@@ -42,7 +43,7 @@
 //    
 //    self.navigationItem.leftBarButtonItem = reloadButton;
     
-    [self.loginView setDelegate:self];
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -78,12 +79,6 @@
     User *user = [User getInstance];
     [user logout];
     
-    UIWindow *window = [[UIApplication sharedApplication].windows objectAtIndex:0];
-    
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"intro" bundle:nil];
-    UINavigationController *controller = [storyboard instantiateViewControllerWithIdentifier:@"intro_init"];
-    window.rootViewController = controller;
-    
     
     NSLog(@"FB Logout");
     
@@ -106,9 +101,8 @@
     cell.accessoryType = UITableViewCellAccessoryNone;
     [cell setBackgroundColor:[UIColor clearColor]];
     
-    if (cell.loginView.delegate != self) {
-        cell.loginView.delegate = self;
-    }
+    cell.loginView.delegate = [AppDelegate sharedDelegate];
+    [AppDelegate sharedDelegate].loginView = cell.loginView;
     
 #if false
     

@@ -30,6 +30,8 @@ static AppDelegate *sharedDelegate;
     
     AppConfig *config = [AppConfig getInstance];
     
+    config.applicationLaunched = YES;
+    
 #if true
     
     if (config.userIsLogin == 1) {
@@ -40,6 +42,11 @@ static AppDelegate *sharedDelegate;
         if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
             //self.mainVC = (((UINavigationController *)self.window.rootViewController).viewControllers)[0];
         } else {
+            
+            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil];
+            
+            self.mainVC = [storyboard instantiateInitialViewController];
+            
             self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
             
             if (![[NSUserDefaults standardUserDefaults] valueForKey:@"NavigationType"]) {
@@ -68,6 +75,7 @@ static AppDelegate *sharedDelegate;
     return YES;
 }
 
+#if true
 - (BOOL)application:(UIApplication *)application
             openURL:(NSURL *)url
   sourceApplication:(NSString *)sourceApplication
@@ -81,6 +89,7 @@ static AppDelegate *sharedDelegate;
     // You can add your app-specific url handling code here if needed
     return wasHandled;
 }
+#endif
 
 //===============================
 //
@@ -133,11 +142,22 @@ static AppDelegate *sharedDelegate;
 
 - (void) loginViewShowingLoggedOutUser:(FBLoginView *)loginView
 {
+    AppConfig *config = [AppConfig getInstance];
+    
+    NSLog(@"FB Logout");
+    
+    if (config.userIsLogin != 1) {
+        return;
+    }
+    
     User *user = [User getInstance];
     [user logout];
     
-    
-    NSLog(@"FB Logout");
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"intro" bundle:nil];
+    UINavigationController *controller = [storyboard instantiateViewControllerWithIdentifier:@"intro_init"];
+    self.window.rootViewController = controller;
+    [self.window makeKeyAndVisible];
+    [FBLoginView class];
     
 }
 
@@ -376,8 +396,25 @@ sizeOfItemForViewController:(UIViewController *)viewController
     
     NSLog(@"app = become active");
     
-#if true
     AppConfig *config = [AppConfig getInstance];
+    
+    if (config.applicationLaunched) {
+        config.applicationLaunched = NO;
+        return;
+    }
+    
+#if true
+    
+    if (config.userIsLogin != 1) {
+        
+        
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"intro" bundle:nil];
+        UINavigationController *controller = [storyboard instantiateViewControllerWithIdentifier:@"intro_init"];
+        self.window.rootViewController = controller;
+        [self.window makeKeyAndVisible];
+        [FBLoginView class];
+        return;
+    }
     
     if (config.userIsLogin == 1) {
         
@@ -388,6 +425,21 @@ sizeOfItemForViewController:(UIViewController *)viewController
         if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
             //self.mainVC = (((UINavigationController *)self.window.rootViewController).viewControllers)[0];
         } else {
+            
+            if (self.mainVC && self.window) {
+                UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"MainStoryboard_iPhone"
+                                                                         bundle: nil];
+                UINavigationController *nav = [mainStoryboard instantiateViewControllerWithIdentifier:@"PropertiesNav"];
+                [_foldVC setRootViewController:nav];
+                [_foldVC.paperFoldView setPaperFoldState:PaperFoldStateDefault animated:YES];
+                
+                self.window.rootViewController = self.mainVC;
+                self.window.backgroundColor = [UIColor blackColor];
+                [self.window makeKeyAndVisible];
+                [FBLoginView class];
+                return;
+            }
+            
             self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
             
             if (![[NSUserDefaults standardUserDefaults] valueForKey:@"NavigationType"]) {

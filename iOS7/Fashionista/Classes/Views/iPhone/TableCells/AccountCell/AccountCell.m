@@ -7,6 +7,10 @@
 
 #import "AccountCell.h"
 #import "UIImage+StackBlur.h"
+#import "DiskCache.h"
+#import "AFNetworking.h"
+#import "Global.h"
+#import "User.h"
 
 #import <QuartzCore/QuartzCore.h>
 
@@ -55,11 +59,61 @@
     _lblTitle.text = data[@"name"];
     _lblTitle.font = [UIFont fontWithName:@"Avenir-Heavy" size:17];
     
-    NSNumber *followers = data[@"followers"];
-    NSNumber *following = data[@"following"];
+    //NSNumber *followers = data[@"followers"];
+    //NSNumber *following = data[@"following"];
     
     _lblStats.text = @""; //[NSString stringWithFormat:@"%@ Following, %@ Followers", following, followers];
     _lblStats.font = [UIFont fontWithName:@"Avenir-Heavy" size:10];
+    
+    User *user = [User getInstance];
+    
+    NSString *url = [NSString stringWithFormat:FB_PROFILE_ICON, user.token];
+    NSLog(@"profile icon url = %@", url);
+    
+    [self loadImage:url fileName:user.token];
+}
+
+- (BOOL)loadImage:(NSString *)url fileName:(NSString *)filename
+{
+    if (!self.cache) {
+        self.cache = [DiskCache getInstance];
+    }
+    
+    if (self.cache) {
+        
+        UIImage *image = [self.cache getImage:filename];
+        
+        if (image) {
+            [self.imageVAvatar setImage:image];
+            return YES;
+        }
+    }
+    
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+    
+    NSURLRequest *request = [[NSURLRequest alloc] initWithURL:[[NSURL alloc] initWithString:[url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]]];
+    
+    AFHTTPRequestOperation *requestOperation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+    requestOperation.responseSerializer = [AFImageResponseSerializer serializer];
+    [requestOperation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        //NSLog(@"Response: %@", responseObject);
+        UIImage *image = responseObject;
+        
+        [self.imageVAvatar setImage:image];
+        
+        DiskCache *cache = [DiskCache getInstance];
+        [cache saveImage:responseObject fileName:filename];
+        
+        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        
+        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+        
+    }];
+    
+    [requestOperation start];
+    return YES;
 }
 
 
