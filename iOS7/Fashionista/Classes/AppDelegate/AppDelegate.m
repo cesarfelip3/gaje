@@ -26,8 +26,9 @@ static AppDelegate *sharedDelegate;
     Bootstrap *bootstrap = [Bootstrap getInstance];
     [bootstrap bootstrap];
     
-#if false
     AppConfig *config = [AppConfig getInstance];
+    
+#if true
     
     if (config.userIsLogin == 1) {
     

@@ -11,6 +11,8 @@
 #import "AppConfig.h"
 #import "DiskCache.h"
 
+@class User;
+
 @interface Bootstrap : NSObject
 
 @property (atomic, retain) AppConfig *config;

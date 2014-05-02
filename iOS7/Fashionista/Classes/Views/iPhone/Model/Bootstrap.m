@@ -7,6 +7,7 @@
 //
 
 #import "Bootstrap.h"
+#import "User.h"
 
 @implementation Bootstrap
 
@@ -25,6 +26,7 @@
     [self initdb];
     [self initScreenSize];
     [self initDiskCache];
+    [self initAuth];
 }
 
 - (void)initdb {
@@ -86,6 +88,23 @@
 - (void)initDiskCache
 {
     [[DiskCache getInstance] initCache];
+}
+
+- (void)initAuth
+{
+    
+    User *user = [User getInstance];
+    AppConfig *config = [AppConfig getInstance];
+    
+    if ([user exits]) {
+        config.userIsLogin = 1;
+        config.token = user.token;
+        return;
+    }
+    
+    config.userIsLogin = 0;
+    config.token = @"";
+    
 }
 
 

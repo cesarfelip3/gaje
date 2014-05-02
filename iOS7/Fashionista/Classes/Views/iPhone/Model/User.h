@@ -53,8 +53,9 @@
 
 - (BOOL)updateProfile:(NSDictionary *)values;
 
+- (BOOL)fetchByToken:(NSString *)token;
 - (BOOL)add;
-- (BOOL)reload;
 - (BOOL)remove;
+- (BOOL)exits;
 
 @end

@@ -357,6 +357,51 @@
     return YES;
 }
 
+- (BOOL)exits
+{
+    if (![self.db open]) {
+        return NO;
+    }
+    
+    FMResultSet *result;
+    
+    result = [self.db executeQueryWithFormat:@"SELECT * FROM user"];
+    
+    self.userId = 0;
+    
+    while ([result next]) {
+        
+        self.userId = [result intForColumn:@"user_id"];
+        self.username = [result stringForColumn:@"username"];
+        self.description = [result stringForColumn:@"description"];
+        
+        self.email = [result stringForColumn:@"email"];
+        self.profileIcon = [result stringForColumn:@"picture"];
+        
+        if (![[self.profileIcon stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] isEqualToString:@""]) {
+            self.profileIconUrl = [NSString stringWithFormat:@"%@%@", URL_IMAGE_PATH, self.profileIcon];
+        } else {
+            self.profileIconUrl = nil;
+        }
+        
+        self.fullname = [result stringForColumn:@"fullname"];
+        self.birthday = [result stringForColumn:@"birthday"];
+        self.paypal = [result stringForColumn:@"paypal"];
+        self.city = [result stringForColumn:@"city"];
+        self.state = [result stringForColumn:@"state"];
+        self.country = [result stringForColumn:@"country"];
+        self.address = [result stringForColumn:@"address"];
+        self.postcode = [result stringForColumn:@"zipcode"];
+        self.phone = [result stringForColumn:@"phone"];
+        
+        self.token = [result stringForColumn:@"token"];
+        
+        return YES;
+    }
+    
+    return NO;
+}
+
 - (BOOL)fetchByToken:(NSString *)token
 {
     if (![self.db open]) {

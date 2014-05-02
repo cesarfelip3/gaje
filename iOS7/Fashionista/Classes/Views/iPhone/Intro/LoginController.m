@@ -72,8 +72,9 @@
 {
     NSLog(@"FB user = %@", user);
     
-    // what if the user login with different FB id?
-    // how to know he is logged in or not?
+    // here we store user id, but only one of them
+    // suppose there are different FB ids
+    // and we only retain the last one
     
     if (user) {
      
