@@ -36,8 +36,8 @@ NSString *const PSTFlowLayoutRowVerticalAlignmentKey = @"UIFlowLayoutRowVertical
         unsigned int layoutDataIsValid : 1;
         unsigned int delegateInfoIsValid : 1;
     } _gridLayoutFlags;
-    float _interitemSpacing;
-    float _lineSpacing;
+    CGFloat _interitemSpacing;
+    CGFloat _lineSpacing;
     CGSize _itemSize;
     CGSize _headerReferenceSize;
     CGSize _footerReferenceSize;

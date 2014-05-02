@@ -52,7 +52,7 @@
     
     [AppDelegate sharedDelegate].loginView = self.loginView;
     
-    self.loginView.readPermissions = @[@"basic_info", @"email", @"user_likes"];
+    self.loginView.readPermissions = @[@"basic_info", @"user_likes"];
     self.loginView.delegate = [AppDelegate sharedDelegate];
     
 }
