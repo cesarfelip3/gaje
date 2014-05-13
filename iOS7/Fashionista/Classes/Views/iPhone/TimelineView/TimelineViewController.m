@@ -52,8 +52,12 @@
     [btnSearch setImage:[UIImage imageNamed:@"navigation-btn-settings"] forState:UIControlStateNormal];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:btnSearch];
     
+    [btnSearch addTarget:self action:@selector(onCameraButtonTouched:) forControlEvents:UIControlEventTouchDown];
+    
     self.tableView.tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 10)];
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 10)];
+    
+    NSLog(@"cmeara");
 }
 
 
@@ -72,6 +76,13 @@
     [super viewDidUnload];
 }
 
+// upload
+
+- (IBAction)onCameraButtonTouched:(id)sender
+{
+    
+    NSLog(@"camera");
+}
 
 #pragma mark - StoreCell delegate
 
