@@ -119,14 +119,19 @@ static AppDelegate *sharedDelegate;
         NSString *token = [user objectForKey:@"id"];
         
         User *$user = [User getInstance];
-        
-        $user.username = username;
-        $user.email = email;
-        $user.fullname = fullname;
         $user.token = token;
         
-        [$user add];
+        if ([$user exits]) {
+            
+            $user.username = username;
+            $user.email = email;
+            $user.fullname = fullname;
+            $user.token = token;
+            return;
         
+        }
+        
+        [$user add];
         
     }
 }

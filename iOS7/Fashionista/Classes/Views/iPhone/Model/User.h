@@ -22,14 +22,14 @@
 @property (atomic, retain) id<NetworkCallbackDelegate> delegate;
 
 @property (atomic, assign) NSInteger userId;
+@property (atomic, retain) NSString *userUUID;
 @property (atomic, retain) NSString *username;
 @property (atomic, retain) NSString *description;
 
+@property (atomic, retain) NSString *firstname;
+@property (atomic, retain) NSString *lastname;
 @property (atomic, retain) NSString *fullname;
-@property (atomic, retain) NSString *password;
 @property (atomic, retain) NSString *email;
-@property (atomic, retain) NSString *birthday;
-@property (atomic, retain) NSString *paypal;
 
 @property (atomic, retain) NSString *profileIcon;
 @property (atomic, retain) NSString *profileIconUrl;
@@ -49,10 +49,6 @@
 
 + (id)getInstance;
 - (BOOL)login:(NSDictionary *)data;
-- (BOOL)signup:(NSString *)username Email: (NSString *)email Password:(NSString *)password;
-- (BOOL)forget;
-
-- (BOOL)updateProfile:(NSDictionary *)values;
 
 - (BOOL)fetchByToken:(NSString *)token;
 - (BOOL)add;
