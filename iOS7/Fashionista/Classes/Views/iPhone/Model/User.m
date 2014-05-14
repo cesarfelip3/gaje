@@ -23,87 +23,70 @@
     return instance;
 }
 
-- (BOOL)signin:(NSString *)username Password:(NSString *)password {
+// when we get FB id, we will login to server and create user for it
+// then we will use this user uuid to upload image
+
+- (BOOL)login:(NSDictionary *)data {
     
     self.returnCode = 1;
     self.errorMessage = @"";
-    
-    self.email = username;
     
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
     
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     
-    NSDictionary *parameters = @{@"identifier": username, @"password": password};
+    NSDictionary *parameters = data;
+    
     [manager POST:API_USER_LOGIN parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-        //NSLog(@"JSON: %@", responseObject);
+        NSLog(@"JSON: %@", responseObject);
         
         NSString *status = [responseObject objectForKey:@"status"];
         
         if ([status isEqualToString:@"success"]) {
+    
+           
+            NSDictionary *data = [responseObject objectForKey:@"data"];
             
-            self.token = [responseObject objectForKey:@"token"];
-            
-            NSDictionary *user = [responseObject objectForKey:@"user"];
-            NSDictionary *profile = [user objectForKey:@"profile"];
-            
-            self.userId = [((NSString *)[user objectForKey:@"userId"]) integerValue];
-            self.username = [self escape:[user objectForKey:@"username"]];
-            
-            self.description = @"";
-            
-            if ([profile count] > 0) {
+            if ([data count] <= 0) {
                 
-                self.description = [self escape:[profile objectForKey:@"profile_description"]];
-                self.profileIcon = [self escape:[profile objectForKey:@"profile_picture"]];
-                
-                self.fullname = [self escape:[profile objectForKey:@"full_name"]];
-                self.birthday = [self escape:[profile objectForKey:@"birthday"]];
-                self.paypal = [self escape:[profile objectForKey:@"paypal_email"]];
-                self.city = [self escape:[profile objectForKey:@"city"]];
-                self.state = [self escape:[profile objectForKey:@"state"]];
-                self.country = [self escape:[profile objectForKey:@"country"]];
-                self.address = [self escape:[profile objectForKey:@"address"]];
-                self.postcode = [self escape:[profile objectForKey:@"postal_code"]];
-                self.phone = [self escape:[profile objectForKey:@"telephone"]];
-                
-                self.profileIcon = [self escape:[profile objectForKey:@"profile_picture"]];
-                
-                if ([self.profileIcon isEqualToString:@""]) {
-                    self.profileIconUrl = nil;
-                } else {
-                    self.profileIconUrl = [NSString stringWithFormat:@"%@%@", URL_IMAGE_PROFILE_PATH, self.profileIcon];
-                }
+                self.returnCode = 1;
+                self.errorMessage = @"empty data from API";
+                [self.delegate onCallback:0];
+                return;
             }
+           
+            NSString *uuid = [data objectForKey:@"user_uuid"];
+            
+            AppConfig *config = [AppConfig getInstance];
+            config.uuid = uuid;
           
             self.returnCode = 0;
             self.errorMessage = @"";
             
-            [self add];
             
-            //[((LoginController *)self.delegate) onCallback:0];
-            [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+            [self.delegate onCallback:0];
             
             return;
+        } else {
+            
+            self.returnCode = 1;
+            self.errorMessage = [responseObject objectForKey:@"message"];
+            [self.delegate onCallback:0];
         }
         
-        self.returnCode = 1;
-        self.errorMessage = [responseObject objectForKey:@"error"];
-        //[((LoginController *)self.delegate) onCallback:0];
-        
+        return;
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-        //NSLog(@"Error: %@", error);
+        NSLog(@"Error: %@", error);
+        
         self.returnCode = 1;
         self.errorMessage = @"Network failed";
         
-        //[((LoginController *)self.delegate) onCallback:0];
-        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-        
+        [self.delegate onCallback:0];
     }];
     
     return NO;

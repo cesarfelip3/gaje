@@ -12,13 +12,14 @@
 #import "AFNetworking.h"
 #import "Model.h"
 #import "Global.h"
+#import "NetworkCallbackDelegate.h"
 
 @class LoginController;
 @class RegisterController;
 
 @interface User : Model
 
-@property (atomic, retain) id delegate;
+@property (atomic, retain) id<NetworkCallbackDelegate> delegate;
 
 @property (atomic, assign) NSInteger userId;
 @property (atomic, retain) NSString *username;
@@ -47,7 +48,7 @@
 @property (atomic, retain) NSString *errorMessage;
 
 + (id)getInstance;
-- (BOOL)signin:(NSString *)username Password:(NSString *)password;
+- (BOOL)login:(NSDictionary *)data;
 - (BOOL)signup:(NSString *)username Email: (NSString *)email Password:(NSString *)password;
 - (BOOL)forget;
 

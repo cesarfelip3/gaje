@@ -19,6 +19,7 @@
 @property (atomic, retain) NSString *dbPath;
 
 @property (atomic, retain) NSString *token;
+@property (atomic, retain) NSString *uuid;
 @property (atomic, assign) NSInteger stage;
 
 @property (atomic, assign) BOOL applicationLaunched;
