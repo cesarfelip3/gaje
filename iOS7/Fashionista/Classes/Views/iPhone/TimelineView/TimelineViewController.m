@@ -48,8 +48,8 @@
     }
     
     UIButton *btnSearch = [UIButton buttonWithType:UIButtonTypeCustom];
-    btnSearch.frame = CGRectMake(0, 0, 40, 30);
-    [btnSearch setImage:[UIImage imageNamed:@"navigation-btn-settings"] forState:UIControlStateNormal];
+    btnSearch.frame = CGRectMake(0, 0, 40, 40);
+    [btnSearch setBackgroundImage:[UIImage imageNamed:@"camera"] forState:UIControlStateNormal];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:btnSearch];
     
     [btnSearch addTarget:self action:@selector(onCameraButtonTouched:) forControlEvents:UIControlEventTouchDown];
@@ -80,8 +80,13 @@
 
 - (IBAction)onCameraButtonTouched:(id)sender
 {
-    
     NSLog(@"camera");
+    
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"upload" bundle:nil];
+    UINavigationController *controller = [storyboard instantiateInitialViewController];
+    
+    [self.navigationController presentViewController:controller animated:YES completion:nil];
+    
 }
 
 #pragma mark - StoreCell delegate

@@ -76,7 +76,5 @@
 - (BOOL)upload:(NSDictionary *)values ProgressBar:(UIProgressView *)progressBar;
 - (BOOL)upload2:(NSDictionary *)values;
 
-- (BOOL)uploadProfileIcon:(NSString *)photoPath;
-
 
 @end

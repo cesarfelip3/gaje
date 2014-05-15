@@ -59,9 +59,17 @@
            
             NSString *uuid = [data objectForKey:@"user_uuid"];
             
+            if ([uuid isEqual:[NSNull null]]) {
+                self.returnCode = 1;
+                self.errorMessage = @"server return invalid uuid";
+                [self.delegate onCallback:0];
+                return;
+            }
+            
             AppConfig *config = [AppConfig getInstance];
             config.uuid = uuid;
           
+            self.userUUID = uuid;
             [self updateUUID];
             
             self.returnCode = 0;
@@ -205,6 +213,43 @@
     }
     
     return NO;
+}
+
+- (BOOL)auth
+{
+    if (![self.db open]) {
+        return NO;
+    }
+    
+    FMResultSet *result;
+    result = [self.db executeQueryWithFormat:@"SELECT * FROM user"];
+    
+    while ([result next]) {
+        
+        self.userId = [result intForColumn:@"user_id"];
+        self.username = [result stringForColumn:@"username"];
+        self.description = [result stringForColumn:@"description"];
+        
+        self.email = [result stringForColumn:@"email"];
+        
+        self.fullname = [result stringForColumn:@"fullname"];
+        self.city = [result stringForColumn:@"city"];
+        self.state = [result stringForColumn:@"state"];
+        self.country = [result stringForColumn:@"country"];
+        self.address = [result stringForColumn:@"address"];
+        self.postcode = [result stringForColumn:@"zipcode"];
+        self.phone = [result stringForColumn:@"phone"];
+        
+        self.token = [result stringForColumn:@"token"];
+        self.userUUID = [result stringForColumn:@"user_uuid"];
+        
+        AppConfig *config = [AppConfig getInstance];
+        config.userIsLogin = 1;
+        config.uuid = self.userUUID;
+        config.token = self.token;
+    }
+    
+    return YES;
 }
 
 - (BOOL)fetchByToken:(NSString *)token

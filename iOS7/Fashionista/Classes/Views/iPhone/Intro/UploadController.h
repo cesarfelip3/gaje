@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "NetworkCallbackDelegate.h"
+#import "DiskCache.h"
 
-@interface UploadController : UITableViewController
+@interface UploadController : UITableViewController <UITextFieldDelegate, UITextViewDelegate, NetworkCallbackDelegate, UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+@property (retain) IBOutlet UIBarButtonItem *chooseButton;
+
+- (IBAction)onBottombarButtonTouched:(id)sender;
 
 @end

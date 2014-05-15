@@ -32,6 +32,9 @@ static AppDelegate *sharedDelegate;
     
     config.applicationLaunched = YES;
     
+    User *user = [User getInstance];
+    [user auth];
+    
 #if true
     
     if (config.userIsLogin == 1) {
@@ -127,11 +130,17 @@ static AppDelegate *sharedDelegate;
             $user.email = email;
             $user.fullname = fullname;
             $user.token = token;
+            
+            AppConfig *config = [AppConfig getInstance];
+            config.userIsLogin = 1;
+            config.token = token;
             return;
         
         }
         
         [$user add];
+        NSDictionary *data = @{@"username":username, @"email":email, @"fullname":fullname, @"token":token};
+        [$user login:data];
         
     }
 }

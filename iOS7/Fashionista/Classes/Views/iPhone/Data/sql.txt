@@ -1,3 +1,4 @@
+DROP TABLE "user";
 CREATE TABLE "user" (
     "user_id" INTEGER PRIMARY KEY NOT NULL ,
     "user_uuid" TEXT NOT NULL  DEFAULT '',
@@ -15,4 +16,4 @@ CREATE TABLE "user" (
     "phone" TEXT NOT NULL  DEFAULT '',
     "token" TEXT NOT NULL  DEFAULT '',
     "picture" TEXT NOT NULL  DEFAULT ''
-)
+);

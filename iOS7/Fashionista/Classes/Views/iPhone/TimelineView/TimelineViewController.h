@@ -8,9 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "StoreCell.h"
+#import "UploadController.h"
 
 @interface TimelineViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, StoreCellDelegate>
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
+
+@property (retain) UploadController *uploadController;
 
 @end

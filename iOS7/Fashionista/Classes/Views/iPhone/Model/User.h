@@ -49,7 +49,7 @@
 
 + (id)getInstance;
 - (BOOL)login:(NSDictionary *)data;
-
+- (BOOL)auth;
 - (BOOL)fetchByToken:(NSString *)token;
 - (BOOL)add;
 - (BOOL)remove;
