@@ -11,7 +11,9 @@
 #import "DiskCache.h"
 
 @interface UploadController : UITableViewController <UITextFieldDelegate, UITextViewDelegate, NetworkCallbackDelegate, UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+
 @property (retain) IBOutlet UIBarButtonItem *chooseButton;
+@property (retain) IBOutlet UIProgressView *progressBar;
 
 - (IBAction)onBottombarButtonTouched:(id)sender;
 

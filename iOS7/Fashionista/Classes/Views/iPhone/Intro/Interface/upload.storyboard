@@ -13,14 +13,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <view key="tableHeaderView" contentMode="scaleToFill" id="Bsc-q9-0Ls">
-                            <rect key="frame" x="0.0" y="64" width="320" height="112"/>
+                            <rect key="frame" x="0.0" y="64" width="320" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="lkb-Jx-4VQ">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="2"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <color key="trackTintColor" red="0.2439888181" green="0.80275560459999995" blue="0.3730144594" alpha="1" colorSpace="calibratedRGB"/>
                                 </progressView>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9eg-Iy-vHS">
+                                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9eg-Iy-vHS">
                                     <rect key="frame" x="125" y="20" width="71" height="72"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 </imageView>
@@ -31,7 +33,7 @@
                             <tableViewSection headerTitle="Name" id="mSy-qb-0YK">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="Dj6-n4-jMb">
-                                        <rect key="frame" x="0.0" y="231" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="149" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Dj6-n4-jMb" id="Trc-5U-3zU">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
@@ -55,7 +57,7 @@
                             <tableViewSection headerTitle="Description" id="9HD-eO-5cz">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="100" id="ni0-rQ-aGT">
-                                        <rect key="frame" x="0.0" y="323" width="320" height="100"/>
+                                        <rect key="frame" x="0.0" y="241" width="320" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ni0-rQ-aGT" id="riy-UO-0MO">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="99"/>
@@ -95,6 +97,7 @@
                     <navigationItem key="navigationItem" id="Pnh-bf-mZQ"/>
                     <connections>
                         <outlet property="chooseButton" destination="vqN-dU-CbW" id="5ki-nD-yQ0"/>
+                        <outlet property="progressBar" destination="lkb-Jx-4VQ" id="CTd-0k-pfN"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OHT-Qb-HBg" userLabel="First Responder" sceneMemberID="firstResponder"/>

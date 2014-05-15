@@ -59,6 +59,8 @@
     [choose setBackgroundImage:[UIImage imageNamed:@"upload-128"] forState:UIControlStateNormal];    //[view addSubview:button];
     [self.chooseButton setCustomView:choose];
     [choose addTarget:self action:@selector(onBottombarButtonTouched:) forControlEvents:UIControlEventTouchDown];
+    
+    [self.progressBar setProgress:0];
 
 }
 
