@@ -14,7 +14,7 @@
 #define API_BASE_VERSION    @"api/v1/"
 
 #define API_USER_LOGIN      @"%@%@user/add"
-#define API_IMAGE_UPLOAD    @"%@%@image/upload/%@"
+#define API_IMAGE_UPLOAD    @"%@%@image/upload"
 #define FB_PROFILE_ICON     @"http://graph.facebook.com/%@/picture?type=large"
 
 #define API_IMAGE_LATEST @"http://pixcell8.com/api/v1/image/latest/"
