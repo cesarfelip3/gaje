@@ -56,74 +56,40 @@
     }
 }
 
-- (NSString *)saveImage:(UIImage *)image fileName: (NSString *)fileName
+
+// add image to cache, and get its file path
+
+- (NSString *)addImage:(UIImage *)image fileName: (NSString *)fileName
 {
     
-    NSString *pngPath = [NSString stringWithFormat:@"%@/%@.jpg", _imageCachePath, fileName];
+    NSString *filePath = [NSString stringWithFormat:@"%@/%@", _imageCachePath, fileName];
     
     NSFileManager *fm = [NSFileManager defaultManager];
-    if ([fm fileExistsAtPath:pngPath isDirectory:NO]) {
+    if ([fm fileExistsAtPath:filePath isDirectory:NO]) {
         
-        return pngPath;
+        return filePath;
     }
-    
-    [UIImagePNGRepresentation(image) writeToFile:pngPath atomically:YES];
-    
-    
-    //if ([[NSFileManager defaultManager] fileExistsAtPath:pngPath]) {
-        
-    
-        
-#if false
-        // Let's check to see if files were successfully written...
-        
-        // Create file manager
-        NSError *error;
-        NSFileManager *fileMgr = [NSFileManager defaultManager];
-        
-        // Point to Document directory
-        NSString *documentsDirectory = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents"];
-        
-        // Write out the contents of home directory to console
-        //NSLog(@"Documents directory: %@", [fileMgr contentsOfDirectoryAtPath:documentsDirectory error:&error]);
-#endif
 
-    //}
+    [UIImageJPEGRepresentation(image, 1) writeToFile:filePath atomically:YES];
+    //[UIImagePNGRepresentation(image) writeToFile:filePath atomically:YES];
     
-    return pngPath;
-    
-}
-
-- (NSString *)getImagePath:(NSString *)fileName
-{
-    fileName = [NSString stringWithFormat:@"%@.jpg", fileName];
-    NSString *pngPath = [NSString stringWithFormat:@"%@/%@", _imageCachePath, fileName];
-    
-    NSFileManager *fm = [NSFileManager defaultManager];
-    
-    if ([fm fileExistsAtPath:pngPath isDirectory:NO]) {
-        
-        return pngPath;
-    }
-    
-    return nil;
-    
+    return filePath;
 }
 
 - (UIImage *)getImage:(NSString *)fileName
 {
-    fileName = [NSString stringWithFormat:@"%@.jpg", fileName];
-    NSString *pngPath = [NSString stringWithFormat:@"%@/%@", _imageCachePath, fileName];
+    NSString *filePath = [NSString stringWithFormat:@"%@/%@", _imageCachePath, fileName];
     
     NSFileManager *fm = [NSFileManager defaultManager];
     
-    if ([fm fileExistsAtPath:pngPath isDirectory:NO]) {
+    if ([fm fileExistsAtPath:filePath isDirectory:NO]) {
         
-        UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfFile:pngPath]];
+        UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfFile:filePath]];
         return image;
     }
     
     return nil;
 }
+
 
 @end

@@ -47,20 +47,16 @@
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:cancel];
     [cancel addTarget:self action:@selector(onTopbarButtonTouched:) forControlEvents:UIControlEventTouchDown];
     
-
-//initWithTitle:@"Close" style:UIBarButtonItemStyleBordered target:self action:@selector(onTopbarButtonTouched:)];
-    
     [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"Default"]]];
-    
-    //UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
     
     UIButton *choose = [UIButton buttonWithType:UIButtonTypeSystem];
     choose.frame = CGRectMake(0, 0, 30, 30);
-    [choose setBackgroundImage:[UIImage imageNamed:@"upload-128"] forState:UIControlStateNormal];    //[view addSubview:button];
-    [self.chooseButton setCustomView:choose];
+    [choose setBackgroundImage:[UIImage imageNamed:@"upload-128"] forState:UIControlStateNormal];        [self.chooseButton setCustomView:choose];
     [choose addTarget:self action:@selector(onBottombarButtonTouched:) forControlEvents:UIControlEventTouchDown];
     
     [self.progressBar setProgress:0];
+    
+    self.photo = [[Image alloc] init];
 
 }
 
@@ -81,6 +77,17 @@
     
     NSLog(@"choose");
     
+    NSLog(@"name = %@", self.photo.name);
+    NSLog(@"description = %@", self.photo.description);
+    
+    if (self.photo.name == nil || [self.photo.name isEqualToString:@""]) {
+        
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"Pleast give your photo a name at least" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        
+        [alert show];
+        return;
+    }
+    
     UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:@"Select Image Source"
                                                        delegate:self
                                               cancelButtonTitle:@"Cancel"
@@ -94,8 +101,6 @@
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    
-    
     if (buttonIndex == 1) {
         //https://developer.apple.com/library/ios/documentation/AudioVideo/Conceptual/CameraAndPhotoLib_TopicsForIOS/Articles/PickinganItemfromthePhotoLibrary.html
         
@@ -172,6 +177,7 @@
     }
 #endif
     
+    self.image = imageToUse;
     
 #if true
     [self filesAreReady:^{
@@ -275,6 +281,23 @@
         
         DiskCache *cache = [DiskCache getInstance];
         
+        if (!self.image) {
+            return;
+        }
+        
+        if (self.image) {
+            NSString *fileName = [[NSUUID UUID] UUIDString];
+            fileName = [NSString stringWithFormat:@"%@.jpg", fileName];
+            NSString *filePath = [cache addImage:self.image fileName:fileName];
+            
+            AppConfig *config = [AppConfig getInstance];
+            
+            NSDictionary *data = @{@"file_path":filePath, @"file_name":fileName, @"name":self.photo.name, @"description":self.photo.description, @"user_uuid":config.uuid};
+            
+            self.photo.delegate = self;
+            [self.photo upload:data ProgressBar:self.progressBar];
+        }
+        
         if (completion) {
             dispatch_async(dispatch_get_main_queue(), ^{
                 completion();
@@ -283,29 +306,52 @@
     });
 }
 
+- (BOOL)onCallback:(NSInteger)type
+{
+    NSLog(@"%@", self.photo);
+    
+    NSString *message = @"Your photo is uploaded successfully";
+    
+    if (self.photo.returnCode > 0) {
+        message = self.photo.errorMessage;
+    }
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:message delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    
+    [alert show];
+    
+    return YES;
+}
+
 //==============================
 //
 //==============================
 - (BOOL)textFieldShouldEndEditing:(UITextField *)textField
 {
+    self.photo.name = textField.text;
     return YES;
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
-    
+    self.photo.name = textField.text;
     [textField resignFirstResponder];
     return YES;
 }
 
 - (BOOL)textViewShouldEndEditing:(UITextView *)textView
 {
+    self.photo.description = textView.text;
     [textView resignFirstResponder];
     return YES;
 }
 
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
 {
+    self.photo.description = textView.text;
+    if ([text isEqualToString:@"\n"]) {
+        [textView resignFirstResponder];
+    }
     return YES;
 }
 

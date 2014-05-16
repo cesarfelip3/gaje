@@ -90,10 +90,22 @@
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-        NSLog(@"Error: %@", error);
+        
+        NSLog(@"Error: %@", operation.response);
+        NSLog(@"Error: %@", operation.responseObject);
+        
+        NSString *message = [operation.responseObject objectForKey:@"message"];
         
         self.returnCode = 1;
-        self.errorMessage = @"Network failed";
+        
+        if (message != nil && ![message isEqual:[NSNull null]]) {
+            
+            self.errorMessage = message;
+            //return;
+        }
+            
+        self.errorMessage = [NSString stringWithFormat:@"We got unknow error from server, and networking functionality in app will be not available, you can go 'setting' page and try to re-connect to the server, if there are any question, please send us email %@", CONTACT_EMAIL];
+        
         
         [self.delegate onCallback:0];
     }];
@@ -136,10 +148,12 @@
     self.token = [self escape:self.token];
     self.phone = [self escape:self.phone];
     
+    self.userUUID = [self escape:self.userUUID];
+    
     
     [self.db executeUpdateWithFormat:@"DELETE FROM user WHERE token=%@", self.token];
     
-    [self.db executeUpdateWithFormat:@"INSERT INTO user (username, description, fullname, email, city, state, country, address, zipcode, phone, picture, token) VALUES (%@, %@, %@, %@, %@, %@, %@, %@, %@, %@, %@, %@);", self.username, self.description, self.fullname, self.email, self.city, self.state, self.country, self.address, self.postcode, self.phone, self.profileIcon, self.token];
+    [self.db executeUpdateWithFormat:@"INSERT INTO user (user_uuid, username, description, fullname, email, token) VALUES (%@, %@, %@, %@, %@, %@);", self.userUUID, self.username, self.description, self.fullname, self.email, self.token];
     
     
     return YES;

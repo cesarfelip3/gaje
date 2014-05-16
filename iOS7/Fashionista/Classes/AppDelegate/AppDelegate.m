@@ -122,14 +122,12 @@ static AppDelegate *sharedDelegate;
         NSString *token = [user objectForKey:@"id"];
         
         User *$user = [User getInstance];
+        $user.username = username;
+        $user.email = email;
+        $user.fullname = fullname;
         $user.token = token;
         
         if ([$user exits]) {
-            
-            $user.username = username;
-            $user.email = email;
-            $user.fullname = fullname;
-            $user.token = token;
             
             AppConfig *config = [AppConfig getInstance];
             config.userIsLogin = 1;
@@ -140,9 +138,24 @@ static AppDelegate *sharedDelegate;
         
         [$user add];
         NSDictionary *data = @{@"username":username, @"email":email, @"fullname":fullname, @"token":token};
+        $user.delegate = self;
         [$user login:data];
         
     }
+}
+
+- (BOOL)onCallback:(NSInteger)type
+{
+    User *user = [User getInstance];
+    
+    if (user.returnCode > 0) {
+    
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:user.errorMessage delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alert show];
+        return NO;
+    }
+    
+    return YES;
 }
 
 - (void) loginViewShowingLoggedInUser:(FBLoginView *)loginView

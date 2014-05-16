@@ -689,17 +689,20 @@
         return YES;
     }
     
+    self.progress.progress = 0;
     self.progress.tag = 1;
-    self.uploadedId = 0;
     
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
     
 #if true
+    
     NSDictionary *parameters = values;
+    NSString *filePath = [values objectForKey:@"file_path"];
+    NSString *fileName = [values objectForKey:@"file_name"];
     
     NSMutableURLRequest *request = [[AFHTTPRequestSerializer serializer] multipartFormRequestWithMethod:@"POST" URLString:[NSString stringWithFormat:API_IMAGE_UPLOAD, API_BASE_URL, API_BASE_VERSION] parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
         
-        //[formData appendPartWithFileURL:[NSURL fileURLWithPath:self.queue.filepath] name:@"images" fileName:[NSString stringWithFormat:@"%@.jpg", self.queue.filename] mimeType:@"image/jpg" error:nil];
+        [formData appendPartWithFileURL:[NSURL fileURLWithPath:filePath] name:@"fileinfo" fileName:fileName mimeType:@"image/jpg" error:nil];
         
     } error:nil];
     
@@ -708,28 +711,31 @@
     NSProgress *progress = nil;
     
     NSURLSessionUploadTask *uploadTask = [manager uploadTaskWithStreamedRequest:request progress:&progress completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
+        
         if (error) {
-            //NSLog(@"Error: %@", error);
-            self.returnCode = 1;
-            self.errorMessage = @"Network failed, may because of timeout";
-        } else {
-            //NSLog(@"Success: %@", responseObject);
-            self.returnCode = 0;
+        
+            NSLog(@"%@", response);
+            NSLog(@"%@", responseObject);
             
-            NSString *status = [responseObject objectForKey:@"status"];
-            if (status != nil && [status isEqualToString:@"success"]) {
-                
-                self.uploadedId = [[responseObject objectForKey:@"id"] integerValue];
+            self.returnCode = 1;
+            self.errorMessage = [responseObject objectForKey:@"message"];
+            self.errorMessage = [self escape:self.errorMessage];
+        
+        } else {
+            
+            NSLog(@"Success: %@", responseObject);
+            
+            NSDictionary *data = [responseObject objectForKey:@"data"];
+            
+            if (data == nil || [data isEqual:[NSNull null]]) {
                 
             } else {
-                self.returnCode = 1;
-                self.errorMessage = [responseObject objectForKey:@"error"];
-                if (self.errorMessage == nil) {
-                    self.errorMessage = @"Sorry we have encounter an unknow error, please try it again";
-                }
+                self.imageUUID = [data objectForKey:@"image_uuid"];
             }
+            
+            self.returnCode = 0;
         }
-        self.progress.tag = 0;
+        
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
         [self.delegate onCallback:0];
     }];

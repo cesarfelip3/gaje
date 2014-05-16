@@ -10,6 +10,8 @@
 #import "MenuViewController.h"
 #import <FacebookSDK/FacebookSDK.h>
 
+#import "NetworkCallbackDelegate.h"
+
 @class NGTestTabBarController;
 @class PaperFoldNavigationController;
 
@@ -18,7 +20,7 @@ typedef enum {
     ADVNavigationTypeMenu
 } ADVNavigationType;
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate, NGTabBarControllerDelegate, MenuViewControllerDelegate, FBLoginViewDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate, NGTabBarControllerDelegate, MenuViewControllerDelegate, FBLoginViewDelegate, NetworkCallbackDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 @property (strong, nonatomic) NGTestTabBarController *tabbarVC;

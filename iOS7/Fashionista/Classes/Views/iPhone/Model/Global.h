@@ -17,6 +17,8 @@
 #define API_IMAGE_UPLOAD    @"%@%@image/upload"
 #define FB_PROFILE_ICON     @"http://graph.facebook.com/%@/picture?type=large"
 
+#define CONTACT_EMAIL       @"contact@gaje.com"
+
 #define API_IMAGE_LATEST @"http://pixcell8.com/api/v1/image/latest/"
 #define API_IMAGE_SEARCH @"http://pixcell8.com/api/v1/image/search/"
 #define API_IMAGE_UPDATE_INFO @"http://pixcell8.com/api/v1/image/edit/"

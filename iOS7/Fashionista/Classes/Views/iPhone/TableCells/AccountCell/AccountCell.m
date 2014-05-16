@@ -52,9 +52,8 @@
 //            self.imageVBkg.image = imgBkg;
 //        });
 //    });
-    self.imageVBkg.image = imgCover;
     
-    self.imageVAvatar.image = [UIImage imageNamed:data[@"avatar"]];
+    self.imageVBkg.image = imgCover;
     
     _lblTitle.text = data[@"name"];
     _lblTitle.font = [UIFont fontWithName:@"Avenir-Heavy" size:17];
@@ -70,6 +69,7 @@
     NSString *url = [NSString stringWithFormat:FB_PROFILE_ICON, user.token];
     NSLog(@"profile icon url = %@", url);
     
+    self.imageVAvatar.contentMode = UIViewContentModeScaleAspectFit;
     [self loadImage:url fileName:user.token];
 }
 
@@ -85,6 +85,7 @@
         
         if (image) {
             [self.imageVAvatar setImage:image];
+            //self.imageVAvatar.frame = CGRectMake(0, 0, 30, 30);
             return YES;
         }
     }
@@ -97,14 +98,16 @@
     requestOperation.responseSerializer = [AFImageResponseSerializer serializer];
     [requestOperation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
         //NSLog(@"Response: %@", responseObject);
-        UIImage *image = responseObject;
-        
-        [self.imageVAvatar setImage:image];
-        
-        DiskCache *cache = [DiskCache getInstance];
-        [cache saveImage:responseObject fileName:filename];
-        
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+        
+        UIImage *image = responseObject;
+      
+        if (image) {
+            
+            [self.imageVAvatar setImage:image];
+            DiskCache *cache = [DiskCache getInstance];
+            [cache addImage:responseObject fileName:filename];
+        }
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         

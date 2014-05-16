@@ -17,7 +17,7 @@
 @interface Image : Model
 
 @property (atomic, assign) NSInteger imageId;
-@property (atomic, retain) NSString *guid;
+@property (atomic, retain) NSString *imageUUID;
 
 @property (atomic, retain) NSString *name;
 @property (atomic, retain) NSString *description;
