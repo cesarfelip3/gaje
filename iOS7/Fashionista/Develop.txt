@@ -11,17 +11,16 @@ Disable "private surf" in safari
 
 http://stackoverflow.com/questions/21632043/facebook-login-in-ios-works-on-emulator-but-not-on-device-with-native-app-instal
 
-
+http://d.stavrovski.net/blog/post/how-to-install-and-set-up-openvpn-in-debian-7-wheezy
 
 Todo
 ======
 
-1. from template to create UI - introduction - login ==> done
-2. create local database ==> done
-3. added FB SDK ==> done
-4. added FB Login ==> basic authentication & authorization ==> done
-5. get FB user info ==> firstname, id, fullname, email, profile icon link ==> done
+upload
+======
 
-6. refine UI & network logic 
+    1. from simulator, from album, success
+    2. displayed images
+    
 
 
