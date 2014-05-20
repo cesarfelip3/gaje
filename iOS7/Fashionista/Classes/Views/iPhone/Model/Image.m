@@ -16,10 +16,6 @@
 - (BOOL)fetchLatest:(NSMutableArray *)imageArray Token:(NSString *)token
 {
     _returnCode = 1;
-    
-    self.imageArray = [[NSMutableArray alloc] init];
-    //[self.imageArray removeAllObjects];
-    
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     
     manager.requestSerializer = [AFHTTPRequestSerializer serializer];
@@ -27,84 +23,91 @@
     
     
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
-    [manager GET:[NSString stringWithFormat:@"%@%d", API_IMAGE_LATEST, 120] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    
+    NSDictionary *parameters = @{};
+    
+    [manager POST:[NSString stringWithFormat:API_IMAGE_LATEST, API_BASE_URL, API_BASE_VERSION] parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+        
+        
+    } success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
         NSString *status = [(NSDictionary *)responseObject objectForKey:@"status"];
-        
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
         
-        //NSLog(@"%@", responseObject);
+        NSLog(@"%@", responseObject);
         
         if ([status isEqualToString:@"success"]) {
             
-        } else {
-            self.returnCode = 1;
-            self.errorMessage = [responseObject objectForKey:@"error"];
+            NSDictionary *data = [responseObject objectForKey:@"data"];
             
-            [(self.delegate) onCallback:0];
+            @try {
+                
+                NSArray *$imageArray = [data objectForKey:@"images"];
+                
+                for (NSDictionary *item in $imageArray) {
+                    
+                    Image *image = [[Image alloc] init];
+                    
+                    image.imageUUID = [item objectForKey:@"image_uuid"];
+                    image.name = [item objectForKey:@"name"];
+                    image.description = [item objectForKey:@"description"];
+                    
+                    image.width = [[item objectForKey:@"width"] integerValue];
+                    image.height = [[item objectForKey:@"height"] integerValue];
+                    
+                    NSInteger timestamp = [[item objectForKey:@"create_date"] integerValue];
+                    NSDate *date = [NSDate dateWithTimeIntervalSince1970:timestamp];
+                    
+                    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+                    
+                    formatter.timeZone = [NSTimeZone defaultTimeZone];
+                    formatter.dateStyle = NSDateFormatterLongStyle;
+                    
+                    image.created = [formatter stringFromDate:date];
+                    
+                    timestamp = [[item objectForKey:@"modified_date"] integerValue];
+                    date = [NSDate dateWithTimeIntervalSince1970:timestamp];
+                    
+                    image.modified = [formatter stringFromDate:date];
+                    image.fileName = [item objectForKey:@"file_name"];
+                    image.url = [NSString stringWithFormat:@"%@%@", URL_BASE_IMAGE, image.fileName];
+                    
+                    image.userUUID = [item objectForKey:@"user_uuid"];
+                    image.username = [item objectForKey:@"username"];
+                    image.usertoken = [item objectForKey:@"usertoken"];
+                    
+                    [imageArray addObject:image];
+                }
+                
+                self.returnCode = 0;
+                self.errorMessage = @"";
+                
+            }
             
+            @catch (NSException *e) {
+                
+                self.returnCode = 0;
+                self.errorMessage = @"";
+                
+            }
+            
+            [self.delegate onCallback:0];
             return;
-        }
-        
-        NSMutableArray *posts = [(NSDictionary *)responseObject objectForKey:@"images"];
-        
-        if ([posts count] > 1) {
             
         }
         
-        for (NSDictionary *post in posts) {
-            Image *image = [[Image alloc] init];
-            
-            image.imageId = [[post objectForKey:@"id"] intValue];
-            image.name = [self escape:[post objectForKey:@"name"]];
-            
-            image.description = [self escape:[post objectForKey:@"description"]];
-            image.tags = [self escape:[post objectForKey:@"tags"]];
-            
-            image.created = [self escape:[post objectForKey:@"created_at"]];
-            image.modified = [self escape:[post objectForKey:@"updated_at"]];
-            
-            image.username = [self escape:[post objectForKey:@"username"]];
-            image.useremail = [self escape:[post objectForKey:@"email"]];
-            
-            image.fileName = [self escape:[post objectForKey:@"image"]];
-            image.thumbnail = [self escape:[NSString stringWithFormat:@"iphone_thumb_%@", image.fileName]];
-            
-            if ([image.thumbnail isEqualToString:@""]) {
-                image.imageUrl = nil;
-            } else {
-                image.imageUrl = [self escape:[NSString stringWithFormat:@"%@%@", URL_IMAGE_PATH, image.thumbnail]];
-            }
-            
-            image.imageWithWatermarkUrl = @"";
-            
-            image.height = [((NSString *)[post objectForKey:@"height"]) integerValue];
-            image.width = [((NSString *)[post objectForKey:@"width"]) integerValue];
-            
-            image.licenseArray = [[NSMutableArray alloc] init];
-            
-            [self getLicense:image.licenseArray License:[self escape:[post objectForKey:@"image_license"]]];
-            
-            [self.imageArray addObject:image];
-            
-            image = nil;
-        }
+        self.returnCode = 1;
+        self.errorMessage = [responseObject objectForKey:@"message"];
+        [(self.delegate) onCallback:0];
         
-        if ([self.imageArray count] >= 1) {
-            [imageArray removeAllObjects];
-            for (Image *image in self.imageArray) {
-                [imageArray addObject:image];
-            }
-        }
+        return;
         
-        _returnCode = 0;
-        [self.delegate onCallback:0];
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
         _returnCode = 1;
-        //NSLog(@"%@", error);
+        NSLog(@"%@", error);
         
         self.errorMessage = @"Network failed";
         
@@ -123,95 +126,7 @@
 {
     _returnCode = 1;
     
-    self.imageArray = [[NSMutableArray alloc] init];
     
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    
-    manager.requestSerializer = [AFHTTPRequestSerializer serializer];
-    [manager.requestSerializer setValue:token forHTTPHeaderField:@"X-AUTH-KEY"];
-    
-    
-    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
-    [manager GET:[NSString stringWithFormat:@"%@%@", API_IMAGE_SEARCH, [keywords stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] ] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSString *status = [(NSDictionary *)responseObject objectForKey:@"status"];
-        
-        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-        
-        //NSLog(@"%@", responseObject);
-        
-        if ([status isEqualToString:@"success"]) {
-            
-            [self.imageArray removeAllObjects];
-        
-        } else {
-            self.returnCode = 1;
-            self.errorMessage = [responseObject objectForKey:@"error"];
-            
-            [(self.delegate) onCallback:0];
-            
-            return;
-        }
-        
-        NSMutableArray *posts = [(NSDictionary *)responseObject objectForKey:@"images"];
-        
-        for (NSDictionary *post in posts) {
-            Image *image = [[Image alloc] init];
-            
-            image.imageId = [[post objectForKey:@"id"] intValue];
-            image.name = [self escape:[post objectForKey:@"name"]];
-            
-            image.description = [self escape:[post objectForKey:@"description"]];
-            image.tags = [self escape:[post objectForKey:@"tags"]];
-            
-            image.created = [self escape:[post objectForKey:@"created_at"]];
-            image.modified = [self escape:[post objectForKey:@"updated_at"]];
-            
-            image.username = [self escape:[post objectForKey:@"username"]];
-            image.useremail = [self escape:[post objectForKey:@"email"]];
-            
-            image.fileName = [self escape:[post objectForKey:@"image"]];
-            image.thumbnail = [self escape:[NSString stringWithFormat:@"iphone_thumb_%@", image.fileName]];
-            
-            if ([image.thumbnail isEqualToString:@""]) {
-                image.imageUrl = nil;
-            } else {
-                image.imageUrl = [self escape:[NSString stringWithFormat:@"%@%@", URL_IMAGE_PATH, image.thumbnail]];
-            }
-            
-            image.imageWithWatermarkUrl = @"";
-            
-            image.height = [((NSString *)[post objectForKey:@"height"]) integerValue];
-            image.width = [((NSString *)[post objectForKey:@"width"]) integerValue];
-            
-            image.licenseArray = [[NSMutableArray alloc] init];
-            [self getLicense:image.licenseArray License:[self escape:[post objectForKey:@"image_license"]]];
-            
-            [self.imageArray addObject:image];
-            
-            image = nil;
-        }
-        
-        if ([self.imageArray count] >= 1) {
-            [imageArray removeAllObjects];
-            for (Image *image in self.imageArray) {
-                [imageArray addObject:image];
-            }
-        }
-        
-        _returnCode = 0;
-        [(self.delegate) onCallback:0];
-        
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        
-        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-        _returnCode = 1;
-        //NSLog(@"%@", error);
-        
-        self.errorMessage = @"Network failed";
-        
-        [(self.delegate) onCallback:0];
-    
-    }];
     
     
     return YES;
@@ -221,401 +136,7 @@
 {
     self.returnCode = 1;
     
-    self.imageArray = [[NSMutableArray alloc] init];
     
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    
-    manager.requestSerializer = [AFHTTPRequestSerializer serializer];
-    [manager.requestSerializer setValue:token forHTTPHeaderField:@"X-AUTH-KEY"];
-    
-    
-    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
-    [manager GET:[NSString stringWithFormat:API_IMAGE_USER, 0, 200, userId] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSString *status = [(NSDictionary *)responseObject objectForKey:@"status"];
-        
-        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-        
-        //NSLog(@"%@", responseObject);
-        
-        if ([status isEqualToString:@"success"]) {
-           
-            self.returnCode = 0;
-            [self.imageArray removeAllObjects];
-        
-        } else {
-            self.returnCode = 1;
-            self.errorMessage = [responseObject objectForKey:@"error"];
-            
-            [(self.delegate) onCallback:0];
-            
-            return;
-        }
-        
-        NSMutableArray *posts = [(NSDictionary *)responseObject objectForKey:@"images"];
-        
-        
-        for (NSDictionary *post in posts) {
-            Image *image = [[Image alloc] init];
-            
-            image.imageId = [[post objectForKey:@"id"] intValue];
-            image.name = [self escape:[post objectForKey:@"name"]];
-            
-            image.description = [self escape:[post objectForKey:@"description"]];
-            image.tags = [self escape:[post objectForKey:@"tags"]];
-            
-            image.created = [self escape:[post objectForKey:@"created_at"]];
-            image.modified = [self escape:[post objectForKey:@"updated_at"]];
-            
-            image.username = [self escape:[post objectForKey:@"username"]];
-            image.useremail = [self escape:[post objectForKey:@"email"]];
-            
-            image.fileName = [self escape:[post objectForKey:@"image"]];
-            image.thumbnail = [self escape:[NSString stringWithFormat:@"iphone_thumb_%@", image.fileName]];
-            
-            if ([image.thumbnail isEqualToString:@""]) {
-                image.imageUrl = nil;
-            } else {
-                image.imageUrl = [self escape:[NSString stringWithFormat:@"%@%@", URL_IMAGE_PATH, image.thumbnail]];
-            }
-            
-            image.imageWithWatermarkUrl = @"";
-            
-            image.height = [((NSString *)[post objectForKey:@"height"]) integerValue];
-            image.width = [((NSString *)[post objectForKey:@"width"]) integerValue];
-            
-            image.licenseArray = [[NSMutableArray alloc] init];
-            [self getLicense:image.licenseArray License:[self escape:[post objectForKey:@"image_license"]]];
-            
-            //NSLog(@"image license = %@", image.licenseArray);
-            
-            [self.imageArray addObject:image];
-            
-            image = nil;
-        }
-        
-        if ([self.imageArray count] >= 1) {
-            [imageArray removeAllObjects];
-            for (Image *image in self.imageArray) {
-                [imageArray addObject:image];
-            }
-        }
-        
-        self.returnCode = 0;
-        [(self.delegate) onCallback:0];
-        
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        
-        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-        self.returnCode = 1;
-        //NSLog(@"%@", error);
-        
-        self.errorMessage = @"Network failed";
-        
-        [(self.delegate) onCallback:0];
-        
-    }];
-    
-    
-    return YES;
-}
-
-- (BOOL)fetchPurchaseByUser:(NSMutableArray *)imageArray Token:(NSString *)token UserId:(NSInteger)userId
-{
-    _returnCode = 1;
-    
-    self.imageArray = [[NSMutableArray alloc] init];
-    
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    
-    manager.requestSerializer = [AFHTTPRequestSerializer serializer];
-    [manager.requestSerializer setValue:token forHTTPHeaderField:@"X-AUTH-KEY"];
-    
-    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
-    [manager GET:[NSString stringWithFormat:@"%@%ld", API_IMAGE_USER_PURCHASE, (long)userId] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSString *status = [(NSDictionary *)responseObject objectForKey:@"status"];
-        
-        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-        
-        //NSLog(@"%@", responseObject);
-        
-        if ([status isEqualToString:@"success"]) {
-            [self.imageArray removeAllObjects];
-        } else {
-            self.returnCode = 1;
-            self.errorMessage = [responseObject objectForKey:@"error"];
-            
-            [(self.delegate) onCallback:0];
-            
-            return;
-        }
-        
-        NSMutableArray *posts = [responseObject objectForKey:@"images"];
-        
-        if (posts == nil || [posts count] <= 0) {
-            self.returnCode = 1;
-            self.errorMessage = [responseObject objectForKey:@"error"];
-            
-            [(self.delegate) onCallback:0];
-            
-            return;
-        }
-        
-        for (NSDictionary *post in posts) {
-            Image *image = [[Image alloc] init];
-            
-            image.imageId = [[post objectForKey:@"id"] intValue];
-            image.name = [self escape:[post objectForKey:@"name"]];
-            
-            image.description = [self escape:[post objectForKey:@"description"]];
-            image.tags = [self escape:[post objectForKey:@"tags"]];
-            
-            image.created = [self escape:[post objectForKey:@"created_at"]];
-            image.modified = [self escape:[post objectForKey:@"updated_at"]];
-            
-            image.username = [self escape:[post objectForKey:@"username"]];
-            image.useremail = [self escape:[post objectForKey:@"email"]];
-            
-            image.fileName = [self escape:[post objectForKey:@"image"]];
-            image.thumbnail = [self escape:[NSString stringWithFormat:@"iphone_thumb_%@", image.fileName]];
-            
-            if ([image.thumbnail isEqualToString:@""]) {
-                image.imageUrl = nil;
-            } else {
-                image.imageUrl = [self escape:[NSString stringWithFormat:@"%@%@", URL_IMAGE_PATH, image.thumbnail]];
-            }
-            
-            image.imageWithWatermarkUrl = @"";
-            
-            image.height = [((NSString *)[post objectForKey:@"height"]) integerValue];
-            image.width = [((NSString *)[post objectForKey:@"width"]) integerValue];
-            
-            image.licenseArray = [[NSMutableArray alloc] init];
-            [self getLicense:image.licenseArray License:[self escape:[post objectForKey:@"image_license"]]];
-            
-            [self.imageArray addObject:image];
-            
-            image = nil;
-        }
-        
-        if ([self.imageArray count] >= 1) {
-            [imageArray removeAllObjects];
-            for (Image *image in self.imageArray) {
-                [imageArray addObject:image];
-            }
-        }
-        
-        _returnCode = 0;
-        [(self.delegate) onCallback:0];
-        
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        
-        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-        _returnCode = 1;
-        //NSLog(@"%@", error);
-        
-        self.errorMessage = @"Network failed";
-        
-        [(self.delegate) onCallback:0];
-        
-    }];
-    
-    
-    return YES;
-}
-
-- (BOOL)fetchSalesByUser:(NSMutableArray *)imageArray Token:(NSString *)token UserId:(NSInteger)userId
-{
-    _returnCode = 1;
-    
-    self.imageArray = imageArray;
-    
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    
-    manager.requestSerializer = [AFHTTPRequestSerializer serializer];
-    [manager.requestSerializer setValue:token forHTTPHeaderField:@"X-AUTH-KEY"];
-    
-    
-    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
-    [manager GET:[NSString stringWithFormat:API_IMAGE_USER_SALES, 0, 200, userId] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSString *status = [(NSDictionary *)responseObject objectForKey:@"status"];
-        
-        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-        
-        NSLog(@"%@", responseObject);
-        
-        if ([status isEqualToString:@"success"]) {
-            [self.imageArray removeAllObjects];
-        } else {
-            self.returnCode = 1;
-            self.errorMessage = [responseObject objectForKey:@"error"];
-            
-            [(self.delegate) onCallback:0];
-            
-            return;
-        }
-        
-        NSMutableArray *posts = [responseObject objectForKey:@"images"];
-        
-        if (posts == nil || [posts count] <= 0) {
-            self.returnCode = 1;
-            [(self.delegate) onCallback:0];
-            
-            return;
-        }
-        
-        for (NSDictionary *post in posts) {
-            Image *image = [[Image alloc] init];
-            
-            image.imageId = [[post objectForKey:@"id"] intValue];
-            image.name = [self escape:[post objectForKey:@"name"]];
-            
-            image.description = [self escape:[post objectForKey:@"description"]];
-            image.tags = [self escape:[post objectForKey:@"tags"]];
-            
-            image.created = [self escape:[post objectForKey:@"created_at"]];
-            image.modified = [self escape:[post objectForKey:@"updated_at"]];
-            
-            image.username = [self escape:[post objectForKey:@"username"]];
-            image.useremail = [self escape:[post objectForKey:@"email"]];
-            
-            image.fileName = [self escape:[post objectForKey:@"image"]];
-            image.thumbnail = [self escape:[NSString stringWithFormat:@"iphone_thumb_%@", image.fileName]];
-            
-            if ([image.thumbnail isEqualToString:@""]) {
-                image.imageUrl = nil;
-            } else {
-                image.imageUrl = [self escape:[NSString stringWithFormat:@"%@%@", URL_IMAGE_PATH, image.thumbnail]];
-            }
-            
-            image.imageWithWatermarkUrl = @"";
-            
-            image.height = [((NSString *)[post objectForKey:@"height"]) integerValue];
-            image.width = [((NSString *)[post objectForKey:@"width"]) integerValue];
-            
-            image.licenseArray = [[NSMutableArray alloc] init];
-            [self getLicense:image.licenseArray License:[self escape:[post objectForKey:@"image_license"]]];
-            
-            image.price = [self escape:[post objectForKey:@"price"]];
-            image.quantity = [self escape:[post objectForKey:@"quantity"]];
-            
-            [self.imageArray addObject:image];
-            
-            image = nil;
-        }
-        
-        _returnCode = 0;
-        [(self.delegate) onCallback:0];
-        
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        
-        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-        _returnCode = 1;
-        //NSLog(@"%@", error);
-        
-        self.errorMessage = @"Network failed";
-        
-        [(self.delegate) onCallback:0];
-        
-    }];
-    
-    return YES;
-}
-
-- (BOOL)fetchSalesByMonth:(NSMutableArray *)imageArray Month:(NSInteger)month Year:(NSInteger)year Token:(NSString *)token UserId:(NSInteger)userId
-{
-    _returnCode = 1;
-    
-    self.imageArray = imageArray;
-    
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    
-    manager.requestSerializer = [AFHTTPRequestSerializer serializer];
-    [manager.requestSerializer setValue:token forHTTPHeaderField:@"X-AUTH-KEY"];
-    
-    
-    
-    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
-    [manager GET:[NSString stringWithFormat:API_IMAGE_USER_SALES_BYMONTH, userId, month, year] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSString *status = [(NSDictionary *)responseObject objectForKey:@"status"];
-        
-        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-        
-        //NSLog(@"%@", responseObject);
-        
-        if ([status isEqualToString:@"success"]) {
-            [self.imageArray removeAllObjects];
-        } else {
-            self.returnCode = 1;
-            self.errorMessage = [responseObject objectForKey:@"error"];
-            
-            [(self.delegate) onCallback:0];
-            
-            return;
-        }
-        
-        NSMutableArray *posts = [responseObject objectForKey:@"sales"];
-        
-        if (posts == nil || [posts count] <= 0) {
-            self.returnCode = 1;
-            [(self.delegate) onCallback:0];
-            
-            return;
-        }
-        
-        for (NSDictionary *post in posts) {
-            Image *image = [[Image alloc] init];
-            
-            image.imageId = [[post objectForKey:@"id"] intValue];
-            image.name = [self escape:[post objectForKey:@"name"]];
-            
-            image.description = [self escape:[post objectForKey:@"description"]];
-            image.tags = [self escape:[post objectForKey:@"tags"]];
-            
-            image.created = [self escape:[post objectForKey:@"created_at"]];
-            image.modified = [self escape:[post objectForKey:@"updated_at"]];
-            
-            image.username = [self escape:[post objectForKey:@"username"]];
-            image.useremail = [self escape:[post objectForKey:@"email"]];
-            
-            image.fileName = [self escape:[post objectForKey:@"image"]];
-            image.thumbnail = [self escape:[NSString stringWithFormat:@"iphone_thumb_%@", image.fileName]];
-            
-            if ([image.thumbnail isEqualToString:@""]) {
-                image.imageUrl = nil;
-            } else {
-                image.imageUrl = [self escape:[NSString stringWithFormat:@"%@%@", URL_IMAGE_PATH, image.thumbnail]];
-            }
-            
-            image.imageWithWatermarkUrl = @"";
-            
-            image.height = [((NSString *)[post objectForKey:@"height"]) integerValue];
-            image.width = [((NSString *)[post objectForKey:@"width"]) integerValue];
-            
-            image.licenseArray = [[NSMutableArray alloc] init];
-            [self getLicense:image.licenseArray License:[self escape:[post objectForKey:@"image_license"]]];
-            
-            image.price = [self escape:[post objectForKey:@"price"]];
-            image.quantity = [self escape:[post objectForKey:@"quantity"]];
-            
-            [self.imageArray addObject:image];
-            
-            image = nil;
-        }
-        
-        _returnCode = 0;
-        [(self.delegate) onCallback:0];
-        
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        
-        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-        _returnCode = 1;
-        //NSLog(@"%@", error);
-        
-        self.errorMessage = @"Network failed";
-        
-        [(self.delegate) onCallback:0];
-        
-    }];
     
     return YES;
 }
@@ -795,6 +316,8 @@
     return YES;
 }
 
+#if false
+
 - (BOOL)upload2:(NSDictionary *)values
 {
 #if false
@@ -848,6 +371,8 @@
     
     return YES;
 }
+
+#endif
 
 - (BOOL)changeUploadStatus:(NSString *)status
 {

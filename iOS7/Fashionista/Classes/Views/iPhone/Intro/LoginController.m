@@ -62,6 +62,25 @@
     
 }
 
+- (BOOL)openSessionWithAllowLoginUI:(BOOL)allowLoginUI completionHandler:(FBSessionStateHandler)handler {
+    
+    // We pass this permissions array into our request.
+    // I only request email, but there are many more options.
+    //
+    NSArray *permissions = @[@"email", @"basic_info"];
+    
+    return [FBSession
+            openActiveSessionWithReadPermissions:permissions
+            allowLoginUI:allowLoginUI
+            completionHandler:^(FBSession *session,
+                                FBSessionState state,
+                                NSError *error) {
+                
+                if (handler)
+                    handler(session, state, error);
+            }];
+}
+
 - (void) loginView:(FBLoginView *)loginView handleError:(NSError *)error
 {
     AppConfig *config = [AppConfig getInstance];

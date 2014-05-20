@@ -10,9 +10,13 @@
 #import "StoreCell.h"
 #import "UploadController.h"
 
-@interface TimelineViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, StoreCellDelegate>
+@interface TimelineViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, StoreCellDelegate, NetworkCallbackDelegate>
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
+
+@property (retain) NSMutableArray *imageArray;
+@property (retain) Image *photo;
+
 
 @property (retain) UploadController *uploadController;
 

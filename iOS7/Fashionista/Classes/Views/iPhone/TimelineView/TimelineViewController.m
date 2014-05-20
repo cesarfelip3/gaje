@@ -58,6 +58,9 @@
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 10)];
     
     NSLog(@"cmeara");
+    
+    self.photo = [[Image alloc] init];
+    self.imageArray = [[NSMutableArray alloc] init];
 }
 
 
@@ -67,6 +70,13 @@
 
 - (void)viewWillAppear:(BOOL)animated {
 	[super viewWillAppear:animated];
+    
+    self.photo.delegate = self;
+    
+    AppConfig *config = [AppConfig getInstance];
+    NSString *token = config.token;
+    
+    [self.photo fetchLatest:self.imageArray Token:token];
     
     self.items = [DataSource timeline];
     [self.tableView reloadData];
@@ -85,8 +95,17 @@
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"upload" bundle:nil];
     UINavigationController *controller = [storyboard instantiateInitialViewController];
     
-    [self.navigationController presentViewController:controller animated:YES completion:nil];
+    [self.navigationController presentViewController:controller animated:YES completion:^{
+        
+        
+    }];
     
+}
+
+- (BOOL)onCallback:(NSInteger)type
+{
+    NSLog(@"returned");
+    return YES;
 }
 
 #pragma mark - StoreCell delegate

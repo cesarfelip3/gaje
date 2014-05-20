@@ -2,6 +2,17 @@ Develop
 =========
 
 
+FB on real device
+==================
+
+Disable sandbox mode ==> Status & Reviews
+Add Tester ==> add to be friend first
+Disable "private surf" in safari
+
+http://stackoverflow.com/questions/21632043/facebook-login-in-ios-works-on-emulator-but-not-on-device-with-native-app-instal
+
+
+
 Todo
 ======
 
