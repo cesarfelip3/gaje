@@ -74,8 +74,11 @@
                     
                     image.userUUID = [item objectForKey:@"user_uuid"];
                     image.username = [item objectForKey:@"username"];
-                    image.usertoken = [item objectForKey:@"usertoken"];
+                    image.usertoken = [item objectForKey:@"user_token"];
                     
+                    image.usericon = [NSString stringWithFormat:FB_PROFILE_ICON, image.usertoken];
+                    
+                    NSLog(@"icon = %@", image.usericon);
                     [imageArray addObject:image];
                 }
                 

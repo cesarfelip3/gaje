@@ -7,8 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Image.h"
 
-
+@class DiskCache;
+@class User;
 @protocol StoreCellDelegate;
 
 
@@ -25,6 +27,9 @@
 @property (strong, nonatomic) IBOutlet UIButton *btnFav;
 
 @property (weak, nonatomic) id<StoreCellDelegate> delegate;
+
+@property (nonatomic, retain) DiskCache *cache;
+@property (nonatomic, retain) Image *photo;
 
 - (IBAction)actionToggleFav:(id)sender;
 

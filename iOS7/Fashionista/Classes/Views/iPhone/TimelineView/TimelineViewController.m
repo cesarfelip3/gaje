@@ -105,6 +105,7 @@
 - (BOOL)onCallback:(NSInteger)type
 {
     NSLog(@"returned");
+    [self.tableView reloadData];
     return YES;
 }
 
@@ -140,16 +141,17 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.items.count;
+    return [self.imageArray count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     NSString *CellIdentifier = @"StoreCell";
     StoreCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
-    NSDictionary *item = self.items[indexPath.row];
+    Image *$photo = [self.imageArray objectAtIndex:indexPath.row];
+    
     cell.delegate = self;
-    cell.data = item;
+    cell.photo = $photo;
     
     CGRect tableRect = cell.imageVBkg.frame;
     tableRect.origin.y = 0;

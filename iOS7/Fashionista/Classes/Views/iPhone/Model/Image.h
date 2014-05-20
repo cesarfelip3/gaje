@@ -21,6 +21,7 @@
 @property (atomic, retain) NSString *userUUID;
 @property (atomic, retain) NSString *username;
 @property (atomic, retain) NSString *usertoken;
+@property (atomic, retain) NSString *usericon;
 
 @property (atomic, retain) NSString *name;
 @property (atomic, retain) NSString *description;
