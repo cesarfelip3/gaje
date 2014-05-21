@@ -177,7 +177,7 @@
     }
 #endif
     
-    self.image = imageToUse;
+    self.image = [self fixOrientation:imageToUse];
     
 #if true
     [self filesAreReady:^{

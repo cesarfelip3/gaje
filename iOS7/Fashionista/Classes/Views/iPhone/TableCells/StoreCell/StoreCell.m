@@ -56,8 +56,10 @@
     self.imageVBkg.image = [[UIImage imageNamed:@"list-item-background"] resizableImageWithCapInsets:UIEdgeInsetsMake(50, 50, 30, 30)];
     self.imageVStage.image = [UIImage imageNamed:@"list-item-stage"];
     
-    [self loadImage:self.photo.url fileName:self.photo.fileName ImageView:self.imageVImage];
+    [self loadImage:self.photo.thumbnail fileName:self.photo.fileName ImageView:self.imageVImage];
     [self loadImage:self.photo.usericon fileName:[NSString stringWithFormat:@"%@.jpg", self.photo.usertoken] ImageView:self.imageVAvatar];
+    
+    NSLog(@"%f", self.imageVImage.frame.size.width);
     
     //self.imageVImage.image = [UIImage imageNamed:_data[@"image"]];
     //self.imageVAvatar.image = [UIImage imageNamed:_data[@"person"][@"avatar"]];

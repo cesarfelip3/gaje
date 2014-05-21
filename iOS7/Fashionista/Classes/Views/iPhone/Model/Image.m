@@ -15,6 +15,9 @@
 
 - (BOOL)fetchLatest:(NSMutableArray *)imageArray Token:(NSString *)token
 {
+    
+    NSMutableArray *tempImageArray = [[NSMutableArray alloc] init];
+    
     _returnCode = 1;
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     
@@ -72,13 +75,22 @@
                     image.fileName = [item objectForKey:@"file_name"];
                     image.url = [NSString stringWithFormat:@"%@%@", URL_BASE_IMAGE, image.fileName];
                     
+                    NSString *extension = [image.fileName pathExtension];
+                    
+                    image.thumbnail = [NSString stringWithFormat:@"%@%@", URL_BASE_IMAGE, [NSString stringWithFormat:@"%@_280x240.%@", image.fileName, extension]];
+                    
                     image.userUUID = [item objectForKey:@"user_uuid"];
                     image.username = [item objectForKey:@"username"];
                     image.usertoken = [item objectForKey:@"user_token"];
                     
                     image.usericon = [NSString stringWithFormat:FB_PROFILE_ICON, image.usertoken];
                     
-                    NSLog(@"icon = %@", image.usericon);
+                    //NSLog(@"icon = %@", image.usericon);
+                    [tempImageArray addObject:image];
+                }
+                
+                [imageArray removeAllObjects];
+                for (Image *image in tempImageArray) {
                     [imageArray addObject:image];
                 }
                 
