@@ -247,6 +247,8 @@
     NSProgress *progress = nil;
     
     NSURLSessionUploadTask *uploadTask = [manager uploadTaskWithStreamedRequest:request progress:&progress completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
+        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+        self.progress.tag = 0;
         
         if (error) {
         
@@ -272,7 +274,7 @@
             self.returnCode = 0;
         }
         
-        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+        
         [self.delegate onCallback:0];
     }];
     
