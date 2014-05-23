@@ -19,6 +19,7 @@
 
 - (NSString *)addImage:(UIImage *)image fileName: (NSString *)fileName;
 - (UIImage *)getImage:(NSString *)fileName;
+- (NSString *)getImagePath:(NSString *)fileName;
 
 
 @end

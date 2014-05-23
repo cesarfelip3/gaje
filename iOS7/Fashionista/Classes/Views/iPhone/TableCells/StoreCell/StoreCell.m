@@ -59,7 +59,7 @@
     [self loadImage:self.photo.thumbnail fileName:self.photo.fileName ImageView:self.imageVImage];
     [self loadImage:self.photo.usericon fileName:[NSString stringWithFormat:@"%@.jpg", self.photo.usertoken] ImageView:self.imageVAvatar];
     
-    NSLog(@"%f", self.imageVImage.frame.size.width);
+    //NSLog(@"%f", self.imageVImage.frame.size.width);
     
     //self.imageVImage.image = [UIImage imageNamed:_data[@"image"]];
     //self.imageVAvatar.image = [UIImage imageNamed:_data[@"person"][@"avatar"]];
@@ -127,7 +127,6 @@
         
         if (image) {
             [imageView setImage:image];
-            //self.imageVAvatar.frame = CGRectMake(0, 0, 30, 30);
             return YES;
         }
     }

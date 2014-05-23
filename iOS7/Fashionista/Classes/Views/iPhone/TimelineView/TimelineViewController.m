@@ -156,6 +156,7 @@
     CGRect tableRect = cell.imageVBkg.frame;
     tableRect.origin.y = 0;
     cell.imageVBkg.frame = tableRect;
+    [cell setData:@{}];
     
     return cell;
 }

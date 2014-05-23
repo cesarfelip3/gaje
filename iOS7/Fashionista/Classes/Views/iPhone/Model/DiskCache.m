@@ -91,5 +91,19 @@
     return nil;
 }
 
+- (NSString *)getImagePath:(NSString *)fileName
+{
+    NSString *filePath = [NSString stringWithFormat:@"%@/%@", _imageCachePath, fileName];
+    
+    NSFileManager *fm = [NSFileManager defaultManager];
+    
+    if ([fm fileExistsAtPath:filePath isDirectory:NO]) {
+        
+        return filePath;
+    }
+    
+    return nil;
+}
+
 
 @end

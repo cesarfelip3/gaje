@@ -181,6 +181,17 @@
     
 #if true
     [self filesAreReady:^{
+        
+        DiskCache *cache = [DiskCache getInstance];
+        
+        NSString *filePath = [cache getImagePath:self.photo.fileName];
+        AppConfig *config = [AppConfig getInstance];
+        
+        NSDictionary *data = @{@"file_path":filePath, @"file_name":self.photo.fileName, @"name":self.photo.name, @"description":self.photo.description, @"user_uuid":config.uuid};
+        
+        self.photo.delegate = self;
+        [self.photo upload:data ProgressBar:self.progressBar];
+        
     }];
 #endif
     
@@ -288,14 +299,10 @@
         if (self.image) {
             NSString *fileName = [[NSUUID UUID] UUIDString];
             fileName = [NSString stringWithFormat:@"%@.jpg", fileName];
-            NSString *filePath = [cache addImage:self.image fileName:fileName];
             
-            AppConfig *config = [AppConfig getInstance];
+            self.photo.fileName = fileName;
+            [cache addImage:self.image fileName:fileName];
             
-            NSDictionary *data = @{@"file_path":filePath, @"file_name":fileName, @"name":self.photo.name, @"description":self.photo.description, @"user_uuid":config.uuid};
-            
-            self.photo.delegate = self;
-            [self.photo upload:data ProgressBar:self.progressBar];
         }
         
         if (completion) {
