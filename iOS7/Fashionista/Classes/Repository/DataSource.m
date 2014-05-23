@@ -51,15 +51,15 @@
                  @"title": @"FAVOURITES",
                  @"rows": @[
                             @{
-                                @"title": @"Shops",
+                                @"title": @"Board",
                                 @"image": @"menu-icon1"
                                 },
                             @{
-                                @"title": @"Likes",
+                                @"title": @"Week Theme",
                                 @"image": @"menu-icon2"
                                 },
                             @{
-                                @"title": @"Cart",
+                                @"title": @"Week Price",
                                 @"image": @"menu-icon3"
                                 },
                             ]
@@ -68,7 +68,7 @@
                  @"title": @"SETTINGS",
                  @"rows": @[
                          @{
-                             @"title": @"Account",
+                             @"title": @"Profile",
                              @"image": @"menu-icon4"
                              },
                          @{

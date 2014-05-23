@@ -114,12 +114,13 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     NSString *CellIdentifier = @"StoreCell";
-    StoreCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    //StoreCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
+    UITableViewCell *cell = [[UITableViewCell alloc] init];
     
-    NSDictionary *item = self.items[indexPath.row];
-    cell.delegate = self;
-    cell.data = item;
+    //NSDictionary *item = self.items[indexPath.row];
+    //cell.delegate = self;
+    //cell.data = item;
     
     return cell;
 }
