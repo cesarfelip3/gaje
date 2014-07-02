@@ -137,7 +137,7 @@ static AppDelegate *sharedDelegate;
         }
         
         [$user add];
-        NSDictionary *data = @{@"username":username, @"email":email, @"fullname":fullname, @"token":token};
+        NSDictionary *data = @{@"username":username, @"email":email, @"fullname":fullname, @"facebook_token":token, @"facebook_icon": [NSString stringWithFormat:FB_PROFILE_ICON, token]};
         $user.delegate = self;
         [$user login:data];
         

@@ -2,6 +2,20 @@ Develop
 =========
 
 
+1. FB login
+2. Display latest images
+3. Upload image to specific theme ==> ok
+    
+    loading theme ==> API
+    select theme ==>
+    
+
+4. approve?
+5. comment on images
+6. brand on images
+
+
+
 FB on real device
 ==================
 

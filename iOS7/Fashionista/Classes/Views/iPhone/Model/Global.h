@@ -19,6 +19,7 @@
 #define API_USER_LOGIN      @"%@%@user/add"
 #define API_IMAGE_UPLOAD    @"%@%@image/upload"
 #define API_IMAGE_LATEST    @"%@%@image/latest"
+#define API_THEME_LIST      @"%@%@theme/list"
 
 #define CONTACT_EMAIL       @"contact@gaje.com"
 

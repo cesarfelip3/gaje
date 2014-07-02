@@ -333,63 +333,8 @@
     return YES;
 }
 
-#if false
 
-- (BOOL)upload2:(NSDictionary *)values
-{
-#if false
-    'name' => 'api image',
-    'description' => 'api description',
-    'place' => 'api place',
-    'tags' => 'api tags',
-    'image_license[]' => 'Editorial',
-    'photo_shoot_type' => 'Chess'
-#endif
-    
-    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    
-    NSDictionary *parameters = values;
-    
-    [manager POST:[NSString stringWithFormat:@"%@/%d", API_IMAGE_UPLOAD2, self.uploadedId] parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
-        
-        
-    } success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        
-        //NSLog(@"Success: %@", responseObject);
-        
-        NSString *status = [responseObject objectForKey:@"status"];
-        
-        if ([status isEqualToString:@"success"]) {
-            
-            //self.uploadedImageId = [responseObject objectForKey:@"id"];
-            
-        }
-        
-        self.returnCode = 0;
-        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-        [self changeUploadStatus:@"1"];
-        
-        [(self.delegate) onCallback:0];
-        
-        
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        
-        //NSLog(@"Error: %@", error);
-        self.returnCode = 1;
-        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-        
-        self.errorMessage = @"Network failed";
-        
-        [(self.delegate) onCallback:0];
-        
-    }];
-    
-    
-    return YES;
-}
 
-#endif
 
 - (BOOL)changeUploadStatus:(NSString *)status
 {
@@ -406,27 +351,6 @@
     
     config.userIsLogin = 1;
     config.imageIsUploaded = 1;
-    
-    return YES;
-    
-}
-
-- (BOOL)getLicense:(NSMutableArray *)licenseArray License:(NSString *)license
-{
-    [licenseArray removeAllObjects];
-    [licenseArray addObject:license];
-    return YES;
-    
-    if ([[license stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] isEqualToString:@"Editorial"]) {
-        [licenseArray addObject:@"Editorial"];
-    }
-    
-    if ([[license stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] isEqualToString:@"Commercial"]) {
-        [licenseArray addObject:@"Commercial"];
-    } else {
-        [licenseArray addObject:@"Editorial"];
-        [licenseArray addObject:@"Commercial"];
-    }
     
     return YES;
     

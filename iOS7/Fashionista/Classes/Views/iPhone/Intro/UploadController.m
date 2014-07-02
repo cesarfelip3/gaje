@@ -7,6 +7,7 @@
 //
 
 #import "UploadController.h"
+#import "ThemeController.h"
 
 @interface UploadController ()
 
@@ -42,21 +43,34 @@
     
     UIButton *cancel = [UIButton buttonWithType:UIButtonTypeSystem];
     [cancel setFrame:CGRectMake(0, 0, 30, 30)];
-    [cancel setBackgroundImage:[UIImage imageNamed:@"cancel-128"] forState:UIControlStateNormal];
+    [cancel setBackgroundImage:[UIImage imageNamed:@"upload-128"] forState:UIControlStateNormal];
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:cancel];
     [cancel addTarget:self action:@selector(onTopbarButtonTouched:) forControlEvents:UIControlEventTouchDown];
     
     [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"Default"]]];
     
+#if false
     UIButton *choose = [UIButton buttonWithType:UIButtonTypeSystem];
     choose.frame = CGRectMake(0, 0, 30, 30);
     [choose setBackgroundImage:[UIImage imageNamed:@"upload-128"] forState:UIControlStateNormal];        [self.chooseButton setCustomView:choose];
     [choose addTarget:self action:@selector(onBottombarButtonTouched:) forControlEvents:UIControlEventTouchDown];
+#endif
     
     [self.progressBar setProgress:0];
-    
     self.photo = [[Image alloc] init];
+    
+    //
+    
+    self.themeController = [[ThemeController alloc] initWithStyle:UITableViewStylePlain];
+    self.tableViewThemeList.delegate = self.themeController;
+    self.tableViewThemeList.dataSource = self.themeController;
+    self.themeController.view = self.tableViewThemeList;
+    self.themeController.tableView = self.tableViewThemeList;
+    
+    [self.themeController viewDidLoad];
+    
+    self.themeArray = [[NSMutableArray alloc] init];
 
 }
 
@@ -68,8 +82,27 @@
 
 - (IBAction)onTopbarButtonTouched:(id)sender
 {
-    NSLog(@"topbar button touched");
-    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+    NSLog(@"choose");
+    
+    NSLog(@"name = %@", self.photo.name);
+    NSLog(@"description = %@", self.photo.description);
+    
+    if (self.photo.name == nil || [self.photo.name isEqualToString:@""]) {
+        
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"Pleast give your photo a name at least" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        
+        [alert show];
+        return;
+    }
+    
+    UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:@"Select Image Source"
+                                                       delegate:self
+                                              cancelButtonTitle:@"Cancel"
+                                         destructiveButtonTitle:nil
+                                              otherButtonTitles:@"Camera", @"Photo album", nil];
+    
+    [sheet showInView:self.view];
+    return;
 }
 
 - (IBAction)onBottombarButtonTouched:(id)sender
@@ -101,18 +134,6 @@
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    if (buttonIndex == 1) {
-        //https://developer.apple.com/library/ios/documentation/AudioVideo/Conceptual/CameraAndPhotoLib_TopicsForIOS/Articles/PickinganItemfromthePhotoLibrary.html
-        
-        UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
-        imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-        
-        [imagePicker setDelegate:self];
-        imagePicker.mediaTypes = [[NSArray alloc] initWithObjects: (NSString *) kUTTypeImage, nil];
-        imagePicker.allowsEditing = NO;
-        
-        [self presentViewController:imagePicker animated:YES completion:nil];
-    }
     
     if (buttonIndex == 0) {
         
@@ -134,12 +155,24 @@
         imagePicker.allowsEditing = NO;
         imagePicker.showsCameraControls = YES;
         
-        [self presentViewController:imagePicker animated:YES completion:nil];
+        NSLog(@"navigation controller = %@", self.navigationController);
+        [self.navigationController presentViewController:imagePicker animated:YES completion:nil];
+    }
+    
+    
+    if (buttonIndex == 1) {
+        //https://developer.apple.com/library/ios/documentation/AudioVideo/Conceptual/CameraAndPhotoLib_TopicsForIOS/Articles/PickinganItemfromthePhotoLibrary.html
+        
+        UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
+        imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+        
+        [imagePicker setDelegate:self];
+        imagePicker.mediaTypes = [[NSArray alloc] initWithObjects: (NSString *) kUTTypeImage, nil];
+        imagePicker.allowsEditing = NO;
+        [self.navigationController presentViewController:imagePicker animated:YES completion:nil];
     }
     
     if (buttonIndex == 2) {
-        
-        
         
     }
 }
@@ -186,6 +219,14 @@
         
         NSString *filePath = [cache getImagePath:self.photo.fileName];
         AppConfig *config = [AppConfig getInstance];
+        
+        if (self.photo.description == nil) {
+            self.photo.description = @"";
+        }
+        
+        if (self.photo.name == nil) {
+            //
+        }
         
         NSDictionary *data = @{@"file_path":filePath, @"file_name":self.photo.fileName, @"name":self.photo.name, @"description":self.photo.description, @"user_uuid":config.uuid};
         
@@ -315,9 +356,9 @@
 
 - (BOOL)onCallback:(NSInteger)type
 {
-    NSLog(@"%@", self.photo);
     
     NSString *message = @"Your photo is uploaded successfully";
+    self.photo.delegate = nil;
     
     if (self.photo.returnCode > 0) {
         message = self.photo.errorMessage;

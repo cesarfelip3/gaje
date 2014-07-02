@@ -61,6 +61,8 @@
     
     self.photo = [[Image alloc] init];
     self.imageArray = [[NSMutableArray alloc] init];
+    
+    
 }
 
 
@@ -76,6 +78,7 @@
     AppConfig *config = [AppConfig getInstance];
     NSString *token = config.token;
     
+    self.photo.delegateType = @"image.latest";
     [self.photo fetchLatest:self.imageArray Token:token];
     
     self.items = [DataSource timeline];
@@ -93,14 +96,12 @@
     NSLog(@"camera");
     
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"upload" bundle:nil];
-    UINavigationController *controller = [storyboard instantiateInitialViewController];
+    UIViewController *controller = [storyboard instantiateViewControllerWithIdentifier:@"upload_home"];
     
-    [self.navigationController presentViewController:controller animated:YES completion:^{
-        
-        
-    }];
+    [self.navigationController pushViewController:controller animated:YES];
     
 }
+
 
 - (BOOL)onCallback:(NSInteger)type
 {

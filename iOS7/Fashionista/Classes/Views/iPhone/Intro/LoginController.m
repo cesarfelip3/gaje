@@ -62,6 +62,8 @@
     
 }
 
+#if false
+
 - (BOOL)openSessionWithAllowLoginUI:(BOOL)allowLoginUI completionHandler:(FBSessionStateHandler)handler {
     
     // We pass this permissions array into our request.
@@ -136,6 +138,8 @@
     NSLog(@"FB Logout");
     
 }
+
+#endif
 
 - (void)success {
     

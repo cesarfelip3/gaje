@@ -39,6 +39,7 @@
 @property (atomic, assign) NSInteger returnCode;
 @property (atomic, assign) NSString *errorMessage;
 
+@property (atomic, retain) NSString *delegateType;
 @property (atomic, retain) id<NetworkCallbackDelegate> delegate;
 
 @property (atomic, retain) UIProgressView *progress;
