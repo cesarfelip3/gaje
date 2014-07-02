@@ -17,6 +17,7 @@
 @property (atomic, retain) NSString *themeUUID;
 @property (atomic, retain) NSString *name;
 @property (atomic, retain) NSString *description;
+@property (atomic, assign) BOOL selected;
 
 @property (atomic, assign) NSInteger returnCode;
 @property (atomic, assign) NSString *errorMessage;

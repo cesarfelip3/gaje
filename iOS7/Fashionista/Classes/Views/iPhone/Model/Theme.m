@@ -55,6 +55,7 @@
             @try {
                 
                 NSArray *resultArray = [data objectForKey:@"themes"];
+                NSInteger i = 0;
                 
                 for (NSDictionary *item in resultArray) {
                     
@@ -63,6 +64,14 @@
                     theme.themeUUID = [item objectForKey:@"theme_uuid"];
                     theme.name = [item objectForKey:@"name"];
                     theme.description = [item objectForKey:@"description"];
+                    
+                    if (i == 0) {
+                        theme.selected = YES;
+                        i++;
+                    } else {
+                    
+                        theme.selected = NO;
+                    }
                     
                     [themeArray addObject:theme];
                 }

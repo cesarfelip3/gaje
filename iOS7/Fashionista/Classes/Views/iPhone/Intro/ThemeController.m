@@ -86,8 +86,12 @@
     Theme *theme = [self.themeArray objectAtIndex:[indexPath row]];
     
     [cell.textLabel setText:theme.name];
-    cell.accessoryType = UITableViewCellAccessoryNone;
     
+    if (theme.selected) {
+        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+    } else {
+        cell.accessoryType = UITableViewCellAccessoryNone;
+    }
     return cell;
 }
 
@@ -95,10 +99,17 @@
 {
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     
+    Theme* theme = [self.themeArray objectAtIndex:[indexPath row]];
+    
     if (cell.accessoryType == UITableViewCellAccessoryNone) {
+        
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
+        theme.selected = YES;
+        
     } else {
+        
         cell.accessoryType = UITableViewCellAccessoryNone;
+        theme.selected = NO;
     }
 }
 
