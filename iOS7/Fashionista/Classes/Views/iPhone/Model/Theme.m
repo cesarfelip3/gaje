@@ -38,6 +38,7 @@
     
     NSDictionary *parameters = @{};
     
+    
     [manager POST:[NSString stringWithFormat:API_THEME_LIST, API_BASE_URL, API_BASE_VERSION] parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
         
         
@@ -57,6 +58,11 @@
                 NSArray *resultArray = [data objectForKey:@"themes"];
                 NSInteger i = 0;
                 
+                if ([resultArray count] > 0) {
+                    
+                    [themeArray removeAllObjects];
+                }
+                
                 for (NSDictionary *item in resultArray) {
                     
                     Theme *theme = [[Theme alloc] init];
@@ -66,6 +72,7 @@
                     theme.description = [item objectForKey:@"description"];
                     
                     if (i == 0) {
+                        
                         theme.selected = YES;
                         i++;
                     } else {
@@ -74,7 +81,9 @@
                     }
                     
                     [themeArray addObject:theme];
+                    theme = nil;
                 }
+                
                 
                 self.returnCode = 0;
                 self.errorMessage = @"";

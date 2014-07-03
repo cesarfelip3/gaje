@@ -62,15 +62,16 @@
     
     //
     
+    self.themeArray = [[NSMutableArray alloc] init];
+    
     self.themeController = [[ThemeController alloc] initWithStyle:UITableViewStylePlain];
     self.tableViewThemeList.delegate = self.themeController;
     self.tableViewThemeList.dataSource = self.themeController;
     self.themeController.view = self.tableViewThemeList;
     self.themeController.tableView = self.tableViewThemeList;
-    
+    self.themeController.themeArray = self.themeArray;
     [self.themeController viewDidLoad];
     
-    self.themeArray = [[NSMutableArray alloc] init];
 
 }
 
@@ -90,6 +91,25 @@
     if (self.photo.name == nil || [self.photo.name isEqualToString:@""]) {
         
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"Pleast give your photo a name at least" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        
+        [alert show];
+        return;
+    }
+    
+    NSString *themes = @"";
+    
+    for (Theme *theme in self.themeArray) {
+        
+        NSLog(@"selected = %d", theme.selected);
+        if (theme.selected) {
+            themes = [themes stringByAppendingString:[NSString stringWithFormat:@"%@,", theme.themeUUID]];
+        }
+    }
+    
+    NSLog(@"themes = %@", themes);
+    
+    if ([themes isEqualToString:@""]) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"Select at least one theme for your image" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
         
         [alert show];
         return;
@@ -228,7 +248,16 @@
             //
         }
         
-        NSDictionary *data = @{@"file_path":filePath, @"file_name":self.photo.fileName, @"name":self.photo.name, @"description":self.photo.description, @"user_uuid":config.uuid};
+        NSString *themes = @"";
+        
+        for (Theme *theme in self.themeArray) {
+            
+            if (theme.selected) {
+                themes = [themes stringByAppendingString:[NSString stringWithFormat:@"%@,", theme.themeUUID]];
+            }
+        }
+        
+        NSDictionary *data = @{@"file_path":filePath, @"file_name":self.photo.fileName, @"name":self.photo.name, @"description":self.photo.description, @"user_uuid":config.uuid, @"theme_array":themes};
         
         self.photo.delegate = self;
         [self.photo upload:data ProgressBar:self.progressBar];

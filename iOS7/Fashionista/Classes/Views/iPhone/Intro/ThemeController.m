@@ -27,7 +27,7 @@
 {
     [super viewDidLoad];
     
-    self.themeArray = [[NSMutableArray alloc] init];
+    //self.themeArray = [[NSMutableArray alloc] init];
     
     Theme *theme = [Theme getInstance];
     
@@ -54,6 +54,7 @@
         
         if ([self.themeArray count] > 0) {
  
+            NSLog(@"themeArray = %@", self.themeArray);
             [self.tableView reloadData];
             
         }
