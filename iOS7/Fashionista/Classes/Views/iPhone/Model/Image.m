@@ -78,6 +78,7 @@
                     NSString *extension = [image.fileName pathExtension];
                     
                     image.thumbnail = [NSString stringWithFormat:@"%@%@", URL_BASE_IMAGE, [NSString stringWithFormat:@"%@_280x240.%@", image.fileName, extension]];
+                    image.thumbnailName = [NSString stringWithFormat:@"%@_280x240.%@", image.fileName, extension];
                     
                     image.userUUID = [item objectForKey:@"user_uuid"];
                     image.username = [item objectForKey:@"username"];

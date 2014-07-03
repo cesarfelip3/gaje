@@ -40,7 +40,9 @@
     _imageBkg.image = [[UIImage imageNamed:@"background-content"] resizableImageWithCapInsets:UIEdgeInsetsMake(10, 10, 10, 10)];
     _viewDetails.backgroundColor = [UIColor colorWithRed:0.97f green:0.97f blue:0.97f alpha:1.00f];
     
-    [self configureView];
+    [self loadImage:self.photo.url fileName:self.photo.fileName ImageView:self.imageContent];
+    
+    //[self configureView];
 }
 
 - (void)viewDidUnload {
@@ -131,6 +133,51 @@
     _imageBkg.frame = frameBkg;
     
     self.scrollView.contentSize = CGSizeMake(self.scrollView.bounds.size.width, CGRectGetMaxY(_viewDetails.frame) + 20);
+}
+
+- (BOOL)loadImage:(NSString *)url fileName:(NSString *)filename ImageView:(UIImageView *)imageView
+{
+    if (!self.cache) {
+        self.cache = [DiskCache getInstance];
+    }
+    
+    if (self.cache) {
+        
+        UIImage *image = [self.cache getImage:filename];
+        
+        if (image) {
+            [imageView setImage:image];
+            return YES;
+        }
+    }
+    
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+    
+    NSURLRequest *request = [[NSURLRequest alloc] initWithURL:[[NSURL alloc] initWithString:[url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]]];
+    
+    AFHTTPRequestOperation *requestOperation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+    requestOperation.responseSerializer = [AFImageResponseSerializer serializer];
+    [requestOperation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        //NSLog(@"Response: %@", responseObject);
+        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+        
+        UIImage *image = responseObject;
+        
+        if (image) {
+            
+            [imageView setImage:image];
+            DiskCache *cache = [DiskCache getInstance];
+            [cache addImage:responseObject fileName:filename];
+        }
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        
+        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+        
+    }];
+    
+    [requestOperation start];
+    return YES;
 }
 
 @end

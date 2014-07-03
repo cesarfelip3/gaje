@@ -33,6 +33,8 @@
 
 @property (atomic, retain) NSString *url;
 @property (atomic, retain) NSString *thumbnail;
+@property (atomic, strong) NSString *thumbnailName;
+
 @property (atomic, retain) NSString *created;
 @property (atomic, retain) NSString *modified;
 

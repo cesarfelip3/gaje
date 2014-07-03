@@ -183,8 +183,8 @@
     if ([segue.identifier isEqualToString:@"showDetail"]) {
         DetailViewController *detailVC = segue.destinationViewController;
         
-        NSDictionary *item = self.items[currentIndex.row];
-        detailVC.item = item;
+        Image *photo = [self.imageArray objectAtIndex:currentIndex.row];
+        detailVC.photo = photo;
     }
 }
 
