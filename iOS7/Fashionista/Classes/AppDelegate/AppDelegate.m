@@ -445,6 +445,8 @@ sizeOfItemForViewController:(UIViewController *)viewController
     
     if (config.userIsLogin == 1) {
         
+        return;
+        
         [ADVThemeManager customizeAppAppearance];
         // Override point for customization after application launch.
         

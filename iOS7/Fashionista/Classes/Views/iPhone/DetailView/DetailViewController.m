@@ -137,6 +137,7 @@
 
 - (BOOL)loadImage:(NSString *)url fileName:(NSString *)filename ImageView:(UIImageView *)imageView
 {
+    
     if (!self.cache) {
         self.cache = [DiskCache getInstance];
     }
@@ -147,6 +148,16 @@
         
         if (image) {
             [imageView setImage:image];
+            
+            NSInteger width = 280;
+            NSInteger height = self.photo.height * width / self.photo.width;
+            
+            imageView.frame = CGRectMake(imageView.frame.origin.x, imageView.frame.origin.y, 280, height);
+            
+            //width = 300;
+            //height = self.photo.height * width / self.photo.width;
+            _imageBkg.frame = CGRectMake(_imageBkg.frame.origin.x, _imageBkg.frame.origin.y, 300, height + 25);
+            
             return YES;
         }
     }
@@ -166,6 +177,12 @@
         if (image) {
             
             [imageView setImage:image];
+            NSInteger width = 280;
+            NSInteger height = self.photo.height * width / self.photo.width;
+            
+            imageView.frame = CGRectMake(imageView.frame.origin.x, imageView.frame.origin.y, 280, height);
+            _imageBkg.frame = CGRectMake(_imageBkg.frame.origin.x, _imageBkg.frame.origin.y, 300, height + 25);
+            
             DiskCache *cache = [DiskCache getInstance];
             [cache addImage:responseObject fileName:filename];
         }

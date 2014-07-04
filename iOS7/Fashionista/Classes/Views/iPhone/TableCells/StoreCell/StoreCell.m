@@ -117,6 +117,9 @@
 
 - (BOOL)loadImage:(NSString *)url fileName:(NSString *)filename ImageView:(UIImageView *)imageView
 {
+    NSLog(@"url = %@", url);
+    NSLog(@"file = %@", filename);
+    
     if (!self.cache) {
         self.cache = [DiskCache getInstance];
     }

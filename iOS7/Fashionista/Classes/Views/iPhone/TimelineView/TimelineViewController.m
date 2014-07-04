@@ -13,7 +13,7 @@
 #import "DataSource.h"
 #import "AppDelegate.h"
 #import "Utils.h"
-#import "DetailViewController.h"
+#import "Detail2Controller.h"
 
 
 @interface TimelineViewController () {
@@ -172,7 +172,17 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     currentIndex = indexPath;
-    [self performSegueWithIdentifier:@"showDetail" sender:self];
+    
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil];
+    
+    Detail2Controller *detailVC = [storyboard instantiateViewControllerWithIdentifier:@"home_detail"];
+    
+    Image *photo = [self.imageArray objectAtIndex:currentIndex.row];
+    detailVC.photo = photo;
+    
+    [self.navigationController pushViewController:detailVC animated:YES];
+    
+    //[self performSegueWithIdentifier:@"showDetail" sender:self];
 }
 
 
@@ -181,7 +191,7 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"showDetail"]) {
-        DetailViewController *detailVC = segue.destinationViewController;
+        Detail2Controller *detailVC = segue.destinationViewController;
         
         Image *photo = [self.imageArray objectAtIndex:currentIndex.row];
         detailVC.photo = photo;

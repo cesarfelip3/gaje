@@ -239,6 +239,7 @@
 
 - (UIImage *)segmentedBackgroundForState:(UIControlState)state barMetrics:(UIBarMetrics)barMetrics;
 {
+    return nil;
     NSString *name = @"segmentedBackground";
     if (barMetrics == UIBarMetricsLandscapePhone) {
         name = [name stringByAppendingString:@"Landscape"];
@@ -253,6 +254,8 @@
 
 - (UIImage *)segmentedDividerForBarMetrics:(UIBarMetrics)barMetrics
 {
+    return nil;
+    
     NSString *name = @"segmentedDivider";
     if (barMetrics == UIBarMetricsLandscapePhone) {
         name = [name stringByAppendingString:@"Landscape"];

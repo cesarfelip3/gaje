@@ -324,6 +324,7 @@
 		CEBEBE7C192289E900A0057F /* upload.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEBEBE7B192289E900A0057F /* upload.storyboard */; };
 		CEBEBE8019228A7200A0057F /* UploadInitController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEBEBE7F19228A7200A0057F /* UploadInitController.m */; };
 		CEBEBE8319228A8A00A0057F /* UploadController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEBEBE8219228A8A00A0057F /* UploadController.m */; };
+		CEFF103B1966CE3000E84675 /* Detail2Controller.m in Sources */ = {isa = PBXBuildFile; fileRef = CEFF103A1966CE3000E84675 /* Detail2Controller.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -762,6 +763,8 @@
 		CEBEBE7F19228A7200A0057F /* UploadInitController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UploadInitController.m; sourceTree = "<group>"; };
 		CEBEBE8119228A8A00A0057F /* UploadController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UploadController.h; sourceTree = "<group>"; };
 		CEBEBE8219228A8A00A0057F /* UploadController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UploadController.m; sourceTree = "<group>"; };
+		CEFF10391966CE3000E84675 /* Detail2Controller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Detail2Controller.h; sourceTree = "<group>"; };
+		CEFF103A1966CE3000E84675 /* Detail2Controller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Detail2Controller.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -906,6 +909,8 @@
 			children = (
 				7F2A5AE11734FB3800551439 /* DetailViewController.h */,
 				7F2A5AE21734FB3800551439 /* DetailViewController.m */,
+				CEFF10391966CE3000E84675 /* Detail2Controller.h */,
+				CEFF103A1966CE3000E84675 /* Detail2Controller.m */,
 			);
 			name = DetailView;
 			path = ../DetailView;
@@ -2131,6 +2136,7 @@
 				7FA7DD9A17384D3000A50E20 /* RCSwitchOnOff.m in Sources */,
 				CE695FFD1906AAFF00D464E4 /* Image.m in Sources */,
 				7FA7DD9B17384D3000A50E20 /* PushNoAnim.m in Sources */,
+				CEFF103B1966CE3000E84675 /* Detail2Controller.m in Sources */,
 				CE6960381906ACB800D464E4 /* FMDatabaseAdditions.m in Sources */,
 				AA0E679917CBF19F00AA877F /* PSTGridLayoutItem.m in Sources */,
 				CE6960371906ACB800D464E4 /* FMDatabase.m in Sources */,
