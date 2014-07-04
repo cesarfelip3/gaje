@@ -325,6 +325,8 @@
 		CEBEBE8019228A7200A0057F /* UploadInitController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEBEBE7F19228A7200A0057F /* UploadInitController.m */; };
 		CEBEBE8319228A8A00A0057F /* UploadController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEBEBE8219228A8A00A0057F /* UploadController.m */; };
 		CEFF103B1966CE3000E84675 /* Detail2Controller.m in Sources */ = {isa = PBXBuildFile; fileRef = CEFF103A1966CE3000E84675 /* Detail2Controller.m */; };
+		CEFF10401966F95D00E84675 /* CommandCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CEFF103F1966F95D00E84675 /* CommandCell.m */; };
+		CEFF10431966F97200E84675 /* TabbarCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CEFF10421966F97200E84675 /* TabbarCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -765,6 +767,10 @@
 		CEBEBE8219228A8A00A0057F /* UploadController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UploadController.m; sourceTree = "<group>"; };
 		CEFF10391966CE3000E84675 /* Detail2Controller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Detail2Controller.h; sourceTree = "<group>"; };
 		CEFF103A1966CE3000E84675 /* Detail2Controller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Detail2Controller.m; sourceTree = "<group>"; };
+		CEFF103E1966F95D00E84675 /* CommandCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommandCell.h; sourceTree = "<group>"; };
+		CEFF103F1966F95D00E84675 /* CommandCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommandCell.m; sourceTree = "<group>"; };
+		CEFF10411966F97200E84675 /* TabbarCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabbarCell.h; sourceTree = "<group>"; };
+		CEFF10421966F97200E84675 /* TabbarCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabbarCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1018,6 +1024,7 @@
 		7F2A5D7B1736E1A000551439 /* TableCells */ = {
 			isa = PBXGroup;
 			children = (
+				CEFF103D1966F91200E84675 /* DetailCell */,
 				CEAABEB31913D8990035BA47 /* SettingCell */,
 				7F2A5D801736E1B300551439 /* AccountCell */,
 				7F2A5D7C1736E1A100551439 /* TimelineCell */,
@@ -1758,6 +1765,17 @@
 			path = Image;
 			sourceTree = "<group>";
 		};
+		CEFF103D1966F91200E84675 /* DetailCell */ = {
+			isa = PBXGroup;
+			children = (
+				CEFF103E1966F95D00E84675 /* CommandCell.h */,
+				CEFF103F1966F95D00E84675 /* CommandCell.m */,
+				CEFF10411966F97200E84675 /* TabbarCell.h */,
+				CEFF10421966F97200E84675 /* TabbarCell.m */,
+			);
+			path = DetailCell;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -2112,6 +2130,7 @@
 				AA0E679417CBF19F00AA877F /* PSTCollectionViewFlowLayout.m in Sources */,
 				7FA7DD7617384D3000A50E20 /* ADVProgressBar.m in Sources */,
 				7FA7DD7717384D3000A50E20 /* CustomTabBarViewController.m in Sources */,
+				CEFF10401966F95D00E84675 /* CommandCell.m in Sources */,
 				7FA7DD7917384D3000A50E20 /* NGTabBar.m in Sources */,
 				CE6960321906ACB800D464E4 /* AFSecurityPolicy.m in Sources */,
 				7FA7DD7A17384D3000A50E20 /* NGTabBarController.m in Sources */,
@@ -2121,6 +2140,7 @@
 				7FA7DD7D17384D3000A50E20 /* UIViewController+NGTabBarItem.m in Sources */,
 				7FA7DD7F17384D3000A50E20 /* FacingView.m in Sources */,
 				7FA7DD8017384D3000A50E20 /* FoldView.m in Sources */,
+				CEFF10431966F97200E84675 /* TabbarCell.m in Sources */,
 				7FA7DD8117384D3000A50E20 /* MultiFoldView.m in Sources */,
 				CE6960311906ACB800D464E4 /* AFNetworkReachabilityManager.m in Sources */,
 				7FA7DD8217384D3000A50E20 /* PaperFoldNavigationController.m in Sources */,

@@ -7,6 +7,8 @@
 //
 
 #import "Detail2Controller.h"
+#import "CommandCell.h"
+#import "TabbarCell.h"
 
 @interface Detail2Controller ()
 
@@ -41,9 +43,23 @@
     self.navigationItem.title = @"Details";
     [self.navigationController.navigationBar setOpaque:NO];
     
+    UIImageView *background = [[UIImageView alloc] init];
+    UIImage *image = [UIImage imageNamed:@"background"];
+    
+    background.image = image;
+    [self.tableView setBackgroundColor:[UIColor lightGrayColor]];
+    [self.tableView.tableHeaderView setBackgroundColor:[UIColor lightGrayColor]];
+    
     _imageBkg.image = [[UIImage imageNamed:@"background-content"] resizableImageWithCapInsets:UIEdgeInsetsMake(10, 10, 10, 10)];
     
     [self loadImage:self.photo.url fileName:self.photo.fileName ImageView:self.imageContent];
+    
+    NSInteger width = 280;
+    NSInteger height = self.photo.height * width / self.photo.width;
+    
+    self.imageContent.frame = CGRectMake(self.imageContent.frame.origin.x, self.imageContent.frame.origin.y, 280, height);
+    _imageBkg.frame = CGRectMake(_imageBkg.frame.origin.x, _imageBkg.frame.origin.y, 300, height + 25);
+    self.tableView.tableHeaderView.frame = CGRectMake(0, 0, 320, height + 35);
 }
 
 - (BOOL)loadImage:(NSString *)url fileName:(NSString *)filename ImageView:(UIImageView *)imageView
@@ -59,16 +75,6 @@
         
         if (image) {
             [imageView setImage:image];
-            
-            NSInteger width = 280;
-            NSInteger height = self.photo.height * width / self.photo.width;
-            
-            imageView.frame = CGRectMake(imageView.frame.origin.x, imageView.frame.origin.y, 280, height);
-            
-            //width = 300;
-            //height = self.photo.height * width / self.photo.width;
-            _imageBkg.frame = CGRectMake(_imageBkg.frame.origin.x, _imageBkg.frame.origin.y, 300, height + 25);
-            self.tableView.tableHeaderView.frame = _imageBkg.frame;
             
             return YES;
         }
@@ -89,12 +95,6 @@
         if (image) {
             
             [imageView setImage:image];
-            NSInteger width = 280;
-            NSInteger height = self.photo.height * width / self.photo.width;
-            
-            imageView.frame = CGRectMake(imageView.frame.origin.x, imageView.frame.origin.y, 280, height);
-            _imageBkg.frame = CGRectMake(_imageBkg.frame.origin.x, _imageBkg.frame.origin.y, 300, height + 25);
-            self.tableView.tableHeaderView.frame = _imageBkg.frame;
             
             DiskCache *cache = [DiskCache getInstance];
             [cache addImage:responseObject fileName:filename];
@@ -116,32 +116,56 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)onButtonBrandTouched:(id)sender
+{
+
+    NSLog(@"on button brand touched");
+}
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 0;
+    return 2;
 }
 
-/*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    NSString *identifierAuthor = @"cell_detail_author";
+    NSString *identifierTabbar = @"cell_detail_tabbar";
+    UITableViewCell *cell;
+    
+    if (indexPath.row == 0) {
+    
+        CommandCell *cell = [tableView dequeueReusableCellWithIdentifier:identifierAuthor forIndexPath:indexPath];
+        
+        [self loadImage:self.photo.usericon fileName:[NSString stringWithFormat:@"%@.jpg", self.photo.usertoken] ImageView:cell.thumbnail];
+        cell.username.text = self.photo.username;
+        [cell setBackgroundColor:[UIColor lightGrayColor]];
+        
+        [cell.buttonBrand addTarget:self action:@selector(onButtonBrandTouched:) forControlEvents:UIControlEventTouchDown];
+        
+        return cell;
+    }
+    
+    if (indexPath.row == 1) {
+        
+        TabbarCell* cell = [tableView dequeueReusableCellWithIdentifier:identifierTabbar forIndexPath:indexPath];
+        [cell setBackgroundColor:[UIColor lightGrayColor]];
+        return cell;
+    }
     
     // Configure the cell...
+
     
     return cell;
 }
-*/
+
 
 /*
 // Override to support conditional editing of the table view.
