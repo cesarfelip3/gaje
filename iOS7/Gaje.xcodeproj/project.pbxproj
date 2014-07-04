@@ -327,6 +327,7 @@
 		CEFF103B1966CE3000E84675 /* Detail2Controller.m in Sources */ = {isa = PBXBuildFile; fileRef = CEFF103A1966CE3000E84675 /* Detail2Controller.m */; };
 		CEFF10401966F95D00E84675 /* CommandCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CEFF103F1966F95D00E84675 /* CommandCell.m */; };
 		CEFF10431966F97200E84675 /* TabbarCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CEFF10421966F97200E84675 /* TabbarCell.m */; };
+		CEFF10461966FE0800E84675 /* CommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CEFF10451966FE0800E84675 /* CommentCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -771,6 +772,8 @@
 		CEFF103F1966F95D00E84675 /* CommandCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommandCell.m; sourceTree = "<group>"; };
 		CEFF10411966F97200E84675 /* TabbarCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabbarCell.h; sourceTree = "<group>"; };
 		CEFF10421966F97200E84675 /* TabbarCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabbarCell.m; sourceTree = "<group>"; };
+		CEFF10441966FE0800E84675 /* CommentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentCell.h; sourceTree = "<group>"; };
+		CEFF10451966FE0800E84675 /* CommentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1772,6 +1775,8 @@
 				CEFF103F1966F95D00E84675 /* CommandCell.m */,
 				CEFF10411966F97200E84675 /* TabbarCell.h */,
 				CEFF10421966F97200E84675 /* TabbarCell.m */,
+				CEFF10441966FE0800E84675 /* CommentCell.h */,
+				CEFF10451966FE0800E84675 /* CommentCell.m */,
 			);
 			path = DetailCell;
 			sourceTree = "<group>";
@@ -2134,6 +2139,7 @@
 				7FA7DD7917384D3000A50E20 /* NGTabBar.m in Sources */,
 				CE6960321906ACB800D464E4 /* AFSecurityPolicy.m in Sources */,
 				7FA7DD7A17384D3000A50E20 /* NGTabBarController.m in Sources */,
+				CEFF10461966FE0800E84675 /* CommentCell.m in Sources */,
 				AA0E679617CBF19F00AA877F /* PSTCollectionViewLayout.m in Sources */,
 				7FA7DD7B17384D3000A50E20 /* NGTabBarItem.m in Sources */,
 				7FA7DD7C17384D3000A50E20 /* UINavigationController+NGTabBarNavigationDelegate.m in Sources */,

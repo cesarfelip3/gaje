@@ -16,5 +16,6 @@
 @property (strong, nonatomic) IBOutlet UILabel *date;
 
 @property (strong, nonatomic) IBOutlet UIButton* buttonBrand;
+@property (strong, nonatomic) IBOutlet UIButton* buttonComment;
 
 @end

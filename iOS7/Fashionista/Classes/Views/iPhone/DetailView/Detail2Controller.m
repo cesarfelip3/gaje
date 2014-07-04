@@ -9,6 +9,7 @@
 #import "Detail2Controller.h"
 #import "CommandCell.h"
 #import "TabbarCell.h"
+#import "CommentCell.h"
 
 @interface Detail2Controller ()
 
@@ -120,7 +121,46 @@
 {
 
     NSLog(@"on button brand touched");
+    
+    UIButton *button = (UIButton*)sender;
+    
+    if (button.tag == 0) {
+        
+        // comment
+    }
+    
+    if (button.tag == 1) {
+        
+        // brand
+    }
 }
+
+//=============================
+// TextField Delegate
+//=============================
+
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
+{
+    
+    textField.text = @"";
+    return YES;
+}
+
+- (BOOL)textFieldShouldEndEditing:(UITextField *)textField
+{
+    
+    
+    return YES;
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    return YES;
+}
+//=============================
+//
+//=============================
 
 #pragma mark - Table view data source
 
@@ -131,13 +171,15 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 2;
+    return 3;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSString *identifierAuthor = @"cell_detail_author";
     NSString *identifierTabbar = @"cell_detail_tabbar";
+    NSString *identifierComment = @"cell_detail_comment";
+    
     UITableViewCell *cell;
     
     if (indexPath.row == 0) {
@@ -150,10 +192,25 @@
         
         [cell.buttonBrand addTarget:self action:@selector(onButtonBrandTouched:) forControlEvents:UIControlEventTouchDown];
         
+        [cell.buttonComment addTarget:self action:@selector(onButtonBrandTouched:) forControlEvents:UIControlEventTouchDown];
+        
         return cell;
     }
     
     if (indexPath.row == 1) {
+        
+        CommentCell* cell = [tableView dequeueReusableCellWithIdentifier:identifierComment forIndexPath:indexPath];
+        cell.textComment.text = @"drop a line";
+        cell.textComment.delegate = self;
+        
+        cell.textComment.textColor = [UIColor lightGrayColor];
+        [cell.textComment setTintColor:[UIColor lightGrayColor]];
+        
+        [cell setBackgroundColor:[UIColor lightGrayColor]];
+        return cell;
+    }
+    
+    if (indexPath.row == 2) {
         
         TabbarCell* cell = [tableView dequeueReusableCellWithIdentifier:identifierTabbar forIndexPath:indexPath];
         [cell setBackgroundColor:[UIColor lightGrayColor]];
