@@ -205,6 +205,7 @@
 
 - (BOOL)fetchCommentList:(NSMutableArray *)commentArray Token:(NSString *)token
 {
+    [commentArray removeAllObjects];
     
     _returnCode = 1;
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];

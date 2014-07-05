@@ -23,5 +23,8 @@
 @property (strong, nonatomic) Image *photo;
 
 @property (strong, atomic) NSMutableArray *commentArray;
+@property (strong, atomic) NSMutableArray *branderArray;
+
+@property (assign, atomic) NSInteger *currentTab;
 
 @end

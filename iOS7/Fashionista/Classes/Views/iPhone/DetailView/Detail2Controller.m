@@ -70,6 +70,13 @@
     self.commentArray = [[NSMutableArray alloc] init];
     self.photo.delegate = self;
     [self.photo fetchCommentList:self.commentArray Token:@""];
+    
+    self.currentTab = 0;
+    
+    //
+    
+    self.branderArray = [[NSMutableArray alloc] init];
+    
 }
 
 - (BOOL)loadImage:(NSString *)url fileName:(NSString *)filename ImageView:(UIImageView *)imageView
@@ -181,6 +188,18 @@
     NSDictionary *values = @{@"image_uuid":self.photo.imageUUID, @"content":textField.text, @"user_uuid":user.userUUID};
     [self.photo addComment:values Token:@""];
     
+    if (textField.text == nil || [[textField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] isEqualToString:@""]) {
+        return YES;
+    }
+    
+    Comment* comment = [[Comment alloc] init];
+    comment.content = textField.text;
+    comment.userUUID = [[User getInstance] userUUID];
+    //comment.usericon = @"";
+    
+    [self.commentArray addObject:comment];
+    [self.tableView reloadData];
+    
     return YES;
 }
 //=============================
@@ -196,12 +215,62 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 3 + [self.commentArray count];
+    if (self.currentTab == 0) {
+        return 3 + [self.commentArray count];
+    }
+    
+    return 3 + [self.branderArray count];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.row >= 3) {
+        
+        if (self.currentTab == 0) {
+            NSInteger count = [self.commentArray count];
+            NSInteger row = count - (indexPath.row - 3) - 1;
+            
+            Comment *comment = [self.commentArray objectAtIndex:row];
+            
+            //https://developer.apple.com/library/ios/documentation/uikit/reference/NSAttributedString_UIKit_Additions/Reference/Reference.html
+            //https://developer.apple.com/library/ios/documentation/uikit/reference/NSString_UIKit_Additions/Reference/Reference.html#//apple_ref/occ/instm/NSString/boundingRectWithSize:options:attributes:context:
+            
+#if false
+            UILabel *label = [[UILabel alloc] init];
+            label.frame = CGRectMake(59, 10, 249, 29);
+            label.lineBreakMode = NSLineBreakByWordWrapping;
+            label.numberOfLines = 0;
+            //cell.usericon.frame = CGRectMake(15, 10, 40, 30);
+            
+            [label setText:comment.content];
+            [label sizeThatFits:CGSizeMake(260, 40)];
+            [label sizeToFit];
+#endif
+            CommentItemCell *cell;
+            cell = [self.tableView dequeueReusableCellWithIdentifier:@"cell_detail_comment_item"];
+            [cell setBackgroundColor:[UIColor lightGrayColor]];
+            
+            cell.content.frame = CGRectMake(59, 10, 249, 40);
+            cell.content.lineBreakMode = NSLineBreakByWordWrapping;
+            cell.content.numberOfLines = 0;
+            //cell.usericon.frame = CGRectMake(15, 10, 40, 30);
+            
+            [cell.content setText:comment.content];
+            [cell.content sizeThatFits:CGSizeMake(260, 40)];
+            [cell.content sizeToFit];
+            cell.content.layer.borderColor = [UIColor greenColor].CGColor;
+            cell.content.layer.borderWidth = 1.0;
+            
+            CGFloat height = cell.content.frame.size.height + cell.content.frame.origin.y > 60 ? cell.content.frame.size.height + cell.content.frame.origin.y : 60;
+            
+            if (height > 60) {
+                return height + 10;
+            }
+            
+            return height;
+            
+            
+        }
         return 60;
     }
     
@@ -252,26 +321,33 @@
         return cell;
     }
     
-    CommentItemCell *cell;
-    cell = [tableView dequeueReusableCellWithIdentifier:@"cell_detail_comment_item" forIndexPath:indexPath];
-    [cell setBackgroundColor:[UIColor lightGrayColor]];
-    cell.content.lineBreakMode = NSLineBreakByWordWrapping;
-    cell.content.numberOfLines = 0;
-    //cell.usericon.frame = CGRectMake(15, 10, 40, 30);
+    if (self.currentTab == 0) {
     
-    NSInteger count = [self.commentArray count];
-    NSInteger row = count - (indexPath.row - 3) - 1;
+        CommentItemCell *cell;
+        cell = [tableView dequeueReusableCellWithIdentifier:@"cell_detail_comment_item" forIndexPath:indexPath];
+        [cell setBackgroundColor:[UIColor lightGrayColor]];
+        
+        cell.content.frame = CGRectMake(59, 10, 249, 40);
+        cell.content.lineBreakMode = NSLineBreakByWordWrapping;
+        cell.content.numberOfLines = 0;
+        //cell.usericon.frame = CGRectMake(15, 10, 40, 30);
+        
+        NSInteger count = [self.commentArray count];
+        NSInteger row = count - (indexPath.row - 3) - 1;
+        
+        Comment *comment = [self.commentArray objectAtIndex:row];
+        [cell.content setText:comment.content];
+        [cell.content sizeThatFits:CGSizeMake(260, 40)];
+        [cell.content sizeToFit];
+        
+        //cell.contentView.layer.borderWidth = 1;
+        //cell.contentView.layer.borderColor = [UIColor grayColor].CGColor;
+        
+        cell.usericon.image = nil;
+        [cell loadImage:comment.usericon fileName:comment.userUUID ImageView:cell.usericon];
+        return cell;
+    }
     
-    Comment *comment = [self.commentArray objectAtIndex:row];
-    [cell.content setText:comment.content];
-    [cell.content sizeToFit];
-    
-    //cell.contentView.layer.borderWidth = 1;
-    //cell.contentView.layer.borderColor = [UIColor grayColor].CGColor;
-    
-    
-    [cell loadImage:comment.usericon fileName:comment.userUUID ImageView:cell.usericon];
-    return cell;
 }
 
 
