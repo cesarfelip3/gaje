@@ -54,4 +54,7 @@
 - (BOOL)addComment:(NSDictionary *)values Token:(NSString*)token;
 - (BOOL)fetchCommentList:(NSMutableArray *)commentArray Token:(NSString *)token;
 
+- (BOOL)addBrander:(NSDictionary *)values Token:(NSString*)token;
+- (BOOL)fetchBranderList:(NSMutableArray *)branderArray Token:(NSString *)token;
+
 @end

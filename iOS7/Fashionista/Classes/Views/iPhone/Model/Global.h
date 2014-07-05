@@ -19,8 +19,10 @@
 #define API_USER_LOGIN          @"%@%@user/add"
 #define API_IMAGE_UPLOAD        @"%@%@image/upload"
 #define API_IMAGE_LATEST        @"%@%@image/latest"
-#define API_IMAGE_COMMENT       @"%@%@image/comment"
-#define API_IMAGE_COMMENT_LIST  @"%@%@image/get_comment"
+#define API_IMAGE_COMMENT_ADD   @"%@%@image/comment/add"
+#define API_IMAGE_COMMENT_LIST  @"%@%@image/comment/list"
+#define API_IMAGE_BRANDER_ADD   @"%@%@image/brander/add"
+#define API_IMAGE_BRANDER_LIST  @"%@%@image/brander/list"
 
 #define API_THEME_LIST      @"%@%@theme/list"
 

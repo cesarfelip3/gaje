@@ -10,6 +10,7 @@
 #import "User.h"
 #import "DiskCache.h"
 #import "Comment.h"
+#import "Brander.h"
 
 @implementation Image
 
@@ -158,6 +159,10 @@
     return YES;
 }
 
+//=================================
+// comment
+//=================================
+
 - (BOOL)addComment:(NSDictionary *)values Token:(NSString*)token
 {
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
@@ -165,7 +170,7 @@
     
     NSDictionary *parameters = values;
     
-    [manager POST:[NSString stringWithFormat:API_IMAGE_COMMENT, API_BASE_URL, API_BASE_VERSION] parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+    [manager POST:[NSString stringWithFormat:API_IMAGE_COMMENT_ADD, API_BASE_URL, API_BASE_VERSION] parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
         
         
     } success:^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -189,7 +194,7 @@
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         
-        //NSLog(@"Error: %@", error);
+        NSLog(@"Error: %@", error);
         self.returnCode = 1;
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
         
@@ -305,6 +310,154 @@
     
     return YES;
 }
+
+//==================================
+// brander
+//-=================================
+
+- (BOOL)addBrander:(NSDictionary *)values Token:(NSString*)token
+{
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    
+    NSDictionary *parameters = values;
+    
+    [manager POST:[NSString stringWithFormat:API_IMAGE_BRANDER_ADD, API_BASE_URL, API_BASE_VERSION] parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+        
+        
+    } success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        NSLog(@"Success: %@", responseObject);
+        
+        NSString *status = [responseObject objectForKey:@"status"];
+        
+        if ([status isEqualToString:@"success"]) {
+            
+            //self.uploadedImageId = [responseObject objectForKey:@"id"];
+            
+        }
+        
+        self.returnCode = 0;
+        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+        [self changeUploadStatus:@"1"];
+        
+        [(self.delegate) onCallback:0];
+        
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        
+        //NSLog(@"Error: %@", error);
+        NSLog(@"%@", [operation responseObject]);
+        
+        self.returnCode = 1;
+        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+        
+        self.errorMessage = @"Network failed";
+        
+        [(self.delegate) onCallback:0];
+        
+    }];
+    
+    return YES;
+    
+}
+
+- (BOOL)fetchBranderList:(NSMutableArray *)branderArray Token:(NSString *)token
+{
+    [branderArray removeAllObjects];
+    
+    _returnCode = 1;
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    
+    manager.requestSerializer = [AFHTTPRequestSerializer serializer];
+    [manager.requestSerializer setValue:token forHTTPHeaderField:@"X-AUTH-KEY"];
+    
+    
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+    
+    NSDictionary *parameters = @{@"image_uuid":self.imageUUID};
+    
+    [manager POST:[NSString stringWithFormat:API_IMAGE_BRANDER_LIST, API_BASE_URL, API_BASE_VERSION] parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+        
+        
+    } success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        NSString *status = [(NSDictionary *)responseObject objectForKey:@"status"];
+        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+        
+        NSLog(@"%@", responseObject);
+        
+        if ([status isEqualToString:@"success"]) {
+            
+            NSDictionary *data = [responseObject objectForKey:@"data"];
+            
+            @try {
+                
+                NSArray *resultArray = [data objectForKey:@"branders"];
+                
+                if ([resultArray count] <= 0) {
+                    
+                } else {
+                    
+                    for (NSDictionary *item in resultArray) {
+                        
+                        Brander *brander = [[Brander alloc] init];
+                        
+                        brander.userUUID = [item objectForKey:@"user_uuid"];
+                        brander.username = [item objectForKey:@"username"];
+                        brander.fullname = [item objectForKey:@"fullname"];
+                        brander.iconurl = [item objectForKey:@"facebook_icon"];
+                        brander.token = [item objectForKey:@"facebook_token"];
+                        
+                        [branderArray addObject:brander];
+                        
+                    }
+                    
+                }
+                
+                self.returnCode = 0;
+                self.errorMessage = @"";
+                
+            }
+            
+            @catch (NSException *e) {
+                
+                self.returnCode = 0;
+                self.errorMessage = @"";
+                
+            }
+            
+            self.delegate == nil || [self.delegate onCallback:0];
+            return;
+            
+        }
+        
+        self.returnCode = 1;
+        self.errorMessage = [responseObject objectForKey:@"message"];
+        self.delegate == nil || [(self.delegate) onCallback:0];
+        
+        return;
+        
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        
+        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+        _returnCode = 1;
+        NSLog(@"%@", error);
+        
+        self.errorMessage = @"Network failed";
+        
+        [self.delegate onCallback:0];
+        
+    }];
+    
+    
+    return YES;
+}
+
+//===================
+//
+//===================
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {

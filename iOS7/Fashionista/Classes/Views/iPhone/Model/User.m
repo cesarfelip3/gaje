@@ -144,7 +144,7 @@
     self.address = [self escape:self.address];
     self.postcode = [self escape:self.postcode];
     self.postcode = [self escape:self.phone];
-    self.profileIcon = [self escape:self.profileIcon];
+    self.icon = [self escape:self.icon];
     self.token = [self escape:self.token];
     self.phone = [self escape:self.phone];
     
@@ -175,11 +175,11 @@
     self.address = [self escape:self.address];
     self.postcode = [self escape:self.postcode];
     self.postcode = [self escape:self.phone];
-    self.profileIcon = [self escape:self.profileIcon];
+    self.icon = [self escape:self.icon];
     self.token = [self escape:self.token];
     self.phone = [self escape:self.phone];
     
-    [self.db executeUpdateWithFormat:@"UPDATE user SET username=%@, description=%@, fullname=%@, email=%@, city=%@, state=%@, country=%@, address=%@, zipcode＝%@, phone=%@, picture=%@, token=%@ WHERE user_id=%ld", self.username, self.description, self.fullname, self.email, self.city, self.state, self.country, self.address, self.postcode, self.phone, self.profileIcon, self.token, (long)(self.userId)];
+    [self.db executeUpdateWithFormat:@"UPDATE user SET username=%@, description=%@, fullname=%@, email=%@, city=%@, state=%@, country=%@, address=%@, zipcode＝%@, phone=%@, picture=%@, token=%@ WHERE user_id=%ld", self.username, self.description, self.fullname, self.email, self.city, self.state, self.country, self.address, self.postcode, self.phone, self.icon, self.token, (long)(self.userId)];
     
     return YES;
 }

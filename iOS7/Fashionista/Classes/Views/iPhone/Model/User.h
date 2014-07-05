@@ -31,8 +31,8 @@
 @property (atomic, retain) NSString *fullname;
 @property (atomic, retain) NSString *email;
 
-@property (atomic, retain) NSString *profileIcon;
-@property (atomic, retain) NSString *profileIconUrl;
+@property (atomic, retain) NSString *icon;
+@property (atomic, retain) NSString *iconurl;
 @property (atomic, retain) UIImage *imageIcon;
 
 @property (atomic, retain) NSString *city;

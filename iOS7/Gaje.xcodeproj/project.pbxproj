@@ -283,6 +283,8 @@
 		AA0E67B417CC45BF00AA877F /* navigationBackground-7@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AA0E67B217CC45BF00AA877F /* navigationBackground-7@2x.png */; };
 		CE54CFAC1967C49E005C1FFE /* Comment.m in Sources */ = {isa = PBXBuildFile; fileRef = CE54CFAB1967C49E005C1FFE /* Comment.m */; };
 		CE54CFB01967CCFD005C1FFE /* CommentItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CE54CFAF1967CCFD005C1FFE /* CommentItemCell.m */; };
+		CE54CFB3196807DA005C1FFE /* BranderItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CE54CFB2196807DA005C1FFE /* BranderItemCell.m */; };
+		CE54CFB619680CDA005C1FFE /* Brander.m in Sources */ = {isa = PBXBuildFile; fileRef = CE54CFB519680CDA005C1FFE /* Brander.m */; };
 		CE695FCD1906A76200D464E4 /* local.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = CE695FCC1906A76200D464E4 /* local.sqlite */; };
 		CE695FD21906A85200D464E4 /* LoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE695FD11906A85200D464E4 /* LoginController.m */; };
 		CE695FDA1906A91100D464E4 /* intro.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE695FD91906A91100D464E4 /* intro.storyboard */; };
@@ -698,6 +700,10 @@
 		CE54CFAB1967C49E005C1FFE /* Comment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Comment.m; sourceTree = "<group>"; };
 		CE54CFAE1967CCFD005C1FFE /* CommentItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentItemCell.h; sourceTree = "<group>"; };
 		CE54CFAF1967CCFD005C1FFE /* CommentItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentItemCell.m; sourceTree = "<group>"; };
+		CE54CFB1196807DA005C1FFE /* BranderItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BranderItemCell.h; sourceTree = "<group>"; };
+		CE54CFB2196807DA005C1FFE /* BranderItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BranderItemCell.m; sourceTree = "<group>"; };
+		CE54CFB419680CDA005C1FFE /* Brander.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Brander.h; sourceTree = "<group>"; };
+		CE54CFB519680CDA005C1FFE /* Brander.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Brander.m; sourceTree = "<group>"; };
 		CE695FCC1906A76200D464E4 /* local.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = local.sqlite; sourceTree = "<group>"; };
 		CE695FD01906A85200D464E4 /* LoginController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginController.h; sourceTree = "<group>"; };
 		CE695FD11906A85200D464E4 /* LoginController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginController.m; sourceTree = "<group>"; };
@@ -1702,6 +1708,8 @@
 				CE71A9691963EF0800ADB5B0 /* Theme.m */,
 				CE54CFAA1967C49E005C1FFE /* Comment.h */,
 				CE54CFAB1967C49E005C1FFE /* Comment.m */,
+				CE54CFB419680CDA005C1FFE /* Brander.h */,
+				CE54CFB519680CDA005C1FFE /* Brander.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1787,6 +1795,8 @@
 				CEFF10451966FE0800E84675 /* CommentCell.m */,
 				CE54CFAE1967CCFD005C1FFE /* CommentItemCell.h */,
 				CE54CFAF1967CCFD005C1FFE /* CommentItemCell.m */,
+				CE54CFB1196807DA005C1FFE /* BranderItemCell.h */,
+				CE54CFB2196807DA005C1FFE /* BranderItemCell.m */,
 			);
 			path = DetailCell;
 			sourceTree = "<group>";
@@ -2158,6 +2168,7 @@
 				7FA7DD7D17384D3000A50E20 /* UIViewController+NGTabBarItem.m in Sources */,
 				7FA7DD7F17384D3000A50E20 /* FacingView.m in Sources */,
 				7FA7DD8017384D3000A50E20 /* FoldView.m in Sources */,
+				CE54CFB3196807DA005C1FFE /* BranderItemCell.m in Sources */,
 				CEFF10431966F97200E84675 /* TabbarCell.m in Sources */,
 				7FA7DD8117384D3000A50E20 /* MultiFoldView.m in Sources */,
 				CE6960311906ACB800D464E4 /* AFNetworkReachabilityManager.m in Sources */,
@@ -2175,6 +2186,7 @@
 				CE695FFD1906AAFF00D464E4 /* Image.m in Sources */,
 				7FA7DD9B17384D3000A50E20 /* PushNoAnim.m in Sources */,
 				CEFF103B1966CE3000E84675 /* Detail2Controller.m in Sources */,
+				CE54CFB619680CDA005C1FFE /* Brander.m in Sources */,
 				CE6960381906ACB800D464E4 /* FMDatabaseAdditions.m in Sources */,
 				AA0E679917CBF19F00AA877F /* PSTGridLayoutItem.m in Sources */,
 				CE6960371906ACB800D464E4 /* FMDatabase.m in Sources */,

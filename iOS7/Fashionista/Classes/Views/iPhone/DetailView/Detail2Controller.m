@@ -12,6 +12,8 @@
 #import "CommentCell.h"
 #import "CommentItemCell.h"
 #import "Comment.h"
+#import "BranderItemCell.h"
+#import "Brander.h"
 
 @interface Detail2Controller ()
 
@@ -138,21 +140,43 @@
 
     NSLog(@"on button brand touched");
     
-    UIButton *button = (UIButton*)sender;
-    
-    if (button.tag == 0) {
+    //UIButton *button = (UIButton*)sender;
         
-        // comment
+    User* user = [User getInstance];
+    NSDictionary *values = @{@"image_uuid":self.photo.imageUUID, @"user_uuid":user.userUUID};
+    [self.photo addBrander:values Token:@""];
+
+}
+
+- (IBAction)onTabChanged:(id)sender
+{
+    
+    UISegmentedControl *tabbar = (UISegmentedControl *)sender;
+    NSLog(@"tab changed = %d", tabbar.selectedSegmentIndex);
+    
+    if (tabbar.selectedSegmentIndex == 1) {
+        
+        self.photo.delegateType = @"brander_list";
+        self.photo.delegate = self;
+        [self.photo fetchBranderList:self.branderArray Token:@""];
+        
+        
     }
     
-    if (button.tag == 1) {
-        
-        // brand
+    self.currentTab = tabbar.selectedSegmentIndex;
+    
+    if (self.currentTab == 0) {
+        [self.tableView reloadData];
     }
+    
 }
 
 - (BOOL)onCallback:(NSInteger)type
 {
+    
+    if ([self.branderArray count] > 0) {
+        [self.tableView reloadData];
+    }
     
     if ([self.commentArray count] > 0) {
         [self.tableView reloadData];
@@ -271,6 +295,7 @@
             
             
         }
+        
         return 60;
     }
     
@@ -318,6 +343,8 @@
         NSString* comment = [NSString stringWithFormat:@"Comment(%d)", [self.commentArray count]];
         [cell.tabbar setTitle:comment forSegmentAtIndex:0];
         
+        [cell.tabbar addTarget:self action:@selector(onTabChanged:) forControlEvents:UIControlEventValueChanged];
+        
         return cell;
     }
     
@@ -347,6 +374,19 @@
         [cell loadImage:comment.usericon fileName:comment.userUUID ImageView:cell.usericon];
         return cell;
     }
+    
+        
+    BranderItemCell *cell;
+    cell = [tableView dequeueReusableCellWithIdentifier:@"cell_detail_brander_item" forIndexPath:indexPath];
+    [cell setBackgroundColor:[UIColor lightGrayColor]];
+    
+    NSInteger count = [self.branderArray count];
+    NSInteger row = count - (indexPath.row - 3) - 1;
+    
+    Brander *brander = [self.branderArray objectAtIndex:row];
+    cell.username.text = brander.username;
+    
+    return cell;
     
 }
 
