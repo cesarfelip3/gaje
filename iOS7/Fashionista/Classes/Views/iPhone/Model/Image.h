@@ -50,6 +50,8 @@
 
 - (BOOL)fetchLatest:(NSMutableArray *)imageArray Token:(NSString *)token;
 - (BOOL)upload:(NSDictionary *)values ProgressBar:(UIProgressView *)progressBar;
-- (BOOL)updateInfo:(NSDictionary *)values;
+
+- (BOOL)addComment:(NSDictionary *)values Token:(NSString*)token;
+- (BOOL)fetchCommentList:(NSMutableArray *)commentArray Token:(NSString *)token;
 
 @end

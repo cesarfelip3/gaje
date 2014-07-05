@@ -9,6 +9,7 @@
 #import "Image.h"
 #import "User.h"
 #import "DiskCache.h"
+#import "Comment.h"
 
 @implementation Image
 
@@ -157,14 +158,14 @@
     return YES;
 }
 
-- (BOOL)updateInfo:(NSDictionary *)values
+- (BOOL)addComment:(NSDictionary *)values Token:(NSString*)token
 {
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     
     NSDictionary *parameters = values;
     
-    [manager POST:[NSString stringWithFormat:@"%@%d", API_IMAGE_UPDATE_INFO, self.imageId] parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+    [manager POST:[NSString stringWithFormat:API_IMAGE_COMMENT, API_BASE_URL, API_BASE_VERSION] parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
         
         
     } success:^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -200,6 +201,108 @@
     
     return YES;
 
+}
+
+- (BOOL)fetchCommentList:(NSMutableArray *)commentArray Token:(NSString *)token
+{
+    
+    _returnCode = 1;
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    
+    manager.requestSerializer = [AFHTTPRequestSerializer serializer];
+    [manager.requestSerializer setValue:token forHTTPHeaderField:@"X-AUTH-KEY"];
+   
+    
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+    
+    NSDictionary *parameters = @{@"image_uuid":self.imageUUID};
+    
+    [manager POST:[NSString stringWithFormat:API_IMAGE_COMMENT_LIST, API_BASE_URL, API_BASE_VERSION] parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+        
+        
+    } success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        NSString *status = [(NSDictionary *)responseObject objectForKey:@"status"];
+        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+        
+        NSLog(@"%@", responseObject);
+        
+        if ([status isEqualToString:@"success"]) {
+            
+            NSDictionary *data = [responseObject objectForKey:@"data"];
+            
+            @try {
+                
+                NSArray *resultArray = [data objectForKey:@"comments"];
+                
+                if ([resultArray count] <= 0) {
+                    
+                } else {
+                    
+                    for (NSDictionary *item in resultArray) {
+                        
+                        
+                        Comment *comment = [[Comment alloc] init];
+                        
+                        comment.content = [item objectForKey:@"content"];
+                        comment.userUUID = [item objectForKey:@"user_uuid"];
+                        comment.username = [item objectForKey:@"username"];
+                        comment.usericon = [item objectForKey:@"usericon"];
+                        
+                        NSInteger timestamp = [[item objectForKey:@"create_date"] integerValue];
+                        NSDate *date = [NSDate dateWithTimeIntervalSince1970:timestamp];
+                        
+                        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+                        
+                        formatter.timeZone = [NSTimeZone defaultTimeZone];
+                        formatter.dateStyle = NSDateFormatterLongStyle;
+                        
+                        comment.create = [formatter stringFromDate:date];
+                        
+                        [commentArray addObject:comment];
+                        
+                    }
+                    
+                }
+                
+                self.returnCode = 0;
+                self.errorMessage = @"";
+                
+            }
+            
+            @catch (NSException *e) {
+                
+                self.returnCode = 0;
+                self.errorMessage = @"";
+                
+            }
+            
+            self.delegate == nil || [self.delegate onCallback:0];
+            return;
+            
+        }
+        
+        self.returnCode = 1;
+        self.errorMessage = [responseObject objectForKey:@"message"];
+        self.delegate == nil || [(self.delegate) onCallback:0];
+        
+        return;
+        
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        
+        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+        _returnCode = 1;
+        NSLog(@"%@", error);
+        
+        self.errorMessage = @"Network failed";
+        
+        [self.delegate onCallback:0];
+        
+    }];
+    
+    
+    return YES;
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context

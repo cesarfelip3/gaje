@@ -281,6 +281,8 @@
 		AA0E67B017CC209900AA877F /* list-item-detail-split@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AA0E67AE17CC209900AA877F /* list-item-detail-split@2x.png */; };
 		AA0E67B317CC45BF00AA877F /* navigationBackground-7.png in Resources */ = {isa = PBXBuildFile; fileRef = AA0E67B117CC45BF00AA877F /* navigationBackground-7.png */; };
 		AA0E67B417CC45BF00AA877F /* navigationBackground-7@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AA0E67B217CC45BF00AA877F /* navigationBackground-7@2x.png */; };
+		CE54CFAC1967C49E005C1FFE /* Comment.m in Sources */ = {isa = PBXBuildFile; fileRef = CE54CFAB1967C49E005C1FFE /* Comment.m */; };
+		CE54CFB01967CCFD005C1FFE /* CommentItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CE54CFAF1967CCFD005C1FFE /* CommentItemCell.m */; };
 		CE695FCD1906A76200D464E4 /* local.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = CE695FCC1906A76200D464E4 /* local.sqlite */; };
 		CE695FD21906A85200D464E4 /* LoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE695FD11906A85200D464E4 /* LoginController.m */; };
 		CE695FDA1906A91100D464E4 /* intro.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE695FD91906A91100D464E4 /* intro.storyboard */; };
@@ -692,6 +694,10 @@
 		AA0E67AE17CC209900AA877F /* list-item-detail-split@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "list-item-detail-split@2x.png"; sourceTree = "<group>"; };
 		AA0E67B117CC45BF00AA877F /* navigationBackground-7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navigationBackground-7.png"; sourceTree = "<group>"; };
 		AA0E67B217CC45BF00AA877F /* navigationBackground-7@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navigationBackground-7@2x.png"; sourceTree = "<group>"; };
+		CE54CFAA1967C49E005C1FFE /* Comment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Comment.h; sourceTree = "<group>"; };
+		CE54CFAB1967C49E005C1FFE /* Comment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Comment.m; sourceTree = "<group>"; };
+		CE54CFAE1967CCFD005C1FFE /* CommentItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentItemCell.h; sourceTree = "<group>"; };
+		CE54CFAF1967CCFD005C1FFE /* CommentItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentItemCell.m; sourceTree = "<group>"; };
 		CE695FCC1906A76200D464E4 /* local.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = local.sqlite; sourceTree = "<group>"; };
 		CE695FD01906A85200D464E4 /* LoginController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginController.h; sourceTree = "<group>"; };
 		CE695FD11906A85200D464E4 /* LoginController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginController.m; sourceTree = "<group>"; };
@@ -1694,6 +1700,8 @@
 				CE69600E1906ABF200D464E4 /* NetworkCallbackDelegate.h */,
 				CE71A9681963EF0800ADB5B0 /* Theme.h */,
 				CE71A9691963EF0800ADB5B0 /* Theme.m */,
+				CE54CFAA1967C49E005C1FFE /* Comment.h */,
+				CE54CFAB1967C49E005C1FFE /* Comment.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1777,6 +1785,8 @@
 				CEFF10421966F97200E84675 /* TabbarCell.m */,
 				CEFF10441966FE0800E84675 /* CommentCell.h */,
 				CEFF10451966FE0800E84675 /* CommentCell.m */,
+				CE54CFAE1967CCFD005C1FFE /* CommentItemCell.h */,
+				CE54CFAF1967CCFD005C1FFE /* CommentItemCell.m */,
 			);
 			path = DetailCell;
 			sourceTree = "<group>";
@@ -2096,6 +2106,7 @@
 				7F2A5BF11734FB3800551439 /* main.m in Sources */,
 				7F2A5D361735024000551439 /* NGTestTabBarController.m in Sources */,
 				CEBEBE8319228A8A00A0057F /* UploadController.m in Sources */,
+				CE54CFB01967CCFD005C1FFE /* CommentItemCell.m in Sources */,
 				7F2A5D631736D2D300551439 /* AccountViewController.m in Sources */,
 				CE695FE31906A98A00D464E4 /* HelpController.m in Sources */,
 				CE69603B1906ACB800D464E4 /* FMResultSet.m in Sources */,
@@ -2133,6 +2144,7 @@
 				7FA7DD7417384D3000A50E20 /* ADVGalleryPlain.m in Sources */,
 				7FA7DD7517384D3000A50E20 /* ADVGalleryShadowed.m in Sources */,
 				AA0E679417CBF19F00AA877F /* PSTCollectionViewFlowLayout.m in Sources */,
+				CE54CFAC1967C49E005C1FFE /* Comment.m in Sources */,
 				7FA7DD7617384D3000A50E20 /* ADVProgressBar.m in Sources */,
 				7FA7DD7717384D3000A50E20 /* CustomTabBarViewController.m in Sources */,
 				CEFF10401966F95D00E84675 /* CommandCell.m in Sources */,

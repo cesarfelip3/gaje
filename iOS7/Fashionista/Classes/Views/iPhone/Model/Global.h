@@ -16,9 +16,12 @@
 
 #define FB_PROFILE_ICON     @"http://graph.facebook.com/%@/picture?type=large"
 
-#define API_USER_LOGIN      @"%@%@user/add"
-#define API_IMAGE_UPLOAD    @"%@%@image/upload"
-#define API_IMAGE_LATEST    @"%@%@image/latest"
+#define API_USER_LOGIN          @"%@%@user/add"
+#define API_IMAGE_UPLOAD        @"%@%@image/upload"
+#define API_IMAGE_LATEST        @"%@%@image/latest"
+#define API_IMAGE_COMMENT       @"%@%@image/comment"
+#define API_IMAGE_COMMENT_LIST  @"%@%@image/get_comment"
+
 #define API_THEME_LIST      @"%@%@theme/list"
 
 #define CONTACT_EMAIL       @"contact@gaje.com"

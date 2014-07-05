@@ -10,6 +10,8 @@
 #import "CommandCell.h"
 #import "TabbarCell.h"
 #import "CommentCell.h"
+#import "CommentItemCell.h"
+#import "Comment.h"
 
 @interface Detail2Controller ()
 
@@ -61,6 +63,13 @@
     self.imageContent.frame = CGRectMake(self.imageContent.frame.origin.x, self.imageContent.frame.origin.y, 280, height);
     _imageBkg.frame = CGRectMake(_imageBkg.frame.origin.x, _imageBkg.frame.origin.y, 300, height + 25);
     self.tableView.tableHeaderView.frame = CGRectMake(0, 0, 320, height + 35);
+    
+    
+    //
+    
+    self.commentArray = [[NSMutableArray alloc] init];
+    self.photo.delegate = self;
+    [self.photo fetchCommentList:self.commentArray Token:@""];
 }
 
 - (BOOL)loadImage:(NSString *)url fileName:(NSString *)filename ImageView:(UIImageView *)imageView
@@ -135,6 +144,16 @@
     }
 }
 
+- (BOOL)onCallback:(NSInteger)type
+{
+    
+    if ([self.commentArray count] > 0) {
+        [self.tableView reloadData];
+    }
+    
+    return YES;
+}
+
 //=============================
 // TextField Delegate
 //=============================
@@ -156,6 +175,12 @@
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
     [textField resignFirstResponder];
+    
+    User* user = [User getInstance];
+    
+    NSDictionary *values = @{@"image_uuid":self.photo.imageUUID, @"content":textField.text, @"user_uuid":user.userUUID};
+    [self.photo addComment:values Token:@""];
+    
     return YES;
 }
 //=============================
@@ -171,7 +196,16 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 3;
+    return 3 + [self.commentArray count];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.row >= 3) {
+        return 60;
+    }
+    
+    return 44;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -179,8 +213,6 @@
     NSString *identifierAuthor = @"cell_detail_author";
     NSString *identifierTabbar = @"cell_detail_tabbar";
     NSString *identifierComment = @"cell_detail_comment";
-    
-    UITableViewCell *cell;
     
     if (indexPath.row == 0) {
     
@@ -214,12 +246,31 @@
         
         TabbarCell* cell = [tableView dequeueReusableCellWithIdentifier:identifierTabbar forIndexPath:indexPath];
         [cell setBackgroundColor:[UIColor lightGrayColor]];
+        NSString* comment = [NSString stringWithFormat:@"Comment(%d)", [self.commentArray count]];
+        [cell.tabbar setTitle:comment forSegmentAtIndex:0];
+        
         return cell;
     }
     
-    // Configure the cell...
-
+    CommentItemCell *cell;
+    cell = [tableView dequeueReusableCellWithIdentifier:@"cell_detail_comment_item" forIndexPath:indexPath];
+    [cell setBackgroundColor:[UIColor lightGrayColor]];
+    cell.content.lineBreakMode = NSLineBreakByWordWrapping;
+    cell.content.numberOfLines = 0;
+    //cell.usericon.frame = CGRectMake(15, 10, 40, 30);
     
+    NSInteger count = [self.commentArray count];
+    NSInteger row = count - (indexPath.row - 3) - 1;
+    
+    Comment *comment = [self.commentArray objectAtIndex:row];
+    [cell.content setText:comment.content];
+    [cell.content sizeToFit];
+    
+    //cell.contentView.layer.borderWidth = 1;
+    //cell.contentView.layer.borderColor = [UIColor grayColor].CGColor;
+    
+    
+    [cell loadImage:comment.usericon fileName:comment.userUUID ImageView:cell.usericon];
     return cell;
 }
 

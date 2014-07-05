@@ -13,7 +13,7 @@
 #import "Global.h"
 #import "User.h"
 
-@interface Detail2Controller : UITableViewController <UITextFieldDelegate>
+@interface Detail2Controller : UITableViewController <UITextFieldDelegate, NetworkCallbackDelegate>
 
 
 @property (strong, nonatomic) IBOutlet UIImageView *imageBkg;
@@ -21,5 +21,7 @@
 
 @property (nonatomic, retain) DiskCache *cache;
 @property (strong, nonatomic) Image *photo;
+
+@property (strong, atomic) NSMutableArray *commentArray;
 
 @end
