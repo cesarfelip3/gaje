@@ -88,6 +88,34 @@
                     
                     image.usericon = [NSString stringWithFormat:FB_PROFILE_ICON, image.usertoken];
                     
+                    image.branderCount = [[item objectForKey:@"brander_count"] integerValue];
+                    
+                    NSArray *resultArray = [item objectForKey:@"branders"];
+                    
+                    if ([resultArray count] <= 0) {
+                        
+                    } else {
+                        
+                        image.branderArray = [[NSMutableArray alloc] init];
+                        
+                        
+                        for (NSDictionary *item2 in resultArray) {
+                            
+                            Brander *brander = [[Brander alloc] init];
+                            
+                            brander.userUUID = [item2 objectForKey:@"user_uuid"];
+                            brander.username = [item2 objectForKey:@"username"];
+                            brander.fullname = [item2 objectForKey:@"fullname"];
+                            brander.iconurl = [item2 objectForKey:@"facebook_icon"];
+                            brander.token = [item2 objectForKey:@"facebook_token"];
+                            
+                            
+                            [image.branderArray addObject:brander];
+                            
+                        }
+                        
+                    }
+                    
                     //NSLog(@"icon = %@", image.usericon);
                     [tempImageArray addObject:image];
                 }

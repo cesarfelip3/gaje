@@ -52,15 +52,19 @@
                  @"rows": @[
                             @{
                                 @"title": @"Board",
-                                @"image": @"menu-icon1"
+                                @"image": @"" //@"menu-icon1"
                                 },
                             @{
                                 @"title": @"Week Theme",
-                                @"image": @"menu-icon2"
+                                @"image": @"" //@"menu-icon2"
                                 },
                             @{
-                                @"title": @"Week Price",
-                                @"image": @"menu-icon3"
+                                @"title": @"Followers",
+                                @"image": @"" //@"menu-icon3"
+                                },
+                            @{
+                                @"title": @"Following",
+                                @"image": @"" //@"menu-icon3"
                                 },
                             ]
                  },
@@ -69,11 +73,11 @@
                  @"rows": @[
                          @{
                              @"title": @"Profile",
-                             @"image": @"menu-icon4"
+                             @"image": @"" //@"menu-icon4"
                              },
                          @{
                              @"title": @"Settings",
-                             @"image": @"menu-icon5"
+                             @"image": @"" //@"menu-icon5"
                              },
                          ]
                  }

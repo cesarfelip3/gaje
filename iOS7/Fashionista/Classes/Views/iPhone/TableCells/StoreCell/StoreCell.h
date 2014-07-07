@@ -26,6 +26,11 @@
 @property (strong, nonatomic) IBOutlet UILabel *lblValue;
 @property (strong, nonatomic) IBOutlet UIButton *btnFav;
 
+@property (strong) IBOutletCollection(UIImageView) NSMutableArray* brandViewCollection;
+@property (strong) NSMutableArray *brandArray;
+
+@property (strong, nonatomic) IBOutlet UIView *brandContainer;
+
 @property (weak, nonatomic) id<StoreCellDelegate> delegate;
 
 @property (nonatomic, retain) DiskCache *cache;

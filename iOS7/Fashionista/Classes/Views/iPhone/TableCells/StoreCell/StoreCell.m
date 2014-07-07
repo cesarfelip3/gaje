@@ -13,6 +13,8 @@
 #import "AFNetworking.h"
 #import "Global.h"
 #import "User.h"
+#import "Brander.h"
+
 @implementation StoreCell
 
 - (id)initWithFrame:(CGRect)frame {
@@ -99,6 +101,8 @@
     _lblValue.textColor = [UIColor colorWithRed:0.42f green:0.44f blue:0.47f alpha:1.00f];
     _lblValue.font = [UIFont fontWithName:@"Cabin-Bold" size:fontSize];
     
+    [_btnFav addTarget:self action:@selector(actionToggleFav:) forControlEvents:UIControlEventTouchDown];
+    
 #if false
     if ([DataSource itemIsFavorite:_data] < 0) {
         [_btnFav setImage:[UIImage imageNamed:@"list-item-love"] forState:UIControlStateNormal];
@@ -107,12 +111,79 @@
     }
 #endif
     
+    self.brandArray = [[NSMutableArray alloc] initWithCapacity:10];
+    
+    [self.brandViewCollection sortUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+        
+        UIView *v1 = (UIView *)obj1;
+        UIView *v2 = (UIView *)obj2;
+        
+        return v1.tag > v2.tag;
+    }];
+    
+    if (self.photo.branderCount > 0) {
+        [self.btnFav setTitle:[NSString stringWithFormat:@"%d Brands", self.photo.branderCount] forState:UIControlStateNormal];
+    } else {
+        [self.btnFav setTitle:@"Brands" forState:UIControlStateNormal];
+    }
+    
+    for (Brander *item in self.photo.branderArray) {
+        
+        UIImageView *imageView = [self getOneImageView];
+        
+        if (imageView == nil) {
+            
+        } else {
+            [self loadImage:item.iconurl fileName:[NSString stringWithFormat:@"%@.jpg", item.userUUID] ImageView:imageView];
+            break;
+        }
+    }
+    
+}
+
+- (UIImageView *)getOneImageView
+{
+    UIImageView *imageView = nil;
+    
+    for (UIImageView *item in self.brandViewCollection) {
+        
+        if (item.image == nil) {
+            
+            imageView = item;
+            break;
+        }
+        
+    }
+
+    return imageView;
 }
 
 - (IBAction)actionToggleFav:(id)sender {
+    
+    NSLog(@"brand clicked");
+    
+    // 280 / 10 = 28
+    
+    User *user = [User getInstance];
+    
+    for (UIImageView *item in self.brandViewCollection) {
+        
+        if (item.image == nil) {
+       
+            [self loadImage:user.iconurl fileName:[NSString stringWithFormat:@"%@.jpg", user.token] ImageView:item];
+            break;
+        }
+        
+    }
+    
+    NSDictionary *values = @{@"image_uuid":self.photo.imageUUID, @"user_uuid":user.userUUID};
+    [self.photo addBrander:values Token:@""];
+    
+#if false
     if ([_delegate respondsToSelector:@selector(cellDidToggleFavoriteState:forItem:)]) {
         [_delegate cellDidToggleFavoriteState:self forItem:_data];
     }
+#endif
 }
 
 - (BOOL)loadImage:(NSString *)url fileName:(NSString *)filename ImageView:(UIImageView *)imageView

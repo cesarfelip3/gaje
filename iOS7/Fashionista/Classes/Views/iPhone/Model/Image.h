@@ -46,6 +46,9 @@
 
 @property (atomic, retain) UIProgressView *progress;
 
+@property (atomic, assign) NSInteger branderCount;
+@property (atomic, strong) NSMutableArray *branderArray;
+
 // methods
 
 - (BOOL)fetchLatest:(NSMutableArray *)imageArray Token:(NSString *)token;

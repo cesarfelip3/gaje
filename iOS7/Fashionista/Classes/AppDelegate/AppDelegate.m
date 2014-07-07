@@ -289,7 +289,13 @@ sizeOfItemForViewController:(UIViewController *)viewController
                     controllerIdentifier = @"MapNav";
                     break;
                 case 2:
-                    controllerIdentifier = @"ElementsNav";
+                    controllerIdentifier = @"MapNav";
+                    break;
+                case 3:
+                    controllerIdentifier = @"MapNav";
+                    break;
+                case 4:
+                    controllerIdentifier = @"MapNav";
                     break;
                 default:
                     break;
