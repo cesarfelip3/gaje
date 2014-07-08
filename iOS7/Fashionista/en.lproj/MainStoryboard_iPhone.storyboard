@@ -70,61 +70,20 @@
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                                 </view>
+                                                <webView contentMode="scaleToFill" id="iel-aQ-Xq6">
+                                                    <rect key="frame" x="30" y="6" width="280" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                </webView>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="azB-JO-dVc">
                                                     <rect key="frame" x="0.0" y="0.0" width="320" height="240"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <color key="tintColor" red="0.71243223850000004" green="0.024239841849999999" blue="0.031970959649999998" alpha="1" colorSpace="calibratedRGB"/>
                                                 </imageView>
-                                                <view contentMode="scaleToFill" id="ulJ-uF-XXf">
-                                                    <rect key="frame" x="30" y="6" width="280" height="30"/>
-                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                                    <subviews>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="eF5-Ir-i2e">
-                                                            <rect key="frame" x="5" y="2" width="25" height="25"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        </imageView>
-                                                        <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="T62-ob-Uk4">
-                                                            <rect key="frame" x="33" y="2" width="25" height="25"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        </imageView>
-                                                        <imageView userInteractionEnabled="NO" tag="2" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="EV8-ZB-4kb">
-                                                            <rect key="frame" x="61" y="2" width="25" height="25"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        </imageView>
-                                                        <imageView userInteractionEnabled="NO" tag="3" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="q1E-tX-qb0">
-                                                            <rect key="frame" x="89" y="2" width="25" height="25"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        </imageView>
-                                                        <imageView userInteractionEnabled="NO" tag="4" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="IWS-xs-CNe">
-                                                            <rect key="frame" x="118" y="2" width="25" height="25"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        </imageView>
-                                                        <imageView userInteractionEnabled="NO" tag="5" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="vyX-29-R5k">
-                                                            <rect key="frame" x="147" y="2" width="25" height="25"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        </imageView>
-                                                        <imageView userInteractionEnabled="NO" tag="6" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="quf-hy-ecM">
-                                                            <rect key="frame" x="175" y="2" width="25" height="25"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        </imageView>
-                                                        <imageView userInteractionEnabled="NO" tag="7" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="2kf-gZ-mGG">
-                                                            <rect key="frame" x="203" y="2" width="25" height="25"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        </imageView>
-                                                        <imageView userInteractionEnabled="NO" tag="8" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="mqU-Hw-gIh">
-                                                            <rect key="frame" x="228" y="2" width="25" height="25"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        </imageView>
-                                                        <imageView userInteractionEnabled="NO" tag="9" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="SVy-Kk-BVw">
-                                                            <rect key="frame" x="250" y="2" width="25" height="25"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        </imageView>
-                                                    </subviews>
-                                                </view>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="brandContainer" destination="ulJ-uF-XXf" id="xLJ-72-pAC"/>
+                                            <outlet property="brandContainer" destination="iel-aQ-Xq6" id="p57-6n-p4a"/>
                                             <outlet property="btnFav" destination="C5o-A6-uMw" id="Do7-SD-jUf"/>
                                             <outlet property="imageVAvatar" destination="RY0-eG-Pct" id="oiz-9a-DOa"/>
                                             <outlet property="imageVBkg" destination="azB-JO-dVc" id="hzK-4y-HQV"/>
@@ -132,15 +91,6 @@
                                             <outlet property="imageVStage" destination="tXb-4O-ScK" id="M4j-s0-bfK"/>
                                             <outlet property="lblTitle" destination="1AN-dS-DsD" id="uaM-lW-qcZ"/>
                                             <outlet property="lblValue" destination="9Vi-gb-Ceg" id="e4q-JT-wwW"/>
-                                            <outletCollection property="brandViewCollection" destination="eF5-Ir-i2e" collectionClass="NSMutableArray" id="85z-2J-H6Z"/>
-                                            <outletCollection property="brandViewCollection" destination="T62-ob-Uk4" collectionClass="NSMutableArray" id="fpn-bd-bQx"/>
-                                            <outletCollection property="brandViewCollection" destination="EV8-ZB-4kb" collectionClass="NSMutableArray" id="K4d-fk-DaH"/>
-                                            <outletCollection property="brandViewCollection" destination="q1E-tX-qb0" collectionClass="NSMutableArray" id="aM2-Q1-rYy"/>
-                                            <outletCollection property="brandViewCollection" destination="IWS-xs-CNe" collectionClass="NSMutableArray" id="QHW-fY-r97"/>
-                                            <outletCollection property="brandViewCollection" destination="quf-hy-ecM" collectionClass="NSMutableArray" id="01B-qe-Z9h"/>
-                                            <outletCollection property="brandViewCollection" destination="2kf-gZ-mGG" collectionClass="NSMutableArray" id="EWt-Ca-rdQ"/>
-                                            <outletCollection property="brandViewCollection" destination="mqU-Hw-gIh" collectionClass="NSMutableArray" id="G6S-Rh-i9q"/>
-                                            <outletCollection property="brandViewCollection" destination="SVy-Kk-BVw" collectionClass="NSMutableArray" id="T9V-pb-acT"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

@@ -111,51 +111,29 @@
     }
 #endif
     
-    self.brandArray = [[NSMutableArray alloc] initWithCapacity:10];
+    NSString *html = @"<html><body style='padding:3;margin:0'><div style='padding:0;margin:0;margin-left:3px;height:30px;'>";
     
-    [self.brandViewCollection sortUsingComparator:^NSComparisonResult(id obj1, id obj2) {
-        
-        UIView *v1 = (UIView *)obj1;
-        UIView *v2 = (UIView *)obj2;
-        
-        return v1.tag > v2.tag;
-    }];
-    
-    if (self.photo.branderCount > 0) {
-        [self.btnFav setTitle:[NSString stringWithFormat:@"%d Brands", self.photo.branderCount] forState:UIControlStateNormal];
-    } else {
-        [self.btnFav setTitle:@"Brands" forState:UIControlStateNormal];
-    }
-    
+    NSInteger i = 0;
     for (Brander *item in self.photo.branderArray) {
         
-        UIImageView *imageView = [self getOneImageView];
-        
-        if (imageView == nil) {
-            
-        } else {
-            [self loadImage:item.iconurl fileName:[NSString stringWithFormat:@"%@.jpg", item.userUUID] ImageView:imageView];
+        html = [NSString stringWithFormat:@"%@<img src='%@' style='display:inline-block;width:20px;height:20px;margin-right:3px;border:1px solid #ccc;'/>", html, item.iconurl];
+        if (i++ >= 9) {
             break;
         }
     }
     
-}
-
-- (UIImageView *)getOneImageView
-{
-    UIImageView *imageView = nil;
+    html = [html stringByAppendingString:@"</div></body></html>"];
     
-    for (UIImageView *item in self.brandViewCollection) {
+    [self.brandContainer loadHTMLString:html baseURL:[NSURL URLWithString:@""]];
+    
+    if ([self.photo.branderArray count] > 0) {
         
-        if (item.image == nil) {
-            
-            imageView = item;
-            break;
-        }
+        [self.btnFav setTitle:[NSString stringWithFormat:@"%d Brands", self.photo.branderCount] forState:UIControlStateNormal];
+    } else {
         
+        [self.btnFav setTitle:[NSString stringWithFormat:@"%d Brands", self.photo.branderCount] forState:UIControlStateNormal];
     }
-
-    return imageView;
+    
 }
 
 - (IBAction)actionToggleFav:(id)sender {
@@ -166,15 +144,6 @@
     
     User *user = [User getInstance];
     
-    for (UIImageView *item in self.brandViewCollection) {
-        
-        if (item.image == nil) {
-       
-            [self loadImage:user.iconurl fileName:[NSString stringWithFormat:@"%@.jpg", user.token] ImageView:item];
-            break;
-        }
-        
-    }
     
     NSDictionary *values = @{@"image_uuid":self.photo.imageUUID, @"user_uuid":user.userUUID};
     [self.photo addBrander:values Token:@""];
