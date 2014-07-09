@@ -154,7 +154,7 @@
     
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil];
     
-    Detail2Controller *detailVC = [storyboard instantiateViewControllerWithIdentifier:@"home_detail"];
+    Detail2Controller *detailVC = [storyboard instantiateViewControllerWithIdentifier:@"home_detail2"];
     
     Image *photo = [self.imageArray objectAtIndex:currentIndex.row - 1];
     detailVC.photo = photo;

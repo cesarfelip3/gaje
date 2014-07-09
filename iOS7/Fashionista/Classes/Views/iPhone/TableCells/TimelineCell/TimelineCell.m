@@ -64,10 +64,9 @@
     
     self.imageVAvatar.image = [UIImage imageNamed:_data[@"person"][@"avatar"]];
     
-    NSString *name = [_data[@"name"] uppercaseString];
-    NSString *brand = _data[@"brand"];
+    NSString *name = self.photo.name;
+    NSString *text = [NSString stringWithFormat:@"%@", name];
     
-    NSString *text = [NSString stringWithFormat:@"%@ by %@", name, brand];
     // Create the attributes
     
     const CGFloat fontSize = 12;
@@ -93,7 +92,8 @@
     
     NSNumberFormatter *fmt = [[NSNumberFormatter alloc] init];
     fmt.numberStyle = NSNumberFormatterDecimalStyle;
-    _lblValue.text = [self getTimeAsString:_data[@"date"]];
+    
+    _lblValue.text = self.photo.modified;
     _lblValue.textColor = [UIColor colorWithRed:0.42f green:0.44f blue:0.47f alpha:1.00f];
     _lblValue.font = [UIFont fontWithName:@"Cabin-Bold" size:fontSize];
     
