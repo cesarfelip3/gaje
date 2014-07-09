@@ -8,6 +8,8 @@
 
 #import "User.h"
 #import "LoginController.h"
+#import "Image.h"
+#import "Brander.h"
 
 @implementation User
 
@@ -302,5 +304,159 @@
     return YES;
 }
 
+//============================
+//
+//============================
+
+- (BOOL)fetchImageList:(NSMutableArray *)imageArray Parameters:(NSDictionary *)values Token:(NSString *)token
+{
+    
+    NSMutableArray *tempImageArray = [[NSMutableArray alloc] init];
+    
+    _returnCode = 1;
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    
+    manager.requestSerializer = [AFHTTPRequestSerializer serializer];
+    [manager.requestSerializer setValue:token forHTTPHeaderField:@"X-AUTH-KEY"];
+    
+    
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+    
+    NSDictionary *parameters = values;
+    
+    [manager POST:[NSString stringWithFormat:API_USER_IMAGE_LIST, API_BASE_URL, API_BASE_VERSION] parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+        
+        
+    } success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        NSString *status = [(NSDictionary *)responseObject objectForKey:@"status"];
+        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+        
+        NSLog(@"%@", responseObject);
+        
+        if ([status isEqualToString:@"success"]) {
+            
+            NSDictionary *data = [responseObject objectForKey:@"data"];
+            
+            @try {
+                
+                NSArray *$imageArray = [data objectForKey:@"images"];
+                
+                for (NSDictionary *item in $imageArray) {
+                    
+                    Image *image = [[Image alloc] init];
+                    
+                    image.imageUUID = [item objectForKey:@"image_uuid"];
+                    image.name = [item objectForKey:@"name"];
+                    image.description = [item objectForKey:@"description"];
+                    
+                    image.width = [[item objectForKey:@"width"] integerValue];
+                    image.height = [[item objectForKey:@"height"] integerValue];
+                    
+                    NSInteger timestamp = [[item objectForKey:@"create_date"] integerValue];
+                    NSDate *date = [NSDate dateWithTimeIntervalSince1970:timestamp];
+                    
+                    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+                    
+                    formatter.timeZone = [NSTimeZone defaultTimeZone];
+                    formatter.dateStyle = NSDateFormatterLongStyle;
+                    
+                    image.created = [formatter stringFromDate:date];
+                    
+                    timestamp = [[item objectForKey:@"modified_date"] integerValue];
+                    date = [NSDate dateWithTimeIntervalSince1970:timestamp];
+                    
+                    image.modified = [formatter stringFromDate:date];
+                    image.fileName = [item objectForKey:@"file_name"];
+                    image.url = [NSString stringWithFormat:@"%@%@", URL_BASE_IMAGE, image.fileName];
+                    
+                    NSString *extension = [image.fileName pathExtension];
+                    
+                    image.thumbnail = [NSString stringWithFormat:@"%@%@", URL_BASE_IMAGE, [NSString stringWithFormat:@"%@_280x240.%@", image.fileName, extension]];
+                    image.thumbnailName = [NSString stringWithFormat:@"%@_280x240.%@", image.fileName, extension];
+                    
+                    image.userUUID = [item objectForKey:@"user_uuid"];
+                    image.username = [item objectForKey:@"username"];
+                    image.usertoken = [item objectForKey:@"user_token"];
+                    
+                    image.usericon = [NSString stringWithFormat:FB_PROFILE_ICON, image.usertoken];
+                    
+                    image.branderCount = [[item objectForKey:@"brander_count"] integerValue];
+                    
+                    NSArray *resultArray = [item objectForKey:@"branders"];
+                    
+                    if ([resultArray count] <= 0) {
+                        
+                    } else {
+                        
+                        image.branderArray = [[NSMutableArray alloc] init];
+                        
+                        
+                        for (NSDictionary *item2 in resultArray) {
+                            
+                            Brander *brander = [[Brander alloc] init];
+                            
+                            brander.userUUID = [item2 objectForKey:@"user_uuid"];
+                            brander.username = [item2 objectForKey:@"username"];
+                            brander.fullname = [item2 objectForKey:@"fullname"];
+                            brander.iconurl = [item2 objectForKey:@"facebook_icon"];
+                            brander.token = [item2 objectForKey:@"facebook_token"];
+                            
+                            
+                            [image.branderArray addObject:brander];
+                            
+                        }
+                        
+                    }
+                    
+                    //NSLog(@"icon = %@", image.usericon);
+                    [tempImageArray addObject:image];
+                }
+                
+                [imageArray removeAllObjects];
+                for (Image *image in tempImageArray) {
+                    [imageArray addObject:image];
+                }
+                
+                self.returnCode = 0;
+                self.errorMessage = @"";
+                
+            }
+            
+            @catch (NSException *e) {
+                
+                self.returnCode = 0;
+                self.errorMessage = @"";
+                
+            }
+            
+            [self.delegate onCallback:0];
+            return;
+            
+        }
+        
+        self.returnCode = 1;
+        self.errorMessage = [responseObject objectForKey:@"message"];
+        [(self.delegate) onCallback:0];
+        
+        return;
+        
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        
+        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+        _returnCode = 1;
+        NSLog(@"%@", [operation responseObject]);
+        //NSLog(@"%@", error);
+        
+        self.errorMessage = @"Network failed";
+        
+        [self.delegate onCallback:0];
+        
+    }];
+    
+    
+    return YES;
+}
 
 @end

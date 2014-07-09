@@ -112,7 +112,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OY8-rW-ccq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="849" y="209"/>
+            <point key="canvasLocation" x="1040" y="182"/>
         </scene>
         <!--Detail2 Controller-->
         <scene sceneID="Ca6-sw-aEo">
@@ -793,9 +793,6 @@
                         <nil key="title"/>
                         <barButtonItem key="backBarButtonItem" title="Back" id="bBZ-mp-6aS"/>
                     </navigationItem>
-                    <connections>
-                        <segue destination="lnP-L8-OhU" kind="push" identifier="showDetail" id="pRz-KN-arw"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lLT-PG-3IX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -992,7 +989,4 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
-    <inferredMetricsTieBreakers>
-        <segue reference="Pnq-db-iGO"/>
-    </inferredMetricsTieBreakers>
 </document>

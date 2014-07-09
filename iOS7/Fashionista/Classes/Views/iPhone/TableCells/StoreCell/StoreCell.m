@@ -111,6 +111,19 @@
     }
 #endif
     
+    
+    if ([self.photo.branderArray count] > 0) {
+        
+        [self.btnFav setTitle:[NSString stringWithFormat:@"%d Brands", self.photo.branderCount] forState:UIControlStateNormal];
+    } else {
+        
+        [self.btnFav setTitle:[NSString stringWithFormat:@"%d Brands", self.photo.branderCount] forState:UIControlStateNormal];
+    }
+    
+    if (self.brandContainer.pageLength > 0) {
+        return;
+    }
+    
     NSString *html = @"<html><body style='padding:3;margin:0'><div style='padding:0;margin:0;margin-left:3px;height:30px;'>";
     
     NSInteger i = 0;
@@ -125,14 +138,6 @@
     html = [html stringByAppendingString:@"</div></body></html>"];
     
     [self.brandContainer loadHTMLString:html baseURL:[NSURL URLWithString:@""]];
-    
-    if ([self.photo.branderArray count] > 0) {
-        
-        [self.btnFav setTitle:[NSString stringWithFormat:@"%d Brands", self.photo.branderCount] forState:UIControlStateNormal];
-    } else {
-        
-        [self.btnFav setTitle:[NSString stringWithFormat:@"%d Brands", self.photo.branderCount] forState:UIControlStateNormal];
-    }
     
 }
 

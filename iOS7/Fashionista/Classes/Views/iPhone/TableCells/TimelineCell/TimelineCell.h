@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Image.h"
 
+@class DiskCache;
+@class User;
 
 @protocol TimelineCellDelegate;
 
@@ -25,6 +28,9 @@
 @property (strong, nonatomic) IBOutlet UIButton *btnFav;
 
 @property (weak, nonatomic) id<TimelineCellDelegate> delegate;
+
+@property (nonatomic, retain) DiskCache *cache;
+@property (nonatomic, retain) Image *photo;
 
 - (IBAction)actionToggleFav:(id)sender;
 

@@ -7,10 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "NetworkCallbackDelegate.h"
 
 @class User;
 
-@interface AccountViewController : UITableViewController
+@interface AccountViewController : UITableViewController <NetworkCallbackDelegate>
 
+@property (strong, nonatomic) NSMutableArray *imageArray;
+
+- (BOOL)onCallback:(NSInteger)type;
 
 @end

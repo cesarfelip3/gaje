@@ -57,4 +57,6 @@
 
 - (BOOL)logout;
 
+- (BOOL)fetchImageList:(NSMutableArray *)imageArray Parameters:(NSDictionary *)values Token:(NSString *)token;
+
 @end

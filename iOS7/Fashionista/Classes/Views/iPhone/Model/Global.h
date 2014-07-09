@@ -17,6 +17,8 @@
 #define FB_PROFILE_ICON     @"http://graph.facebook.com/%@/picture?type=large"
 
 #define API_USER_LOGIN          @"%@%@user/add"
+#define API_USER_IMAGE_LIST     @"%@%@user/image/latest"
+
 #define API_IMAGE_UPLOAD        @"%@%@image/upload"
 #define API_IMAGE_LATEST        @"%@%@image/latest"
 #define API_IMAGE_COMMENT_ADD   @"%@%@image/comment/add"
