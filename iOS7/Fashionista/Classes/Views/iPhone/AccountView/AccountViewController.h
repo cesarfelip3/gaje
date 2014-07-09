@@ -13,6 +13,7 @@
 
 @interface AccountViewController : UITableViewController <NetworkCallbackDelegate>
 
+@property (atomic, retain) UIRefreshControl *refreshControl;
 @property (strong, nonatomic) NSMutableArray *imageArray;
 
 - (BOOL)onCallback:(NSInteger)type;

@@ -62,9 +62,25 @@
     self.photo = [[Image alloc] init];
     self.imageArray = [[NSMutableArray alloc] init];
     
+    self.refreshControl = [[UIRefreshControl alloc] init];
     
+    // Configure Refresh Control
+    [self.refreshControl addTarget:self action:@selector(onRefresh:) forControlEvents:UIControlEventValueChanged];
+    
+    [self.tableView addSubview:self.refreshControl];
 }
 
+- (IBAction)onRefresh:(id)sender
+{
+    self.photo.delegate = self;
+    
+    AppConfig *config = [AppConfig getInstance];
+    NSString *token = config.token;
+    
+    self.photo.delegateType = @"image.latest";
+    [self.photo fetchLatest:self.imageArray Token:token];
+
+}
 
 - (void)showMenu:(id)sender {
     [[AppDelegate sharedDelegate] togglePaperFold:sender];
@@ -106,6 +122,7 @@
 - (BOOL)onCallback:(NSInteger)type
 {
     NSLog(@"returned");
+    [self.refreshControl endRefreshing];
     [self.tableView reloadData];
     return YES;
 }

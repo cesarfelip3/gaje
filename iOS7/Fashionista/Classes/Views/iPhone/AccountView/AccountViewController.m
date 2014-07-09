@@ -74,6 +74,22 @@
     NSDictionary *values = @{@"user_uuid":user.userUUID};
     user.delegate = self;
     [user fetchImageList:self.imageArray Parameters:values Token:@""];
+    
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    
+    // Configure Refresh Control
+    [self.refreshControl addTarget:self action:@selector(onRefresh:) forControlEvents:UIControlEventValueChanged];
+    
+    [self.tableView addSubview:self.refreshControl];
+}
+
+- (IBAction)onRefresh:(id)sender
+{
+    User *user = [User getInstance];
+    NSDictionary *values = @{@"user_uuid":user.userUUID};
+    user.delegate = self;
+    [user fetchImageList:self.imageArray Parameters:values Token:@""];
+    
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -92,6 +108,7 @@
 - (BOOL)onCallback:(NSInteger)type
 {
     NSLog(@"returned");
+    [self.refreshControl endRefreshing];
     [self.tableView reloadData];
     return YES;
 }
