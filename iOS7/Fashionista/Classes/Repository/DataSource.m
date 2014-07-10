@@ -66,17 +66,8 @@
                                 @"title": @"Following",
                                 @"image": @"" //@"menu-icon3"
                                 },
-                            @{
-                                @"title": @"Profile",
-                                @"image": @"" //@"menu-icon4"
-                                },
-                            @{
-                                @"title": @"Settings",
-                                @"image": @"" //@"menu-icon5"
-                                },
                             ]
                  },
-             /*
              @{
                  @"title": @"",
                  @"rows": @[
@@ -89,7 +80,7 @@
                              @"image": @"" //@"menu-icon5"
                              },
                          ]
-                 }*/
+                 }
              ];
 }
 
