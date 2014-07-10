@@ -864,11 +864,11 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" tag="1" contentMode="center" id="Ahj-CD-iCv">
-                                                    <rect key="frame" x="10" y="12" width="30" height="20"/>
+                                                    <rect key="frame" x="10" y="12" width="16" height="20"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                                 <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" tag="2" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="gPR-QA-97l">
-                                                    <rect key="frame" x="48" y="0.0" width="178" height="43"/>
+                                                    <rect key="frame" x="20" y="0.0" width="178" height="43"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -890,7 +890,7 @@
                                     <outlet property="delegate" destination="ATK-E6-sfs" id="eCl-bJ-McZ"/>
                                 </connections>
                             </tableView>
-                            <searchBar contentMode="redraw" placeholder="Search" id="ETJ-LH-5mU">
+                            <searchBar hidden="YES" contentMode="redraw" placeholder="Search" id="ETJ-LH-5mU">
                                 <rect key="frame" x="0.0" y="0.0" width="260" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -901,7 +901,7 @@
                                 </scopeButtonTitles>
                             </searchBar>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="3g5-3u-Zl4"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
@@ -1007,7 +1007,7 @@
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="50Y-Ez-SgE">
                                             <rect key="frame" x="15" y="5" width="34" height="34"/>
-                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES"/>
                                             <color key="backgroundColor" red="0.1593709119" green="0.85642408290000005" blue="0.16688107160000001" alpha="1" colorSpace="calibratedRGB"/>
                                         </imageView>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ezA-wW-moo">
@@ -1043,8 +1043,8 @@
                                             <rect key="frame" x="10" y="7" width="300" height="29"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <segments>
-                                                <segment title="Comment (200)"/>
-                                                <segment title="Brand"/>
+                                                <segment title="line dropped"/>
+                                                <segment title="branded"/>
                                             </segments>
                                             <color key="tintColor" red="0.1409984993" green="0.44833275700000003" blue="0.53585682739999996" alpha="1" colorSpace="calibratedRGB"/>
                                         </segmentedControl>

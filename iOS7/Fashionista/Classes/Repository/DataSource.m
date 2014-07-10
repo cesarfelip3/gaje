@@ -48,7 +48,7 @@
 + (NSArray *)menu {
     return @[
              @{
-                 @"title": @"FAVOURITES",
+                 @"title": @"",
                  @"rows": @[
                             @{
                                 @"title": @"Board",
@@ -66,10 +66,19 @@
                                 @"title": @"Following",
                                 @"image": @"" //@"menu-icon3"
                                 },
+                            @{
+                                @"title": @"Profile",
+                                @"image": @"" //@"menu-icon4"
+                                },
+                            @{
+                                @"title": @"Settings",
+                                @"image": @"" //@"menu-icon5"
+                                },
                             ]
                  },
+             /*
              @{
-                 @"title": @"SETTINGS",
+                 @"title": @"",
                  @"rows": @[
                          @{
                              @"title": @"Profile",
@@ -80,7 +89,7 @@
                              @"image": @"" //@"menu-icon5"
                              },
                          ]
-                 }
+                 }*/
              ];
 }
 

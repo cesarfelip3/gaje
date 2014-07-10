@@ -52,8 +52,11 @@
     UIImage *image = [UIImage imageNamed:@"background"];
     
     background.image = image;
-    [self.tableView setBackgroundColor:[UIColor lightGrayColor]];
-    [self.tableView.tableHeaderView setBackgroundColor:[UIColor lightGrayColor]];
+    //[self.tableView setBackgroundColor:[UIColor lightGrayColor]];
+    //[self.tableView.tableHeaderView setBackgroundColor:[UIColor lightGrayColor]];
+    
+    [self.tableView setBackgroundColor:[UIColor colorWithRed:224/255.0 green:224/255.0 blue:225/255.0 alpha:0.8]];
+    [self.tableView.tableHeaderView setBackgroundColor:[UIColor colorWithRed:224/255.0 green:224/255.0 blue:225/255.0 alpha:0.8]];
     
     _imageBkg.image = [[UIImage imageNamed:@"background-content"] resizableImageWithCapInsets:UIEdgeInsetsMake(10, 10, 10, 10)];
     
@@ -259,20 +262,8 @@
             //https://developer.apple.com/library/ios/documentation/uikit/reference/NSAttributedString_UIKit_Additions/Reference/Reference.html
             //https://developer.apple.com/library/ios/documentation/uikit/reference/NSString_UIKit_Additions/Reference/Reference.html#//apple_ref/occ/instm/NSString/boundingRectWithSize:options:attributes:context:
             
-#if false
-            UILabel *label = [[UILabel alloc] init];
-            label.frame = CGRectMake(59, 10, 249, 29);
-            label.lineBreakMode = NSLineBreakByWordWrapping;
-            label.numberOfLines = 0;
-            //cell.usericon.frame = CGRectMake(15, 10, 40, 30);
-            
-            [label setText:comment.content];
-            [label sizeThatFits:CGSizeMake(260, 40)];
-            [label sizeToFit];
-#endif
             CommentItemCell *cell;
             cell = [self.tableView dequeueReusableCellWithIdentifier:@"cell_detail_comment_item"];
-            [cell setBackgroundColor:[UIColor lightGrayColor]];
             
             cell.content.frame = CGRectMake(59, 10, 249, 40);
             cell.content.lineBreakMode = NSLineBreakByWordWrapping;
@@ -282,8 +273,6 @@
             [cell.content setText:comment.content];
             [cell.content sizeThatFits:CGSizeMake(260, 40)];
             [cell.content sizeToFit];
-            cell.content.layer.borderColor = [UIColor greenColor].CGColor;
-            cell.content.layer.borderWidth = 1.0;
             
             CGFloat height = cell.content.frame.size.height + cell.content.frame.origin.y > 60 ? cell.content.frame.size.height + cell.content.frame.origin.y : 60;
             
@@ -314,7 +303,7 @@
         
         [self loadImage:self.photo.usericon fileName:[NSString stringWithFormat:@"%@.jpg", self.photo.usertoken] ImageView:cell.thumbnail];
         cell.username.text = self.photo.username;
-        [cell setBackgroundColor:[UIColor lightGrayColor]];
+        [cell setBackgroundColor:[UIColor colorWithRed:224/255.0 green:224/255.0 blue:225/255.0 alpha:0.8]];
         
         [cell.buttonBrand addTarget:self action:@selector(onButtonBrandTouched:) forControlEvents:UIControlEventTouchDown];
         
@@ -332,15 +321,15 @@
         cell.textComment.textColor = [UIColor lightGrayColor];
         [cell.textComment setTintColor:[UIColor lightGrayColor]];
         
-        [cell setBackgroundColor:[UIColor lightGrayColor]];
+        [cell setBackgroundColor:[UIColor colorWithRed:224/255.0 green:224/255.0 blue:225/255.0 alpha:0.8]];
         return cell;
     }
     
     if (indexPath.row == 2) {
         
         TabbarCell* cell = [tableView dequeueReusableCellWithIdentifier:identifierTabbar forIndexPath:indexPath];
-        [cell setBackgroundColor:[UIColor lightGrayColor]];
-        NSString* comment = [NSString stringWithFormat:@"Comment(%d)", [self.commentArray count]];
+        [cell setBackgroundColor:[UIColor colorWithRed:224/255.0 green:224/255.0 blue:225/255.0 alpha:0.8]];
+        NSString* comment = [NSString stringWithFormat:@"line dropped(%d)", [self.commentArray count]];
         [cell.tabbar setTitle:comment forSegmentAtIndex:0];
         
         [cell.tabbar addTarget:self action:@selector(onTabChanged:) forControlEvents:UIControlEventValueChanged];
@@ -352,7 +341,7 @@
     
         CommentItemCell *cell;
         cell = [tableView dequeueReusableCellWithIdentifier:@"cell_detail_comment_item" forIndexPath:indexPath];
-        [cell setBackgroundColor:[UIColor lightGrayColor]];
+        [cell setBackgroundColor:[UIColor colorWithRed:224/255.0 green:224/255.0 blue:225/255.0 alpha:0.8]];
         
         cell.content.frame = CGRectMake(59, 10, 249, 40);
         cell.content.lineBreakMode = NSLineBreakByWordWrapping;
@@ -378,7 +367,7 @@
         
     BranderItemCell *cell;
     cell = [tableView dequeueReusableCellWithIdentifier:@"cell_detail_brander_item" forIndexPath:indexPath];
-    [cell setBackgroundColor:[UIColor lightGrayColor]];
+    [cell setBackgroundColor:[UIColor colorWithRed:224/255.0 green:224/255.0 blue:225/255.0 alpha:0.8]];
     
     NSInteger count = [self.branderArray count];
     NSInteger row = count - (indexPath.row - 3) - 1;
