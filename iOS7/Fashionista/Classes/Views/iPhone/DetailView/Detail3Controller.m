@@ -244,9 +244,6 @@
     
     User* user = [User getInstance];
     
-    NSDictionary *values = @{@"image_uuid":self.photo.imageUUID, @"content":textField.text, @"user_uuid":user.userUUID};
-    [self.photo addComment:values Token:@""];
-    
     if (textField.text == nil || [[textField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] isEqualToString:@""]) {
         return YES;
     }
@@ -254,10 +251,13 @@
     Comment* comment = [[Comment alloc] init];
     comment.content = textField.text;
     comment.userUUID = [[User getInstance] userUUID];
-    //comment.usericon = @"";
+    comment.usericon = [NSString stringWithFormat:FB_PROFILE_ICON, user.token];
     
     [self.commentArray addObject:comment];
     [self.tableView reloadData];
+    
+    NSDictionary *values = @{@"image_uuid":self.photo.imageUUID, @"content":textField.text, @"user_uuid":user.userUUID};
+    [self.photo addComment:values Token:@""];
     
     return YES;
 }

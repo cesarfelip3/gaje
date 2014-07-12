@@ -19,4 +19,6 @@
 @property (strong, nonatomic) NSString *username;
 @property (strong, nonatomic) NSString *usericon;
 
+@property (strong, nonatomic) NSString *token;
+
 @end
