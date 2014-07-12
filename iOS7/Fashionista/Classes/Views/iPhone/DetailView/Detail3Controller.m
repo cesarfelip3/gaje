@@ -1,12 +1,13 @@
 //
-//  Detail2Controller.m
+//  Detail3Controller.m
 //  Gaje
 //
-//  Created by hello on 14-7-4.
+//  Created by hello on 14-7-12.
 //  Copyright (c) 2014年 AppDesignVault. All rights reserved.
 //
 
-#import "Detail2Controller.h"
+#import "Detail3Controller.h"
+
 #import "CommandCell.h"
 #import "TabbarCell.h"
 #import "CommentCell.h"
@@ -15,11 +16,11 @@
 #import "BranderItemCell.h"
 #import "Brander.h"
 
-@interface Detail2Controller ()
+@interface Detail3Controller ()
 
 @end
 
-@implementation Detail2Controller
+@implementation Detail3Controller
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -164,22 +165,22 @@
     
     User* user = [User getInstance];
     NSDictionary *values = @{@"user_followed_uuid":self.photo.userUUID, @"user_following_uuid":user.userUUID};
-   
+    
     [user addFollow:values Token:@""];
     
 }
 
 - (IBAction)onButtonBrandTouched:(id)sender
 {
-
+    
     NSLog(@"on button brand touched");
     
     //UIButton *button = (UIButton*)sender;
-        
+    
     User* user = [User getInstance];
     NSDictionary *values = @{@"image_uuid":self.photo.imageUUID, @"user_uuid":user.userUUID};
     [self.photo addBrander:values Token:@""];
-
+    
 }
 
 - (IBAction)onTabChanged:(id)sender
@@ -329,7 +330,7 @@
     NSString *identifierComment = @"cell_detail_comment";
     
     if (indexPath.row == 0) {
-    
+        
         CommandCell *cell = [tableView dequeueReusableCellWithIdentifier:identifierAuthor forIndexPath:indexPath];
         
         [self loadImage:self.photo.usericon fileName:[NSString stringWithFormat:@"%@.jpg", self.photo.usertoken] ImageView:cell.thumbnail];
@@ -385,7 +386,7 @@
     }
     
     if (self.currentTab == 0) {
-    
+        
         CommentItemCell *cell;
         cell = [tableView dequeueReusableCellWithIdentifier:@"cell_detail_comment_item" forIndexPath:indexPath];
         [cell setBackgroundColor:[UIColor colorWithRed:224/255.0 green:224/255.0 blue:225/255.0 alpha:0.8]];
@@ -411,7 +412,7 @@
         return cell;
     }
     
-        
+    
     BranderItemCell *cell;
     cell = [tableView dequeueReusableCellWithIdentifier:@"cell_detail_brander_item" forIndexPath:indexPath];
     [cell setBackgroundColor:[UIColor colorWithRed:224/255.0 green:224/255.0 blue:225/255.0 alpha:0.8]];
@@ -430,52 +431,52 @@
 
 
 /*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
+ // Override to support conditional editing of the table view.
+ - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+ {
+ // Return NO if you do not want the specified item to be editable.
+ return YES;
+ }
+ */
 
 /*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
+ // Override to support editing the table view.
+ - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+ {
+ if (editingStyle == UITableViewCellEditingStyleDelete) {
+ // Delete the row from the data source
+ [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+ } else if (editingStyle == UITableViewCellEditingStyleInsert) {
+ // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+ }
+ }
+ */
 
 /*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
+ // Override to support rearranging the table view.
+ - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
+ {
+ }
+ */
 
 /*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
+ // Override to support conditional rearranging of the table view.
+ - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
+ {
+ // Return NO if you do not want the item to be re-orderable.
+ return YES;
+ }
+ */
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+ {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end

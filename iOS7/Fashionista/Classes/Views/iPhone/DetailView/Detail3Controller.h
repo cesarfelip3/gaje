@@ -1,8 +1,8 @@
 //
-//  Detail2Controller.h
+//  Detail3Controller.h
 //  Gaje
 //
-//  Created by hello on 14-7-4.
+//  Created by hello on 14-7-12.
 //  Copyright (c) 2014年 AppDesignVault. All rights reserved.
 //
 
@@ -13,7 +13,7 @@
 #import "Global.h"
 #import "User.h"
 
-@interface Detail2Controller : UITableViewController <UITextFieldDelegate, NetworkCallbackDelegate>
+@interface Detail3Controller : UITableViewController <UITextFieldDelegate, NetworkCallbackDelegate>
 
 
 @property (strong, nonatomic) IBOutlet UIImageView *imageBkg;

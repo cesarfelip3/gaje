@@ -177,7 +177,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <view key="tableHeaderView" contentMode="scaleToFill" id="xo9-af-38O">
-                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="73"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="I1b-Jc-Ii0">
@@ -188,12 +188,16 @@
                                     <rect key="frame" x="20" y="10" width="280" height="138"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 </imageView>
+                                <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" id="Fnr-4a-qWE">
+                                    <rect key="frame" x="85" y="27" width="150" height="2"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                </progressView>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         </view>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell_detail_author" id="gzA-Ub-1rm" customClass="CommandCell">
-                                <rect key="frame" x="0.0" y="66" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="95" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gzA-Ub-1rm" id="ttd-eu-7Sn">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
@@ -235,7 +239,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell_detail_tabbar" id="Zr6-fX-Xe2" customClass="TabbarCell">
-                                <rect key="frame" x="0.0" y="110" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="139" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Zr6-fX-Xe2" id="v20-R7-9z4">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
@@ -257,7 +261,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell_detail_comment" id="HMt-Gf-s1u" customClass="CommentCell">
-                                <rect key="frame" x="0.0" y="154" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="183" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="HMt-Gf-s1u" id="drT-m0-9Ml">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
@@ -276,7 +280,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell_detail_comment_item" rowHeight="60" id="5jq-Ho-Y0S" customClass="CommentItemCell">
-                                <rect key="frame" x="0.0" y="198" width="320" height="60"/>
+                                <rect key="frame" x="0.0" y="227" width="320" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5jq-Ho-Y0S" id="aSx-hf-yIN">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="59"/>
@@ -300,7 +304,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell_detail_brander_item" rowHeight="60" id="VdD-cr-NwZ" customClass="BranderItemCell">
-                                <rect key="frame" x="0.0" y="258" width="320" height="60"/>
+                                <rect key="frame" x="0.0" y="287" width="320" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="VdD-cr-NwZ" id="Yv4-qP-LeB">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="59"/>
@@ -343,6 +347,7 @@
                     <connections>
                         <outlet property="imageBkg" destination="I1b-Jc-Ii0" id="Edc-MP-rVD"/>
                         <outlet property="imageContent" destination="mcL-lA-4CZ" id="nBJ-R6-2JL"/>
+                        <outlet property="progress" destination="Fnr-4a-qWE" id="QvM-bY-fuc"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fcS-Ji-jZl" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -897,7 +902,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HPo-nA-A48" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1449" y="2620"/>
+            <point key="canvasLocation" x="1266" y="3152"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="bIc-xj-reV">
@@ -929,10 +934,10 @@
             </objects>
             <point key="canvasLocation" x="503" y="1942"/>
         </scene>
-        <!--Detail2 Controller-->
+        <!--Detail3 Controller-->
         <scene sceneID="jbb-4H-wZj">
             <objects>
-                <tableViewController storyboardIdentifier="home_detail2" extendedLayoutIncludesOpaqueBars="YES" id="aBE-Ke-9EF" customClass="Detail2Controller" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="home_detail2" extendedLayoutIncludesOpaqueBars="YES" id="aBE-Ke-9EF" customClass="Detail3Controller" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Fex-vU-W98">
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

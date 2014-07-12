@@ -337,6 +337,7 @@
 		CEBABB3719712A670054710E /* FollowerProfileController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEBABB3619712A670054710E /* FollowerProfileController.m */; };
 		CEBABB3B19712D0C0054710E /* FollowerProfileItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CEBABB3A19712D0C0054710E /* FollowerProfileItemCell.m */; };
 		CEBABB3E1971361A0054710E /* FollowingProfileController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEBABB3D1971361A0054710E /* FollowingProfileController.m */; };
+		CEBABB41197161720054710E /* Detail3Controller.m in Sources */ = {isa = PBXBuildFile; fileRef = CEBABB40197161720054710E /* Detail3Controller.m */; };
 		CEBEBE7C192289E900A0057F /* upload.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEBEBE7B192289E900A0057F /* upload.storyboard */; };
 		CEBEBE8019228A7200A0057F /* UploadInitController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEBEBE7F19228A7200A0057F /* UploadInitController.m */; };
 		CEBEBE8319228A8A00A0057F /* UploadController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEBEBE8219228A8A00A0057F /* UploadController.m */; };
@@ -805,6 +806,8 @@
 		CEBABB3A19712D0C0054710E /* FollowerProfileItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FollowerProfileItemCell.m; sourceTree = "<group>"; };
 		CEBABB3C1971361A0054710E /* FollowingProfileController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FollowingProfileController.h; sourceTree = "<group>"; };
 		CEBABB3D1971361A0054710E /* FollowingProfileController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FollowingProfileController.m; sourceTree = "<group>"; };
+		CEBABB3F197161720054710E /* Detail3Controller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Detail3Controller.h; sourceTree = "<group>"; };
+		CEBABB40197161720054710E /* Detail3Controller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Detail3Controller.m; sourceTree = "<group>"; };
 		CEBEBE7B192289E900A0057F /* upload.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = upload.storyboard; sourceTree = "<group>"; };
 		CEBEBE7E19228A7200A0057F /* UploadInitController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UploadInitController.h; sourceTree = "<group>"; };
 		CEBEBE7F19228A7200A0057F /* UploadInitController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UploadInitController.m; sourceTree = "<group>"; };
@@ -968,6 +971,8 @@
 				7F2A5AE21734FB3800551439 /* DetailViewController.m */,
 				CEFF10391966CE3000E84675 /* Detail2Controller.h */,
 				CEFF103A1966CE3000E84675 /* Detail2Controller.m */,
+				CEBABB3F197161720054710E /* Detail3Controller.h */,
+				CEBABB40197161720054710E /* Detail3Controller.m */,
 			);
 			name = DetailView;
 			path = ../DetailView;
@@ -2259,6 +2264,7 @@
 				CEFF10431966F97200E84675 /* TabbarCell.m in Sources */,
 				7FA7DD8117384D3000A50E20 /* MultiFoldView.m in Sources */,
 				CE6960311906ACB800D464E4 /* AFNetworkReachabilityManager.m in Sources */,
+				CEBABB41197161720054710E /* Detail3Controller.m in Sources */,
 				7FA7DD8217384D3000A50E20 /* PaperFoldNavigationController.m in Sources */,
 				7FA7DD8417384D3000A50E20 /* PaperFoldSwipeHintView.m in Sources */,
 				CEBABB3719712A670054710E /* FollowerProfileController.m in Sources */,
