@@ -21,7 +21,9 @@ Develop
 4. follower 
 
     follower list ==> done
-    follower profile ==> ?
+    follower profile
+    
+        detail ==> ?
  
 5. following
 
