@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "FollowerItemCell.h"
 #import "UploadController.h"
+#import "FollowingProfileController.h"
 
 @interface FollowingController : UIViewController <UITableViewDataSource, UITableViewDelegate, NetworkCallbackDelegate>
 

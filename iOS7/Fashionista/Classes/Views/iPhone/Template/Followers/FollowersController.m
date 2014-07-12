@@ -179,6 +179,13 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     currentIndex = indexPath;
+    User *follower = [self.followerArray objectAtIndex:indexPath.row];
+    
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil];
+    
+    FollowerProfileController *vc = [storyboard instantiateViewControllerWithIdentifier:@"follower_profile"];
+    vc.user = follower;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 

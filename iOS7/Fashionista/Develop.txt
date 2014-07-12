@@ -7,6 +7,13 @@ Develop
 
     home image list
     detail
+        add comment
+        add brand
+        follow
+        
+        comment list
+        brand list ==> ?
+        
     upload image
     
 3. week theme == ?

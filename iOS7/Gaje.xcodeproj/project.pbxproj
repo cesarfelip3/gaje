@@ -334,6 +334,9 @@
 		CEB427C719252BBC0072B1D6 /* cancel-128.png in Resources */ = {isa = PBXBuildFile; fileRef = CEB427C619252BBC0072B1D6 /* cancel-128.png */; };
 		CEB427C919252EDE0072B1D6 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB427C819252EDE0072B1D6 /* AssetsLibrary.framework */; };
 		CEB427CB19252EFE0072B1D6 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB427CA19252EFE0072B1D6 /* MobileCoreServices.framework */; };
+		CEBABB3719712A670054710E /* FollowerProfileController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEBABB3619712A670054710E /* FollowerProfileController.m */; };
+		CEBABB3B19712D0C0054710E /* FollowerProfileItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CEBABB3A19712D0C0054710E /* FollowerProfileItemCell.m */; };
+		CEBABB3E1971361A0054710E /* FollowingProfileController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEBABB3D1971361A0054710E /* FollowingProfileController.m */; };
 		CEBEBE7C192289E900A0057F /* upload.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEBEBE7B192289E900A0057F /* upload.storyboard */; };
 		CEBEBE8019228A7200A0057F /* UploadInitController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEBEBE7F19228A7200A0057F /* UploadInitController.m */; };
 		CEBEBE8319228A8A00A0057F /* UploadController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEBEBE8219228A8A00A0057F /* UploadController.m */; };
@@ -796,6 +799,12 @@
 		CEB427C619252BBC0072B1D6 /* cancel-128.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cancel-128.png"; sourceTree = "<group>"; };
 		CEB427C819252EDE0072B1D6 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		CEB427CA19252EFE0072B1D6 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		CEBABB3519712A670054710E /* FollowerProfileController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FollowerProfileController.h; sourceTree = "<group>"; };
+		CEBABB3619712A670054710E /* FollowerProfileController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FollowerProfileController.m; sourceTree = "<group>"; };
+		CEBABB3919712D0C0054710E /* FollowerProfileItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FollowerProfileItemCell.h; sourceTree = "<group>"; };
+		CEBABB3A19712D0C0054710E /* FollowerProfileItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FollowerProfileItemCell.m; sourceTree = "<group>"; };
+		CEBABB3C1971361A0054710E /* FollowingProfileController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FollowingProfileController.h; sourceTree = "<group>"; };
+		CEBABB3D1971361A0054710E /* FollowingProfileController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FollowingProfileController.m; sourceTree = "<group>"; };
 		CEBEBE7B192289E900A0057F /* upload.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = upload.storyboard; sourceTree = "<group>"; };
 		CEBEBE7E19228A7200A0057F /* UploadInitController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UploadInitController.h; sourceTree = "<group>"; };
 		CEBEBE7F19228A7200A0057F /* UploadInitController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UploadInitController.m; sourceTree = "<group>"; };
@@ -1677,6 +1686,8 @@
 			children = (
 				CE247C851970F57200678543 /* FollowerItemCell.h */,
 				CE247C861970F57200678543 /* FollowerItemCell.m */,
+				CEBABB3919712D0C0054710E /* FollowerProfileItemCell.h */,
+				CEBABB3A19712D0C0054710E /* FollowerProfileItemCell.m */,
 			);
 			path = Follow;
 			sourceTree = "<group>";
@@ -1686,6 +1697,8 @@
 			children = (
 				CE31DC1419701C3B003DFC08 /* FollowersController.h */,
 				CE31DC1519701C3B003DFC08 /* FollowersController.m */,
+				CEBABB3519712A670054710E /* FollowerProfileController.h */,
+				CEBABB3619712A670054710E /* FollowerProfileController.m */,
 			);
 			path = Followers;
 			sourceTree = "<group>";
@@ -1697,6 +1710,8 @@
 				CE31DC1919701DCB003DFC08 /* FollowingController.m */,
 				CE31DC1B19701F89003DFC08 /* FollowInitController.h */,
 				CE31DC1C19701F89003DFC08 /* FollowInitController.m */,
+				CEBABB3C1971361A0054710E /* FollowingProfileController.h */,
+				CEBABB3D1971361A0054710E /* FollowingProfileController.m */,
 			);
 			path = Following;
 			sourceTree = "<group>";
@@ -2176,9 +2191,11 @@
 				7F2A5BE01734FB3800551439 /* DetailViewController.m in Sources */,
 				CE69603A1906ACB800D464E4 /* FMDatabaseQueue.m in Sources */,
 				CE247C831970EF6600678543 /* BrandListView.m in Sources */,
+				CEBABB3E1971361A0054710E /* FollowingProfileController.m in Sources */,
 				AA0E679017CBF19F00AA877F /* PSTCollectionView.m in Sources */,
 				7F2A5BE31734FB3800551439 /* ElementsViewController.m in Sources */,
 				AA0E679317CBF19F00AA877F /* PSTCollectionViewData.m in Sources */,
+				CEBABB3B19712D0C0054710E /* FollowerProfileItemCell.m in Sources */,
 				CE695FF71906AACC00D464E4 /* DiskCache.m in Sources */,
 				CE6960351906ACB800D464E4 /* AFURLResponseSerialization.m in Sources */,
 				7F2A5BF11734FB3800551439 /* main.m in Sources */,
@@ -2244,6 +2261,7 @@
 				CE6960311906ACB800D464E4 /* AFNetworkReachabilityManager.m in Sources */,
 				7FA7DD8217384D3000A50E20 /* PaperFoldNavigationController.m in Sources */,
 				7FA7DD8417384D3000A50E20 /* PaperFoldSwipeHintView.m in Sources */,
+				CEBABB3719712A670054710E /* FollowerProfileController.m in Sources */,
 				AA0E679B17CBF19F00AA877F /* PSTGridLayoutSection.m in Sources */,
 				CEBEBE8019228A7200A0057F /* UploadInitController.m in Sources */,
 				7FA7DD8517384D3000A50E20 /* PaperFoldView.m in Sources */,
