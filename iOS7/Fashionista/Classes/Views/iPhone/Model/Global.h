@@ -18,6 +18,8 @@
 
 #define API_USER_LOGIN          @"%@%@user/add"
 #define API_USER_IMAGE_LIST     @"%@%@user/image/latest"
+#define API_USER_FOLLOW         @"%@%@user/follow"
+#define API_USER_UNFOLLOW       @"%@%@user/unfollow"
 
 #define API_IMAGE_UPLOAD        @"%@%@image/upload"
 #define API_IMAGE_LATEST        @"%@%@image/latest"

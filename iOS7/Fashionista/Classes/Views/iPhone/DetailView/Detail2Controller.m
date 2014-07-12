@@ -138,6 +138,16 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)onButtonFollowTouched:(id)sender
+{
+    
+    NSLog(@"on button brand touched");
+    
+    //UIButton *button = (UIButton*)sender;
+    
+    
+}
+
 - (IBAction)onButtonBrandTouched:(id)sender
 {
 
@@ -307,7 +317,17 @@
         
         [cell.buttonBrand addTarget:self action:@selector(onButtonBrandTouched:) forControlEvents:UIControlEventTouchDown];
         
-        [cell.buttonComment addTarget:self action:@selector(onButtonBrandTouched:) forControlEvents:UIControlEventTouchDown];
+        User *user = [User getInstance];
+        
+        if ([user.userUUID isEqualToString:self.photo.userUUID]) {
+            
+            [cell.buttonFollow setHidden:YES];
+            
+        } else {
+            
+            [cell.buttonFollow setHidden:NO];
+            [cell.buttonFollow addTarget:self action:@selector(onButtonFollowTouched:) forControlEvents:UIControlEventTouchDown];
+        }
         
         return cell;
     }

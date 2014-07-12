@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "StoreCell.h"
+#import "BoardItemCell.h"
 
 @interface FavoritesViewController : UITableViewController <StoreCellDelegate>
 

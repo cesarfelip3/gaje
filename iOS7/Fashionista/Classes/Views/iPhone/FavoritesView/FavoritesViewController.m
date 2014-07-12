@@ -73,7 +73,7 @@
 
 #pragma mark - StoreCell delegate
 
-- (void)cellDidToggleFavoriteState:(StoreCell *)cell forItem:(NSDictionary *)item {
+- (void)cellDidToggleFavoriteState:(BoardItemCell *)cell forItem:(NSDictionary *)item {
     NSString* plistPath = nil;
     NSFileManager* manager = [NSFileManager defaultManager];
     if ((plistPath = [[[NSBundle mainBundle] bundlePath]

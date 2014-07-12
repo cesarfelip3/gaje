@@ -13,7 +13,7 @@
 #import "SSTextField.h"
 #import "AppDelegate.h"
 
-#import "StoreCell.h"
+#import "BoardItemCell.h"
 #import "DataSource.h"
 
 

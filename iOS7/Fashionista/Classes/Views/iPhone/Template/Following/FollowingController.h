@@ -1,16 +1,16 @@
 //
-//  MasterViewController.h
-//  PandoraUI-Orange
+//  FollowingController.h
+//  Gaje
 //
-//  Created by Valentin Filip on 10/23/12.
-//  Copyright (c) 2012 AppDesignVault. All rights reserved.
+//  Created by hello on 14-7-11.
+//  Copyright (c) 2014年 AppDesignVault. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
-#import "StoreCell.h"
+#import "BoardItemCell.h"
 #import "UploadController.h"
 
-@interface TimelineViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, StoreCellDelegate, NetworkCallbackDelegate>
+@interface FollowingController : UIViewController <UITableViewDataSource, UITableViewDelegate, StoreCellDelegate, NetworkCallbackDelegate>
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 

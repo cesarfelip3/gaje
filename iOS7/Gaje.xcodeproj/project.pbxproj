@@ -33,11 +33,11 @@
 		7F2A5D631736D2D300551439 /* AccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F2A5D621736D2D300551439 /* AccountViewController.m */; };
 		7F2A5D661736D46F00551439 /* Personal-Account.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7F2A5D641736D46F00551439 /* Personal-Account.plist */; };
 		7F2A5D671736D46F00551439 /* User-Account.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7F2A5D651736D46F00551439 /* User-Account.plist */; };
-		7F2A5D721736E16E00551439 /* TimelineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F2A5D711736E16E00551439 /* TimelineViewController.m */; };
+		7F2A5D721736E16E00551439 /* BoardController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F2A5D711736E16E00551439 /* BoardController.m */; };
 		7F2A5D791736E17500551439 /* FavoritesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F2A5D751736E17500551439 /* FavoritesViewController.m */; };
 		7F2A5D7F1736E1A100551439 /* TimelineCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F2A5D7E1736E1A100551439 /* TimelineCell.m */; };
 		7F2A5D831736E1B300551439 /* AccountCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F2A5D821736E1B300551439 /* AccountCell.m */; };
-		7F2A5D961736F04000551439 /* StoreCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F2A5D951736F04000551439 /* StoreCell.m */; };
+		7F2A5D961736F04000551439 /* BoardItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F2A5D951736F04000551439 /* BoardItemCell.m */; };
 		7F53DA5917396CDC0032E53D /* background@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F53D9A817396CDC0032E53D /* background@2x~ipad.png */; };
 		7F53DA5A17396CDC0032E53D /* background~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F53D9A917396CDC0032E53D /* background~ipad.png */; };
 		7F53DA5B17396CDC0032E53D /* collection-price-tag.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F53D9AA17396CDC0032E53D /* collection-price-tag.png */; };
@@ -281,6 +281,14 @@
 		AA0E67B017CC209900AA877F /* list-item-detail-split@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AA0E67AE17CC209900AA877F /* list-item-detail-split@2x.png */; };
 		AA0E67B317CC45BF00AA877F /* navigationBackground-7.png in Resources */ = {isa = PBXBuildFile; fileRef = AA0E67B117CC45BF00AA877F /* navigationBackground-7.png */; };
 		AA0E67B417CC45BF00AA877F /* navigationBackground-7@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AA0E67B217CC45BF00AA877F /* navigationBackground-7@2x.png */; };
+		CE247C831970EF6600678543 /* BrandListView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE247C821970EF6600678543 /* BrandListView.m */; };
+		CE31DC1619701C3B003DFC08 /* FollowersController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE31DC1519701C3B003DFC08 /* FollowersController.m */; };
+		CE31DC1A19701DCB003DFC08 /* FollowingController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE31DC1919701DCB003DFC08 /* FollowingController.m */; };
+		CE31DC1D19701F89003DFC08 /* FollowInitController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE31DC1C19701F89003DFC08 /* FollowInitController.m */; };
+		CE31DC1F1970330B003DFC08 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE31DC1E1970330B003DFC08 /* Icon@2x.png */; };
+		CE31DC2119703325003DFC08 /* Icon-Small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE31DC2019703325003DFC08 /* Icon-Small@2x.png */; };
+		CE31DC231970352C003DFC08 /* Icon-120.png in Resources */ = {isa = PBXBuildFile; fileRef = CE31DC221970352C003DFC08 /* Icon-120.png */; };
+		CE31DC25197035BB003DFC08 /* Icon-80.png in Resources */ = {isa = PBXBuildFile; fileRef = CE31DC24197035BB003DFC08 /* Icon-80.png */; };
 		CE54CFAC1967C49E005C1FFE /* Comment.m in Sources */ = {isa = PBXBuildFile; fileRef = CE54CFAB1967C49E005C1FFE /* Comment.m */; };
 		CE54CFB01967CCFD005C1FFE /* CommentItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CE54CFAF1967CCFD005C1FFE /* CommentItemCell.m */; };
 		CE54CFB3196807DA005C1FFE /* BranderItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CE54CFB2196807DA005C1FFE /* BranderItemCell.m */; };
@@ -382,16 +390,16 @@
 		7F2A5D621736D2D300551439 /* AccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountViewController.m; sourceTree = "<group>"; };
 		7F2A5D641736D46F00551439 /* Personal-Account.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Personal-Account.plist"; sourceTree = "<group>"; };
 		7F2A5D651736D46F00551439 /* User-Account.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "User-Account.plist"; sourceTree = "<group>"; };
-		7F2A5D701736E16E00551439 /* TimelineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimelineViewController.h; sourceTree = "<group>"; };
-		7F2A5D711736E16E00551439 /* TimelineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimelineViewController.m; sourceTree = "<group>"; };
+		7F2A5D701736E16E00551439 /* BoardController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoardController.h; sourceTree = "<group>"; };
+		7F2A5D711736E16E00551439 /* BoardController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoardController.m; sourceTree = "<group>"; };
 		7F2A5D741736E17500551439 /* FavoritesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoritesViewController.h; sourceTree = "<group>"; };
 		7F2A5D751736E17500551439 /* FavoritesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoritesViewController.m; sourceTree = "<group>"; };
 		7F2A5D7D1736E1A100551439 /* TimelineCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimelineCell.h; sourceTree = "<group>"; };
 		7F2A5D7E1736E1A100551439 /* TimelineCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimelineCell.m; sourceTree = "<group>"; };
 		7F2A5D811736E1B300551439 /* AccountCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountCell.h; sourceTree = "<group>"; };
 		7F2A5D821736E1B300551439 /* AccountCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountCell.m; sourceTree = "<group>"; };
-		7F2A5D941736F04000551439 /* StoreCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoreCell.h; sourceTree = "<group>"; };
-		7F2A5D951736F04000551439 /* StoreCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoreCell.m; sourceTree = "<group>"; };
+		7F2A5D941736F04000551439 /* BoardItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoardItemCell.h; sourceTree = "<group>"; };
+		7F2A5D951736F04000551439 /* BoardItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoardItemCell.m; sourceTree = "<group>"; };
 		7F53D9A817396CDC0032E53D /* background@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background@2x~ipad.png"; sourceTree = "<group>"; };
 		7F53D9A917396CDC0032E53D /* background~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background~ipad.png"; sourceTree = "<group>"; };
 		7F53D9AA17396CDC0032E53D /* collection-price-tag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "collection-price-tag.png"; sourceTree = "<group>"; };
@@ -696,6 +704,18 @@
 		AA0E67AE17CC209900AA877F /* list-item-detail-split@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "list-item-detail-split@2x.png"; sourceTree = "<group>"; };
 		AA0E67B117CC45BF00AA877F /* navigationBackground-7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navigationBackground-7.png"; sourceTree = "<group>"; };
 		AA0E67B217CC45BF00AA877F /* navigationBackground-7@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navigationBackground-7@2x.png"; sourceTree = "<group>"; };
+		CE247C811970EF6600678543 /* BrandListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrandListView.h; sourceTree = "<group>"; };
+		CE247C821970EF6600678543 /* BrandListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrandListView.m; sourceTree = "<group>"; };
+		CE31DC1419701C3B003DFC08 /* FollowersController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FollowersController.h; sourceTree = "<group>"; };
+		CE31DC1519701C3B003DFC08 /* FollowersController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FollowersController.m; sourceTree = "<group>"; };
+		CE31DC1819701DCB003DFC08 /* FollowingController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FollowingController.h; sourceTree = "<group>"; };
+		CE31DC1919701DCB003DFC08 /* FollowingController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FollowingController.m; sourceTree = "<group>"; };
+		CE31DC1B19701F89003DFC08 /* FollowInitController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FollowInitController.h; sourceTree = "<group>"; };
+		CE31DC1C19701F89003DFC08 /* FollowInitController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FollowInitController.m; sourceTree = "<group>"; };
+		CE31DC1E1970330B003DFC08 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
+		CE31DC2019703325003DFC08 /* Icon-Small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small@2x.png"; sourceTree = "<group>"; };
+		CE31DC221970352C003DFC08 /* Icon-120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-120.png"; sourceTree = "<group>"; };
+		CE31DC24197035BB003DFC08 /* Icon-80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-80.png"; sourceTree = "<group>"; };
 		CE54CFAA1967C49E005C1FFE /* Comment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Comment.h; sourceTree = "<group>"; };
 		CE54CFAB1967C49E005C1FFE /* Comment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Comment.m; sourceTree = "<group>"; };
 		CE54CFAE1967CCFD005C1FFE /* CommentItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentItemCell.h; sourceTree = "<group>"; };
@@ -816,6 +836,10 @@
 		7F2A5A501734FB3700551439 /* Fashionista */ = {
 			isa = PBXGroup;
 			children = (
+				CE31DC221970352C003DFC08 /* Icon-120.png */,
+				CE31DC24197035BB003DFC08 /* Icon-80.png */,
+				CE31DC2019703325003DFC08 /* Icon-Small@2x.png */,
+				CE31DC1E1970330B003DFC08 /* Icon@2x.png */,
 				7F2A5B0A1734FB3800551439 /* MainStoryboard_iPad.storyboard */,
 				7F2A5B0C1734FB3800551439 /* MainStoryboard_iPhone.storyboard */,
 				CE69604C1906AF6D00D464E4 /* Develop.txt */,
@@ -829,7 +853,6 @@
 		7F2A5A511734FB3700551439 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				AA0E67A117CC174800AA877F /* Utils */,
 				7F2A5A521734FB3700551439 /* AppDelegate */,
 				7FA7DCEA17384D2B00A50E20 /* Library */,
 				7F2A5ABF1734FB3800551439 /* Repository */,
@@ -881,6 +904,7 @@
 			children = (
 				7F2A5AC71734FB3800551439 /* ADVDefaultTheme.h */,
 				7F2A5AC81734FB3800551439 /* ADVDefaultTheme.m */,
+				AA0E67A117CC174800AA877F /* Utils */,
 			);
 			path = ADVDefaultTheme;
 			sourceTree = "<group>";
@@ -1016,13 +1040,13 @@
 			path = ../AccountView;
 			sourceTree = "<group>";
 		};
-		7F2A5D6F1736E16C00551439 /* TimelineView */ = {
+		7F2A5D6F1736E16C00551439 /* Board */ = {
 			isa = PBXGroup;
 			children = (
-				7F2A5D701736E16E00551439 /* TimelineViewController.h */,
-				7F2A5D711736E16E00551439 /* TimelineViewController.m */,
+				7F2A5D701736E16E00551439 /* BoardController.h */,
+				7F2A5D711736E16E00551439 /* BoardController.m */,
 			);
-			name = TimelineView;
+			name = Board;
 			path = ../TimelineView;
 			sourceTree = "<group>";
 		};
@@ -1039,11 +1063,11 @@
 		7F2A5D7B1736E1A000551439 /* TableCells */ = {
 			isa = PBXGroup;
 			children = (
-				CEFF103D1966F91200E84675 /* DetailCell */,
+				CEFF103D1966F91200E84675 /* Detail */,
 				CEAABEB31913D8990035BA47 /* SettingCell */,
 				7F2A5D801736E1B300551439 /* AccountCell */,
 				7F2A5D7C1736E1A100551439 /* TimelineCell */,
-				7F2A5D931736F03F00551439 /* StoreCell */,
+				7F2A5D931736F03F00551439 /* Board */,
 			);
 			name = TableCells;
 			path = ../TableCells;
@@ -1067,12 +1091,15 @@
 			path = AccountCell;
 			sourceTree = "<group>";
 		};
-		7F2A5D931736F03F00551439 /* StoreCell */ = {
+		7F2A5D931736F03F00551439 /* Board */ = {
 			isa = PBXGroup;
 			children = (
-				7F2A5D941736F04000551439 /* StoreCell.h */,
-				7F2A5D951736F04000551439 /* StoreCell.m */,
+				7F2A5D941736F04000551439 /* BoardItemCell.h */,
+				7F2A5D951736F04000551439 /* BoardItemCell.m */,
+				CE247C811970EF6600678543 /* BrandListView.h */,
+				CE247C821970EF6600678543 /* BrandListView.m */,
 			);
+			name = Board;
 			path = StoreCell;
 			sourceTree = "<group>";
 		};
@@ -1638,15 +1665,37 @@
 				AA0E67A317CC177A00AA877F /* Utils.m */,
 			);
 			name = Utils;
-			path = ..;
+			path = ../../..;
+			sourceTree = "<group>";
+		};
+		CE31DC1219701BF4003DFC08 /* Followers */ = {
+			isa = PBXGroup;
+			children = (
+				CE31DC1419701C3B003DFC08 /* FollowersController.h */,
+				CE31DC1519701C3B003DFC08 /* FollowersController.m */,
+			);
+			path = Followers;
+			sourceTree = "<group>";
+		};
+		CE31DC1719701DA6003DFC08 /* Following */ = {
+			isa = PBXGroup;
+			children = (
+				CE31DC1819701DCB003DFC08 /* FollowingController.h */,
+				CE31DC1919701DCB003DFC08 /* FollowingController.m */,
+				CE31DC1B19701F89003DFC08 /* FollowInitController.h */,
+				CE31DC1C19701F89003DFC08 /* FollowInitController.m */,
+			);
+			path = Following;
 			sourceTree = "<group>";
 		};
 		CE695FCE1906A7D100D464E4 /* Template */ = {
 			isa = PBXGroup;
 			children = (
+				CE31DC1719701DA6003DFC08 /* Following */,
+				CE31DC1219701BF4003DFC08 /* Followers */,
 				7FA7DCC81737A0F700A50E20 /* MenuView */,
 				7F2A5D331735024000551439 /* Tabbar */,
-				7F2A5D6F1736E16C00551439 /* TimelineView */,
+				7F2A5D6F1736E16C00551439 /* Board */,
 				7F2A5D731736E17400551439 /* FavoritesView */,
 				7F2A5AE01734FB3800551439 /* DetailView */,
 				7F2A5AE91734FB3800551439 /* Elements */,
@@ -1784,7 +1833,7 @@
 			path = Image;
 			sourceTree = "<group>";
 		};
-		CEFF103D1966F91200E84675 /* DetailCell */ = {
+		CEFF103D1966F91200E84675 /* Detail */ = {
 			isa = PBXGroup;
 			children = (
 				CEFF103E1966F95D00E84675 /* CommandCell.h */,
@@ -1798,6 +1847,7 @@
 				CE54CFB1196807DA005C1FFE /* BranderItemCell.h */,
 				CE54CFB2196807DA005C1FFE /* BranderItemCell.m */,
 			);
+			name = Detail;
 			path = DetailCell;
 			sourceTree = "<group>";
 		};
@@ -1880,6 +1930,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7F2A5BED1734FB3800551439 /* InfoPlist.strings in Resources */,
+				CE31DC1F1970330B003DFC08 /* Icon@2x.png in Resources */,
 				7F2A5BEE1734FB3800551439 /* MainStoryboard_iPad.storyboard in Resources */,
 				7F2A5BEF1734FB3800551439 /* MainStoryboard_iPhone.storyboard in Resources */,
 				7F2A5BF31734FB3800551439 /* Timeline.plist in Resources */,
@@ -1899,12 +1950,14 @@
 				7FA7DD8317384D3000A50E20 /* PaperFoldResources.bundle in Resources */,
 				7FA7DD8617384D3000A50E20 /* swipe_guide.psd in Resources */,
 				CE695FDA1906A91100D464E4 /* intro.storyboard in Resources */,
+				CE31DC2119703325003DFC08 /* Icon-Small@2x.png in Resources */,
 				7FA7DD8717384D3000A50E20 /* swipe_guide2.psd in Resources */,
 				7FA7DD9D17384D3000A50E20 /* readme.md in Resources */,
 				7FCDD1CB1738F9FF00C2EF15 /* Collections.plist in Resources */,
 				7F53DA5917396CDC0032E53D /* background@2x~ipad.png in Resources */,
 				7F53DA5A17396CDC0032E53D /* background~ipad.png in Resources */,
 				7F53DA5B17396CDC0032E53D /* collection-price-tag.png in Resources */,
+				CE31DC231970352C003DFC08 /* Icon-120.png in Resources */,
 				AA0E67AF17CC209900AA877F /* list-item-detail-split.png in Resources */,
 				7F53DA5C17396CDC0032E53D /* collection-price-tag@2x.png in Resources */,
 				7F53DA5D17396CDC0032E53D /* collection-prod1-image1.png in Resources */,
@@ -2045,6 +2098,7 @@
 				7F53DADD17396CDC0032E53D /* segmentedDivider.png in Resources */,
 				7F53DADE17396CDC0032E53D /* segmentedDivider@2x.png in Resources */,
 				7F53DADF17396CDC0032E53D /* sliderMaxTrack.png in Resources */,
+				CE31DC25197035BB003DFC08 /* Icon-80.png in Resources */,
 				7F53DAE017396CDC0032E53D /* sliderMaxTrack@2x.png in Resources */,
 				7F53DAE117396CDC0032E53D /* sliderMinTrack.png in Resources */,
 				7F53DAE217396CDC0032E53D /* sliderMinTrack@2x.png in Resources */,
@@ -2108,6 +2162,7 @@
 				7F2A5BD91734FB3800551439 /* ADVTheme.m in Sources */,
 				7F2A5BE01734FB3800551439 /* DetailViewController.m in Sources */,
 				CE69603A1906ACB800D464E4 /* FMDatabaseQueue.m in Sources */,
+				CE247C831970EF6600678543 /* BrandListView.m in Sources */,
 				AA0E679017CBF19F00AA877F /* PSTCollectionView.m in Sources */,
 				7F2A5BE31734FB3800551439 /* ElementsViewController.m in Sources */,
 				AA0E679317CBF19F00AA877F /* PSTCollectionViewData.m in Sources */,
@@ -2120,7 +2175,7 @@
 				7F2A5D631736D2D300551439 /* AccountViewController.m in Sources */,
 				CE695FE31906A98A00D464E4 /* HelpController.m in Sources */,
 				CE69603B1906ACB800D464E4 /* FMResultSet.m in Sources */,
-				7F2A5D721736E16E00551439 /* TimelineViewController.m in Sources */,
+				7F2A5D721736E16E00551439 /* BoardController.m in Sources */,
 				CEAABEB61913D8D30035BA47 /* SettingCell.m in Sources */,
 				AA0E678F17CBF19F00AA877F /* NSIndexPath+PSTCollectionViewAdditions.m in Sources */,
 				CE695FDD1906A92A00D464E4 /* InitController.m in Sources */,
@@ -2130,12 +2185,13 @@
 				7F2A5D831736E1B300551439 /* AccountCell.m in Sources */,
 				CE69602F1906ACB800D464E4 /* AFHTTPRequestOperationManager.m in Sources */,
 				AA0E679117CBF19F00AA877F /* PSTCollectionViewCell.m in Sources */,
-				7F2A5D961736F04000551439 /* StoreCell.m in Sources */,
+				7F2A5D961736F04000551439 /* BoardItemCell.m in Sources */,
 				CE71A96A1963EF0800ADB5B0 /* Theme.m in Sources */,
 				7FA7DCCB1737A0F700A50E20 /* MenuViewController.m in Sources */,
 				7FA7DCD61737B78300A50E20 /* NavigationSelectViewController.m in Sources */,
 				7FA7DCD71737B78300A50E20 /* SettingsViewController.m in Sources */,
 				CE6960331906ACB800D464E4 /* AFURLConnectionOperation.m in Sources */,
+				CE31DC1D19701F89003DFC08 /* FollowInitController.m in Sources */,
 				7FA7DD6C17384D3000A50E20 /* UIColor+Alpha.m in Sources */,
 				CE69602E1906ACB800D464E4 /* AFHTTPRequestOperation.m in Sources */,
 				AA0E679717CBF19F00AA877F /* PSTCollectionViewUpdateItem.m in Sources */,
@@ -2185,9 +2241,11 @@
 				7FA7DD9A17384D3000A50E20 /* RCSwitchOnOff.m in Sources */,
 				CE695FFD1906AAFF00D464E4 /* Image.m in Sources */,
 				7FA7DD9B17384D3000A50E20 /* PushNoAnim.m in Sources */,
+				CE31DC1A19701DCB003DFC08 /* FollowingController.m in Sources */,
 				CEFF103B1966CE3000E84675 /* Detail2Controller.m in Sources */,
 				CE54CFB619680CDA005C1FFE /* Brander.m in Sources */,
 				CE6960381906ACB800D464E4 /* FMDatabaseAdditions.m in Sources */,
+				CE31DC1619701C3B003DFC08 /* FollowersController.m in Sources */,
 				AA0E679917CBF19F00AA877F /* PSTGridLayoutItem.m in Sources */,
 				CE6960371906ACB800D464E4 /* FMDatabase.m in Sources */,
 				7FA7DD9E17384D3000A50E20 /* SMPageControl.m in Sources */,

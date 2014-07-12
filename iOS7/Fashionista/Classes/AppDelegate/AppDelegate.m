@@ -9,7 +9,7 @@
 
 #import "ADVTheme.h"
 
-#import "TimelineViewController.h"
+#import "BoardController.h"
 #import "NGTestTabBarController.h"
 #import "PaperFoldNavigationController.h"
 
@@ -197,7 +197,7 @@ static AppDelegate *sharedDelegate;
     if (!self.tabbarVC) {
         UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"MainStoryboard_iPhone"
                                                                  bundle: nil];
-        UINavigationController *navMag1 = [mainStoryboard instantiateViewControllerWithIdentifier:@"PropertiesNav"];
+        UINavigationController *navMag1 = [mainStoryboard instantiateViewControllerWithIdentifier:@"BoardNav"];
         UINavigationController *navMag2 = [mainStoryboard instantiateViewControllerWithIdentifier:@"MapNav"];
         UINavigationController *navMag3 = [mainStoryboard instantiateViewControllerWithIdentifier:@"ElementsNav"];
         UINavigationController *navMag4 = [mainStoryboard instantiateViewControllerWithIdentifier:@"AccountNav"];
@@ -255,7 +255,7 @@ sizeOfItemForViewController:(UIViewController *)viewController
         self.foldVC = [mainStoryboard instantiateViewControllerWithIdentifier:@"PaperFoldController"];
     }
     
-    UINavigationController *navMag1 = [mainStoryboard instantiateViewControllerWithIdentifier:@"PropertiesNav"];
+    UINavigationController *navMag1 = [mainStoryboard instantiateViewControllerWithIdentifier:@"BoardNav"];
     if (!_menuVC) {
         _menuVC = [mainStoryboard instantiateViewControllerWithIdentifier:@"SideViewController"];
         _menuVC.delegate = self;
@@ -283,16 +283,16 @@ sizeOfItemForViewController:(UIViewController *)viewController
         case 0:
             switch (indexPath.row) {
                 case 0:
-                    controllerIdentifier = @"PropertiesNav";
+                    controllerIdentifier = @"BoardNav";
                     break;
                 case 1:
                     controllerIdentifier = @"MapNav";
                     break;
                 case 2:
-                    controllerIdentifier = @"MapNav";
+                    controllerIdentifier = @"FollowersNav";
                     break;
                 case 3:
-                    controllerIdentifier = @"MapNav";
+                    controllerIdentifier = @"FollowingNav";
                     break;
                 case 4:
                     controllerIdentifier = @"MapNav";
@@ -464,7 +464,7 @@ sizeOfItemForViewController:(UIViewController *)viewController
             if (self.mainVC && self.window) {
                 UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"MainStoryboard_iPhone"
                                                                          bundle: nil];
-                UINavigationController *nav = [mainStoryboard instantiateViewControllerWithIdentifier:@"PropertiesNav"];
+                UINavigationController *nav = [mainStoryboard instantiateViewControllerWithIdentifier:@"BoardNav"];
                 [_foldVC setRootViewController:nav];
                 [_foldVC.paperFoldView setPaperFoldState:PaperFoldStateDefault animated:YES];
                 

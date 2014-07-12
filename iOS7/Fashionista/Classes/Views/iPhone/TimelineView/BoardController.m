@@ -6,7 +6,7 @@
 //  Copyright (c) 2012 AppDesignVault. All rights reserved.
 //
 
-#import "TimelineViewController.h"
+#import "BoardController.h"
 
 #import "ADVTheme.h"
 
@@ -16,7 +16,7 @@
 #import "Detail2Controller.h"
 
 
-@interface TimelineViewController () {
+@interface BoardController () {
     NSIndexPath *currentIndex;
 }
 
@@ -28,7 +28,7 @@
 
 
 
-@implementation TimelineViewController
+@implementation BoardController
 
 #pragma mark - View lifecycle
 
@@ -129,7 +129,7 @@
 
 #pragma mark - StoreCell delegate
 
-- (void)cellDidToggleFavoriteState:(StoreCell *)cell forItem:(NSDictionary *)item {
+- (void)cellDidToggleFavoriteState:(BoardItemCell *)cell forItem:(NSDictionary *)item {
     NSString* plistPath = nil;
     NSFileManager* manager = [NSFileManager defaultManager];
     if ((plistPath = [[[NSBundle mainBundle] bundlePath]
@@ -164,7 +164,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     NSString *CellIdentifier = @"StoreCell";
-    StoreCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    BoardItemCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     Image *$photo = [self.imageArray objectAtIndex:indexPath.row];
     

@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 AppDesignVault. All rights reserved.
 //
 
-#import "StoreCell.h"
+#import "BoardItemCell.h"
 
 #import "DataSource.h"
 #import "DiskCache.h"
@@ -15,7 +15,7 @@
 #import "User.h"
 #import "Brander.h"
 
-@implementation StoreCell
+@implementation BoardItemCell
 
 - (id)initWithFrame:(CGRect)frame {
     if ((self = [super initWithFrame:frame])) {
@@ -120,24 +120,11 @@
         [self.btnFav setTitle:[NSString stringWithFormat:@"%d Brands", self.photo.branderCount] forState:UIControlStateNormal];
     }
     
-    if (self.brandContainer.pageLength > 0) {
-        return;
-    }
     
-    NSString *html = @"<html><body style='padding:3;margin:0'><div style='padding:0;margin:0;margin-left:3px;height:30px;'>";
+    self.brandContainer.photo = self.photo;
+    [self.brandContainer loadBranderIcons];
     
-    NSInteger i = 0;
-    for (Brander *item in self.photo.branderArray) {
-        
-        html = [NSString stringWithFormat:@"%@<img src='%@' style='display:inline-block;width:20px;height:20px;margin-right:3px;border:1px solid #ccc;'/>", html, item.iconurl];
-        if (i++ >= 9) {
-            break;
-        }
-    }
-    
-    html = [html stringByAppendingString:@"</div></body></html>"];
-    
-    [self.brandContainer loadHTMLString:html baseURL:[NSURL URLWithString:@""]];
+    return;
     
 }
 

@@ -8,13 +8,14 @@
 
 #import <UIKit/UIKit.h>
 #import "Image.h"
+#import "BrandListView.h"
 
 @class DiskCache;
 @class User;
 @protocol StoreCellDelegate;
 
 
-@interface StoreCell : UITableViewCell
+@interface BoardItemCell : UITableViewCell
 
 @property (strong, nonatomic) NSDictionary *data;
 @property (strong, nonatomic) IBOutlet UIImageView *imageVBkg;
@@ -27,7 +28,7 @@
 @property (strong, nonatomic) IBOutlet UIButton *btnFav;
 
 @property (strong, nonatomic) NSMutableArray *brandArray;
-@property (strong) IBOutlet UIWebView *brandContainer;
+@property (strong) IBOutlet BrandListView *brandContainer;
 
 @property (weak, nonatomic) id<StoreCellDelegate> delegate;
 
@@ -39,12 +40,9 @@
 @end
 
 
-
-
-
 @protocol StoreCellDelegate <NSObject>
 
-- (void)cellDidToggleFavoriteState:(StoreCell *)cell forItem:(NSDictionary *)item;
+- (void)cellDidToggleFavoriteState:(BoardItemCell *)cell forItem:(NSDictionary *)item;
 
 @end
 
