@@ -26,7 +26,9 @@ Develop
 5. following
 
     following list ==> done
-    following profile ==> ?
+    following profile 
+    
+        detail ==> ?
 
 6. profile
 7. setting
