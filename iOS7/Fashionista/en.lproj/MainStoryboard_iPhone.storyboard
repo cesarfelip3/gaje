@@ -138,7 +138,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="brandContainer" destination="DL5-Vk-bKh" id="D8H-D9-Mi7"/>
-                                            <outlet property="btnFav" destination="C5o-A6-uMw" id="Do7-SD-jUf"/>
+                                            <outlet property="btnBrand" destination="C5o-A6-uMw" id="lTl-Tt-qQY"/>
                                             <outlet property="imageVAvatar" destination="RY0-eG-Pct" id="oiz-9a-DOa"/>
                                             <outlet property="imageVBkg" destination="azB-JO-dVc" id="hzK-4y-HQV"/>
                                             <outlet property="imageVImage" destination="cMo-E3-HTL" id="m4D-QS-Kg4"/>
@@ -463,7 +463,7 @@
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                     <connections>
-                                                        <action selector="actionToggleFav:" destination="tJ6-Gz-xam" eventType="touchUpInside" id="enn-t1-O8u"/>
+                                                        <action selector="onBrandButtonTouched:" destination="tJ6-Gz-xam" eventType="touchUpInside" id="rfK-Kj-ixD"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -476,7 +476,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="btnFav" destination="KOf-qg-7I0" id="7AG-UP-Bdd"/>
+                                    <outlet property="btnBrand" destination="KOf-qg-7I0" id="4JZ-XS-nsG"/>
                                     <outlet property="imageVAvatar" destination="cW0-JJ-WlS" id="rFQ-Xd-aKE"/>
                                     <outlet property="imageVBkg" destination="Y13-cS-Pun" id="oD4-Xr-3YM"/>
                                     <outlet property="imageVImage" destination="XTn-fz-4ku" id="nUZ-LJ-wvy"/>
@@ -1226,7 +1226,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="StoreCell" rowHeight="240" id="LXZ-gd-4Ys" customClass="BoardItemCell">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="StoreCell" rowHeight="240" id="LXZ-gd-4Ys" customClass="FollowerItemCell">
                                         <rect key="frame" x="0.0" y="86" width="320" height="240"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="LXZ-gd-4Ys" id="QFn-dw-wei">
@@ -1250,7 +1250,7 @@
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         </imageView>
                                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="5b8-aN-UZY">
-                                                            <rect key="frame" x="50" y="4" width="188" height="18"/>
+                                                            <rect key="frame" x="50" y="11" width="188" height="18"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -1263,7 +1263,7 @@
                                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         </label>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="mhG-sc-7M6">
+                                                        <button hidden="YES" opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="mhG-sc-7M6">
                                                             <rect key="frame" x="148" y="4" width="119" height="35"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -1278,11 +1278,6 @@
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                                 </view>
-                                                <webView contentMode="scaleToFill" id="iuC-jP-wrs">
-                                                    <rect key="frame" x="30" y="6" width="280" height="30"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                </webView>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="cbw-rH-jxe">
                                                     <rect key="frame" x="0.0" y="0.0" width="320" height="240"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1291,7 +1286,6 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="brandContainer" destination="iuC-jP-wrs" id="LgD-BT-hTc"/>
                                             <outlet property="btnFav" destination="mhG-sc-7M6" id="I3L-Wa-8BZ"/>
                                             <outlet property="imageVAvatar" destination="QL6-Zd-EMb" id="F2W-dP-WKG"/>
                                             <outlet property="imageVBkg" destination="cbw-rH-jxe" id="nWZ-9n-pLM"/>
@@ -1303,8 +1297,8 @@
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
-                                    <outlet property="dataSource" destination="QE5-Vy-n87" id="42m-ll-ctN"/>
-                                    <outlet property="delegate" destination="QE5-Vy-n87" id="xM6-ZV-Aqq"/>
+                                    <outlet property="dataSource" destination="QE5-Vy-n87" id="Rl7-Id-CUZ"/>
+                                    <outlet property="delegate" destination="QE5-Vy-n87" id="7N5-We-ldr"/>
                                 </connections>
                             </tableView>
                         </subviews>
@@ -1335,7 +1329,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="StoreCell" rowHeight="240" id="C3c-21-aKi" customClass="BoardItemCell">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="StoreCell" rowHeight="240" id="C3c-21-aKi" customClass="FollowerItemCell">
                                         <rect key="frame" x="0.0" y="86" width="320" height="240"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="C3c-21-aKi" id="tBb-ZL-EiW">
@@ -1359,7 +1353,7 @@
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         </imageView>
                                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="suQ-Uv-qdC">
-                                                            <rect key="frame" x="50" y="4" width="188" height="18"/>
+                                                            <rect key="frame" x="50" y="12" width="188" height="18"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -1372,7 +1366,7 @@
                                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         </label>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="COc-w0-0gz">
+                                                        <button hidden="YES" opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="COc-w0-0gz">
                                                             <rect key="frame" x="148" y="4" width="119" height="35"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -1387,11 +1381,6 @@
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                                 </view>
-                                                <webView contentMode="scaleToFill" id="Ov3-0m-1GX">
-                                                    <rect key="frame" x="30" y="6" width="280" height="30"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                </webView>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="Gh8-VJ-eQB">
                                                     <rect key="frame" x="0.0" y="0.0" width="320" height="240"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1400,8 +1389,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="brandContainer" destination="Ov3-0m-1GX" id="0dM-kA-BGL"/>
-                                            <outlet property="btnFav" destination="COc-w0-0gz" id="mmB-jc-qky"/>
+                                            <outlet property="btnFav" destination="COc-w0-0gz" id="wpj-mn-dpm"/>
                                             <outlet property="imageVAvatar" destination="K8J-cr-wTd" id="3lS-ce-VxQ"/>
                                             <outlet property="imageVBkg" destination="Gh8-VJ-eQB" id="j2z-P6-qH7"/>
                                             <outlet property="imageVImage" destination="109-lU-gGI" id="g4s-U0-Tyy"/>

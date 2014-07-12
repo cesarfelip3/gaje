@@ -370,10 +370,8 @@
                     image.fileName = [item objectForKey:@"file_name"];
                     image.url = [NSString stringWithFormat:@"%@%@", URL_BASE_IMAGE, image.fileName];
                     
-                    NSString *extension = [image.fileName pathExtension];
-                    
-                    image.thumbnail = [NSString stringWithFormat:@"%@%@", URL_BASE_IMAGE, [NSString stringWithFormat:@"%@_280x240.%@", image.fileName, extension]];
-                    image.thumbnailName = [NSString stringWithFormat:@"%@_280x240.%@", image.fileName, extension];
+                    image.thumbnailName = [item objectForKey:@"thumbnail"];
+                    image.thumbnail = [NSString stringWithFormat:@"%@%@", URL_BASE_IMAGE, image.thumbnailName];
                     
                     image.userUUID = [item objectForKey:@"user_uuid"];
                     image.username = [item objectForKey:@"username"];
@@ -416,6 +414,288 @@
                 [imageArray removeAllObjects];
                 for (Image *image in tempImageArray) {
                     [imageArray addObject:image];
+                }
+                
+                self.returnCode = 0;
+                self.errorMessage = @"";
+                
+            }
+            
+            @catch (NSException *e) {
+                
+                self.returnCode = 0;
+                self.errorMessage = @"";
+                
+            }
+            
+            [self.delegate onCallback:0];
+            return;
+            
+        }
+        
+        self.returnCode = 1;
+        self.errorMessage = [responseObject objectForKey:@"message"];
+        [(self.delegate) onCallback:0];
+        
+        return;
+        
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        
+        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+        _returnCode = 1;
+        NSLog(@"%@", [operation responseObject]);
+        //NSLog(@"%@", error);
+        
+        self.errorMessage = @"Network failed";
+        
+        [self.delegate onCallback:0];
+        
+    }];
+    
+    
+    return YES;
+}
+
+//===========================
+//
+//===========================
+
+- (BOOL)addFollow:(NSDictionary *)values Token:(NSString*)token
+{
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    
+    NSDictionary *parameters = values;
+    
+    [manager POST:[NSString stringWithFormat:API_USER_FOLLOW, API_BASE_URL, API_BASE_VERSION] parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+        
+        
+    } success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        NSLog(@"Success: %@", responseObject);
+        
+        NSString *status = [responseObject objectForKey:@"status"];
+        
+        if ([status isEqualToString:@"success"]) {
+            
+            //self.uploadedImageId = [responseObject objectForKey:@"id"];
+            
+        }
+        
+        self.returnCode = 0;
+        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+        
+        [(self.delegate) onCallback:0];
+        
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        
+        NSLog(@"Error: %@", error);
+        self.returnCode = 1;
+        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+        
+        self.errorMessage = @"Network failed";
+        
+        [(self.delegate) onCallback:0];
+        
+    }];
+    
+    return YES;
+    
+}
+
+- (BOOL)fetchFollowerList:(NSDictionary *)values ResultArray:(NSMutableArray *)followerArray Token:(NSString *)token
+{
+    
+    _returnCode = 1;
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    
+    manager.requestSerializer = [AFHTTPRequestSerializer serializer];
+    [manager.requestSerializer setValue:token forHTTPHeaderField:@"X-AUTH-KEY"];
+    
+    
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+    
+    NSDictionary *parameters = values;
+    
+    [manager POST:[NSString stringWithFormat:API_USER_FOLLOWER_LIST, API_BASE_URL, API_BASE_VERSION] parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+        
+        
+    } success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        NSString *status = [(NSDictionary *)responseObject objectForKey:@"status"];
+        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+        
+        NSLog(@"%@", responseObject);
+        
+        if ([status isEqualToString:@"success"]) {
+            
+            NSDictionary *data = [responseObject objectForKey:@"data"];
+            
+            @try {
+                
+                NSArray *resultArray = [data objectForKey:@"followers"];
+                
+                if ([resultArray count] > 0) {
+                    [followerArray removeAllObjects];
+                }
+                
+                for (NSDictionary *item in resultArray) {
+                    
+                    User *follower = [[User alloc] init];
+                    
+                    follower.userUUID = [item objectForKey:@"user_uuid"];
+                    follower.username = [item objectForKey:@"username"];
+                    follower.fullname = [item objectForKey:@"fullname"];
+                    
+                    follower.token = [item objectForKey:@"facebook_token"];
+                    follower.icon = follower.token;
+                    follower.iconurl = [item objectForKey:@"facebook_icon"];
+                    
+                    NSDictionary *image = [item objectForKey:@"image"];
+                    
+                    if ([image count] > 0) {
+                        
+                        if (!follower.imageArray) {
+                            
+                            follower.imageArray = [[NSMutableArray alloc] init];
+                            
+                        }
+                        
+                        Image *_image = [[Image alloc] init];
+                        
+                        _image.name = [image objectForKey:@"name"];
+                        _image.description = [image objectForKey:@"description"];
+                        _image.fileName = [image objectForKey:@"file_name"];
+                        _image.thumbnailName = [image objectForKey:@"thumbnail"];
+                        _image.thumbnail = [NSString stringWithFormat:@"%@%@", URL_BASE_IMAGE, _image.thumbnailName];
+                        
+                        _image.width = [[image objectForKey:@"width"] integerValue];
+                        _image.height = [[image objectForKey:@"height"] integerValue];
+                        
+                        [follower.imageArray addObject:_image];
+                        
+                    }
+                    
+                    [followerArray addObject:follower];
+                }
+                
+                self.returnCode = 0;
+                self.errorMessage = @"";
+                
+            }
+            
+            @catch (NSException *e) {
+                
+                self.returnCode = 0;
+                self.errorMessage = @"";
+                
+            }
+            
+            [self.delegate onCallback:0];
+            return;
+            
+        }
+        
+        self.returnCode = 1;
+        self.errorMessage = [responseObject objectForKey:@"message"];
+        [(self.delegate) onCallback:0];
+        
+        return;
+        
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        
+        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+        _returnCode = 1;
+        NSLog(@"%@", [operation responseObject]);
+        //NSLog(@"%@", error);
+        
+        self.errorMessage = @"Network failed";
+        
+        [self.delegate onCallback:0];
+        
+    }];
+    
+    
+    return YES;
+}
+
+- (BOOL)fetchFollowingList:(NSDictionary *)values ResultArray:(NSMutableArray *)followerArray Token:(NSString *)token
+{
+    
+    _returnCode = 1;
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    
+    manager.requestSerializer = [AFHTTPRequestSerializer serializer];
+    [manager.requestSerializer setValue:token forHTTPHeaderField:@"X-AUTH-KEY"];
+    
+    
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+    
+    NSDictionary *parameters = values;
+    
+    [manager POST:[NSString stringWithFormat:API_USER_FOLLOWIN_LIST, API_BASE_URL, API_BASE_VERSION] parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+        
+        
+    } success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        NSString *status = [(NSDictionary *)responseObject objectForKey:@"status"];
+        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+        
+        NSLog(@"%@", responseObject);
+        
+        if ([status isEqualToString:@"success"]) {
+            
+            NSDictionary *data = [responseObject objectForKey:@"data"];
+            
+            @try {
+                
+                NSArray *resultArray = [data objectForKey:@"followings"];
+                
+                if ([resultArray count] > 0) {
+                    [followerArray removeAllObjects];
+                }
+                
+                for (NSDictionary *item in resultArray) {
+                    
+                    User *follower = [[User alloc] init];
+                    
+                    follower.userUUID = [item objectForKey:@"user_uuid"];
+                    follower.username = [item objectForKey:@"username"];
+                    follower.fullname = [item objectForKey:@"fullname"];
+                    
+                    follower.token = [item objectForKey:@"facebook_token"];
+                    follower.icon = follower.token;
+                    follower.iconurl = [item objectForKey:@"facebook_icon"];
+                    
+                    NSDictionary *image = [item objectForKey:@"image"];
+                    
+                    if ([image count] > 0) {
+                        
+                        if (!follower.imageArray) {
+                            
+                            follower.imageArray = [[NSMutableArray alloc] init];
+                            
+                        }
+                        
+                        Image *_image = [[Image alloc] init];
+                        
+                        _image.name = [image objectForKey:@"name"];
+                        _image.description = [image objectForKey:@"description"];
+                        _image.fileName = [image objectForKey:@"file_name"];
+                        _image.thumbnailName = [image objectForKey:@"thumbnail"];
+                        _image.thumbnail = [NSString stringWithFormat:@"%@%@", URL_BASE_IMAGE, _image.thumbnailName];
+                        
+                        _image.width = [[image objectForKey:@"width"] integerValue];
+                        _image.height = [[image objectForKey:@"height"] integerValue];
+                        
+                        [follower.imageArray addObject:_image];
+                        
+                    }
+                    
+                    [followerArray addObject:follower];
                 }
                 
                 self.returnCode = 0;

@@ -47,6 +47,8 @@
 @property (atomic, assign) NSInteger returnCode;
 @property (atomic, retain) NSString *errorMessage;
 
+@property (atomic, strong) NSMutableArray *imageArray;
+
 + (id)getInstance;
 - (BOOL)login:(NSDictionary *)data;
 - (BOOL)auth;
@@ -58,5 +60,8 @@
 - (BOOL)logout;
 
 - (BOOL)fetchImageList:(NSMutableArray *)imageArray Parameters:(NSDictionary *)values Token:(NSString *)token;
+- (BOOL)addFollow:(NSDictionary *)values Token:(NSString*)token;
+- (BOOL)fetchFollowerList:(NSDictionary *)values ResultArray:(NSMutableArray *)followerArray Token:(NSString *)token;
+- (BOOL)fetchFollowingList:(NSDictionary *)values ResultArray:(NSMutableArray *)followerArray Token:(NSString *)token;
 
 @end

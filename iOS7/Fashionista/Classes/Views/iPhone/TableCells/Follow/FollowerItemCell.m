@@ -1,12 +1,12 @@
 //
-//  StoreCell.m
-//  
+//  FollowerItemCell.m
+//  Gaje
 //
-//  Created by Valentin Filip on 3/15/13.
-//  Copyright (c) 2013 AppDesignVault. All rights reserved.
+//  Created by hello on 14-7-12.
+//  Copyright (c) 2014年 AppDesignVault. All rights reserved.
 //
 
-#import "BoardItemCell.h"
+#import "FollowerItemCell.h"
 
 #import "DataSource.h"
 #import "DiskCache.h"
@@ -15,7 +15,7 @@
 #import "User.h"
 #import "Brander.h"
 
-@implementation BoardItemCell
+@implementation FollowerItemCell
 
 - (id)initWithFrame:(CGRect)frame {
     if ((self = [super initWithFrame:frame])) {
@@ -42,9 +42,7 @@
 
 #pragma mark - Accessors
 
-- (void)setData:(NSDictionary *)data {
-    
-    _data = data;
+- (void)setData {
     
     [self setNeedsLayout];
 }
@@ -55,21 +53,25 @@
     self.imageVBkg.image = [[UIImage imageNamed:@"list-item-background"] resizableImageWithCapInsets:UIEdgeInsetsMake(50, 50, 30, 30)];
     self.imageVStage.image = [UIImage imageNamed:@"list-item-stage"];
     
-    [self loadImage:self.photo.thumbnail fileName:self.photo.thumbnailName ImageView:self.imageVImage];
-    [self loadImage:self.photo.usericon fileName:[NSString stringWithFormat:@"%@.jpg", self.photo.usertoken] ImageView:self.imageVAvatar];
+    if ([self.follower.imageArray count] > 0) {
+        
+        self.photo = [self.follower.imageArray objectAtIndex:0];
+    }
     
-    //NSLog(@"%f", self.imageVImage.frame.size.width);
+    if (self.photo) {
+        
+        [self loadImage:self.photo.thumbnail fileName:self.photo.thumbnailName ImageView:self.imageVImage];
+    }
     
-    //self.imageVImage.image = [UIImage imageNamed:_data[@"image"]];
-    //self.imageVAvatar.image = [UIImage imageNamed:_data[@"person"][@"avatar"]];
+    [self loadImage:self.follower.iconurl fileName:self.follower.icon ImageView:self.imageVAvatar];
     
-    NSString *name = [_data[@"name"] uppercaseString];
-    NSString *brand = _data[@"brand"];
+    NSString *name;
+    NSString *brand;
     
-    name = self.photo.username;
+    name = self.follower.username;
     brand = @"";
     
-    NSString *text = [NSString stringWithFormat:@"by %@", name];
+    NSString *text = [NSString stringWithFormat:@"%@", name];
     // Create the attributes
     
     const CGFloat fontSize = 12;
@@ -91,27 +93,24 @@
                                            attributes:attrs];
     [attributedText setAttributes:subAttrs range:range];
     
-
+    
     [_lblTitle setAttributedText:attributedText];
     
-    _lblValue.text = self.photo.modified;
+    _lblValue.text = @"";
     _lblValue.textColor = [UIColor colorWithRed:0.42f green:0.44f blue:0.47f alpha:1.00f];
     _lblValue.font = [UIFont fontWithName:@"Cabin-Bold" size:fontSize];
     
-    [_btnBrand addTarget:self action:@selector(onBrandButtonTouched:) forControlEvents:UIControlEventTouchDown];
+    [_btnFav addTarget:self action:@selector(actionToggleFav:) forControlEvents:UIControlEventTouchDown];
     
-    
-    if ([self.photo.branderArray count] > 0) {
-        
-        [self.btnBrand setTitle:[NSString stringWithFormat:@"%d Brands", self.photo.branderCount] forState:UIControlStateNormal];
+#if false
+    if ([DataSource itemIsFavorite:_data] < 0) {
+        [_btnFav setImage:[UIImage imageNamed:@"list-item-love"] forState:UIControlStateNormal];
     } else {
-        
-        [self.btnBrand setTitle:[NSString stringWithFormat:@"%d Brands", self.photo.branderCount] forState:UIControlStateNormal];
+        [_btnFav setImage:[UIImage imageNamed:@"list-item-love-selected"] forState:UIControlStateNormal];
     }
+#endif
     
     
-    self.brandContainer.photo = self.photo;
-    [self.brandContainer loadBranderIcons];
     
     return;
     
@@ -121,13 +120,6 @@
     
     NSLog(@"brand clicked");
     
-    // 280 / 10 = 28
-    
-    User *user = [User getInstance];
-    
-    
-    NSDictionary *values = @{@"image_uuid":self.photo.imageUUID, @"user_uuid":user.userUUID};
-    [self.photo addBrander:values Token:@""];
     
 #if false
     if ([_delegate respondsToSelector:@selector(cellDidToggleFavoriteState:forItem:)]) {

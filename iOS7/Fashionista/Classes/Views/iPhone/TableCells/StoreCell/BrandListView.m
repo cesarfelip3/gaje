@@ -23,6 +23,25 @@
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
+        
+        for (UIImageView *imageView in self.imageArray) {
+            imageView.layer.borderColor = [UIColor lightGrayColor].CGColor;
+            imageView.layer.borderWidth = 1;
+        }
+    }
+    return self;
+}
+
+- (id)init
+{
+    self = [super init];
+    if (self) {
+        // Initialization code
+        
+        for (UIImageView *imageView in self.imageArray) {
+            imageView.layer.borderColor = [UIColor lightGrayColor].CGColor;
+            imageView.layer.borderWidth = 1;
+        }
     }
     return self;
 }
@@ -35,6 +54,9 @@
     for (Brander *brander in self.photo.branderArray) {
     
         UIImageView *imageView = [self.imageArray objectAtIndex:i];
+        //imageView.layer.borderColor = [UIColor lightGrayColor].CGColor;
+        //imageView.layer.borderWidth = 1;
+        
         [self loadImage:brander.iconurl fileName:brander.token ImageView:imageView];
     
         if (i++ >= 9) {

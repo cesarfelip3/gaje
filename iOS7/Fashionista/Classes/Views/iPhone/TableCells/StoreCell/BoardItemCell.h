@@ -25,7 +25,7 @@
 @property (strong, nonatomic) IBOutlet UIImageView *imageVStage;
 @property (strong, nonatomic) IBOutlet UILabel *lblTitle;
 @property (strong, nonatomic) IBOutlet UILabel *lblValue;
-@property (strong, nonatomic) IBOutlet UIButton *btnFav;
+@property (strong, nonatomic) IBOutlet UIButton *btnBrand;
 
 @property (strong, nonatomic) NSMutableArray *brandArray;
 @property (strong) IBOutlet BrandListView *brandContainer;
@@ -35,7 +35,7 @@
 @property (nonatomic, retain) DiskCache *cache;
 @property (nonatomic, retain) Image *photo;
 
-- (IBAction)actionToggleFav:(id)sender;
+- (IBAction)onBrandButtonTouched:(id)sender;
 
 @end
 

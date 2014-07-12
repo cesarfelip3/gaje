@@ -77,10 +77,9 @@
                     image.fileName = [item objectForKey:@"file_name"];
                     image.url = [NSString stringWithFormat:@"%@%@", URL_BASE_IMAGE, image.fileName];
                     
-                    NSString *extension = [image.fileName pathExtension];
                     
-                    image.thumbnail = [NSString stringWithFormat:@"%@%@", URL_BASE_IMAGE, [NSString stringWithFormat:@"%@_280x240.%@", image.fileName, extension]];
-                    image.thumbnailName = [NSString stringWithFormat:@"%@_280x240.%@", image.fileName, extension];
+                    image.thumbnailName = [item objectForKey:@"thumbnail"];
+                    image.thumbnail = [NSString stringWithFormat:@"%@%@", URL_BASE_IMAGE, image.thumbnailName];
                     
                     image.userUUID = [item objectForKey:@"user_uuid"];
                     image.username = [item objectForKey:@"username"];
@@ -220,7 +219,6 @@
         
         self.returnCode = 0;
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-        [self changeUploadStatus:@"1"];
         
         [(self.delegate) onCallback:0];
         

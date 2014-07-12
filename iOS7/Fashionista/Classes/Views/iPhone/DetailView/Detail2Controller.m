@@ -145,6 +145,10 @@
     
     //UIButton *button = (UIButton*)sender;
     
+    User* user = [User getInstance];
+    NSDictionary *values = @{@"user_followed_uuid":self.photo.userUUID, @"user_following_uuid":user.userUUID};
+   
+    [user addFollow:values Token:@""];
     
 }
 
@@ -328,6 +332,9 @@
             [cell.buttonFollow setHidden:NO];
             [cell.buttonFollow addTarget:self action:@selector(onButtonFollowTouched:) forControlEvents:UIControlEventTouchDown];
         }
+        
+        [cell.buttonFollow setHidden:NO];
+        [cell.buttonFollow addTarget:self action:@selector(onButtonFollowTouched:) forControlEvents:UIControlEventTouchDown];
         
         return cell;
     }

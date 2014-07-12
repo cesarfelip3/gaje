@@ -20,6 +20,8 @@
 #define API_USER_IMAGE_LIST     @"%@%@user/image/latest"
 #define API_USER_FOLLOW         @"%@%@user/follow"
 #define API_USER_UNFOLLOW       @"%@%@user/unfollow"
+#define API_USER_FOLLOWER_LIST  @"%@%@user/follower/list"
+#define API_USER_FOLLOWIN_LIST  @"%@%@user/following/list"
 
 #define API_IMAGE_UPLOAD        @"%@%@image/upload"
 #define API_IMAGE_LATEST        @"%@%@image/latest"

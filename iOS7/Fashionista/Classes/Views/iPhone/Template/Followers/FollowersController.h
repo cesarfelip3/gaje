@@ -7,14 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "BoardItemCell.h"
+#import "FollowerItemCell.h"
 #import "UploadController.h"
 
-@interface FollowersController : UIViewController <UITableViewDataSource, UITableViewDelegate, StoreCellDelegate, NetworkCallbackDelegate>
+@interface FollowersController : UIViewController <UITableViewDataSource, UITableViewDelegate, NetworkCallbackDelegate>
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 
-@property (retain) NSMutableArray *imageArray;
+@property (retain) NSMutableArray *followerArray;
 @property (retain) Image *photo;
 
 @property (atomic, retain) UIRefreshControl *refreshControl;

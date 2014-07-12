@@ -55,25 +55,25 @@
     NSLog(@"cmeara");
     
     self.photo = [[Image alloc] init];
-    self.imageArray = [[NSMutableArray alloc] init];
+    self.followerArray = [[NSMutableArray alloc] init];
     
     self.refreshControl = [[UIRefreshControl alloc] init];
     
     // Configure Refresh Control
     [self.refreshControl addTarget:self action:@selector(onRefresh:) forControlEvents:UIControlEventValueChanged];
     
+    
     [self.tableView addSubview:self.refreshControl];
 }
 
 - (IBAction)onRefresh:(id)sender
 {
-    self.photo.delegate = self;
     
-    AppConfig *config = [AppConfig getInstance];
-    NSString *token = config.token;
+    User *user = [User getInstance];
+    user.delegate = self;
     
-    self.photo.delegateType = @"image.latest";
-    [self.photo fetchLatest:self.imageArray Token:token];
+    NSDictionary *values = @{@"user_uuid":user.userUUID};
+    [user fetchFollowingList:values ResultArray:self.followerArray Token:@""];
     
 }
 
@@ -84,16 +84,11 @@
 - (void)viewWillAppear:(BOOL)animated {
 	[super viewWillAppear:animated];
     
-    self.photo.delegate = self;
+    User *user = [User getInstance];
+    user.delegate = self;
     
-    AppConfig *config = [AppConfig getInstance];
-    NSString *token = config.token;
-    
-    self.photo.delegateType = @"image.latest";
-    [self.photo fetchLatest:self.imageArray Token:token];
-    
-    //self.items = [DataSource timeline];
-    [self.tableView reloadData];
+    NSDictionary *values = @{@"user_uuid":user.userUUID};
+    [user fetchFollowingList:values ResultArray:self.followerArray Token:@""];
 }
 
 - (void)viewDidUnload {
@@ -123,7 +118,7 @@
 }
 
 #pragma mark - StoreCell delegate
-
+#if false
 - (void)cellDidToggleFavoriteState:(BoardItemCell *)cell forItem:(NSDictionary *)item {
     NSString* plistPath = nil;
     NSFileManager* manager = [NSFileManager defaultManager];
@@ -145,7 +140,7 @@
         }
     }
 }
-
+#endif
 
 #pragma mark - UITableView datasource
 
@@ -154,22 +149,21 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self.imageArray count];
+    return [self.followerArray count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     NSString *CellIdentifier = @"StoreCell";
-    BoardItemCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    FollowerItemCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
-    Image *$photo = [self.imageArray objectAtIndex:indexPath.row];
+    User *follower = [self.followerArray objectAtIndex:indexPath.row];
     
-    cell.delegate = self;
-    cell.photo = $photo;
+    cell.follower = follower;
     
     CGRect tableRect = cell.imageVBkg.frame;
     tableRect.origin.y = 0;
     cell.imageVBkg.frame = tableRect;
-    [cell setData:@{}];
+    [cell setData];
     
     return cell;
 }
@@ -185,15 +179,6 @@
     
     currentIndex = indexPath;
     
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil];
-    
-    Detail2Controller *detailVC = [storyboard instantiateViewControllerWithIdentifier:@"home_detail"];
-    
-    Image *photo = [self.imageArray objectAtIndex:currentIndex.row];
-    detailVC.photo = photo;
-    
-    [self.navigationController pushViewController:detailVC animated:YES];
-    
     //[self performSegueWithIdentifier:@"showDetail" sender:self];
 }
 
@@ -205,7 +190,7 @@
     if ([segue.identifier isEqualToString:@"showDetail"]) {
         Detail2Controller *detailVC = segue.destinationViewController;
         
-        Image *photo = [self.imageArray objectAtIndex:currentIndex.row];
+        Image *photo = [self.followerArray objectAtIndex:currentIndex.row];
         detailVC.photo = photo;
     }
 }
