@@ -3,17 +3,26 @@ Develop
 
 
 1. FB login
-2. Display latest images
-3. Upload image to specific theme ==> ok
-    
-    loading theme ==> API
-    select theme ==>
-    
+2. Board
 
-4. approve?
-5. comment on images
-6. brand on images
+    home image list
+    detail
+    upload image
+    
+3. week theme == ?
 
+4. follower 
+
+    follower list ==> done
+    follower profile ==> ?
+ 
+5. following
+
+    following list ==> done
+    following profile ==> ?
+
+6. profile
+7. setting
 
 
 FB on real device
