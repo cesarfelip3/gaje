@@ -50,19 +50,6 @@
 - (void)layoutSubviews {
     [super layoutSubviews];
     
-    self.imageVBkg.image = [[UIImage imageNamed:@"list-item-background"] resizableImageWithCapInsets:UIEdgeInsetsMake(50, 50, 30, 30)];
-    self.imageVStage.image = [UIImage imageNamed:@"list-item-stage"];
-    
-    if ([self.follower.imageArray count] > 0) {
-        
-        self.photo = [self.follower.imageArray objectAtIndex:0];
-    }
-    
-    if (self.photo) {
-        
-        [self loadImage:self.photo.thumbnail fileName:self.photo.thumbnailName ImageView:self.imageVImage];
-    }
-    
     [self loadImage:self.follower.iconurl fileName:self.follower.icon ImageView:self.imageVAvatar];
     
     NSString *name;
@@ -96,13 +83,14 @@
     
     [_lblTitle setAttributedText:attributedText];
     
+#if false
     _lblValue.text = @"";
     _lblValue.textColor = [UIColor colorWithRed:0.42f green:0.44f blue:0.47f alpha:1.00f];
     _lblValue.font = [UIFont fontWithName:@"Cabin-Bold" size:fontSize];
     
     [_btnFav addTarget:self action:@selector(actionToggleFav:) forControlEvents:UIControlEventTouchDown];
     
-#if false
+
     if ([DataSource itemIsFavorite:_data] < 0) {
         [_btnFav setImage:[UIImage imageNamed:@"list-item-love"] forState:UIControlStateNormal];
     } else {

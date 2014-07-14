@@ -136,10 +136,10 @@
     NSString *CellIdentifier = @"TimelineCell";
     TimelineCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
-    CGRect tableRect = cell.imageVBkg.frame;
-    tableRect.origin.y = 0;
-    cell.imageVBkg.frame = tableRect;
-    NSLog(@"%d", indexPath.row - 1);
+    //CGRect tableRect = cell.imageVBkg.frame;
+    //tableRect.origin.y = 0;
+    //cell.imageVBkg.frame = tableRect;
+    //NSLog(@"%d", indexPath.row - 1);
     cell.photo = [self.imageArray objectAtIndex:indexPath.row - 1];
     
     NSDictionary *item = self.account[@"timeline"][0];
@@ -154,7 +154,7 @@
     if (!indexPath.row) {
         return 195;
     }
-    return 240;
+    return 44;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {

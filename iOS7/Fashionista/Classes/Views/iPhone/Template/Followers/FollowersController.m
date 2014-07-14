@@ -31,7 +31,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [ADVThemeManager customizeTimelineView:self.view];
+    //[ADVThemeManager customizeTimelineView:self.view];
+    [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"Default"]]];
+    
     UIImageView *titleImageV = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"navigation-title"]];
     self.navigationItem.titleView = titleImageV;
     
@@ -161,9 +163,9 @@
     
     cell.follower = follower;
     
-    CGRect tableRect = cell.imageVBkg.frame;
-    tableRect.origin.y = 0;
-    cell.imageVBkg.frame = tableRect;
+    //CGRect tableRect = cell.imageVBkg.frame;
+    //tableRect.origin.y = 0;
+    //cell.imageVBkg.frame = tableRect;
     [cell setData];
     
     return cell;
@@ -172,7 +174,7 @@
 #pragma mark - Table view delegate
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 240;
+    return 44;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {

@@ -11,7 +11,7 @@
 
 @class User;
 
-@interface FollowingProfileController : UITableViewController
+@interface FollowingProfileController : UITableViewController <NetworkCallbackDelegate>
 
 @property (strong, nonatomic) UIRefreshControl *refreshControl;
 @property (strong, nonatomic) NSMutableArray *imageArray;
