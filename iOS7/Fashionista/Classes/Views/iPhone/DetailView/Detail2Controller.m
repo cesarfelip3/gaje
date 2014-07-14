@@ -83,11 +83,17 @@
     self.branderArray = [[NSMutableArray alloc] init];
     
     self.progress.progress = 0;
+    [self.progress setHidden:NO];
+    
+    [self.tableView reloadData];
     
 }
 
 - (BOOL)loadImage:(NSString *)url fileName:(NSString *)filename ImageView:(UIImageView *)imageView
 {
+    
+    self.progress.progress = 0;
+    [self.progress setHidden:NO];
     
     if (!self.cache) {
         self.cache = [DiskCache getInstance];
@@ -141,6 +147,7 @@
                                                  long long totalBytesWritten,
                                                  long long totalBytesExpectedToWrite) {
         //NSLog(@"%2.2f", (float)(totalBytesWritten) / totalBytesExpectedToWrite);
+        self.progress.hidden = NO;
         self.progress.progress = (float)(totalBytesWritten) / totalBytesExpectedToWrite;
         
     }];

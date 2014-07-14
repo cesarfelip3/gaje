@@ -142,6 +142,8 @@ static AppDelegate *sharedDelegate;
         [$user login:data];
         
     }
+    
+    
 }
 
 - (BOOL)onCallback:(NSInteger)type
@@ -165,6 +167,72 @@ static AppDelegate *sharedDelegate;
     config.userIsLogin = 1;
     
     NSLog(@"FB Login");
+    
+#if true
+    
+    if (config.userIsLogin != 1) {
+        
+        
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"intro" bundle:nil];
+        UINavigationController *controller = [storyboard instantiateViewControllerWithIdentifier:@"intro_init"];
+        self.window.rootViewController = controller;
+        [self.window makeKeyAndVisible];
+        [FBLoginView class];
+        return;
+    }
+    
+    if (config.userIsLogin == 1) {
+        
+        
+        [ADVThemeManager customizeAppAppearance];
+        // Override point for customization after application launch.
+        
+#if true
+        if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
+            //self.mainVC = (((UINavigationController *)self.window.rootViewController).viewControllers)[0];
+        } else {
+            
+            if (self.mainVC && self.window) {
+                UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"MainStoryboard_iPhone"
+                                                                         bundle: nil];
+                UINavigationController *nav = [mainStoryboard instantiateViewControllerWithIdentifier:@"BoardNav"];
+                [_foldVC setRootViewController:nav];
+                [_foldVC.paperFoldView setPaperFoldState:PaperFoldStateDefault animated:YES];
+                
+                self.window.rootViewController = self.mainVC;
+                self.window.backgroundColor = [UIColor blackColor];
+                [self.window makeKeyAndVisible];
+                [FBLoginView class];
+                return;
+            }
+            
+            self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+            
+            if (![[NSUserDefaults standardUserDefaults] valueForKey:@"NavigationType"]) {
+                [[NSUserDefaults standardUserDefaults] setInteger:ADVNavigationTypeMenu forKey:@"NavigationType"];
+                [[NSUserDefaults standardUserDefaults] synchronize];
+            }
+            
+            self.navigationType = [[NSUserDefaults standardUserDefaults] integerForKey:@"NavigationType"];
+            if (_navigationType == ADVNavigationTypeTab) {
+                //[self setupTabbar];
+            } else {
+                [self setupMenu];
+            }
+            
+            self.window.rootViewController = self.mainVC;
+            self.window.backgroundColor = [UIColor blackColor];
+            [self.window makeKeyAndVisible];
+        }
+#endif
+    } else {
+        
+    }
+    
+    [FBLoginView class];
+    
+#endif
+
 }
 
 - (void) loginViewShowingLoggedOutUser:(FBLoginView *)loginView
@@ -436,71 +504,6 @@ sizeOfItemForViewController:(UIViewController *)viewController
         return;
     }
     
-#if true
-    
-    if (config.userIsLogin != 1) {
-        
-        
-        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"intro" bundle:nil];
-        UINavigationController *controller = [storyboard instantiateViewControllerWithIdentifier:@"intro_init"];
-        self.window.rootViewController = controller;
-        [self.window makeKeyAndVisible];
-        [FBLoginView class];
-        return;
-    }
-    
-    if (config.userIsLogin == 1) {
-        
-        return;
-        
-        [ADVThemeManager customizeAppAppearance];
-        // Override point for customization after application launch.
-        
-#if true
-        if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
-            //self.mainVC = (((UINavigationController *)self.window.rootViewController).viewControllers)[0];
-        } else {
-            
-            if (self.mainVC && self.window) {
-                UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"MainStoryboard_iPhone"
-                                                                         bundle: nil];
-                UINavigationController *nav = [mainStoryboard instantiateViewControllerWithIdentifier:@"BoardNav"];
-                [_foldVC setRootViewController:nav];
-                [_foldVC.paperFoldView setPaperFoldState:PaperFoldStateDefault animated:YES];
-                
-                self.window.rootViewController = self.mainVC;
-                self.window.backgroundColor = [UIColor blackColor];
-                [self.window makeKeyAndVisible];
-                [FBLoginView class];
-                return;
-            }
-            
-            self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-            
-            if (![[NSUserDefaults standardUserDefaults] valueForKey:@"NavigationType"]) {
-                [[NSUserDefaults standardUserDefaults] setInteger:ADVNavigationTypeMenu forKey:@"NavigationType"];
-                [[NSUserDefaults standardUserDefaults] synchronize];
-            }
-            
-            self.navigationType = [[NSUserDefaults standardUserDefaults] integerForKey:@"NavigationType"];
-            if (_navigationType == ADVNavigationTypeTab) {
-                //[self setupTabbar];
-            } else {
-                [self setupMenu];
-            }
-            
-            self.window.rootViewController = self.mainVC;
-            self.window.backgroundColor = [UIColor blackColor];
-            [self.window makeKeyAndVisible];
-        }
-#endif
-    } else {
-        
-    }
-    
-    [FBLoginView class];
-    
-#endif
     
 }
 

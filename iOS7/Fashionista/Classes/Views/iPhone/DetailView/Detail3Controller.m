@@ -89,6 +89,7 @@
 
 - (BOOL)loadImage:(NSString *)url fileName:(NSString *)filename ImageView:(UIImageView *)imageView
 {
+    [self.progress setHidden:NO];
     
     if (!self.cache) {
         self.cache = [DiskCache getInstance];
