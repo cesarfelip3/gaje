@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "BoardItemCell.h"
 
-@interface FavoritesViewController : UITableViewController <StoreCellDelegate>
+@interface WeekThemeController : UITableViewController <StoreCellDelegate>
 
 @end

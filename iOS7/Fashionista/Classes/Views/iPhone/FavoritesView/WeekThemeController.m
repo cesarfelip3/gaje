@@ -6,14 +6,14 @@
 //  Copyright (c) 2013 AppDesignVault. All rights reserved.
 //
 
-#import "FavoritesViewController.h"
+#import "WeekThemeController.h"
 #import "ADVTheme.h"
 #import "DataSource.h"
 #import "AppDelegate.h"
 
 #import "DetailViewController.h"
 
-@interface FavoritesViewController (){
+@interface WeekThemeController (){
     NSIndexPath *currentIndex;
 }
 
@@ -22,7 +22,7 @@
 
 @end
 
-@implementation FavoritesViewController
+@implementation WeekThemeController
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -37,8 +37,6 @@
 {
     [super viewDidLoad];
     
-    
-    [ADVThemeManager customizeTimelineView:self.view];
     
     UIImageView *titleImageV = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"navigation-title"]];
     self.navigationItem.titleView = titleImageV;
@@ -104,6 +102,7 @@
 
 #pragma mark - Table view data source
 
+#if false
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
 }
@@ -125,8 +124,6 @@
     return cell;
 }
 
-#pragma mark - Table view delegate
-
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 240;
 }
@@ -138,6 +135,7 @@
     [self performSegueWithIdentifier:@"showDetail" sender:self];
 }
 
+#endif
 
 
 #pragma mark - Segue

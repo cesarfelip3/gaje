@@ -50,16 +50,19 @@
 {
     
     NSInteger i = 0;
+    NSInteger count = [self.photo.branderArray count] - 1;
     
-    for (Brander *brander in self.photo.branderArray) {
+    for (i = 0; i < [self.photo.branderArray count]; i++) {
     
         UIImageView *imageView = [self.imageArray objectAtIndex:i];
         //imageView.layer.borderColor = [UIColor lightGrayColor].CGColor;
         //imageView.layer.borderWidth = 1;
         
+        Brander *brander = [self.photo.branderArray objectAtIndex: count - i];
+        
         [self loadImage:brander.iconurl fileName:brander.token ImageView:imageView];
     
-        if (i++ >= 9) {
+        if (i >= 9) {
             break;
         }
     }

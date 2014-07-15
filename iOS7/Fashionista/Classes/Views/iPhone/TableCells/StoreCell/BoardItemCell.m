@@ -125,6 +125,14 @@
     
     User *user = [User getInstance];
     
+    Brander *brander = [[Brander alloc] init];
+    brander.username = user.username;
+    brander.iconurl = user.iconurl;
+    brander.token = user.token;
+    
+    [self.photo.branderArray addObject:brander];
+    [self.brandContainer loadBranderIcons];
+    
     
     NSDictionary *values = @{@"image_uuid":self.photo.imageUUID, @"user_uuid":user.userUUID};
     [self.photo addBrander:values Token:@""];

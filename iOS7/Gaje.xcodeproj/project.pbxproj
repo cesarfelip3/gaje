@@ -34,7 +34,7 @@
 		7F2A5D661736D46F00551439 /* Personal-Account.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7F2A5D641736D46F00551439 /* Personal-Account.plist */; };
 		7F2A5D671736D46F00551439 /* User-Account.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7F2A5D651736D46F00551439 /* User-Account.plist */; };
 		7F2A5D721736E16E00551439 /* BoardController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F2A5D711736E16E00551439 /* BoardController.m */; };
-		7F2A5D791736E17500551439 /* FavoritesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F2A5D751736E17500551439 /* FavoritesViewController.m */; };
+		7F2A5D791736E17500551439 /* WeekThemeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F2A5D751736E17500551439 /* WeekThemeController.m */; };
 		7F2A5D7F1736E1A100551439 /* TimelineCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F2A5D7E1736E1A100551439 /* TimelineCell.m */; };
 		7F2A5D831736E1B300551439 /* AccountCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F2A5D821736E1B300551439 /* AccountCell.m */; };
 		7F2A5D961736F04000551439 /* BoardItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F2A5D951736F04000551439 /* BoardItemCell.m */; };
@@ -397,8 +397,8 @@
 		7F2A5D651736D46F00551439 /* User-Account.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "User-Account.plist"; sourceTree = "<group>"; };
 		7F2A5D701736E16E00551439 /* BoardController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoardController.h; sourceTree = "<group>"; };
 		7F2A5D711736E16E00551439 /* BoardController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoardController.m; sourceTree = "<group>"; };
-		7F2A5D741736E17500551439 /* FavoritesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoritesViewController.h; sourceTree = "<group>"; };
-		7F2A5D751736E17500551439 /* FavoritesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoritesViewController.m; sourceTree = "<group>"; };
+		7F2A5D741736E17500551439 /* WeekThemeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeekThemeController.h; sourceTree = "<group>"; };
+		7F2A5D751736E17500551439 /* WeekThemeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeekThemeController.m; sourceTree = "<group>"; };
 		7F2A5D7D1736E1A100551439 /* TimelineCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimelineCell.h; sourceTree = "<group>"; };
 		7F2A5D7E1736E1A100551439 /* TimelineCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimelineCell.m; sourceTree = "<group>"; };
 		7F2A5D811736E1B300551439 /* AccountCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountCell.h; sourceTree = "<group>"; };
@@ -1070,8 +1070,8 @@
 		7F2A5D731736E17400551439 /* FavoritesView */ = {
 			isa = PBXGroup;
 			children = (
-				7F2A5D741736E17500551439 /* FavoritesViewController.h */,
-				7F2A5D751736E17500551439 /* FavoritesViewController.m */,
+				7F2A5D741736E17500551439 /* WeekThemeController.h */,
+				7F2A5D751736E17500551439 /* WeekThemeController.m */,
 			);
 			name = FavoritesView;
 			path = ../FavoritesView;
@@ -2214,7 +2214,7 @@
 				CEAABEB61913D8D30035BA47 /* SettingCell.m in Sources */,
 				AA0E678F17CBF19F00AA877F /* NSIndexPath+PSTCollectionViewAdditions.m in Sources */,
 				CE695FDD1906A92A00D464E4 /* InitController.m in Sources */,
-				7F2A5D791736E17500551439 /* FavoritesViewController.m in Sources */,
+				7F2A5D791736E17500551439 /* WeekThemeController.m in Sources */,
 				AA0E679517CBF19F00AA877F /* PSTCollectionViewItemKey.m in Sources */,
 				7F2A5D7F1736E1A100551439 /* TimelineCell.m in Sources */,
 				7F2A5D831736E1B300551439 /* AccountCell.m in Sources */,

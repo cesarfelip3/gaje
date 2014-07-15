@@ -55,8 +55,11 @@
     //[self.tableView setBackgroundColor:[UIColor lightGrayColor]];
     //[self.tableView.tableHeaderView setBackgroundColor:[UIColor lightGrayColor]];
     
-    [self.tableView setBackgroundColor:[UIColor colorWithRed:224/255.0 green:224/255.0 blue:225/255.0 alpha:0.8]];
-    [self.tableView.tableHeaderView setBackgroundColor:[UIColor colorWithRed:224/255.0 green:224/255.0 blue:225/255.0 alpha:0.8]];
+    //[self.tableView setBackgroundColor:[UIColor colorWithRed:224/255.0 green:224/255.0 blue:225/255.0 alpha:0.8]];
+    //[self.tableView.tableHeaderView setBackgroundColor:[UIColor colorWithRed:224/255.0 green:224/255.0 blue:225/255.0 alpha:0.8]];
+    
+    [self.tableView setBackgroundColor:[UIColor whiteColor]];
+    [self.tableView.tableHeaderView setBackgroundColor:[UIColor whiteColor]];
     
     _imageBkg.image = [[UIImage imageNamed:@"background-content"] resizableImageWithCapInsets:UIEdgeInsetsMake(10, 10, 10, 10)];
     
@@ -324,7 +327,7 @@
             
         }
         
-        return 60;
+        return 80;
     }
     
     return 44;
@@ -342,7 +345,7 @@
         
         [self loadImage:self.photo.usericon fileName:[NSString stringWithFormat:@"%@.jpg", self.photo.usertoken] ImageView:cell.thumbnail];
         cell.username.text = self.photo.username;
-        [cell setBackgroundColor:[UIColor colorWithRed:224/255.0 green:224/255.0 blue:225/255.0 alpha:0.8]];
+        [cell setBackgroundColor:[UIColor whiteColor]];
         
         [cell.buttonBrand addTarget:self action:@selector(onButtonBrandTouched:) forControlEvents:UIControlEventTouchDown];
         
@@ -373,19 +376,19 @@
         cell.textComment.textColor = [UIColor lightGrayColor];
         [cell.textComment setTintColor:[UIColor lightGrayColor]];
         
-        [cell setBackgroundColor:[UIColor colorWithRed:224/255.0 green:224/255.0 blue:225/255.0 alpha:0.8]];
+        [cell setBackgroundColor:[UIColor whiteColor]];
         return cell;
     }
     
     if (indexPath.row == 2) {
         
         TabbarCell* cell = [tableView dequeueReusableCellWithIdentifier:identifierTabbar forIndexPath:indexPath];
-        [cell setBackgroundColor:[UIColor colorWithRed:224/255.0 green:224/255.0 blue:225/255.0 alpha:0.8]];
+        [cell setBackgroundColor:[UIColor whiteColor]];
         NSString* comment = [NSString stringWithFormat:@"line dropped(%d)", [self.commentArray count]];
         [cell.tabbar setTitle:comment forSegmentAtIndex:0];
         
-        comment = [NSString stringWithFormat:@"brand(%d)", [self.branderArray count]];
-        [cell.tabbar setTitle:comment forSegmentAtIndex:1];
+        //comment = [NSString stringWithFormat:@"brand(%d)", [self.branderArray count]];
+        //[cell.tabbar setTitle:comment forSegmentAtIndex:1];
         
         [cell.tabbar addTarget:self action:@selector(onTabChanged:) forControlEvents:UIControlEventValueChanged];
         
@@ -396,7 +399,7 @@
     
         CommentItemCell *cell;
         cell = [tableView dequeueReusableCellWithIdentifier:@"cell_detail_comment_item" forIndexPath:indexPath];
-        [cell setBackgroundColor:[UIColor colorWithRed:224/255.0 green:224/255.0 blue:225/255.0 alpha:0.8]];
+        [cell setBackgroundColor:[UIColor whiteColor]];
         
         cell.content.frame = CGRectMake(59, 10, 249, 40);
         cell.content.lineBreakMode = NSLineBreakByWordWrapping;
@@ -421,7 +424,7 @@
         
     BranderItemCell *cell;
     cell = [tableView dequeueReusableCellWithIdentifier:@"cell_detail_brander_item" forIndexPath:indexPath];
-    [cell setBackgroundColor:[UIColor colorWithRed:224/255.0 green:224/255.0 blue:225/255.0 alpha:0.8]];
+    [cell setBackgroundColor:[UIColor whiteColor]];
     
     NSInteger count = [self.branderArray count];
     NSInteger row = count - (indexPath.row - 3) - 1;
