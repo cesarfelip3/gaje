@@ -120,7 +120,7 @@
 
 - (IBAction)onActionButtonTouched:(id)sender
 {
-    UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:@"" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:@"Follow" otherButtonTitles:@"Brand",@"I don't want to see this", nil];
+    UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:@"" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:@"Follow" otherButtonTitles:@"Brand",@"block photos from this user", nil];
     
     [sheet showInView:self.view];
 }
