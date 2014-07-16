@@ -49,6 +49,8 @@
 @property (atomic, assign) NSInteger branderCount;
 @property (atomic, strong) NSMutableArray *branderArray;
 
+@property (atomic, assign) NSInteger enableBrandIt;
+
 // methods
 
 - (BOOL)fetchLatest:(NSMutableArray *)imageArray Token:(NSString *)token;

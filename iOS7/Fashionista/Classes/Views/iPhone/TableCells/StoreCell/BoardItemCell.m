@@ -98,6 +98,7 @@
     _lblValue.textColor = [UIColor colorWithRed:0.42f green:0.44f blue:0.47f alpha:1.00f];
     _lblValue.font = [UIFont fontWithName:@"Cabin-Bold" size:fontSize];
     
+    
     [_btnBrand addTarget:self action:@selector(onBrandButtonTouched:) forControlEvents:UIControlEventTouchDown];
     
     
@@ -122,6 +123,10 @@
     NSLog(@"brand clicked");
     
     // 280 / 10 = 28
+    
+    if (self.photo.enableBrandIt == 0) {
+        return;
+    }
     
     User *user = [User getInstance];
     

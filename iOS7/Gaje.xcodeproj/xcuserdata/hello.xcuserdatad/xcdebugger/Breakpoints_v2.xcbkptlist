@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Fashionista/Classes/Views/iPhone/Model/Image.m"
-            timestampString = "426861907.652542"
+            timestampString = "427214387.996146"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "228"
-            endingLineNumber = "228"
+            startingLineNumber = "231"
+            endingLineNumber = "231"
             landmarkName = "-addComment:Token:"
             landmarkType = "5">
          </BreakpointContent>

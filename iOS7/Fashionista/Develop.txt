@@ -1,39 +1,25 @@
 Develop
 =========
 
+API
+=====
 
-1. FB login
-2. Board
 
-    home image list
-    detail
-        add comment
-        add brand
-        follow
-        
-        comment list
-        brand list ==> ?
-        
-    upload image
+#define API_IMAGE_LATEST        @"%@%@image/latest"
+#define API_IMAGE_UPLOAD        @"%@%@image/upload"
+#define API_IMAGE_COMMENT_ADD   @"%@%@image/comment/add"
+#define API_IMAGE_COMMENT_LIST  @"%@%@image/comment/list"
+#define API_IMAGE_BRANDER_ADD   @"%@%@image/brander/add"
+#define API_IMAGE_BRANDER_LIST  @"%@%@image/brander/list"
     
-3. week theme == ?
 
-4. follower 
+#define API_USER_LOGIN          @"%@%@user/add"
+#define API_USER_IMAGE_LIST     @"%@%@user/image/latest"
+#define API_USER_FOLLOW         @"%@%@user/follow"
+#define API_USER_UNFOLLOW       @"%@%@user/unfollow"
+#define API_USER_FOLLOWER_LIST  @"%@%@user/follower/list"
+#define API_USER_FOLLOWIN_LIST  @"%@%@user/following/list"
 
-    follower list ==> done
-    follower profile
-    
-        detail ==> ?
- 
-5. following
-
-    following list ==> done
-    following profile 
-    
-        detail ==> ?
-
-6. profile
-7. setting
 
 
 FB on real device
