@@ -118,6 +118,36 @@
     
 }
 
+- (IBAction)onActionButtonTouched:(id)sender
+{
+    UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:@"" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:@"Follow" otherButtonTitles:@"Brand",@"I don't want to see this", nil];
+    
+    [sheet showInView:self.view];
+}
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    
+    NSLog(@"%d", buttonIndex);
+    
+    User* user = [User getInstance];
+    
+    if (buttonIndex == 0) {
+        
+        NSDictionary *values = @{@"user_followed_uuid":self.photo.userUUID, @"user_following_uuid":user.userUUID};
+        [user addFollow:values Token:@""];
+    }
+    
+    if (buttonIndex == 1) {
+        
+        NSDictionary *values = @{@"image_uuid":self.photo.imageUUID, @"user_uuid":user.userUUID};
+        [self.photo addBrander:values Token:@""];
+    }
+    
+    if (buttonIndex == 2) {
+        
+    }
+}
 
 - (BOOL)onCallback:(NSInteger)type
 {
@@ -175,6 +205,8 @@
     tableRect.origin.y = 0;
     cell.imageVBkg.frame = tableRect;
     [cell setData:@{}];
+    
+    [cell.btnAction addTarget:self action:@selector(onActionButtonTouched:) forControlEvents:UIControlEventTouchDown];
     
     return cell;
 }

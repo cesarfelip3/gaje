@@ -322,7 +322,7 @@
             
         }
         
-        return 60;
+        return 90;
     }
     
     return 44;
@@ -379,11 +379,9 @@
         
         TabbarCell* cell = [tableView dequeueReusableCellWithIdentifier:identifierTabbar forIndexPath:indexPath];
         [cell setBackgroundColor:[UIColor whiteColor]];
-        NSString* comment = [NSString stringWithFormat:@"line dropped(%d)", [self.commentArray count]];
+        NSString* comment = [NSString stringWithFormat:@"line dropped(%u)", [self.commentArray count]];
         [cell.tabbar setTitle:comment forSegmentAtIndex:0];
         
-        comment = [NSString stringWithFormat:@"brand(%d)", [self.branderArray count]];
-        [cell.tabbar setTitle:comment forSegmentAtIndex:1];
         
         [cell.tabbar addTarget:self action:@selector(onTabChanged:) forControlEvents:UIControlEventValueChanged];
         
