@@ -117,9 +117,9 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
     if (!self.imageArray) {
-        return 1;
+        return 2;
     }
-    return [self.imageArray count] + 1;
+    return [self.imageArray count] + 2;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -133,14 +133,21 @@
         return cell;
     }
     
+    if (indexPath.row == 1) {
+        
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell_command"];
+        
+        return cell;
+        
+    }
+    
     NSString *CellIdentifier = @"TimelineCell";
     TimelineCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     CGRect tableRect = cell.imageVBkg.frame;
     tableRect.origin.y = 0;
     cell.imageVBkg.frame = tableRect;
-    NSLog(@"%d", indexPath.row - 1);
-    cell.photo = [self.imageArray objectAtIndex:indexPath.row - 1];
+    cell.photo = [self.imageArray objectAtIndex:indexPath.row - 2];
     
     NSDictionary *item = self.account[@"timeline"][0];
     cell.data = item;
@@ -153,6 +160,10 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (!indexPath.row) {
         return 195;
+    }
+    
+    if (indexPath.row == 1) {
+        return 44;
     }
     return 240;
 }
@@ -168,7 +179,7 @@
     
     Detail2Controller *detailVC = [storyboard instantiateViewControllerWithIdentifier:@"home_detail2"];
     
-    Image *photo = [self.imageArray objectAtIndex:currentIndex.row - 1];
+    Image *photo = [self.imageArray objectAtIndex:currentIndex.row - 2];
     detailVC.photo = photo;
     
     [self.navigationController pushViewController:detailVC animated:YES];

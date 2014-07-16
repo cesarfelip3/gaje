@@ -8,7 +8,15 @@
 
 #import <UIKit/UIKit.h>
 #import "BoardItemCell.h"
+#import "NetworkCallbackDelegate.h"
+#import "Theme.h"
 
-@interface WeekThemeController : UITableViewController <StoreCellDelegate>
+@interface WeekThemeController : UITableViewController <NetworkCallbackDelegate>
+
+@property (strong,nonatomic) NSMutableArray *themeArray;
+@property (strong, nonatomic) Theme *theme;
+
+@property (strong, nonatomic) IBOutlet UILabel *titleLabel;
+@property (strong, nonatomic) IBOutlet UITextView *contentTextView;
 
 @end

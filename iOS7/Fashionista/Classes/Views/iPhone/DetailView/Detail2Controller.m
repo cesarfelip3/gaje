@@ -165,31 +165,38 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)onButtonFollowTouched:(id)sender
+- (IBAction)onButtonActionTouched:(id)sender
 {
     
     NSLog(@"on button brand touched");
     
-    //UIButton *button = (UIButton*)sender;
+    UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:@"" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:@"Follow" otherButtonTitles:@"Brand",@"I don't want to see this", nil];
     
-    User* user = [User getInstance];
-    NSDictionary *values = @{@"user_followed_uuid":self.photo.userUUID, @"user_following_uuid":user.userUUID};
-   
-    [user addFollow:values Token:@""];
-    
+    [sheet showInView:self.view];
 }
 
-- (IBAction)onButtonBrandTouched:(id)sender
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-
-    NSLog(@"on button brand touched");
     
-    //UIButton *button = (UIButton*)sender;
-        
+    NSLog(@"%d", buttonIndex);
+    
     User* user = [User getInstance];
-    NSDictionary *values = @{@"image_uuid":self.photo.imageUUID, @"user_uuid":user.userUUID};
-    [self.photo addBrander:values Token:@""];
-
+    
+    if (buttonIndex == 0) {
+        
+        NSDictionary *values = @{@"user_followed_uuid":self.photo.userUUID, @"user_following_uuid":user.userUUID};
+        [user addFollow:values Token:@""];
+    }
+    
+    if (buttonIndex == 1) {
+        
+        NSDictionary *values = @{@"image_uuid":self.photo.imageUUID, @"user_uuid":user.userUUID};
+        [self.photo addBrander:values Token:@""];
+    }
+    
+    if (buttonIndex == 2) {
+        
+    }
 }
 
 - (IBAction)onTabChanged:(id)sender
@@ -347,22 +354,7 @@
         cell.username.text = self.photo.username;
         [cell setBackgroundColor:[UIColor whiteColor]];
         
-        [cell.buttonBrand addTarget:self action:@selector(onButtonBrandTouched:) forControlEvents:UIControlEventTouchDown];
-        
-        User *user = [User getInstance];
-        
-        if ([user.userUUID isEqualToString:self.photo.userUUID]) {
-            
-            [cell.buttonFollow setHidden:YES];
-            
-        } else {
-            
-            [cell.buttonFollow setHidden:NO];
-            [cell.buttonFollow addTarget:self action:@selector(onButtonFollowTouched:) forControlEvents:UIControlEventTouchDown];
-        }
-        
-        [cell.buttonFollow setHidden:NO];
-        [cell.buttonFollow addTarget:self action:@selector(onButtonFollowTouched:) forControlEvents:UIControlEventTouchDown];
+        [cell.buttonAction addTarget:self action:@selector(onButtonActionTouched:) forControlEvents:UIControlEventTouchDown];
         
         return cell;
     }

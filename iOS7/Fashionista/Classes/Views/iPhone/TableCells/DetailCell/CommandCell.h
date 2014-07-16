@@ -18,4 +18,6 @@
 @property (strong, nonatomic) IBOutlet UIButton* buttonBrand;
 @property (strong, nonatomic) IBOutlet UIButton* buttonFollow;
 
+@property (strong, nonatomic) IBOutlet UIButton *buttonAction;
+
 @end

@@ -56,6 +56,9 @@
     
     self.tableView.tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 10)];
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 10)];
+    
+    [self.titleLabel setText:@""];
+    self.contentTextView.text = @"";
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -63,6 +66,27 @@
     
     self.items = [DataSource favorites];
     [self.tableView reloadData];
+    
+    self.themeArray = [[NSMutableArray alloc] init];
+    
+    Theme *theme = [Theme getInstance];
+    theme.delegate = self;
+    [theme fetchList:self.themeArray Token:@""];
+    
+}
+
+- (BOOL)onCallback:(NSInteger)type
+{
+    
+    NSLog(@"theme array = %@", self.themeArray);
+    
+    if ([self.themeArray count] > 0) {
+        self.theme = [self.themeArray objectAtIndex:0];
+        self.titleLabel.text = self.theme.name;
+        self.contentTextView.text = self.theme.description;
+    }
+    
+    return YES;
 }
 
 - (void)showMenu:(id)sender {
@@ -70,7 +94,7 @@
 }
 
 #pragma mark - StoreCell delegate
-
+#if false
 - (void)cellDidToggleFavoriteState:(BoardItemCell *)cell forItem:(NSDictionary *)item {
     NSString* plistPath = nil;
     NSFileManager* manager = [NSFileManager defaultManager];
@@ -93,6 +117,7 @@
         }
     }
 }
+#endif
 
 - (void)didReceiveMemoryWarning
 {
