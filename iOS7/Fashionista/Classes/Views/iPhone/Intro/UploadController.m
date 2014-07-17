@@ -43,7 +43,7 @@
     
     UIButton *cancel = [UIButton buttonWithType:UIButtonTypeSystem];
     [cancel setFrame:CGRectMake(0, 0, 30, 30)];
-    [cancel setBackgroundImage:[UIImage imageNamed:@"upload-128"] forState:UIControlStateNormal];
+    [cancel setBackgroundImage:[UIImage imageNamed:@"camera"] forState:UIControlStateNormal];
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:cancel];
     [cancel addTarget:self action:@selector(onTopbarButtonTouched:) forControlEvents:UIControlEventTouchDown];
@@ -53,7 +53,7 @@
 #if false
     UIButton *choose = [UIButton buttonWithType:UIButtonTypeSystem];
     choose.frame = CGRectMake(0, 0, 30, 30);
-    [choose setBackgroundImage:[UIImage imageNamed:@"upload-128"] forState:UIControlStateNormal];        [self.chooseButton setCustomView:choose];
+    [choose setBackgroundImage:[UIImage imageNamed:@"camera"] forState:UIControlStateNormal];        [self.chooseButton setCustomView:choose];
     [choose addTarget:self action:@selector(onBottombarButtonTouched:) forControlEvents:UIControlEventTouchDown];
 #endif
     
@@ -89,12 +89,17 @@
     NSLog(@"description = %@", self.photo.description);
     
     if (self.photo.name == nil || [self.photo.name isEqualToString:@""]) {
-        
+#if false
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"Pleast give your photo a name at least" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
         
         [alert show];
         return;
+#endif
+        
+        self.photo.name = @"";
     }
+    
+    
     
     NSString *themes = @"";
     
@@ -246,6 +251,7 @@
         
         if (self.photo.name == nil) {
             //
+            self.photo.name = @"";
         }
         
         NSString *themes = @"";
@@ -392,11 +398,13 @@
     if (self.photo.returnCode > 0) {
         message = self.photo.errorMessage;
     }
-    
+#if false
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:message delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
     
     [alert show];
+#endif
     
+    [[iToast makeText:message] show];
     return YES;
 }
 

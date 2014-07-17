@@ -11,6 +11,7 @@
 #import "DiskCache.h"
 #import "Image.h"
 #import "Theme.h"
+#import "iToast.h"
 
 @class ThemeController;
 

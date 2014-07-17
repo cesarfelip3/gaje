@@ -46,6 +46,16 @@
     return self;
 }
 
+- (BOOL)cleanBranderIcons
+{
+    for (UIImageView *image in self.imageArray) {
+        
+        image.image = nil;
+    }
+    
+    return YES;
+}
+
 - (BOOL)loadBranderIcons
 {
     

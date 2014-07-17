@@ -252,7 +252,6 @@
                                                 <segment title="line dropped(0)"/>
                                                 <segment title="branded"/>
                                             </segments>
-                                            <color key="tintColor" red="0.14099849926625885" green="0.44833275698451258" blue="0.53585682744565211" alpha="1" colorSpace="calibratedRGB"/>
                                         </segmentedControl>
                                     </subviews>
                                 </tableViewCellContentView>
@@ -981,7 +980,6 @@
                                                 <segment title="line dropped"/>
                                                 <segment title="branded"/>
                                             </segments>
-                                            <color key="tintColor" red="0.1409984993" green="0.44833275700000003" blue="0.53585682739999996" alpha="1" colorSpace="calibratedRGB"/>
                                         </segmentedControl>
                                     </subviews>
                                 </tableViewCellContentView>
@@ -1226,7 +1224,7 @@
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="wJG-Lx-He7">
-                                            <rect key="frame" x="192" y="7" width="117" height="30"/>
+                                            <rect key="frame" x="102" y="7" width="117" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1399,7 +1397,7 @@
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="beV-T3-8mT">
-                                            <rect key="frame" x="192" y="7" width="117" height="30"/>
+                                            <rect key="frame" x="102" y="7" width="117" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

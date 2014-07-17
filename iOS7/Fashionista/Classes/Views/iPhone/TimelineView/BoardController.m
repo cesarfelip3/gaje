@@ -48,7 +48,7 @@
     }
     
     UIButton *btnSearch = [UIButton buttonWithType:UIButtonTypeCustom];
-    btnSearch.frame = CGRectMake(0, 0, 40, 40);
+    btnSearch.frame = CGRectMake(0, 0, 30, 30);
     [btnSearch setBackgroundImage:[UIImage imageNamed:@"camera"] forState:UIControlStateNormal];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:btnSearch];
     
@@ -120,6 +120,11 @@
 
 - (IBAction)onActionButtonTouched:(id)sender
 {
+    UIButton *button = (UIButton *)sender;
+    
+    Image *photo = [self.imageArray objectAtIndex:button.tag];
+    self.currentPhoto = photo;
+    
     UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:@"" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:@"Follow" otherButtonTitles:@"Brand",@"block photos from this user", nil];
     
     [sheet showInView:self.view];
@@ -134,13 +139,13 @@
     
     if (buttonIndex == 0) {
         
-        NSDictionary *values = @{@"user_followed_uuid":self.photo.userUUID, @"user_following_uuid":user.userUUID};
+        NSDictionary *values = @{@"user_followed_uuid":self.currentPhoto.userUUID, @"user_following_uuid":user.userUUID};
         [user addFollow:values Token:@""];
     }
     
     if (buttonIndex == 1) {
         
-        NSDictionary *values = @{@"image_uuid":self.photo.imageUUID, @"user_uuid":user.userUUID};
+        NSDictionary *values = @{@"image_uuid":self.currentPhoto.imageUUID, @"user_uuid":user.userUUID};
         [self.photo addBrander:values Token:@""];
     }
     
@@ -196,10 +201,10 @@
     NSString *CellIdentifier = @"StoreCell";
     BoardItemCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
-    Image *$photo = [self.imageArray objectAtIndex:indexPath.row];
+    Image *photo = [self.imageArray objectAtIndex:indexPath.row];
     
     cell.delegate = self;
-    cell.photo = $photo;
+    cell.photo = photo;
     
     CGRect tableRect = cell.imageVBkg.frame;
     tableRect.origin.y = 0;
@@ -207,6 +212,7 @@
     [cell setData:@{}];
     
     [cell.btnAction addTarget:self action:@selector(onActionButtonTouched:) forControlEvents:UIControlEventTouchDown];
+    cell.btnAction.tag = indexPath.row;
     
     return cell;
 }
@@ -214,7 +220,11 @@
 #pragma mark - Table view delegate
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 240;
+    
+    Image *photo = [self.imageArray objectAtIndex:indexPath.row];
+    NSInteger height = 280 * photo.height / photo.width;
+    
+    return height + 240 - 185;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {

@@ -21,5 +21,6 @@
 
 @property (strong, nonatomic) IBOutletCollection(UIImageView) NSMutableArray *imageArray;
 - (BOOL)loadBranderIcons;
+- (BOOL)cleanBranderIcons;
 
 @end

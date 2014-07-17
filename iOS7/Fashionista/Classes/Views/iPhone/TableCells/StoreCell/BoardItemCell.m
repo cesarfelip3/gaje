@@ -58,10 +58,7 @@
     [self loadImage:self.photo.thumbnail fileName:self.photo.thumbnailName ImageView:self.imageVImage];
     [self loadImage:self.photo.usericon fileName:[NSString stringWithFormat:@"%@.jpg", self.photo.usertoken] ImageView:self.imageVAvatar];
     
-    //NSLog(@"%f", self.imageVImage.frame.size.width);
-    
-    //self.imageVImage.image = [UIImage imageNamed:_data[@"image"]];
-    //self.imageVAvatar.image = [UIImage imageNamed:_data[@"person"][@"avatar"]];
+    self.imageVImage.frame = CGRectMake(self.imageVImage.frame.origin.x, self.imageVImage.frame.origin.x, 280, self.photo.height * 280 / self.photo.width);
     
     NSString *name = [_data[@"name"] uppercaseString];
     NSString *brand = _data[@"brand"];
@@ -110,7 +107,7 @@
         [self.btnBrand setTitle:[NSString stringWithFormat:@"%d Brands", self.photo.branderCount] forState:UIControlStateNormal];
     }
     
-    
+    [self.brandContainer cleanBranderIcons];
     self.brandContainer.photo = self.photo;
     [self.brandContainer loadBranderIcons];
     

@@ -16,6 +16,7 @@
 
 @property (retain) NSMutableArray *imageArray;
 @property (retain) Image *photo;
+@property (retain) Image *currentPhoto;
 
 @property (atomic, retain) UIRefreshControl *refreshControl;
 @property (retain) UploadController *uploadController;
