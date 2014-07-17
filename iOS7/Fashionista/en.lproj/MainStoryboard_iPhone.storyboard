@@ -1556,6 +1556,7 @@
         <image name="list-item-love.png" width="22" height="20"/>
         <image name="menu-separator.png" width="273" height="2"/>
     </resources>
+    <color key="tintColor" red="0.27843137254901962" green="0.33725490196078434" blue="0.59215686274509804" alpha="1" colorSpace="calibratedRGB"/>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

@@ -79,6 +79,10 @@
                              @"title": @"Settings",
                              @"image": @"" //@"menu-icon5"
                              },
+                         @{
+                             @"title": @"Notes",
+                             @"image": @"" //@"menu-icon5"
+                             },
                          ]
                  }
              ];

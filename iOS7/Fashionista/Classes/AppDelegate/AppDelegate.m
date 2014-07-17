@@ -377,6 +377,9 @@ sizeOfItemForViewController:(UIViewController *)viewController
                 case 1:
                     controllerIdentifier = @"SettingsNav";
                     break;
+                case 2:
+                    controllerIdentifier = @"SettingsNav";
+                    break;
                 default:
                     break;
             }

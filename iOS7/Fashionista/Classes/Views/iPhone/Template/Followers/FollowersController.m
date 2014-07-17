@@ -46,7 +46,7 @@
     }
     
     UIButton *btnSearch = [UIButton buttonWithType:UIButtonTypeCustom];
-    btnSearch.frame = CGRectMake(0, 0, 40, 40);
+    btnSearch.frame = CGRectMake(0, 0, 30, 30);
     [btnSearch setBackgroundImage:[UIImage imageNamed:@"camera"] forState:UIControlStateNormal];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:btnSearch];
     
