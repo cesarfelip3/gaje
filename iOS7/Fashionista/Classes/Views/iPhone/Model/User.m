@@ -739,4 +739,51 @@
     return YES;
 }
 
+// block
+
+- (BOOL)addBlock:(NSDictionary *)values Token:(NSString*)token
+{
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    
+    NSDictionary *parameters = values;
+    
+    [manager POST:[NSString stringWithFormat:API_USER_BLOCK_ADD, API_BASE_URL, API_BASE_VERSION] parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+        
+        
+    } success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        NSLog(@"Success: %@", responseObject);
+        
+        NSString *status = [responseObject objectForKey:@"status"];
+        
+        if ([status isEqualToString:@"success"]) {
+            
+            //self.uploadedImageId = [responseObject objectForKey:@"id"];
+            
+        }
+        
+        self.returnCode = 0;
+        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+        
+        [(self.delegate) onCallback:0];
+        
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        
+        NSLog(@"Error: %@", error);
+        NSLog(@"error : %@", [operation responseObject]);
+        self.returnCode = 1;
+        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+        
+        self.errorMessage = @"Network failed";
+        
+        [(self.delegate) onCallback:0];
+        
+    }];
+    
+    return YES;
+    
+}
+
 @end

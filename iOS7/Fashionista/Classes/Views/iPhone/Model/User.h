@@ -20,6 +20,7 @@
 @interface User : Model
 
 @property (atomic, retain) id<NetworkCallbackDelegate> delegate;
+@property (atomic, retain) NSString *delegateType;
 
 @property (atomic, assign) NSInteger userId;
 @property (atomic, retain) NSString *userUUID;
@@ -63,5 +64,7 @@
 - (BOOL)addFollow:(NSDictionary *)values Token:(NSString*)token;
 - (BOOL)fetchFollowerList:(NSDictionary *)values ResultArray:(NSMutableArray *)followerArray Token:(NSString *)token;
 - (BOOL)fetchFollowingList:(NSDictionary *)values ResultArray:(NSMutableArray *)followerArray Token:(NSString *)token;
+
+- (BOOL)addBlock:(NSDictionary *)values Token:(NSString*)token;
 
 @end

@@ -195,8 +195,33 @@
     }
     
     if (buttonIndex == 2) {
+        User *user = [User getInstance];
         
+        if ([user.userUUID isEqualToString:self.photo.userUUID]) {
+            return;
+        }
+        
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"Are you sure you want to block this user?" delegate:self cancelButtonTitle:@"NO" otherButtonTitles:@"YES", nil];
+        
+        [alert show];
     }
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    
+    NSLog(@"ALERT %d", buttonIndex);
+    
+    if (buttonIndex == 1) {
+        
+        User *user = [User getInstance];
+        user.delegate = self;
+        user.delegateType = @"block_user";
+        
+        NSDictionary *values = @{@"user_uuid":user.userUUID, @"user_block_uuid":self.photo.userUUID};
+        [user addBlock:values Token:@""];
+    }
+    
 }
 
 - (IBAction)onTabChanged:(id)sender
@@ -224,6 +249,23 @@
 
 - (BOOL)onCallback:(NSInteger)type
 {
+    User *user = [User getInstance];
+    
+    if ([user.delegateType isEqualToString:@"block_user"]) {
+        
+        user.delegateType = @"";
+        user.returnCode == 0 ? [self.navigationController popToRootViewControllerAnimated:YES] : nil;
+        
+        if (user.returnCode > 0) {
+            
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:user.errorMessage delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            
+            [alert show];
+            
+        }
+        
+        return YES;
+    }
     
     if ([self.branderArray count] > 0) {
         [self.tableView reloadData];
@@ -355,6 +397,16 @@
         [cell setBackgroundColor:[UIColor whiteColor]];
         
         [cell.buttonAction addTarget:self action:@selector(onButtonActionTouched:) forControlEvents:UIControlEventTouchDown];
+        
+        User *user = [User getInstance];
+        
+        if ([user.userUUID isEqualToString:self.photo.userUUID]) {
+            [cell.buttonAction setHidden:YES];
+            [cell.buttonAction setEnabled:NO];
+        } else {
+            [cell.buttonAction setHidden:NO];
+            [cell.buttonAction setEnabled:YES];
+        }
         
         return cell;
     }

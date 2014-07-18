@@ -151,12 +151,57 @@
     
     if (buttonIndex == 2) {
         
+        
+        User *user = [User getInstance];
+        
+        if ([user.userUUID isEqualToString:self.currentPhoto.userUUID]) {
+            return;
+        }
+        
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"Are you sure you want to block this user?" delegate:self cancelButtonTitle:@"NO" otherButtonTitles:@"YES", nil];
+        
+        [alert show];
+        
     }
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    
+    NSLog(@"ALERT %d", buttonIndex);
+    
+    if (buttonIndex == 1) {
+        
+        User *user = [User getInstance];
+        user.delegate = self;
+        user.delegateType = @"block_user";
+        
+        NSDictionary *values = @{@"user_uuid":user.userUUID, @"user_block_uuid":self.currentPhoto.userUUID};
+        [user addBlock:values Token:@""];
+    }
+    
 }
 
 - (BOOL)onCallback:(NSInteger)type
 {
     NSLog(@"returned");
+    
+    User *user = [User getInstance];
+    
+    if ([user.delegateType isEqualToString:@"block_user"]) {
+        
+        user.delegateType = @"";
+        self.photo.delegate = self;
+        
+        AppConfig *config = [AppConfig getInstance];
+        NSString *token = config.token;
+        
+        self.photo.delegateType = @"image.latest";
+        [self.photo fetchLatest:self.imageArray Token:token];
+        
+        return YES;
+    }
+    
     [self.refreshControl endRefreshing];
     [self.tableView reloadData];
     return YES;
@@ -213,6 +258,15 @@
     
     [cell.btnAction addTarget:self action:@selector(onActionButtonTouched:) forControlEvents:UIControlEventTouchDown];
     cell.btnAction.tag = indexPath.row;
+    
+    User *user = [User getInstance];
+    if ([photo.userUUID isEqualToString:user.userUUID]) {
+        [cell.btnAction setEnabled:NO];
+        [cell.btnAction setHidden:YES];
+    } else {
+        [cell.btnAction setEnabled:YES];
+        [cell.btnAction setHidden:NO];
+    }
     
     return cell;
 }

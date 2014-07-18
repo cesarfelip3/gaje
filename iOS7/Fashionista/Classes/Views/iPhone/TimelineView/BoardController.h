@@ -10,7 +10,7 @@
 #import "BoardItemCell.h"
 #import "UploadController.h"
 
-@interface BoardController : UIViewController <UITableViewDataSource, UITableViewDelegate, StoreCellDelegate, NetworkCallbackDelegate, UIActionSheetDelegate>
+@interface BoardController : UIViewController <UITableViewDataSource, UITableViewDelegate, StoreCellDelegate, NetworkCallbackDelegate, UIActionSheetDelegate, UIAlertViewDelegate>
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 
