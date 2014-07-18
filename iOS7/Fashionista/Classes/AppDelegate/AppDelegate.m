@@ -378,7 +378,7 @@ sizeOfItemForViewController:(UIViewController *)viewController
                     controllerIdentifier = @"SettingsNav";
                     break;
                 case 2:
-                    controllerIdentifier = @"SettingsNav";
+                    controllerIdentifier = @"NotesNav";
                     break;
                 default:
                     break;
