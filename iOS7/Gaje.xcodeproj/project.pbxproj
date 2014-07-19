@@ -326,6 +326,8 @@
 		CE6960451906AE5400D464E4 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE6960441906AE5400D464E4 /* SystemConfiguration.framework */; };
 		CE6960471906AE8400D464E4 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE6960461906AE8400D464E4 /* Security.framework */; };
 		CE69604D1906AF6D00D464E4 /* Develop.txt in Resources */ = {isa = PBXBuildFile; fileRef = CE69604C1906AF6D00D464E4 /* Develop.txt */; };
+		CE6C1386197A33D600523B13 /* Note.m in Sources */ = {isa = PBXBuildFile; fileRef = CE6C1385197A33D600523B13 /* Note.m */; };
+		CE6C138B197A34A100523B13 /* NotesController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE6C138A197A34A100523B13 /* NotesController.m */; };
 		CE6E69E71908046D007EA7B0 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE6E69E61908046D007EA7B0 /* FacebookSDK.framework */; };
 		CE71A96A1963EF0800ADB5B0 /* Theme.m in Sources */ = {isa = PBXBuildFile; fileRef = CE71A9691963EF0800ADB5B0 /* Theme.m */; };
 		CE71A96D1963F72C00ADB5B0 /* ThemeController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE71A96C1963F72C00ADB5B0 /* ThemeController.m */; };
@@ -792,6 +794,10 @@
 		CE6960441906AE5400D464E4 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		CE6960461906AE8400D464E4 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		CE69604C1906AF6D00D464E4 /* Develop.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Develop.txt; sourceTree = "<group>"; };
+		CE6C1384197A33D600523B13 /* Note.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Note.h; sourceTree = "<group>"; };
+		CE6C1385197A33D600523B13 /* Note.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Note.m; sourceTree = "<group>"; };
+		CE6C1389197A34A100523B13 /* NotesController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotesController.h; sourceTree = "<group>"; };
+		CE6C138A197A34A100523B13 /* NotesController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotesController.m; sourceTree = "<group>"; };
 		CE6E69E61908046D007EA7B0 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		CE71A9681963EF0800ADB5B0 /* Theme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Theme.h; sourceTree = "<group>"; };
 		CE71A9691963EF0800ADB5B0 /* Theme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Theme.m; sourceTree = "<group>"; };
@@ -1739,6 +1745,7 @@
 		CE695FCE1906A7D100D464E4 /* Template */ = {
 			isa = PBXGroup;
 			children = (
+				CE6C1388197A348100523B13 /* Notes */,
 				CE31DC1719701DA6003DFC08 /* Following */,
 				CE31DC1219701BF4003DFC08 /* Followers */,
 				7FA7DCC81737A0F700A50E20 /* MenuView */,
@@ -1807,6 +1814,8 @@
 				CE54CFAB1967C49E005C1FFE /* Comment.m */,
 				CE54CFB419680CDA005C1FFE /* Brander.h */,
 				CE54CFB519680CDA005C1FFE /* Brander.m */,
+				CE6C1384197A33D600523B13 /* Note.h */,
+				CE6C1385197A33D600523B13 /* Note.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1852,6 +1861,15 @@
 				CE69602D1906ACB800D464E4 /* FMResultSet.m */,
 			);
 			path = fmdb;
+			sourceTree = "<group>";
+		};
+		CE6C1388197A348100523B13 /* Notes */ = {
+			isa = PBXGroup;
+			children = (
+				CE6C1389197A34A100523B13 /* NotesController.h */,
+				CE6C138A197A34A100523B13 /* NotesController.m */,
+			);
+			name = Notes;
 			sourceTree = "<group>";
 		};
 		CE828FCA1923D7BB0040A18C /* Data */ = {
@@ -2210,6 +2228,7 @@
 				7F2A5BD81734FB3800551439 /* ADVDefaultTheme.m in Sources */,
 				CE6960341906ACB800D464E4 /* AFURLRequestSerialization.m in Sources */,
 				7F2A5BD91734FB3800551439 /* ADVTheme.m in Sources */,
+				CE6C1386197A33D600523B13 /* Note.m in Sources */,
 				7F2A5BE01734FB3800551439 /* DetailViewController.m in Sources */,
 				CE69603A1906ACB800D464E4 /* FMDatabaseQueue.m in Sources */,
 				CE247C831970EF6600678543 /* BrandListView.m in Sources */,
@@ -2256,6 +2275,7 @@
 				CE695FF41906AAB300D464E4 /* Bootstrap.m in Sources */,
 				7FA7DD7017384D3000A50E20 /* UISearchBar+TextColor.m in Sources */,
 				7FA7DD7117384D3000A50E20 /* UIVisibleScopeSearchBar.m in Sources */,
+				CE6C138B197A34A100523B13 /* NotesController.m in Sources */,
 				CE6960401906AD2800D464E4 /* Model.m in Sources */,
 				7FA7DD7217384D3000A50E20 /* ADVGallery.m in Sources */,
 				7FA7DD7317384D3000A50E20 /* ADVGalleryBordered.m in Sources */,

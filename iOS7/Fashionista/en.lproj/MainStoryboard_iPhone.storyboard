@@ -1566,10 +1566,10 @@
             </objects>
             <point key="canvasLocation" x="1255" y="1953"/>
         </scene>
-        <!--Week Theme Controller-->
+        <!--Notes Controller-->
         <scene sceneID="0eF-qE-lAl">
             <objects>
-                <tableViewController id="n8b-F3-EVY" customClass="WeekThemeController" sceneMemberID="viewController">
+                <tableViewController id="n8b-F3-EVY" customClass="NotesController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="none" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="pIx-sX-4YZ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
