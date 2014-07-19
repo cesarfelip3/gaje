@@ -167,7 +167,10 @@
         return 44;
     }
     
-    return 240;
+    Image *photo = [self.imageArray objectAtIndex:indexPath.row - 2];
+    NSInteger height = 280 * photo.height / photo.width;
+    
+    return height + 240 - 185;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
