@@ -190,8 +190,30 @@
     
     if (buttonIndex == 1) {
         
+        self.tabbar.selectedSegmentIndex = 1;
+        [self.tabbar sendActionsForControlEvents:UIControlEventValueChanged];
+        //self.currentTab = 1;
+        
+        if (!self.photo.enableBrandIt) {
+            return;
+        }
+        
         NSDictionary *values = @{@"image_uuid":self.photo.imageUUID, @"user_uuid":user.userUUID};
+        self.photo.delegate = nil;
         [self.photo addBrander:values Token:@""];
+        
+        User *user = [User getInstance];
+        
+        Brander *brander = [[Brander alloc] init];
+        brander.username = user.username;
+        brander.iconurl = user.iconurl;
+        brander.token = user.token;
+        
+        [self.branderArray addObject:brander];
+        self.photo.branderCount++;
+        self.photo.enableBrandIt = NO;
+        
+        [self.tableView reloadData];
     }
     
     if (buttonIndex == 2) {
@@ -435,6 +457,8 @@
         [cell.tabbar setTitle:comment forSegmentAtIndex:1];
         
         [cell.tabbar addTarget:self action:@selector(onTabChanged:) forControlEvents:UIControlEventValueChanged];
+        
+        self.tabbar = cell.tabbar;
         
         return cell;
     }

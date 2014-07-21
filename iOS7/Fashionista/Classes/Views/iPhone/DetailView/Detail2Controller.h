@@ -28,6 +28,6 @@
 @property (strong, atomic) NSMutableArray *branderArray;
 
 @property (assign, atomic) NSInteger *currentTab;
-
+@property (strong, nonatomic) UISegmentedControl *tabbar;
 
 @end
