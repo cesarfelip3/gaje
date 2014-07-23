@@ -552,6 +552,7 @@
                     follower.token = [item objectForKey:@"facebook_token"];
                     follower.icon = follower.token;
                     follower.iconurl = [item objectForKey:@"facebook_icon"];
+                    follower.isMutual = [[item objectForKey:@"is_mutual"] integerValue];
                     
                     NSDictionary *image = [item objectForKey:@"image"];
                     
@@ -669,6 +670,7 @@
                     follower.token = [item objectForKey:@"facebook_token"];
                     follower.icon = follower.token;
                     follower.iconurl = [item objectForKey:@"facebook_icon"];
+                    follower.isMutual = [[item objectForKey:@"is_mutual"] integerValue];
                     
                     NSDictionary *image = [item objectForKey:@"image"];
                     

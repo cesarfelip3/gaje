@@ -44,6 +44,7 @@
 @property (atomic, retain) NSString *phone;
 
 @property (atomic, retain) NSString *token;
+@property (nonatomic, assign) NSInteger isMutual;
 
 @property (atomic, assign) NSInteger returnCode;
 @property (atomic, retain) NSString *errorMessage;

@@ -345,6 +345,7 @@
 		CEBEBE7C192289E900A0057F /* upload.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEBEBE7B192289E900A0057F /* upload.storyboard */; };
 		CEBEBE8019228A7200A0057F /* UploadInitController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEBEBE7F19228A7200A0057F /* UploadInitController.m */; };
 		CEBEBE8319228A8A00A0057F /* UploadController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEBEBE8219228A8A00A0057F /* UploadController.m */; };
+		CEE4CBFD197F7B0800B19317 /* FollowerProfileCommandCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE4CBFC197F7B0800B19317 /* FollowerProfileCommandCell.m */; };
 		CEFF103B1966CE3000E84675 /* Detail2Controller.m in Sources */ = {isa = PBXBuildFile; fileRef = CEFF103A1966CE3000E84675 /* Detail2Controller.m */; };
 		CEFF10401966F95D00E84675 /* CommandCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CEFF103F1966F95D00E84675 /* CommandCell.m */; };
 		CEFF10431966F97200E84675 /* TabbarCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CEFF10421966F97200E84675 /* TabbarCell.m */; };
@@ -824,6 +825,8 @@
 		CEBEBE7F19228A7200A0057F /* UploadInitController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UploadInitController.m; sourceTree = "<group>"; };
 		CEBEBE8119228A8A00A0057F /* UploadController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UploadController.h; sourceTree = "<group>"; };
 		CEBEBE8219228A8A00A0057F /* UploadController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UploadController.m; sourceTree = "<group>"; };
+		CEE4CBFB197F7B0800B19317 /* FollowerProfileCommandCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FollowerProfileCommandCell.h; sourceTree = "<group>"; };
+		CEE4CBFC197F7B0800B19317 /* FollowerProfileCommandCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FollowerProfileCommandCell.m; sourceTree = "<group>"; };
 		CEFF10391966CE3000E84675 /* Detail2Controller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Detail2Controller.h; sourceTree = "<group>"; };
 		CEFF103A1966CE3000E84675 /* Detail2Controller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Detail2Controller.m; sourceTree = "<group>"; };
 		CEFF103E1966F95D00E84675 /* CommandCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommandCell.h; sourceTree = "<group>"; };
@@ -1714,6 +1717,8 @@
 				CE247C861970F57200678543 /* FollowerItemCell.m */,
 				CEBABB3919712D0C0054710E /* FollowerProfileItemCell.h */,
 				CEBABB3A19712D0C0054710E /* FollowerProfileItemCell.m */,
+				CEE4CBFB197F7B0800B19317 /* FollowerProfileCommandCell.h */,
+				CEE4CBFC197F7B0800B19317 /* FollowerProfileCommandCell.m */,
 			);
 			path = Follow;
 			sourceTree = "<group>";
@@ -2257,6 +2262,7 @@
 				CE69602F1906ACB800D464E4 /* AFHTTPRequestOperationManager.m in Sources */,
 				AA0E679117CBF19F00AA877F /* PSTCollectionViewCell.m in Sources */,
 				7F2A5D961736F04000551439 /* BoardItemCell.m in Sources */,
+				CEE4CBFD197F7B0800B19317 /* FollowerProfileCommandCell.m in Sources */,
 				CE71A96A1963EF0800ADB5B0 /* Theme.m in Sources */,
 				7FA7DCCB1737A0F700A50E20 /* MenuViewController.m in Sources */,
 				7FA7DCD61737B78300A50E20 /* NavigationSelectViewController.m in Sources */,

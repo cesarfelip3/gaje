@@ -8,10 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "NetworkCallbackDelegate.h"
+#import "FollowerProfileCommandCell.h"
 
 @class User;
 
-@interface FollowingProfileController : UITableViewController <NetworkCallbackDelegate>
+@interface FollowingProfileController : UITableViewController <NetworkCallbackDelegate, UIActionSheetDelegate>
 
 @property (strong, nonatomic) UIRefreshControl *refreshControl;
 @property (strong, nonatomic) NSMutableArray *imageArray;

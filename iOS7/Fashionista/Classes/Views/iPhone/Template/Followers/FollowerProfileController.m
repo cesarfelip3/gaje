@@ -108,6 +108,35 @@
     return YES;
 }
 
+- (IBAction)onFollowButtonTouched:(id)sender
+{
+    UIButton *button = (UIButton *)sender;
+    
+    if (button.tag == 0) {
+        
+        self.user.isMutual = 1;
+        [button setTitle:@"Following" forState:UIControlStateNormal];
+        
+        User *user = [User getInstance];
+        NSDictionary *values = @{@"user_followed_uuid":self.user.userUUID, @"user_following_uuid":user.userUUID};
+        
+        [self.user addFollow:values Token:@""];
+        [self.tableView reloadData];
+    
+    } else {
+        
+        UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:@"" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:@"Unfollow" otherButtonTitles:nil];
+        [sheet showInView:self.view];
+    }
+}
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 0) {
+        
+    }
+}
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -128,6 +157,7 @@
         NSString *CellIdentifier = @"AccountCell";
         AccountCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
         
+        cell.user = self.user;
         cell.data = _account;
         
         return cell;
@@ -135,7 +165,21 @@
     
     if (indexPath.row == 1) {
         
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell_command"];
+        FollowerProfileCommandCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell_command"];
+        
+        if (self.user.isMutual == 1) {
+            
+            cell.buttonFollow.tag = 1;
+            [cell.buttonFollow setHidden:NO];
+            [cell.buttonFollow setTitle:@"Following" forState:UIControlStateNormal];
+            
+        } else {
+            
+            cell.buttonFollow.tag = 0;
+            [cell.buttonFollow setTitle:@"Follow" forState:UIControlStateNormal];
+        }
+        
+        [cell.buttonFollow addTarget:self action:@selector(onFollowButtonTouched:) forControlEvents:UIControlEventTouchDown];
         
         return cell;
         

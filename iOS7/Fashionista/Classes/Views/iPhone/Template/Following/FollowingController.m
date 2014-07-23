@@ -55,7 +55,7 @@
     NSLog(@"cmeara");
     
     self.photo = [[Image alloc] init];
-    self.followerArray = [[NSMutableArray alloc] init];
+    self.followingArray = [[NSMutableArray alloc] init];
     
     self.refreshControl = [[UIRefreshControl alloc] init];
     
@@ -73,7 +73,7 @@
     user.delegate = self;
     
     NSDictionary *values = @{@"user_uuid":user.userUUID};
-    [user fetchFollowingList:values ResultArray:self.followerArray Token:@""];
+    [user fetchFollowingList:values ResultArray:self.followingArray Token:@""];
     
 }
 
@@ -88,7 +88,7 @@
     user.delegate = self;
     
     NSDictionary *values = @{@"user_uuid":user.userUUID};
-    [user fetchFollowingList:values ResultArray:self.followerArray Token:@""];
+    [user fetchFollowingList:values ResultArray:self.followingArray Token:@""];
 }
 
 - (void)viewDidUnload {
@@ -149,14 +149,14 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self.followerArray count];
+    return [self.followingArray count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     NSString *CellIdentifier = @"StoreCell";
     FollowerItemCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
-    User *follower = [self.followerArray objectAtIndex:indexPath.row];
+    User *follower = [self.followingArray objectAtIndex:indexPath.row];
     
     cell.follower = follower;
     
@@ -180,11 +180,11 @@
     currentIndex = indexPath;
     
     
-    User *follower = [self.followerArray objectAtIndex:indexPath.row];
+    User *follower = [self.followingArray objectAtIndex:indexPath.row];
     
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil];
     
-    FollowingProfileController *vc = [storyboard instantiateViewControllerWithIdentifier:@"follower_profile"];
+    FollowingProfileController *vc = [storyboard instantiateViewControllerWithIdentifier:@"following_profile"];
     vc.user = follower;
     [self.navigationController pushViewController:vc animated:YES];
 }
@@ -197,7 +197,7 @@
     if ([segue.identifier isEqualToString:@"showDetail"]) {
         Detail2Controller *detailVC = segue.destinationViewController;
         
-        Image *photo = [self.followerArray objectAtIndex:currentIndex.row];
+        Image *photo = [self.followingArray objectAtIndex:currentIndex.row];
         detailVC.photo = photo;
     }
 }

@@ -66,13 +66,12 @@
     _lblStats.text = @""; //[NSString stringWithFormat:@"%@ Following, %@ Followers", following, followers];
     _lblStats.font = [UIFont fontWithName:@"Avenir-Heavy" size:10];
     
-    User *user = [User getInstance];
     
-    NSString *url = [NSString stringWithFormat:FB_PROFILE_ICON, user.token];
+    NSString *url = self.user.iconurl;
     NSLog(@"profile icon url = %@", url);
     
     self.imageVAvatar.contentMode = UIViewContentModeScaleAspectFit;
-    [self loadImage:url fileName:user.token];
+    [self loadImage:url fileName:self.user.token];
 }
 
 - (BOOL)loadImage:(NSString *)url fileName:(NSString *)filename

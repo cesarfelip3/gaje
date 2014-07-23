@@ -22,5 +22,5 @@
 @property (strong, nonatomic) IBOutlet UILabel *lblStats;
 
 @property (nonatomic, retain) DiskCache *cache;
-
+@property (nonatomic, strong) User *user;
 @end
