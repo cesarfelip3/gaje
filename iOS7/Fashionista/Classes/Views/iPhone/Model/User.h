@@ -62,7 +62,10 @@
 - (BOOL)logout;
 
 - (BOOL)fetchImageList:(NSMutableArray *)imageArray Parameters:(NSDictionary *)values Token:(NSString *)token;
+
 - (BOOL)addFollow:(NSDictionary *)values Token:(NSString*)token;
+- (BOOL)removeFollow:(NSDictionary *)values Token:(NSString*)token;
+
 - (BOOL)fetchFollowerList:(NSDictionary *)values ResultArray:(NSMutableArray *)followerArray Token:(NSString *)token;
 - (BOOL)fetchFollowingList:(NSDictionary *)values ResultArray:(NSMutableArray *)followerArray Token:(NSString *)token;
 

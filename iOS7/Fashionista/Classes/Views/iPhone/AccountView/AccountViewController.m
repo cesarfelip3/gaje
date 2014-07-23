@@ -134,7 +134,6 @@
         AccountCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
         
         cell.data = _account;
-        cell.user = [User getInstance];
         
         return cell;
     }

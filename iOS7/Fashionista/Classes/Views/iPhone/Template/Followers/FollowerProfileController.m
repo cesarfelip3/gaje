@@ -114,13 +114,14 @@
     
     if (button.tag == 0) {
         
-        self.user.isMutual = 1;
-        [button setTitle:@"Following" forState:UIControlStateNormal];
         
         User *user = [User getInstance];
         NSDictionary *values = @{@"user_followed_uuid":self.user.userUUID, @"user_following_uuid":user.userUUID};
         
         [self.user addFollow:values Token:@""];
+        
+        self.user.isMutual = 1;
+        [button setTitle:@"Following" forState:UIControlStateNormal];
         [self.tableView reloadData];
     
     } else {
@@ -134,6 +135,13 @@
 {
     if (buttonIndex == 0) {
         
+        User *user = [User getInstance];
+        NSDictionary *values = @{@"user_followed_uuid":self.user.userUUID, @"user_following_uuid":user.userUUID};
+        
+        [self.user removeFollow:values Token:@""];
+        
+        self.user.isMutual = 0;
+        [self.tableView reloadData];
     }
 }
 
@@ -155,7 +163,7 @@
     
     if (!indexPath.row) {
         NSString *CellIdentifier = @"AccountCell";
-        AccountCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+        FollowerProfileItemCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
         
         cell.user = self.user;
         cell.data = _account;

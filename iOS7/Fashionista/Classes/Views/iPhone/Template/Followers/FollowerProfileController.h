@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "NetworkCallbackDelegate.h"
 #import "FollowerProfileCommandCell.h"
+#import "FollowerProfileItemCell.h"
 
 @class User;
 

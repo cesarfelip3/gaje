@@ -505,6 +505,50 @@
     
 }
 
+- (BOOL)removeFollow:(NSDictionary *)values Token:(NSString*)token
+{
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    
+    NSDictionary *parameters = values;
+    
+    [manager POST:[NSString stringWithFormat:API_USER_UNFOLLOW, API_BASE_URL, API_BASE_VERSION] parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+        
+        
+    } success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        NSLog(@"Success: %@", responseObject);
+        
+        NSString *status = [responseObject objectForKey:@"status"];
+        
+        if ([status isEqualToString:@"success"]) {
+            
+            //self.uploadedImageId = [responseObject objectForKey:@"id"];
+            
+        }
+        
+        self.returnCode = 0;
+        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+        
+        [(self.delegate) onCallback:0];
+        
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        
+        NSLog(@"Error: %@", error);
+        self.returnCode = 1;
+        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+        
+        self.errorMessage = @"Network failed";
+        
+        [(self.delegate) onCallback:0];
+        
+    }];
+    
+    return YES;
+    
+}
+
 - (BOOL)fetchFollowerList:(NSDictionary *)values ResultArray:(NSMutableArray *)followerArray Token:(NSString *)token
 {
     
@@ -537,9 +581,9 @@
                 
                 NSArray *resultArray = [data objectForKey:@"followers"];
                 
-                if ([resultArray count] > 0) {
+                //if ([resultArray count] > 0) {
                     [followerArray removeAllObjects];
-                }
+                //}
                 
                 for (NSDictionary *item in resultArray) {
                     
@@ -655,9 +699,9 @@
                 
                 NSArray *resultArray = [data objectForKey:@"followings"];
                 
-                if ([resultArray count] > 0) {
+                //if ([resultArray count] > 0) {
                     [followerArray removeAllObjects];
-                }
+                //}
                 
                 for (NSDictionary *item in resultArray) {
                     

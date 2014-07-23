@@ -117,7 +117,13 @@
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     if (buttonIndex == 0) {
+        User *user = [User getInstance];
+        NSDictionary *values = @{@"user_followed_uuid":self.user.userUUID, @"user_following_uuid":user.userUUID};
         
+        [self.user removeFollow:values Token:@""];
+        
+        self.user.isMutual = 0;
+        [self.tableView reloadData];
     }
 }
 
@@ -139,7 +145,7 @@
     
     if (!indexPath.row) {
         NSString *CellIdentifier = @"AccountCell";
-        AccountCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+        FollowerProfileItemCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
         
         cell.user = self.user;
         cell.data = _account;
@@ -150,7 +156,17 @@
     if (indexPath.row == 1) {
         
         FollowerProfileCommandCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell_command"];
-        [cell.buttonFollow setTitle:@"Following" forState:UIControlStateNormal];
+        if (self.user.isMutual == 1) {
+            
+            cell.buttonFollow.tag = 1;
+            [cell.buttonFollow setHidden:NO];
+            [cell.buttonFollow setTitle:@"Following" forState:UIControlStateNormal];
+            
+        } else {
+            
+            cell.buttonFollow.tag = 0;
+            [cell.buttonFollow setTitle:@"Follow" forState:UIControlStateNormal];
+        }
         [cell.buttonFollow addTarget:self action:@selector(onFollowButtonTouched:) forControlEvents:UIControlEventTouchDown];
         return cell;
         
