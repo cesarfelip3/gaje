@@ -76,6 +76,8 @@
     [self.refreshControl addTarget:self action:@selector(onRefresh:) forControlEvents:UIControlEventValueChanged];
     
     [self.tableView addSubview:self.refreshControl];
+    
+    self.isFollowing = YES;
 }
 
 - (IBAction)onRefresh:(id)sender
@@ -110,8 +112,26 @@
 
 - (IBAction)onFollowButtonTouched:(id)sender
 {
-    UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:@"" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:@"Unfollow" otherButtonTitles:nil];
-    [sheet showInView:self.view];
+    
+    UIButton *button = (UIButton *)sender;
+    
+    if (button.tag == 0) {
+        
+        UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:@"" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:@"Unfollow" otherButtonTitles:nil];
+        [sheet showInView:self.view];
+    
+    } else {
+        
+        User *user = [User getInstance];
+        NSDictionary *values = @{@"user_followed_uuid":self.user.userUUID, @"user_following_uuid":user.userUUID};
+        
+        [self.user addFollow:values Token:@""];
+    
+        self.isFollowing = YES;
+        [button setTitle:@"Following" forState:UIControlStateNormal];
+        [self.tableView reloadData];
+        
+    }
 }
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
@@ -122,7 +142,7 @@
         
         [self.user removeFollow:values Token:@""];
         
-        self.user.isMutual = 0;
+        self.isFollowing = NO;
         [self.tableView reloadData];
     }
 }
@@ -156,17 +176,18 @@
     if (indexPath.row == 1) {
         
         FollowerProfileCommandCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell_command"];
-        if (self.user.isMutual == 1) {
-            
-            cell.buttonFollow.tag = 1;
+        
+        if (self.isFollowing) {
+            cell.buttonFollow.tag = 0;
             [cell.buttonFollow setHidden:NO];
             [cell.buttonFollow setTitle:@"Following" forState:UIControlStateNormal];
-            
         } else {
-            
-            cell.buttonFollow.tag = 0;
+            cell.buttonFollow.tag = 1;
+            [cell.buttonFollow setHidden:NO];
             [cell.buttonFollow setTitle:@"Follow" forState:UIControlStateNormal];
         }
+        
+        
         [cell.buttonFollow addTarget:self action:@selector(onFollowButtonTouched:) forControlEvents:UIControlEventTouchDown];
         return cell;
         

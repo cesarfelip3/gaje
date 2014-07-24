@@ -19,6 +19,7 @@
 @property (strong, nonatomic) NSMutableArray *imageArray;
 
 @property (strong, nonatomic) User *user;
+@property (assign) BOOL isFollowing;
 
 - (BOOL)onCallback:(NSInteger)type;
 
