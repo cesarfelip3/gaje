@@ -600,90 +600,143 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TimelineCell" rowHeight="240" id="LCn-Op-SR1" customClass="TimelineCell">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TimelineCell" rowHeight="240" id="ga7-9O-39O" customClass="ProfileItemCell">
                                 <rect key="frame" x="0.0" y="86" width="320" height="240"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="LCn-Op-SR1" id="YFy-m0-FhU">
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ga7-9O-39O" id="Hts-Q6-I93">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="240"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" id="KEA-Td-42v">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" id="VQE-Cr-z0i">
                                             <rect key="frame" x="30" y="6" width="280" height="185"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         </imageView>
-                                        <view contentMode="scaleToFill" id="wz3-aF-lSw">
-                                            <rect key="frame" x="35" y="191" width="275" height="42"/>
+                                        <view contentMode="scaleToFill" id="QQs-tV-M0N">
+                                            <rect key="frame" x="35" y="191" width="308" height="42"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="kq2-ao-SjU">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="1Al-kP-xx8">
                                                     <rect key="frame" x="0.0" y="0.0" width="275" height="42"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="wtr-r0-WHt">
-                                                    <rect key="frame" x="8" y="4" width="0.0" height="34"/>
+                                                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" id="6xq-Op-R7a">
+                                                    <rect key="frame" x="8" y="4" width="34" height="34"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="MNV-uN-oos">
-                                                    <rect key="frame" x="9" y="4" width="188" height="18"/>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="G3j-s7-A6q">
+                                                    <rect key="frame" x="10" y="4" width="188" height="18"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ynB-yv-OsE">
-                                                    <rect key="frame" x="9" y="20" width="188" height="18"/>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="yzq-an-EW4">
+                                                    <rect key="frame" x="10" y="20" width="188" height="18"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
-                                                <button hidden="YES" opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="l2Y-QC-1np">
-                                                    <rect key="frame" x="206" y="8" width="25" height="25"/>
+                                                <button hidden="YES" opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="VBr-8g-xgS">
+                                                    <rect key="frame" x="155" y="4" width="81" height="35"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                                    <state key="normal" image="list-item-love.png">
-                                                        <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <state key="normal" title="200 Brands">
+                                                        <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                     <state key="highlighted">
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
-                                                    <connections>
-                                                        <action selector="actionToggleFav:" destination="LCn-Op-SR1" eventType="touchUpInside" id="632-jp-FNT"/>
-                                                    </connections>
                                                 </button>
-                                                <button hidden="YES" opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="du0-lM-rTY">
-                                                    <rect key="frame" x="239" y="8" width="25" height="25"/>
+                                                <button hidden="YES" opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="F3T-Nr-fsD">
+                                                    <rect key="frame" x="227" y="0.0" width="44" height="44"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                                    <state key="normal" image="list-item-cart.png">
-                                                        <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <inset key="contentEdgeInsets" minX="0.0" minY="10" maxX="0.0" maxY="10"/>
+                                                    <inset key="imageEdgeInsets" minX="15" minY="0.0" maxX="5" maxY="0.0"/>
+                                                    <state key="normal" image="down4-256.png">
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
-                                                    <state key="highlighted">
-                                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    </state>
-                                                    <connections>
-                                                        <action selector="actionToggleFav:" destination="LCn-Op-SR1" eventType="touchUpInside" id="mFA-Mz-2yj"/>
-                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                         </view>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="1ci-6q-g0Q">
-                                            <rect key="frame" x="0.0" y="-1" width="320" height="240"/>
+                                        <view contentMode="scaleToFill" id="JtR-sc-8xB" customClass="BrandListView">
+                                            <rect key="frame" x="30" y="6" width="280" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="Ufm-LI-8mv">
+                                                    <rect key="frame" x="5" y="3" width="24" height="24"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                </imageView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="35X-RI-x3K">
+                                                    <rect key="frame" x="31" y="3" width="24" height="24"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="Dr9-F1-SSx">
+                                                    <rect key="frame" x="57" y="3" width="24" height="24"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="YXs-iR-P5u">
+                                                    <rect key="frame" x="84" y="3" width="24" height="24"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="oF9-Yj-D9w">
+                                                    <rect key="frame" x="112" y="3" width="24" height="24"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="Zvh-HF-BVh">
+                                                    <rect key="frame" x="140" y="3" width="24" height="24"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="Gky-tf-4hf">
+                                                    <rect key="frame" x="167" y="3" width="24" height="24"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="VQN-1H-aB8">
+                                                    <rect key="frame" x="195" y="3" width="24" height="24"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="T8N-QU-p5p">
+                                                    <rect key="frame" x="221" y="3" width="24" height="24"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="rI2-W1-ytC">
+                                                    <rect key="frame" x="248" y="3" width="24" height="24"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                            </subviews>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                            <connections>
+                                                <outletCollection property="imageArray" destination="Ufm-LI-8mv" collectionClass="NSMutableArray" id="lX6-FQ-aEN"/>
+                                                <outletCollection property="imageArray" destination="35X-RI-x3K" collectionClass="NSMutableArray" id="gIP-mp-QWC"/>
+                                                <outletCollection property="imageArray" destination="Dr9-F1-SSx" collectionClass="NSMutableArray" id="moz-fv-Idh"/>
+                                                <outletCollection property="imageArray" destination="YXs-iR-P5u" collectionClass="NSMutableArray" id="Q0i-U2-KlU"/>
+                                                <outletCollection property="imageArray" destination="oF9-Yj-D9w" collectionClass="NSMutableArray" id="TS6-K2-JCv"/>
+                                                <outletCollection property="imageArray" destination="Zvh-HF-BVh" collectionClass="NSMutableArray" id="o49-e9-Vk3"/>
+                                                <outletCollection property="imageArray" destination="Gky-tf-4hf" collectionClass="NSMutableArray" id="3Oo-Ua-uaw"/>
+                                                <outletCollection property="imageArray" destination="VQN-1H-aB8" collectionClass="NSMutableArray" id="xme-yN-kN4"/>
+                                                <outletCollection property="imageArray" destination="T8N-QU-p5p" collectionClass="NSMutableArray" id="LeK-3z-OyE"/>
+                                                <outletCollection property="imageArray" destination="rI2-W1-ytC" collectionClass="NSMutableArray" id="jw5-U9-Sg5"/>
+                                            </connections>
+                                        </view>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="sdd-39-60w">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="240"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <color key="tintColor" red="0.71243223850000004" green="0.024239841849999999" blue="0.031970959649999998" alpha="1" colorSpace="calibratedRGB"/>
                                         </imageView>
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="btnFav" destination="l2Y-QC-1np" id="GEF-Og-x4E"/>
-                                    <outlet property="imageVAvatar" destination="wtr-r0-WHt" id="uGJ-Qh-IIH"/>
-                                    <outlet property="imageVBkg" destination="1ci-6q-g0Q" id="e5i-xi-riU"/>
-                                    <outlet property="imageVImage" destination="KEA-Td-42v" id="NsN-MD-N0W"/>
-                                    <outlet property="imageVStage" destination="kq2-ao-SjU" id="hYT-Jc-1a6"/>
-                                    <outlet property="lblTitle" destination="MNV-uN-oos" id="vpb-fZ-hQF"/>
-                                    <outlet property="lblValue" destination="ynB-yv-OsE" id="iqG-3Q-adI"/>
+                                    <outlet property="brandContainer" destination="JtR-sc-8xB" id="dLu-kc-2cZ"/>
+                                    <outlet property="btnAction" destination="F3T-Nr-fsD" id="Wim-ld-hUy"/>
+                                    <outlet property="btnBrand" destination="VBr-8g-xgS" id="dMt-UB-smJ"/>
+                                    <outlet property="imageVAvatar" destination="6xq-Op-R7a" id="44o-Mc-qEj"/>
+                                    <outlet property="imageVBkg" destination="sdd-39-60w" id="Kwj-hL-Xu1"/>
+                                    <outlet property="imageVImage" destination="VQE-Cr-z0i" id="buh-39-8wa"/>
+                                    <outlet property="imageVStage" destination="1Al-kP-xx8" id="vt9-ZY-UnL"/>
+                                    <outlet property="lblTitle" destination="G3j-s7-A6q" id="VBP-D4-ldq"/>
+                                    <outlet property="lblValue" destination="yzq-an-EW4" id="EQ8-EW-W8d"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="AccountCell" rowHeight="195" id="VS0-hi-iqI" customClass="AccountCell">
