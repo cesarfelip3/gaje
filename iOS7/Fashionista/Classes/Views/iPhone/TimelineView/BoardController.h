@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "BoardItemCell.h"
 #import "UploadController.h"
+#import "Brander.h"
 
 @interface BoardController : UIViewController <UITableViewDataSource, UITableViewDelegate, StoreCellDelegate, NetworkCallbackDelegate, UIActionSheetDelegate, UIAlertViewDelegate>
 

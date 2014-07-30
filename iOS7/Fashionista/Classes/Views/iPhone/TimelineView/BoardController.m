@@ -35,7 +35,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [ADVThemeManager customizeTimelineView:self.view];
+    //[ADVThemeManager customizeTimelineView:self.view];
     UIImageView *titleImageV = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"navigation-title"]];
     self.navigationItem.titleView = titleImageV;
     
@@ -54,20 +54,17 @@
     
     [btnSearch addTarget:self action:@selector(onCameraButtonTouched:) forControlEvents:UIControlEventTouchDown];
     
-    self.tableView.tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 10)];
-    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 10)];
+    NSLog(@"board controller == viewDidLoad");
     
-    NSLog(@"cmeara");
-    
-    self.photo = [[Image alloc] init];
-    self.imageArray = [[NSMutableArray alloc] init];
-    
-    self.refreshControl = [[UIRefreshControl alloc] init];
-    
-    // Configure Refresh Control
+    self.refreshControl = [[UIRefreshControl alloc] init];    
     [self.refreshControl addTarget:self action:@selector(onRefresh:) forControlEvents:UIControlEventValueChanged];
     
     [self.tableView addSubview:self.refreshControl];
+    //self.tableView.tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 10)];
+    //self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 10)];
+    
+    self.imageArray = [[NSMutableArray alloc] init];
+    self.photo = [[Image alloc] init];
 }
 
 - (IBAction)onRefresh:(id)sender
@@ -97,8 +94,6 @@
     self.photo.delegateType = @"image.latest";
     [self.photo fetchLatest:self.imageArray Token:token];
     
-    self.items = [DataSource timeline];
-    [self.tableView reloadData];
 }
 
 - (void)viewDidUnload {
@@ -145,8 +140,12 @@
     
     if (buttonIndex == 1) {
         
-        NSDictionary *values = @{@"image_uuid":self.currentPhoto.imageUUID, @"user_uuid":user.userUUID};
-        [self.photo addBrander:values Token:@""];
+        self.currentPhoto.brandIt = 1;
+        
+        //NSDictionary *values = @{@"image_uuid":self.currentPhoto.imageUUID, @"user_uuid":user.userUUID};
+        //[self.photo addBrander:values Token:@""];
+        
+        [self.tableView reloadData];
     }
     
     if (buttonIndex == 2) {
@@ -203,6 +202,8 @@
     }
     
     [self.refreshControl endRefreshing];
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
     [self.tableView reloadData];
     return YES;
 }
@@ -239,6 +240,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    
     return [self.imageArray count];
 }
 
@@ -268,10 +270,14 @@
         [cell.btnAction setHidden:NO];
     }
     
+    if (photo.brandIt == 1) {
+        [cell onBrandButtonTouched];
+        photo.brandIt = 0;
+    }
+    
     return cell;
 }
 
-#pragma mark - Table view delegate
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     

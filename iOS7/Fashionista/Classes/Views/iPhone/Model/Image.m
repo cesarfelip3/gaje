@@ -31,7 +31,7 @@
     
     User *user = [User getInstance];
     
-    NSDictionary *parameters = @{@"user_uuid":user.userUUID};
+    NSDictionary *parameters = @{@"user_uuid":@""};
     
     [manager POST:[NSString stringWithFormat:API_IMAGE_LATEST, API_BASE_URL, API_BASE_VERSION] parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
         

@@ -55,13 +55,15 @@
     self.imageVBkg.image = [[UIImage imageNamed:@"list-item-background"] resizableImageWithCapInsets:UIEdgeInsetsMake(50, 50, 30, 30)];
     self.imageVStage.image = [UIImage imageNamed:@"list-item-stage"];
     
+    self.imageVImage.image = nil;
+    
     [self loadImage:self.photo.thumbnail fileName:self.photo.thumbnailName ImageView:self.imageVImage];
     [self loadImage:self.photo.usericon fileName:[NSString stringWithFormat:@"%@.jpg", self.photo.usertoken] ImageView:self.imageVAvatar];
     
     self.imageVImage.frame = CGRectMake(self.imageVImage.frame.origin.x, self.imageVImage.frame.origin.x, 280, self.photo.height * 280 / self.photo.width);
     
-    NSString *name = [_data[@"name"] uppercaseString];
-    NSString *brand = _data[@"brand"];
+    NSString *name;
+    NSString *brand;
     
     name = self.photo.username;
     brand = @"";
@@ -95,10 +97,6 @@
     _lblValue.textColor = [UIColor colorWithRed:0.42f green:0.44f blue:0.47f alpha:1.00f];
     _lblValue.font = [UIFont fontWithName:@"Cabin-Bold" size:fontSize];
     
-    
-    [_btnBrand addTarget:self action:@selector(onBrandButtonTouched:) forControlEvents:UIControlEventTouchDown];
-    
-    
     if ([self.photo.branderArray count] > 0) {
         
         [self.btnBrand setTitle:[NSString stringWithFormat:@"%d Brands", self.photo.branderCount] forState:UIControlStateNormal];
@@ -115,14 +113,14 @@
     
 }
 
-- (IBAction)onBrandButtonTouched:(id)sender {
+- (BOOL)onBrandButtonTouched {
     
     NSLog(@"brand clicked");
     
     // 280 / 10 = 28
     
     if (self.photo.enableBrandIt == 0) {
-        return;
+        return NO;
     }
     
     User *user = [User getInstance];
@@ -132,18 +130,22 @@
     brander.iconurl = user.iconurl;
     brander.token = user.token;
     
+    if (self.photo.branderArray == nil) {
+        self.photo.branderArray = [[NSMutableArray alloc] init];
+    }
+    
     [self.photo.branderArray addObject:brander];
     [self.brandContainer loadBranderIcons];
     
+    if (user.userUUID == nil) {
+        return NO;
+    }
     
     NSDictionary *values = @{@"image_uuid":self.photo.imageUUID, @"user_uuid":user.userUUID};
     [self.photo addBrander:values Token:@""];
     
-#if false
-    if ([_delegate respondsToSelector:@selector(cellDidToggleFavoriteState:forItem:)]) {
-        [_delegate cellDidToggleFavoriteState:self forItem:_data];
-    }
-#endif
+    return YES;
+
 }
 
 - (BOOL)loadImage:(NSString *)url fileName:(NSString *)filename ImageView:(UIImageView *)imageView

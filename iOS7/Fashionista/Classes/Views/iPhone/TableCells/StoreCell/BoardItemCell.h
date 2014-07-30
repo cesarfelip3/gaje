@@ -36,7 +36,9 @@
 @property (nonatomic, retain) DiskCache *cache;
 @property (nonatomic, retain) Image *photo;
 
-- (IBAction)onBrandButtonTouched:(id)sender;
+@property (nonatomic, assign) BOOL brandIt;
+
+- (BOOL)onBrandButtonTouched;
 
 @end
 

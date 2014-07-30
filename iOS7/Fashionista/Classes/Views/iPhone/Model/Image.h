@@ -51,6 +51,8 @@
 
 @property (atomic, assign) NSInteger enableBrandIt;
 
+@property (atomic, assign) NSInteger brandIt;
+
 // methods
 
 - (BOOL)fetchLatest:(NSMutableArray *)imageArray Token:(NSString *)token;

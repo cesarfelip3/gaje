@@ -166,6 +166,7 @@ static AppDelegate *sharedDelegate;
     AppConfig *config = [AppConfig getInstance];
     config.userIsLogin = 1;
     
+    
     NSLog(@"FB Login");
     
 #if true
@@ -192,19 +193,9 @@ static AppDelegate *sharedDelegate;
             //self.mainVC = (((UINavigationController *)self.window.rootViewController).viewControllers)[0];
         } else {
             
-            if (self.mainVC && self.window) {
-                UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"MainStoryboard_iPhone"
-                                                                         bundle: nil];
-                UINavigationController *nav = [mainStoryboard instantiateViewControllerWithIdentifier:@"BoardNav"];
-                [_foldVC setRootViewController:nav];
-                [_foldVC.paperFoldView setPaperFoldState:PaperFoldStateDefault animated:YES];
-                
-                self.window.rootViewController = self.mainVC;
-                self.window.backgroundColor = [UIColor blackColor];
-                [self.window makeKeyAndVisible];
-                [FBLoginView class];
-                return;
-            }
+            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil];
+            
+            self.mainVC = [storyboard instantiateInitialViewController];
             
             self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
             
@@ -244,6 +235,7 @@ static AppDelegate *sharedDelegate;
     if (config.userIsLogin != 1) {
         return;
     }
+    
     
     User *user = [User getInstance];
     [user logout];
