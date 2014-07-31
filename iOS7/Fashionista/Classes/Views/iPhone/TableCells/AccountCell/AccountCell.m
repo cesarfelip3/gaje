@@ -66,6 +66,7 @@
     
     User *user = [User getInstance];
     
+    user.iconurl = [NSString stringWithFormat:FB_PROFILE_ICON, user.token];
     NSString *url = user.iconurl;
     NSLog(@"profile icon url = %@", url);
     

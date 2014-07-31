@@ -35,7 +35,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    //[ADVThemeManager customizeTimelineView:self.view];
+    [ADVThemeManager customizeTimelineView:self.view];
     UIImageView *titleImageV = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"navigation-title"]];
     self.navigationItem.titleView = titleImageV;
     

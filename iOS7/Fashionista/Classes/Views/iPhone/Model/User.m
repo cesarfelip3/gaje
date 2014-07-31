@@ -323,8 +323,11 @@
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
     
     NSDictionary *parameters = values;
+    NSString *url = [NSString stringWithFormat:API_USER_IMAGE_LIST, API_BASE_URL, API_BASE_VERSION];
     
-    [manager POST:[NSString stringWithFormat:API_USER_IMAGE_LIST, API_BASE_URL, API_BASE_VERSION] parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+    NSLog(@"url = %@", url);
+    
+    [manager POST:url parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
         
         
     } success:^(AFHTTPRequestOperation *operation, id responseObject) {

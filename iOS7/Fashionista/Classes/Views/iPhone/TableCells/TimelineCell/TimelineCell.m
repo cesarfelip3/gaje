@@ -56,7 +56,7 @@
 - (void)layoutSubviews {
     [super layoutSubviews];
     
-    self.imageVBkg.image = [[UIImage imageNamed:@"list-item-background"] resizableImageWithCapInsets:UIEdgeInsetsMake(50, 50, 30, 30)];
+    //self.imageVBkg.image = [[UIImage imageNamed:@"list-item-background"] resizableImageWithCapInsets:UIEdgeInsetsMake(50, 50, 30, 30)];
     self.imageVStage.image = [UIImage imageNamed:@"list-item-stage"];
     
     //self.imageVImage.image = [UIImage imageNamed:_data[@"image"]];
