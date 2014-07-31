@@ -20,7 +20,8 @@
 
 @property (atomic, retain) NSString *token;
 @property (atomic, retain) NSString *uuid;
-@property (atomic, assign) NSInteger stage;
+@property (atomic, assign) NSInteger fbstage;
+@property (atomic, strong) NSString *fbfrom;
 
 @property (atomic, assign) BOOL applicationLaunched;
 

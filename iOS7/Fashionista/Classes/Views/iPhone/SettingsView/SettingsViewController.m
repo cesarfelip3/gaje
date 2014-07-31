@@ -43,6 +43,8 @@
 //    
 //    self.navigationItem.leftBarButtonItem = reloadButton;
     
+    AppConfig *config = [AppConfig getInstance];
+    config.fbfrom = @"logout";
     
 }
 

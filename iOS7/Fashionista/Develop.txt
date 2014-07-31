@@ -48,5 +48,7 @@ issue
     1. the issue is about : FB delegate ==> callback ==> is called before main controller loaded
     2. so this time, user.userUUID == nil !!!
     
+    application launched ==> FB LOGIN ==> Delegate A ==> Delegate B 
+    
 
 

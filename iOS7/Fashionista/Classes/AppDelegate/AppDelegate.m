@@ -30,7 +30,8 @@ static AppDelegate *sharedDelegate;
     
     AppConfig *config = [AppConfig getInstance];
     
-    config.applicationLaunched = YES;
+    
+    config.fbfrom = @"application";
     
     User *user = [User getInstance];
     [user auth];
@@ -132,6 +133,7 @@ static AppDelegate *sharedDelegate;
             AppConfig *config = [AppConfig getInstance];
             config.userIsLogin = 1;
             config.token = token;
+            $user.returnCode = 0;
             return;
         
         }
@@ -157,17 +159,8 @@ static AppDelegate *sharedDelegate;
         return NO;
     }
     
-    return YES;
-}
-
-- (void) loginViewShowingLoggedInUser:(FBLoginView *)loginView
-{
-    
     AppConfig *config = [AppConfig getInstance];
     config.userIsLogin = 1;
-    
-    
-    NSLog(@"FB Login");
     
 #if true
     
@@ -179,10 +172,11 @@ static AppDelegate *sharedDelegate;
         self.window.rootViewController = controller;
         [self.window makeKeyAndVisible];
         [FBLoginView class];
-        return;
+        return NO;
     }
     
-    if (config.userIsLogin == 1 && !config.applicationLaunched) {
+    
+    if (config.userIsLogin == 1 && [config.fbfrom isEqualToString:@"application"]) {
         
         
         [ADVThemeManager customizeAppAppearance];
@@ -223,12 +217,23 @@ static AppDelegate *sharedDelegate;
     [FBLoginView class];
     
 #endif
+    
+    return YES;
+}
+
+- (void) loginViewShowingLoggedInUser:(FBLoginView *)loginView
+{
+    
+    AppConfig *config = [AppConfig getInstance];
+    config.fbstage = 2;
+    NSLog(@"FB Login");
 
 }
 
 - (void) loginViewShowingLoggedOutUser:(FBLoginView *)loginView
 {
     AppConfig *config = [AppConfig getInstance];
+    config.fbstage = 1;
     
     NSLog(@"FB Logout");
     
@@ -245,6 +250,8 @@ static AppDelegate *sharedDelegate;
     self.window.rootViewController = controller;
     [self.window makeKeyAndVisible];
     [FBLoginView class];
+    
+    config.fbfrom = @"application";
     
 }
 
@@ -475,7 +482,7 @@ sizeOfItemForViewController:(UIViewController *)viewController
     // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
     
     AppConfig *config = [AppConfig getInstance];
-    config.applicationLaunched = NO;
+    
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
@@ -484,7 +491,7 @@ sizeOfItemForViewController:(UIViewController *)viewController
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
     
     AppConfig *config = [AppConfig getInstance];
-    config.applicationLaunched = NO;
+    
     
 }
 
@@ -500,7 +507,7 @@ sizeOfItemForViewController:(UIViewController *)viewController
     NSLog(@"app = become active");
     
     AppConfig *config = [AppConfig getInstance];
-    config.applicationLaunched = YES;
+    
     
 }
 
@@ -509,7 +516,7 @@ sizeOfItemForViewController:(UIViewController *)viewController
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     
     AppConfig *config = [AppConfig getInstance];
-    config.applicationLaunched = NO;
+    
 }
 
 @end
