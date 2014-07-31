@@ -374,7 +374,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2xC-23-XQO" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-158" y="2287"/>
+            <point key="canvasLocation" x="-18" y="2271"/>
         </scene>
         <!--Follow Init Controller-->
         <scene sceneID="I5G-Ut-Kkd">
@@ -875,7 +875,7 @@
                                     <outlet property="delegate" destination="ATK-E6-sfs" id="eCl-bJ-McZ"/>
                                 </connections>
                             </tableView>
-                            <searchBar hidden="YES" contentMode="redraw" placeholder="Search" id="ETJ-LH-5mU">
+                            <searchBar contentMode="redraw" placeholder="Search" id="ETJ-LH-5mU">
                                 <rect key="frame" x="0.0" y="0.0" width="260" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>

@@ -345,6 +345,7 @@
 		CEBEBE7C192289E900A0057F /* upload.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEBEBE7B192289E900A0057F /* upload.storyboard */; };
 		CEBEBE8019228A7200A0057F /* UploadInitController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEBEBE7F19228A7200A0057F /* UploadInitController.m */; };
 		CEBEBE8319228A8A00A0057F /* UploadController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEBEBE8219228A8A00A0057F /* UploadController.m */; };
+		CECD2FD7198A87E400DB020C /* UserSearchController.m in Sources */ = {isa = PBXBuildFile; fileRef = CECD2FD6198A87E400DB020C /* UserSearchController.m */; };
 		CEE4CBFD197F7B0800B19317 /* FollowerProfileCommandCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE4CBFC197F7B0800B19317 /* FollowerProfileCommandCell.m */; };
 		CEF41B03198911D20077DD22 /* ProfileItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CEF41B02198911D20077DD22 /* ProfileItemCell.m */; };
 		CEFF103B1966CE3000E84675 /* Detail2Controller.m in Sources */ = {isa = PBXBuildFile; fileRef = CEFF103A1966CE3000E84675 /* Detail2Controller.m */; };
@@ -826,6 +827,8 @@
 		CEBEBE7F19228A7200A0057F /* UploadInitController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UploadInitController.m; sourceTree = "<group>"; };
 		CEBEBE8119228A8A00A0057F /* UploadController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UploadController.h; sourceTree = "<group>"; };
 		CEBEBE8219228A8A00A0057F /* UploadController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UploadController.m; sourceTree = "<group>"; };
+		CECD2FD5198A87E400DB020C /* UserSearchController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserSearchController.h; sourceTree = "<group>"; };
+		CECD2FD6198A87E400DB020C /* UserSearchController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserSearchController.m; sourceTree = "<group>"; };
 		CEE4CBFB197F7B0800B19317 /* FollowerProfileCommandCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FollowerProfileCommandCell.h; sourceTree = "<group>"; };
 		CEE4CBFC197F7B0800B19317 /* FollowerProfileCommandCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FollowerProfileCommandCell.m; sourceTree = "<group>"; };
 		CEF41B01198911D20077DD22 /* ProfileItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileItemCell.h; sourceTree = "<group>"; };
@@ -1755,6 +1758,7 @@
 		CE695FCE1906A7D100D464E4 /* Template */ = {
 			isa = PBXGroup;
 			children = (
+				CECD2FD3198A878B00DB020C /* UserSearch */,
 				CE6C1388197A348100523B13 /* Notes */,
 				CE31DC1719701DA6003DFC08 /* Following */,
 				CE31DC1219701BF4003DFC08 /* Followers */,
@@ -1908,6 +1912,15 @@
 				CE1FD0CC1976994700E39076 /* down4-256.png */,
 			);
 			path = Image;
+			sourceTree = "<group>";
+		};
+		CECD2FD3198A878B00DB020C /* UserSearch */ = {
+			isa = PBXGroup;
+			children = (
+				CECD2FD5198A87E400DB020C /* UserSearchController.h */,
+				CECD2FD6198A87E400DB020C /* UserSearchController.m */,
+			);
+			path = UserSearch;
 			sourceTree = "<group>";
 		};
 		CEFF103D1966F91200E84675 /* Detail */ = {
@@ -2295,6 +2308,7 @@
 				AA0E679417CBF19F00AA877F /* PSTCollectionViewFlowLayout.m in Sources */,
 				CE54CFAC1967C49E005C1FFE /* Comment.m in Sources */,
 				7FA7DD7617384D3000A50E20 /* ADVProgressBar.m in Sources */,
+				CECD2FD7198A87E400DB020C /* UserSearchController.m in Sources */,
 				7FA7DD7717384D3000A50E20 /* CustomTabBarViewController.m in Sources */,
 				CEFF10401966F95D00E84675 /* CommandCell.m in Sources */,
 				7FA7DD7917384D3000A50E20 /* NGTabBar.m in Sources */,
