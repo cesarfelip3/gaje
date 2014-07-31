@@ -45,6 +45,11 @@
         tableRectView.origin.y += 20;
         self.tableView.frame = tableRectView;
     }
+    
+    self.searchBarDelegate = [[UserSearchController alloc] init];
+    self.searchBar.delegate = self.searchBarDelegate;
+    
+    //self.searchBar.delegate = [[UserSearchController alloc] init];
 }
 
 

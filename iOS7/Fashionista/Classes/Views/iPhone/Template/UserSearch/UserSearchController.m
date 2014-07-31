@@ -35,19 +35,27 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar
+{
+    searchBar.showsCancelButton = YES;
+}
+
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
 {
-    
+    NSLog(@"change");  
 }
 
 - (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
 {
-    
+    NSLog(@"cancel");
+    searchBar.showsCancelButton = NO;
+   [searchBar resignFirstResponder];
 }
 
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
 {
-    
+    NSLog(@"search");
+    [searchBar resignFirstResponder];
 }
 
 /*

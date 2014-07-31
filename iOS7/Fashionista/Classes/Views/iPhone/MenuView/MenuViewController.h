@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UserSearchController.h"
 
 @protocol MenuViewControllerDelegate;
 
@@ -15,6 +16,8 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (assign, nonatomic) id<MenuViewControllerDelegate> delegate;
 @property (strong, nonatomic) IBOutlet UISearchBar *searchBar;
+
+@property (strong, nonatomic) UserSearchController *searchBarDelegate;
 
 @end
 
