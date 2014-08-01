@@ -292,6 +292,8 @@
 		CE31DC2119703325003DFC08 /* Icon-Small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE31DC2019703325003DFC08 /* Icon-Small@2x.png */; };
 		CE31DC231970352C003DFC08 /* Icon-120.png in Resources */ = {isa = PBXBuildFile; fileRef = CE31DC221970352C003DFC08 /* Icon-120.png */; };
 		CE31DC25197035BB003DFC08 /* Icon-80.png in Resources */ = {isa = PBXBuildFile; fileRef = CE31DC24197035BB003DFC08 /* Icon-80.png */; };
+		CE40D078198B4F4100069817 /* UserSearchProfileController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE40D077198B4F4100069817 /* UserSearchProfileController.m */; };
+		CE40D07C198B506F00069817 /* UserSearchResultController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE40D07B198B506F00069817 /* UserSearchResultController.m */; };
 		CE54CFAC1967C49E005C1FFE /* Comment.m in Sources */ = {isa = PBXBuildFile; fileRef = CE54CFAB1967C49E005C1FFE /* Comment.m */; };
 		CE54CFB01967CCFD005C1FFE /* CommentItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CE54CFAF1967CCFD005C1FFE /* CommentItemCell.m */; };
 		CE54CFB3196807DA005C1FFE /* BranderItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CE54CFB2196807DA005C1FFE /* BranderItemCell.m */; };
@@ -733,6 +735,10 @@
 		CE31DC2019703325003DFC08 /* Icon-Small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small@2x.png"; sourceTree = "<group>"; };
 		CE31DC221970352C003DFC08 /* Icon-120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-120.png"; sourceTree = "<group>"; };
 		CE31DC24197035BB003DFC08 /* Icon-80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-80.png"; sourceTree = "<group>"; };
+		CE40D076198B4F4100069817 /* UserSearchProfileController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserSearchProfileController.h; sourceTree = "<group>"; };
+		CE40D077198B4F4100069817 /* UserSearchProfileController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserSearchProfileController.m; sourceTree = "<group>"; };
+		CE40D07A198B506F00069817 /* UserSearchResultController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserSearchResultController.h; sourceTree = "<group>"; };
+		CE40D07B198B506F00069817 /* UserSearchResultController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserSearchResultController.m; sourceTree = "<group>"; };
 		CE54CFAA1967C49E005C1FFE /* Comment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Comment.h; sourceTree = "<group>"; };
 		CE54CFAB1967C49E005C1FFE /* Comment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Comment.m; sourceTree = "<group>"; };
 		CE54CFAE1967CCFD005C1FFE /* CommentItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentItemCell.h; sourceTree = "<group>"; };
@@ -1919,6 +1925,10 @@
 			children = (
 				CECD2FD5198A87E400DB020C /* UserSearchController.h */,
 				CECD2FD6198A87E400DB020C /* UserSearchController.m */,
+				CE40D076198B4F4100069817 /* UserSearchProfileController.h */,
+				CE40D077198B4F4100069817 /* UserSearchProfileController.m */,
+				CE40D07A198B506F00069817 /* UserSearchResultController.h */,
+				CE40D07B198B506F00069817 /* UserSearchResultController.m */,
 			);
 			path = UserSearch;
 			sourceTree = "<group>";
@@ -2288,6 +2298,7 @@
 				CE6960331906ACB800D464E4 /* AFURLConnectionOperation.m in Sources */,
 				CE31DC1D19701F89003DFC08 /* FollowInitController.m in Sources */,
 				7FA7DD6C17384D3000A50E20 /* UIColor+Alpha.m in Sources */,
+				CE40D078198B4F4100069817 /* UserSearchProfileController.m in Sources */,
 				CE69602E1906ACB800D464E4 /* AFHTTPRequestOperation.m in Sources */,
 				AA0E679717CBF19F00AA877F /* PSTCollectionViewUpdateItem.m in Sources */,
 				7FA7DD6D17384D3000A50E20 /* UIImage+iPhone5.m in Sources */,
@@ -2357,6 +2368,7 @@
 				7FA7DDAA1738501C00A50E20 /* ItemCollectionCell.m in Sources */,
 				7FA7DDAB1738501C00A50E20 /* MasterViewController_iPad.m in Sources */,
 				AA0E679217CBF19F00AA877F /* PSTCollectionViewController.m in Sources */,
+				CE40D07C198B506F00069817 /* UserSearchResultController.m in Sources */,
 				7FA7DDAF1738506700A50E20 /* iCarousel.m in Sources */,
 				AA0E679A17CBF19F00AA877F /* PSTGridLayoutRow.m in Sources */,
 				AA0E67A417CC177A00AA877F /* Utils.m in Sources */,

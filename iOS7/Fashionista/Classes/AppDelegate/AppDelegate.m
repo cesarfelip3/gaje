@@ -364,6 +364,10 @@ sizeOfItemForViewController:(UIViewController *)viewController
                 case 4:
                     controllerIdentifier = @"MapNav";
                     break;
+                // invisible, user search only
+                case 5:
+                    controllerIdentifier = @"FollowersNav";
+                    break;
                 default:
                     break;
             }

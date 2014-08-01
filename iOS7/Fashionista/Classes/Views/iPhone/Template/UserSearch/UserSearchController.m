@@ -7,6 +7,7 @@
 //
 
 #import "UserSearchController.h"
+#import "AppDelegate.h"
 
 @interface UserSearchController ()
 
@@ -56,6 +57,11 @@
 {
     NSLog(@"search");
     [searchBar resignFirstResponder];
+    
+    //
+    
+    [[AppDelegate sharedDelegate] togglePaperFold:searchBar];
+    [[AppDelegate sharedDelegate] userDidSwitchToControllerAtIndexPath:[NSIndexPath indexPathForItem:5 inSection:0]];
 }
 
 /*

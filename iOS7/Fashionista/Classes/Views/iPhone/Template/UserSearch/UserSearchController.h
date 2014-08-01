@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+@class AppDelegate;
+
 @interface UserSearchController : UIViewController <UISearchBarDelegate>
 
 @end
