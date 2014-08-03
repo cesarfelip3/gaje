@@ -82,7 +82,11 @@
     User *user = [User getInstance];
     user.delegate = self;
     
-    NSDictionary *values = @{@"user_uuid":user.userUUID};
+    
+    AppConfig *config = [AppConfig getInstance];
+    
+    
+    NSDictionary *values = @{@"name":config.userSearchKeyword};
     [user search:values ResultArray:self.resultArray Token:@""];
     
 }
@@ -97,7 +101,10 @@
     User *user = [User getInstance];
     user.delegate = self;
     
-    NSDictionary *values = @{@"name":user.username};
+    AppConfig *config = [AppConfig getInstance];
+    
+    
+    NSDictionary *values = @{@"name":config.userSearchKeyword};
     [user search:values ResultArray:self.resultArray Token:@""];
 }
 

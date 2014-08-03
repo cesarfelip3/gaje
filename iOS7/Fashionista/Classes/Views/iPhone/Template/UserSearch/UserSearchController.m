@@ -59,6 +59,8 @@
     [searchBar resignFirstResponder];
     
     //
+    AppConfig *config = [AppConfig getInstance];
+    config.userSearchKeyword = searchBar.text;
     
     [[AppDelegate sharedDelegate] togglePaperFold:searchBar];
     [[AppDelegate sharedDelegate] userDidSwitchToControllerAtIndexPath:[NSIndexPath indexPathForItem:5 inSection:0]];
