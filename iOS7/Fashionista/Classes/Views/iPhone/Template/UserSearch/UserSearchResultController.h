@@ -16,7 +16,7 @@
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 
-@property (retain) NSMutableArray *followerArray;
+@property (retain) NSMutableArray *resultArray;
 @property (retain) Image *photo;
 
 @property (atomic, retain) UIRefreshControl *refreshControl;

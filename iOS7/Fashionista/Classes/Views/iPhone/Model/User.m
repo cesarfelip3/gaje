@@ -835,4 +835,94 @@
     
 }
 
+- (BOOL)search:(NSDictionary *)values ResultArray:(NSMutableArray *)userArray Token:(NSString *)token
+{
+    _returnCode = 1;
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    
+    manager.requestSerializer = [AFHTTPRequestSerializer serializer];
+    [manager.requestSerializer setValue:token forHTTPHeaderField:@"X-AUTH-KEY"];
+    
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+    NSDictionary *parameters = values;
+    
+    [manager POST:[NSString stringWithFormat:API_USER_SEARCH, API_BASE_URL, API_BASE_VERSION] parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+        
+        
+    } success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        NSString *status = [(NSDictionary *)responseObject objectForKey:@"status"];
+        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+        
+        NSLog(@"%@", responseObject);
+        
+        if ([status isEqualToString:@"success"]) {
+            
+            NSDictionary *data = [responseObject objectForKey:@"data"];
+            
+            @try {
+                
+                NSArray *resultArray = [data objectForKey:@"users"];
+                
+                //if ([resultArray count] > 0) {
+                [userArray removeAllObjects];
+                //}
+                
+                for (NSDictionary *item in resultArray) {
+                    
+                    User *user = [[User alloc] init];
+                    
+                    user.userUUID = [item objectForKey:@"user_uuid"];
+                    user.username = [item objectForKey:@"username"];
+                    user.fullname = [item objectForKey:@"fullname"];
+                    
+                    user.token = [item objectForKey:@"facebook_token"];
+                    user.icon = user.token;
+                    user.iconurl = [item objectForKey:@"facebook_icon"];
+                    user.isMutual = [[item objectForKey:@"is_mutual"] integerValue];
+                    
+                    [userArray addObject:user];
+                }
+                
+                self.returnCode = 0;
+                self.errorMessage = @"";
+                
+            }
+            
+            @catch (NSException *e) {
+                
+                self.returnCode = 0;
+                self.errorMessage = @"";
+                
+            }
+            
+            [self.delegate onCallback:0];
+            return;
+            
+        }
+        
+        self.returnCode = 1;
+        self.errorMessage = [responseObject objectForKey:@"message"];
+        [(self.delegate) onCallback:0];
+        
+        return;
+        
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        
+        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+        _returnCode = 1;
+        NSLog(@"%@", [operation responseObject]);
+        //NSLog(@"%@", error);
+        
+        self.errorMessage = @"Network failed";
+        
+        [self.delegate onCallback:0];
+        
+    }];
+    
+    
+    return YES;
+}
+
 @end

@@ -71,4 +71,6 @@
 
 - (BOOL)addBlock:(NSDictionary *)values Token:(NSString*)token;
 
+- (BOOL)search:(NSDictionary *)values ResultArray:(NSMutableArray *)userArray Token:(NSString *)token;
+
 @end
