@@ -866,7 +866,7 @@
                                     <outlet property="delegate" destination="ATK-E6-sfs" id="eCl-bJ-McZ"/>
                                 </connections>
                             </tableView>
-                            <searchBar contentMode="redraw" placeholder="Search" showsCancelButton="YES" id="ETJ-LH-5mU">
+                            <searchBar contentMode="redraw" placeholder="Search" id="ETJ-LH-5mU">
                                 <rect key="frame" x="0.0" y="0.0" width="260" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>

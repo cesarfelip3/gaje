@@ -11,6 +11,6 @@
 
 @class AppDelegate;
 
-@interface UserSearchController : UIViewController <UISearchBarDelegate>
+@interface UserSearchDelegateController : UIViewController <UISearchBarDelegate>
 
 @end

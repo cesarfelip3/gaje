@@ -46,12 +46,56 @@
         self.tableView.frame = tableRectView;
     }
     
-    self.searchBarDelegate = [[UserSearchController alloc] init];
-    self.searchBar.delegate = self.searchBarDelegate;
+    //self.searchBarDelegate = [[UserSearchDelegateController alloc] init];
+    //self.searchBar.delegate = self.searchBarDelegate;
     
+    self.searchBar.delegate = self;
     //self.searchBar.delegate = [[UserSearchController alloc] init];
+    
+    //
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
+                                   initWithTarget:self
+                                   action:@selector(dismissKeyboard:)];
+    
+    [self.view addGestureRecognizer:tap];
+    [tap setCancelsTouchesInView:NO];
 }
 
+- (IBAction)dismissKeyboard:(id)sender
+{
+    [self.searchBar setText:@""];
+    [self.searchBar resignFirstResponder];
+}
+
+- (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar
+{
+    //searchBar.showsCancelButton = YES;
+}
+
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
+{
+    NSLog(@"change");
+}
+
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
+{
+    NSLog(@"cancel");
+    searchBar.showsCancelButton = NO;
+    [searchBar resignFirstResponder];
+}
+
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
+{
+    NSLog(@"search");
+    [searchBar resignFirstResponder];
+    
+    //
+    AppConfig *config = [AppConfig getInstance];
+    config.userSearchKeyword = searchBar.text;
+    
+    [[AppDelegate sharedDelegate] togglePaperFold:searchBar];
+    [[AppDelegate sharedDelegate] userDidSwitchToControllerAtIndexPath:[NSIndexPath indexPathForItem:5 inSection:0]];
+}
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
     return (interfaceOrientation == UIInterfaceOrientationPortrait);

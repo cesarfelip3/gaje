@@ -6,14 +6,14 @@
 //  Copyright (c) 2014年 AppDesignVault. All rights reserved.
 //
 
-#import "UserSearchController.h"
+#import "UserSearchDelegateController.h"
 #import "AppDelegate.h"
 
-@interface UserSearchController ()
+@interface UserSearchDelegateController ()
 
 @end
 
-@implementation UserSearchController
+@implementation UserSearchDelegateController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
