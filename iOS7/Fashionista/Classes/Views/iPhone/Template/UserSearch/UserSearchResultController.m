@@ -166,10 +166,24 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    
+    if ([self.resultArray count] == 0) {
+        return 1;
+    }
+    
     return [self.resultArray count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    if ([self.resultArray count] == 0) {
+        
+        UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"InfoCell"];
+        
+        [cell.textLabel setText:@"Not found any user"];
+        return cell;
+    }
+    
     NSString *CellIdentifier = @"StoreCell";
     FollowerItemCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
@@ -199,7 +213,7 @@
     
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil];
     
-    FollowerProfileController *vc = [storyboard instantiateViewControllerWithIdentifier:@"follower_profile"];
+    UserSearchProfileController *vc = [storyboard instantiateViewControllerWithIdentifier:@"user_search_profile"];
     vc.user = follower;
     [self.navigationController pushViewController:vc animated:YES];
 }

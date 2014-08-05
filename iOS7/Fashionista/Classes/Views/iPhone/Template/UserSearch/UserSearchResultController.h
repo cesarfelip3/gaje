@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "FollowerProfileController.h"
+#import "UserSearchProfileController.h"
 
 #import "FollowerItemCell.h"
 #import "UploadController.h"

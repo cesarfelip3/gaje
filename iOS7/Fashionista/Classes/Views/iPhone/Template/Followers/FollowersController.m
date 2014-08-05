@@ -152,10 +152,24 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    
+    if ([self.followerArray count] == 0) {
+        return 1;
+    }
+    
     return [self.followerArray count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    if ([self.followerArray count] == 0) {
+        
+        UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"InfoCell"];
+        
+        [cell.textLabel setText:@"You are not followed by anyone now"];
+        return cell;
+    }
+    
     NSString *CellIdentifier = @"StoreCell";
     FollowerItemCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
