@@ -55,17 +55,18 @@
                                 @"image": @"" //@"menu-icon1"
                                 },
                             @{
-                                @"title": @"Week Theme",
+                                @"title": @"Theme",
                                 @"image": @"" //@"menu-icon2"
                                 },
                             @{
-                                @"title": @"Followers",
-                                @"image": @"" //@"menu-icon3"
+                                @"title": @"Settings",
+                                @"image": @"" //@"menu-icon5"
                                 },
                             @{
-                                @"title": @"Following",
-                                @"image": @"" //@"menu-icon3"
+                                @"title": @"Notes",
+                                @"image": @"" //@"menu-icon5"
                                 },
+
                             ]
                  },
              @{
@@ -76,12 +77,12 @@
                              @"image": @"" //@"menu-icon4"
                              },
                          @{
-                             @"title": @"Settings",
-                             @"image": @"" //@"menu-icon5"
+                             @"title": @"Followers",
+                             @"image": @"" //@"menu-icon3"
                              },
                          @{
-                             @"title": @"Notes",
-                             @"image": @"" //@"menu-icon5"
+                             @"title": @"Following",
+                             @"image": @"" //@"menu-icon3"
                              },
                          ]
                  }

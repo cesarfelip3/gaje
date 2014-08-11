@@ -411,6 +411,15 @@
 //==============================
 //
 //==============================
+
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
+{
+
+    textField.text = @"";
+    [textField setTextColor:[UIColor blackColor]];
+    return YES;
+}
+
 - (BOOL)textFieldShouldEndEditing:(UITextField *)textField
 {
     self.photo.name = textField.text;
@@ -421,6 +430,14 @@
 {
     self.photo.name = textField.text;
     [textField resignFirstResponder];
+    return YES;
+}
+
+- (BOOL)textViewShouldBeginEditing:(UITextView *)textView
+{
+    textView.text = @"";
+    [textView setTextColor:[UIColor blackColor]];
+    
     return YES;
 }
 

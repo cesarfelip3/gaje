@@ -356,10 +356,10 @@ sizeOfItemForViewController:(UIViewController *)viewController
                     controllerIdentifier = @"MapNav";
                     break;
                 case 2:
-                    controllerIdentifier = @"FollowersNav";
+                    controllerIdentifier = @"SettingsNav";
                     break;
                 case 3:
-                    controllerIdentifier = @"FollowingNav";
+                    controllerIdentifier = @"NotesNav";
                     break;
                 case 4:
                     controllerIdentifier = @"MapNav";
@@ -378,10 +378,10 @@ sizeOfItemForViewController:(UIViewController *)viewController
                     controllerIdentifier = @"AccountNav";
                     break;
                 case 1:
-                    controllerIdentifier = @"SettingsNav";
+                    controllerIdentifier = @"FollowersNav";
                     break;
                 case 2:
-                    controllerIdentifier = @"NotesNav";
+                    controllerIdentifier = @"FollowingNav";
                     break;
                 default:
                     break;
