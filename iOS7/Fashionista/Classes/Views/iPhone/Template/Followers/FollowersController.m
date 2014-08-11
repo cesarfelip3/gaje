@@ -115,6 +115,9 @@
 - (BOOL)onCallback:(NSInteger)type
 {
     NSLog(@"returned");
+    
+    self.view.tag = 1;
+    
     [self.refreshControl endRefreshing];
     [self.tableView reloadData];
     return YES;
@@ -153,7 +156,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    if ([self.followerArray count] == 0) {
+    if ([self.followerArray count] == 0 && self.view.tag == 1) {
         return 1;
     }
     
@@ -162,10 +165,11 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    if ([self.followerArray count] == 0) {
+    if ([self.followerArray count] == 0 && self.view.tag == 1) {
         
         UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"InfoCell"];
         
+        [cell setBackgroundColor:[UIColor clearColor]];
         [cell.textLabel setText:@"You are not followed by anyone now"];
         return cell;
     }

@@ -105,6 +105,7 @@
 - (BOOL)onCallback:(NSInteger)type
 {
     NSLog(@"returned");
+    self.view.tag = 1;
     [self.refreshControl endRefreshing];
     [self.tableView reloadData];
     return YES;

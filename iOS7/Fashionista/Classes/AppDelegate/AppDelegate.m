@@ -143,6 +143,7 @@ static AppDelegate *sharedDelegate;
         $user.delegate = self;
         [$user login:data];
         
+        [self.loginView setHidden:YES];
     }
     
     
@@ -154,6 +155,9 @@ static AppDelegate *sharedDelegate;
     
     if (user.returnCode > 0) {
     
+        
+        [self.loginView setHidden:NO];
+        
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:user.errorMessage delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [alert show];
         return NO;
@@ -163,6 +167,7 @@ static AppDelegate *sharedDelegate;
     config.userIsLogin = 1;
     
 #if true
+    
     
     if (config.userIsLogin != 1) {
         

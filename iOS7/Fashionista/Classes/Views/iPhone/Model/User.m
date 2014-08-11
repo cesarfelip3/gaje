@@ -33,7 +33,7 @@
     self.returnCode = 1;
     self.errorMessage = @"";
     
-    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+    //[[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
     
     NSString *api = [NSString stringWithFormat:API_USER_LOGIN, API_BASE_URL, API_BASE_VERSION];
     NSDictionary *parameters = data;
