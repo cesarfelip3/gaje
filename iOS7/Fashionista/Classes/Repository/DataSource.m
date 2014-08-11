@@ -84,6 +84,11 @@
                              @"title": @"Following",
                              @"image": @"" //@"menu-icon3"
                              },
+                         @{
+                             @"title": @"Notification",
+                             @"image": @"" //@"menu-icon3"
+                             },
+
                          ]
                  }
              ];

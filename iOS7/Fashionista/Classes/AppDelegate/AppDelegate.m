@@ -388,6 +388,9 @@ sizeOfItemForViewController:(UIViewController *)viewController
                 case 2:
                     controllerIdentifier = @"FollowingNav";
                     break;
+                case 3:
+                    controllerIdentifier = @"FollowingNav";
+                    break;
                 default:
                     break;
             }
