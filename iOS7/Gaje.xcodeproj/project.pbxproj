@@ -333,6 +333,7 @@
 		CE6E69E71908046D007EA7B0 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE6E69E61908046D007EA7B0 /* FacebookSDK.framework */; };
 		CE71A96A1963EF0800ADB5B0 /* Theme.m in Sources */ = {isa = PBXBuildFile; fileRef = CE71A9691963EF0800ADB5B0 /* Theme.m */; };
 		CE71A96D1963F72C00ADB5B0 /* ThemeController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE71A96C1963F72C00ADB5B0 /* ThemeController.m */; };
+		CE7CA1CF199A16A000527080 /* NotificationController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE7CA1CE199A16A000527080 /* NotificationController.m */; };
 		CE828FCD1923D7E10040A18C /* sql.txt in Resources */ = {isa = PBXBuildFile; fileRef = CE828FCC1923D7E10040A18C /* sql.txt */; };
 		CEAABEB61913D8D30035BA47 /* SettingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CEAABEB51913D8D30035BA47 /* SettingCell.m */; };
 		CEB427C3192521350072B1D6 /* camera.png in Resources */ = {isa = PBXBuildFile; fileRef = CEB427C2192521350072B1D6 /* camera.png */; };
@@ -812,6 +813,8 @@
 		CE71A9691963EF0800ADB5B0 /* Theme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Theme.m; sourceTree = "<group>"; };
 		CE71A96B1963F72C00ADB5B0 /* ThemeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThemeController.h; sourceTree = "<group>"; };
 		CE71A96C1963F72C00ADB5B0 /* ThemeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThemeController.m; sourceTree = "<group>"; };
+		CE7CA1CD199A16A000527080 /* NotificationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationController.h; sourceTree = "<group>"; };
+		CE7CA1CE199A16A000527080 /* NotificationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationController.m; sourceTree = "<group>"; };
 		CE828FCC1923D7E10040A18C /* sql.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = sql.txt; sourceTree = "<group>"; };
 		CEAABEB41913D8D30035BA47 /* SettingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingCell.h; sourceTree = "<group>"; };
 		CEAABEB51913D8D30035BA47 /* SettingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingCell.m; sourceTree = "<group>"; };
@@ -1764,6 +1767,7 @@
 		CE695FCE1906A7D100D464E4 /* Template */ = {
 			isa = PBXGroup;
 			children = (
+				CE7CA1CB199A15A500527080 /* Notification */,
 				CECD2FD3198A878B00DB020C /* UserSearch */,
 				CE6C1388197A348100523B13 /* Notes */,
 				CE31DC1719701DA6003DFC08 /* Following */,
@@ -1890,6 +1894,15 @@
 				CE6C138A197A34A100523B13 /* NotesController.m */,
 			);
 			name = Notes;
+			sourceTree = "<group>";
+		};
+		CE7CA1CB199A15A500527080 /* Notification */ = {
+			isa = PBXGroup;
+			children = (
+				CE7CA1CD199A16A000527080 /* NotificationController.h */,
+				CE7CA1CE199A16A000527080 /* NotificationController.m */,
+			);
+			path = Notification;
 			sourceTree = "<group>";
 		};
 		CE828FCA1923D7BB0040A18C /* Data */ = {
@@ -2325,6 +2338,7 @@
 				7FA7DD7917384D3000A50E20 /* NGTabBar.m in Sources */,
 				CE6960321906ACB800D464E4 /* AFSecurityPolicy.m in Sources */,
 				7FA7DD7A17384D3000A50E20 /* NGTabBarController.m in Sources */,
+				CE7CA1CF199A16A000527080 /* NotificationController.m in Sources */,
 				CEFF10461966FE0800E84675 /* CommentCell.m in Sources */,
 				AA0E679617CBF19F00AA877F /* PSTCollectionViewLayout.m in Sources */,
 				7FA7DD7B17384D3000A50E20 /* NGTabBarItem.m in Sources */,
