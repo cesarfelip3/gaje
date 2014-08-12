@@ -9,9 +9,9 @@
 #ifndef Pixcell8_Global_h
 #define Pixcell8_Global_h
 
-#define URL_BASE_IMAGE      @"http://96.126.121.58/upload/image/"
+#define URL_BASE_IMAGE      @"http://www.gajeapp.com/upload/image/"
 
-#define API_BASE_URL        @"http://96.126.121.58/gajeweb/"
+#define API_BASE_URL        @"http://www.gajeapp.com/gajeweb/"
 #define API_BASE_VERSION    @"api/v1/"
 
 #define FB_PROFILE_ICON     @"http://graph.facebook.com/%@/picture?type=large"
@@ -36,6 +36,8 @@
 #define API_NOTE_LIST       @"%@%@note/list"
 
 #define CONTACT_EMAIL       @"contact@gaje.com"
+
+#define API_SECRECT         @"(qeADF@#w3453aqwe412LKSHKJY*(^$%!@:LIKJSUP)(*!@Tjkh&*(&@#"
 
 
 

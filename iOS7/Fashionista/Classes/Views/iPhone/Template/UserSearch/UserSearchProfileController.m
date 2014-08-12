@@ -64,7 +64,8 @@
     
     [self.tableView reloadData];
     
-    //==============================
+    
+    
     self.imageArray = [[NSMutableArray alloc] init];
     NSDictionary *values = @{@"user_uuid":self.user.userUUID};
     self.user.delegate = self;
@@ -154,8 +155,10 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
     if (!self.imageArray) {
+        
         return 2;
     }
+    
     return [self.imageArray count] + 2;
 }
 
@@ -187,8 +190,20 @@
             [cell.buttonFollow setTitle:@"Follow" forState:UIControlStateNormal];
         }
         
-        [cell.buttonFollow addTarget:self action:@selector(onFollowButtonTouched:) forControlEvents:UIControlEventTouchDown];
         
+        NSString *uuid = [[User getInstance] userUUID];
+        
+        if ([uuid isEqualToString:self.user.userUUID]) {
+        
+            [cell.buttonFollow setEnabled:NO];
+            [cell.buttonFollow setHidden:YES];
+        
+        } else {
+        
+            [cell.buttonFollow setEnabled:YES];
+            [cell.buttonFollow setHidden:NO];
+            [cell.buttonFollow addTarget:self action:@selector(onFollowButtonTouched:) forControlEvents:UIControlEventTouchDown];
+        }
         return cell;
         
     }

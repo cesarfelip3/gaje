@@ -42,6 +42,7 @@
 @property (atomic, retain) NSString *address;
 @property (atomic, retain) NSString *postcode;
 @property (atomic, retain) NSString *phone;
+@property (atomic, strong) NSString *location;
 
 @property (atomic, retain) NSString *token;
 @property (nonatomic, assign) NSInteger isMutual;

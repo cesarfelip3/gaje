@@ -121,12 +121,15 @@ static AppDelegate *sharedDelegate;
         NSString *email = [user objectForKey:@"email"];
         NSString *fullname = [user objectForKey:@"name"];
         NSString *token = [user objectForKey:@"id"];
+        NSDictionary *location = [user objectForKey:@"location"];
+        
         
         User *$user = [User getInstance];
         $user.username = username;
         $user.email = email;
         $user.fullname = fullname;
         $user.token = token;
+        $user.location = [location objectForKey:@"name"];
         
         if ([$user exits]) {
             
@@ -139,7 +142,7 @@ static AppDelegate *sharedDelegate;
         }
         
         [$user add];
-        NSDictionary *data = @{@"username":username, @"email":email, @"fullname":fullname, @"facebook_token":token, @"facebook_icon": [NSString stringWithFormat:FB_PROFILE_ICON, token]};
+        NSDictionary *data = @{@"username":username, @"email":email, @"fullname":fullname, @"facebook_token":token, @"facebook_icon": [NSString stringWithFormat:FB_PROFILE_ICON, token], @"location":$user.location};
         $user.delegate = self;
         [$user login:data];
         
