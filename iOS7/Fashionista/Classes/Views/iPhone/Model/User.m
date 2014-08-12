@@ -954,4 +954,48 @@
     return YES;
 }
 
+// notification
+
+- (BOOL)prepareNotification
+{
+    
+    if (!self.userUUID) {
+        
+        return NO;
+    }
+    
+    NSDictionary *data = @{@"user_uuid":self.userUUID};
+    
+    NSString *api = [NSString stringWithFormat:API_USER_PRE_NOTIFY, API_BASE_URL, API_BASE_VERSION];
+    NSDictionary *parameters = data;
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    
+    NSString* token = [self getToken];
+    
+    manager.requestSerializer = [AFHTTPRequestSerializer serializer];
+    [manager.requestSerializer setValue:token forHTTPHeaderField:@"X-AUTH-KEY"];
+    
+    [manager POST:api parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+        NSLog(@"JSON: %@", responseObject);
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        
+        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+        
+        NSLog(@"Error: %@", operation.response);
+        NSLog(@"Error: %@", operation.responseObject);
+    }];
+    
+    return YES;
+}
+
+- (BOOL)getLatestUpdate
+{
+    
+    return YES;
+}
+
 @end

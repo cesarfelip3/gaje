@@ -74,4 +74,9 @@
 
 - (BOOL)search:(NSDictionary *)values ResultArray:(NSMutableArray *)userArray Token:(NSString *)token;
 
+// notification
+
+- (BOOL)prepareNotification;
+- (BOOL)getLatestUpdate;
+
 @end
