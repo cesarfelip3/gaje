@@ -9,10 +9,13 @@
 #import <Foundation/Foundation.h>
 #import "FMDatabase.h"
 #import "AppConfig.h"
+#import <CommonCrypto/CommonDigest.h>
+#import "Global.h"
 
 @interface Model : NSObject
 
 @property (atomic, retain) FMDatabase *db;
 - (NSString *)escape:(NSString *)string;
+- (NSString *)getToken;
 
 @end

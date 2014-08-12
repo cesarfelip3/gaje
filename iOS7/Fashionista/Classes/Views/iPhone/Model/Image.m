@@ -23,14 +23,13 @@
     _returnCode = 1;
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     
+    token = [self getToken];
+    
     manager.requestSerializer = [AFHTTPRequestSerializer serializer];
     [manager.requestSerializer setValue:token forHTTPHeaderField:@"X-AUTH-KEY"];
     
     
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
-    
-    User *user = [User getInstance];
-    
     NSDictionary *parameters = @{@"user_uuid":@""};
     
     [manager POST:[NSString stringWithFormat:API_IMAGE_LATEST, API_BASE_URL, API_BASE_VERSION] parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
@@ -204,6 +203,11 @@
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     
+    token = [self getToken];
+    
+    manager.requestSerializer = [AFHTTPRequestSerializer serializer];
+    [manager.requestSerializer setValue:token forHTTPHeaderField:@"X-AUTH-KEY"];
+    
     NSDictionary *parameters = values;
     
     [manager POST:[NSString stringWithFormat:API_IMAGE_COMMENT_ADD, API_BASE_URL, API_BASE_VERSION] parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
@@ -249,6 +253,8 @@
     
     _returnCode = 1;
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    
+    token = [self getToken];
     
     manager.requestSerializer = [AFHTTPRequestSerializer serializer];
     [manager.requestSerializer setValue:token forHTTPHeaderField:@"X-AUTH-KEY"];
@@ -355,6 +361,11 @@
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     
+    token = [self getToken];
+    
+    manager.requestSerializer = [AFHTTPRequestSerializer serializer];
+    [manager.requestSerializer setValue:token forHTTPHeaderField:@"X-AUTH-KEY"];
+    
     NSDictionary *parameters = values;
     
     [manager POST:[NSString stringWithFormat:API_IMAGE_BRANDER_ADD, API_BASE_URL, API_BASE_VERSION] parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
@@ -403,6 +414,8 @@
     
     _returnCode = 1;
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    
+    token = [self getToken];
     
     manager.requestSerializer = [AFHTTPRequestSerializer serializer];
     [manager.requestSerializer setValue:token forHTTPHeaderField:@"X-AUTH-KEY"];
@@ -523,8 +536,6 @@
     
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
     
-#if true
-    
     NSDictionary *parameters = values;
     NSString *filePath = [values objectForKey:@"file_path"];
     NSString *fileName = [values objectForKey:@"file_name"];
@@ -577,51 +588,6 @@
                forKeyPath:@"fractionCompleted"
                   options:NSKeyValueObservingOptionNew
                   context:NULL];
-    
-#else
-    
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    
-    NSDictionary *parameters = @{@"userId":[NSString stringWithFormat:@"%ld", (long)user.userId]};
-    NSURL *filePath = [NSURL fileURLWithPath:photoPath];
-    
-    AFHTTPRequestOperation *operation = [manager POST:API_IMAGE_UPLOAD parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
-        
-        [formData appendPartWithFileURL:filePath name:@"media" error:nil];
-        
-    } success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        
-        //NSLog(@"Success: %@", responseObject);
-        
-        NSString *status = [responseObject objectForKey:@"status"];
-        
-        if ([status isEqualToString:@"success"]) {
-            
-            
-        } else {
-            
-        }
-        
-        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-        self.progress.tag = 0;
-        
-        
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        
-        //NSLog(@"Error: %@", error);
-        
-        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-        self.progress.tag = 0;
-        
-    }];
-    
-    [operation setUploadProgressBlock:^(NSUInteger __unused bytesWritten,
-                                        long long totalBytesWritten,
-                                        long long totalBytesExpectedToWrite) {
-        self.progress.progress = (float)(totalBytesWritten) / totalBytesExpectedToWrite;
-    }];
-    
-#endif
     
     return YES;
 }

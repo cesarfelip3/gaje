@@ -39,6 +39,12 @@
     NSDictionary *parameters = data;
     
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    
+    NSString* token = [self getToken];
+    
+    manager.requestSerializer = [AFHTTPRequestSerializer serializer];
+    [manager.requestSerializer setValue:token forHTTPHeaderField:@"X-AUTH-KEY"];
+    
     [manager POST:api parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
@@ -316,6 +322,8 @@
     _returnCode = 1;
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     
+    token = [self getToken];
+    
     manager.requestSerializer = [AFHTTPRequestSerializer serializer];
     [manager.requestSerializer setValue:token forHTTPHeaderField:@"X-AUTH-KEY"];
     
@@ -469,6 +477,11 @@
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     
+    token = [self getToken];
+    
+    manager.requestSerializer = [AFHTTPRequestSerializer serializer];
+    [manager.requestSerializer setValue:token forHTTPHeaderField:@"X-AUTH-KEY"];
+    
     NSDictionary *parameters = values;
     
     [manager POST:[NSString stringWithFormat:API_USER_FOLLOW, API_BASE_URL, API_BASE_VERSION] parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
@@ -512,6 +525,11 @@
 {
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    
+    token = [self getToken];
+    
+    manager.requestSerializer = [AFHTTPRequestSerializer serializer];
+    [manager.requestSerializer setValue:token forHTTPHeaderField:@"X-AUTH-KEY"];
     
     NSDictionary *parameters = values;
     
@@ -557,6 +575,8 @@
     
     _returnCode = 1;
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    
+    token = [self getToken];
     
     manager.requestSerializer = [AFHTTPRequestSerializer serializer];
     [manager.requestSerializer setValue:token forHTTPHeaderField:@"X-AUTH-KEY"];
@@ -675,6 +695,8 @@
     
     _returnCode = 1;
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    
+    token = [self getToken];
     
     manager.requestSerializer = [AFHTTPRequestSerializer serializer];
     [manager.requestSerializer setValue:token forHTTPHeaderField:@"X-AUTH-KEY"];
@@ -795,6 +817,11 @@
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     
+    token = [self getToken];
+    
+    manager.requestSerializer = [AFHTTPRequestSerializer serializer];
+    [manager.requestSerializer setValue:token forHTTPHeaderField:@"X-AUTH-KEY"];
+    
     NSDictionary *parameters = values;
     
     [manager POST:[NSString stringWithFormat:API_USER_BLOCK_ADD, API_BASE_URL, API_BASE_VERSION] parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
@@ -839,6 +866,8 @@
 {
     _returnCode = 1;
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    
+    token = [self getToken];
     
     manager.requestSerializer = [AFHTTPRequestSerializer serializer];
     [manager.requestSerializer setValue:token forHTTPHeaderField:@"X-AUTH-KEY"];

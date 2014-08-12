@@ -34,21 +34,13 @@ http://stackoverflow.com/questions/21632043/facebook-login-in-ios-works-on-emula
 http://d.stavrovski.net/blog/post/how-to-install-and-set-up-openvpn-in-debian-7-wheezy
 
 Todo
-======
+====
 
-upload
-======
+API Protector
+Notification
 
-    1. from simulator, from album, success
-    2. displayed images
-    
-issue
-=====
 
-    1. the issue is about : FB delegate ==> callback ==> is called before main controller loaded
-    2. so this time, user.userUUID == nil !!!
-    
-    application launched ==> FB LOGIN ==> Delegate A ==> Delegate B 
-    
+
+
 
 

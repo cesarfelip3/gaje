@@ -31,6 +31,8 @@
     _returnCode = 1;
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     
+    token = [self getToken];
+    
     manager.requestSerializer = [AFHTTPRequestSerializer serializer];
     [manager.requestSerializer setValue:token forHTTPHeaderField:@"X-AUTH-KEY"];
     
