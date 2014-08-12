@@ -95,18 +95,22 @@
     NSMutableDictionary *titleTextAttributesNav = [[NSMutableDictionary alloc] init];
     UIColor *navTextColor = [theme navigationTextColor];
     if (navTextColor) {
-        titleTextAttributesNav[UITextAttributeTextColor] = navTextColor;
+        titleTextAttributesNav[NSForegroundColorAttributeName] = navTextColor;
     }
     
     UIColor *navTextShadowColor = [theme navigationTextShadowColor];
     if (navTextShadowColor) {
-        titleTextAttributesNav[UITextAttributeTextShadowColor] = navTextShadowColor;
+        
         CGSize shadowOffset = [theme shadowOffset];
-        titleTextAttributesNav[UITextAttributeTextShadowOffset] = [NSValue valueWithCGSize:shadowOffset];
+        NSShadow *shadow = [NSShadow new];
+        [shadow setShadowColor: navTextShadowColor];
+        [shadow setShadowOffset: shadowOffset];
+        
+        titleTextAttributesNav[NSShadowAttributeName] = shadow;
     }
     UIFont *navTextFont = [theme navigationFont];
     if (navTextFont) {
-        titleTextAttributesNav[UITextAttributeFont] = navTextFont;
+        titleTextAttributesNav[NSFontAttributeName] = navTextFont;
     }
     
     [navigationBarAppearance setTitleTextAttributes:titleTextAttributesNav];
@@ -114,7 +118,7 @@
     NSMutableDictionary *titleTextAttributesBarButton = [titleTextAttributesNav mutableCopy];
     UIFont *barButtonTextFont = [theme barButtonFont];
     if (barButtonTextFont) {
-        titleTextAttributesBarButton[UITextAttributeFont] = barButtonTextFont;
+        titleTextAttributesBarButton[NSFontAttributeName] = barButtonTextFont;
     }
     [barButtonItemAppearance setTitleTextAttributes:titleTextAttributesBarButton forState:UIControlStateNormal];
     [searchBarAppearance setScopeBarButtonTitleTextAttributes:titleTextAttributesBarButton forState:UIControlStateNormal];
@@ -122,38 +126,50 @@
     NSMutableDictionary *titleTextAttributes = [[NSMutableDictionary alloc] init];
     UIColor *mainColor = [theme mainColor];
     if (mainColor) {
-        titleTextAttributes[UITextAttributeTextColor] = mainColor;
+        titleTextAttributes[NSForegroundColorAttributeName] = mainColor;
     }
     
     UIFont *segmentFont = [theme segmentFont];
     if (segmentFont) {
-        titleTextAttributes[UITextAttributeFont] = segmentFont;
+        titleTextAttributes[NSFontAttributeName] = segmentFont;
     }
     UIColor *secondColor = [theme secondColor];
     if (secondColor) {
-        titleTextAttributes[UITextAttributeTextColor] = secondColor;
+        titleTextAttributes[NSForegroundColorAttributeName] = secondColor;
     }
     UIColor *shadowColor = [theme shadowColor];
     if (shadowColor) {
-        titleTextAttributes[UITextAttributeTextShadowColor] = shadowColor;
+        
         CGSize shadowOffset = [theme shadowOffset];
-        titleTextAttributes[UITextAttributeTextShadowOffset] = [NSValue valueWithCGSize:shadowOffset];
+        NSShadow *shadow = [NSShadow new];
+        [shadow setShadowColor: navTextShadowColor];
+        [shadow setShadowOffset: shadowOffset];
+        
+        titleTextAttributesNav[NSShadowAttributeName] = shadow;
     }
     [segmentedAppearance setTitleTextAttributes:titleTextAttributes forState:UIControlStateNormal];
     
     NSMutableDictionary *titleTextAttributesH = [[NSMutableDictionary alloc] init];
     UIColor *highlightShadowColor = [theme highlightShadowColor];
     if (highlightShadowColor) {
-        titleTextAttributesH[UITextAttributeTextShadowColor] = highlightShadowColor;
+        
         CGSize shadowOffset = [theme shadowOffset];
-        titleTextAttributesH[UITextAttributeTextShadowOffset] = [NSValue valueWithCGSize:shadowOffset];
+        NSShadow *shadow = [NSShadow new];
+        [shadow setShadowColor: navTextShadowColor];
+        [shadow setShadowOffset: shadowOffset];
+        
+        titleTextAttributesNav[NSShadowAttributeName] = shadow;
     }
 
     UIColor *highlightColor = [theme highlightColor];
     if (highlightColor) {
-        titleTextAttributesH[UITextAttributeTextColor] = highlightColor;
+        
         CGSize shadowOffset = [theme shadowOffset];
-        titleTextAttributesH[UITextAttributeTextShadowOffset] = [NSValue valueWithCGSize:shadowOffset];
+        NSShadow *shadow = [NSShadow new];
+        [shadow setShadowColor: highlightColor];
+        [shadow setShadowOffset: shadowOffset];
+        
+        titleTextAttributesNav[NSShadowAttributeName] = shadow;
     }    
     [barButtonItemAppearance setTitleTextAttributes:titleTextAttributesH forState:UIControlStateHighlighted];
     [segmentedAppearance setTitleTextAttributes:titleTextAttributesH forState:UIControlStateHighlighted];
@@ -245,9 +261,9 @@
         [item setImage:image];
     } else {
         // Otherwise, set the finished images
-        UIImage *selectedImage = [theme finishedImageForTab:tab selected:YES];
-        UIImage *unselectedImage = [theme finishedImageForTab:tab selected:NO];
-        [item setFinishedSelectedImage:selectedImage withFinishedUnselectedImage:unselectedImage];
+        //UIImage *selectedImage = [theme finishedImageForTab:tab selected:YES];
+        //UIImage *unselectedImage = [theme finishedImageForTab:tab selected:NO];
+        //[item setFinishedSelectedImage:selectedImage withFinishedUnselectedImage:unselectedImage];
     }
 }
 

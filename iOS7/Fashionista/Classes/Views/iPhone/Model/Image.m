@@ -155,7 +155,7 @@
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
         _returnCode = 1;
         NSLog(@"%@", [operation responseObject]);
-        //NSLog(@"%@", error);
+        NSLog(@"%@", error);
         
         self.errorMessage = @"Network failed";
         

@@ -13,7 +13,7 @@
 @implementation ADVCustomTheme
 
 - (UIStatusBarStyle)statusBarStyle {
-    return UIStatusBarStyleBlackOpaque;
+    return UIStatusBarStyleLightContent;
 }
 
 - (UIColor *)mainColor {

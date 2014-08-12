@@ -451,14 +451,14 @@ sizeOfItemForViewController:(UIViewController *)viewController
     
     [[UITabBarItem appearance] setTitleTextAttributes:
      [NSDictionary dictionaryWithObjectsAndKeys:
-      [UIColor colorWithRed:0.37f green:0.38f blue:0.42f alpha:1.00f], UITextAttributeTextColor,
-      [UIFont fontWithName:@"OpenSans" size:9], UITextAttributeFont,
+      [UIColor colorWithRed:0.37f green:0.38f blue:0.42f alpha:1.00f], NSForegroundColorAttributeName,
+      [UIFont fontWithName:@"OpenSans" size:9], NSFontAttributeName,
       nil]
                                              forState:UIControlStateNormal];
     [[UITabBarItem appearance] setTitleTextAttributes:
      [NSDictionary dictionaryWithObjectsAndKeys:
-      [UIColor whiteColor], UITextAttributeTextColor,
-      [UIFont fontWithName:@"OpenSans" size:9], UITextAttributeFont,
+      [UIColor whiteColor], NSForegroundColorAttributeName,
+      [UIFont fontWithName:@"OpenSans" size:9], NSFontAttributeName,
       nil]
                                              forState:UIControlStateSelected];
 }
@@ -519,7 +519,6 @@ sizeOfItemForViewController:(UIViewController *)viewController
     
     NSLog(@"app = become active");
     
-    AppConfig *config = [AppConfig getInstance];
     
     
 }
@@ -528,7 +527,6 @@ sizeOfItemForViewController:(UIViewController *)viewController
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     
-    AppConfig *config = [AppConfig getInstance];
     
 }
 

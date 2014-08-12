@@ -36,11 +36,12 @@ http://d.stavrovski.net/blog/post/how-to-install-and-set-up-openvpn-in-debian-7-
 Todo
 ====
 
-API Protector
-Notification
+API Protector ==> did
+Notification ==>
 
-
-
-
-
-
+    what strategy to do so?
+    
+    Latest comments // == unread comments?
+    Latest brander // == unread brander?
+    Latest following (optional)
+    

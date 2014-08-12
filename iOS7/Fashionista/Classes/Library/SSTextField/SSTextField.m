@@ -76,7 +76,19 @@
     [_placeholderTextColor setFill];
     //[self.placeholder drawInRect:rect withFont:self.font lineBreakMode:UILineBreakModeTailTruncation alignment:self.textAlignment];
     
-    [self.placeholder drawInRect:rect withFont:self.font lineBreakMode:NSLineBreakByTruncatingTail alignment:self.textAlignment];
+    //[self.placeholder drawInRect:rect withFont:self.font lineBreakMode:NSLineBreakByTruncatingTail alignment:self.textAlignment];
+    
+    /// Make a copy of the default paragraph style
+    NSMutableParagraphStyle *paragraphStyle = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
+    /// Set line break mode
+    paragraphStyle.lineBreakMode = NSLineBreakByTruncatingTail;
+    /// Set text alignment
+    paragraphStyle.alignment = self.textAlignment;
+    
+    NSDictionary *attributes = @{ NSFontAttributeName: self.font,
+                                  NSParagraphStyleAttributeName: paragraphStyle };
+    
+    [self.placeholder drawInRect:rect withAttributes:attributes];
 }
 
 
