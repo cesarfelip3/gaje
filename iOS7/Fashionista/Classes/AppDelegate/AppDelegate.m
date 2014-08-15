@@ -36,6 +36,8 @@ static AppDelegate *sharedDelegate;
     User *user = [User getInstance];
     [user auth];
     
+    [user prepareNotification];
+    
 #if true
     
     if (config.userIsLogin == 1) {
@@ -392,7 +394,7 @@ sizeOfItemForViewController:(UIViewController *)viewController
                     controllerIdentifier = @"FollowingNav";
                     break;
                 case 3:
-                    controllerIdentifier = @"FollowingNav";
+                    controllerIdentifier = @"NotifyNav";
                     break;
                 default:
                     break;

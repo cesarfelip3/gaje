@@ -77,6 +77,6 @@
 // notification
 
 - (BOOL)prepareNotification;
-- (BOOL)getLatestUpdate;
+- (BOOL)getLatestUpdate:(NSDictionary *)updateDictionary;
 
 @end

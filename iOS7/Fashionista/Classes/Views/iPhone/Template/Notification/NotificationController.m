@@ -52,17 +52,17 @@
     self.tableView.tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 10)];
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 10)];
     
-    NSLog(@"cmeara");
     
     self.photo = [[Image alloc] init];
     self.followingArray = [[NSMutableArray alloc] init];
+    self.updateDictionary = [[NSMutableDictionary alloc] init];
     
     self.refreshControl = [[UIRefreshControl alloc] init];
     
     // Configure Refresh Control
     [self.refreshControl addTarget:self action:@selector(onRefresh:) forControlEvents:UIControlEventValueChanged];
     
-    
+
     [self.tableView addSubview:self.refreshControl];
 }
 
@@ -87,8 +87,7 @@
     User *user = [User getInstance];
     user.delegate = self;
     
-    NSDictionary *values = @{@"user_uuid":user.userUUID};
-    [user fetchFollowingList:values ResultArray:self.followingArray Token:@""];
+    [user getLatestUpdate:self.updateDictionary];
 }
 
 - (void)viewDidUnload {
@@ -99,12 +98,6 @@
 
 - (IBAction)onCameraButtonTouched:(id)sender
 {
-    NSLog(@"camera");
-    
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"upload" bundle:nil];
-    UIViewController *controller = [storyboard instantiateViewControllerWithIdentifier:@"upload_home"];
-    
-    [self.navigationController pushViewController:controller animated:YES];
     
 }
 
@@ -147,40 +140,73 @@
 #pragma mark - UITableView datasource
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
+    return [self.updateDictionary count];
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+
+    if (section == 0) {
+        return @"Comments just added";
+    } else {
+        return @"Brander just added";
+    }
+    
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    if ([self.followingArray count] == 0 && self.view.tag == 1) {
-        return 1;
+    NSString *key = @"comments";
+    
+    if (section == 0) {
+    
+    } else {
+    
+        key = @"branders";
     }
     
-    return [self.followingArray count];
+    return [[self.updateDictionary objectForKey:key] count];
+    
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    if ([self.followingArray count] == 0 && self.view.tag == 1) {
+    NSString *CellIdentifier = @"StoreCell";
+    UpdateInfoCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    
+    if (indexPath.section == 0) {
         
-        UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"InfoCell"];
+        NSArray *commentArray = [self.updateDictionary objectForKey:@"comments"];
         
-        [cell setBackgroundColor:[UIColor clearColor]];
-        [cell.textLabel setText:@"You are not following anyone now"];
-        return cell;
+        Image *image = [commentArray objectAtIndex:indexPath.row];
+        
+        [cell.info setText:[NSString stringWithFormat:@"%@ just added a comment on your image", image.username]];
+        
+        NSString *url = [NSString stringWithFormat:FB_PROFILE_ICON, image.usertoken];
+        [cell loadImage:url fileName:image.usertoken];
     }
     
-    NSString *CellIdentifier = @"StoreCell";
-    FollowerItemCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if (indexPath.section == 1) {
+        
+        NSArray *commentArray = [self.updateDictionary objectForKey:@"branders"];
+        
+        Image *image = [commentArray objectAtIndex:indexPath.row];
+        
+        [cell.info setText:[NSString stringWithFormat:@"%@ just branded your image", image.username]];
+        
+        NSString *url = [NSString stringWithFormat:FB_PROFILE_ICON, image.usertoken];
+        [cell loadImage:url fileName:image.usertoken];
+        
+    }
     
-    User *follower = [self.followingArray objectAtIndex:indexPath.row];
+    //User *follower = [self.followingArray objectAtIndex:indexPath.row];
     
-    cell.follower = follower;
+    //cell.follower = follower;
     
-    CGRect tableRect = cell.imageVBkg.frame;
-    tableRect.origin.y = 0;
-    cell.imageVBkg.frame = tableRect;
-    [cell setData];
+    //CGRect tableRect = cell.imageVBkg.frame;
+    //tableRect.origin.y = 0;
+    //cell.imageVBkg.frame = tableRect;
+    //[cell setData];
     
     return cell;
 }
@@ -195,7 +221,7 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     currentIndex = indexPath;
-    
+#if false
     
     User *follower = [self.followingArray objectAtIndex:indexPath.row];
     
@@ -204,6 +230,7 @@
     FollowingProfileController *vc = [storyboard instantiateViewControllerWithIdentifier:@"following_profile"];
     vc.user = follower;
     [self.navigationController pushViewController:vc animated:YES];
+#endif
 }
 
 

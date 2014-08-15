@@ -350,6 +350,7 @@
 		CEBEBE8319228A8A00A0057F /* UploadController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEBEBE8219228A8A00A0057F /* UploadController.m */; };
 		CECD2FD7198A87E400DB020C /* UserSearchDelegateController.m in Sources */ = {isa = PBXBuildFile; fileRef = CECD2FD6198A87E400DB020C /* UserSearchDelegateController.m */; };
 		CEE4CBFD197F7B0800B19317 /* FollowerProfileCommandCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE4CBFC197F7B0800B19317 /* FollowerProfileCommandCell.m */; };
+		CEE65C7F199BAB9C006A2265 /* UpdateInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE65C7E199BAB9C006A2265 /* UpdateInfoCell.m */; };
 		CEF41B03198911D20077DD22 /* ProfileItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CEF41B02198911D20077DD22 /* ProfileItemCell.m */; };
 		CEFF103B1966CE3000E84675 /* Detail2Controller.m in Sources */ = {isa = PBXBuildFile; fileRef = CEFF103A1966CE3000E84675 /* Detail2Controller.m */; };
 		CEFF10401966F95D00E84675 /* CommandCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CEFF103F1966F95D00E84675 /* CommandCell.m */; };
@@ -840,6 +841,8 @@
 		CECD2FD6198A87E400DB020C /* UserSearchDelegateController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserSearchDelegateController.m; sourceTree = "<group>"; };
 		CEE4CBFB197F7B0800B19317 /* FollowerProfileCommandCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FollowerProfileCommandCell.h; sourceTree = "<group>"; };
 		CEE4CBFC197F7B0800B19317 /* FollowerProfileCommandCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FollowerProfileCommandCell.m; sourceTree = "<group>"; };
+		CEE65C7D199BAB9C006A2265 /* UpdateInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UpdateInfoCell.h; sourceTree = "<group>"; };
+		CEE65C7E199BAB9C006A2265 /* UpdateInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UpdateInfoCell.m; sourceTree = "<group>"; };
 		CEF41B01198911D20077DD22 /* ProfileItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileItemCell.h; sourceTree = "<group>"; };
 		CEF41B02198911D20077DD22 /* ProfileItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileItemCell.m; sourceTree = "<group>"; };
 		CEFF10391966CE3000E84675 /* Detail2Controller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Detail2Controller.h; sourceTree = "<group>"; };
@@ -1109,6 +1112,7 @@
 		7F2A5D7B1736E1A000551439 /* TableCells */ = {
 			isa = PBXGroup;
 			children = (
+				CEE65C7B199BAB6B006A2265 /* Notification */,
 				CE247C841970F53D00678543 /* Follow */,
 				CEFF103D1966F91200E84675 /* Detail */,
 				CEAABEB31913D8990035BA47 /* SettingCell */,
@@ -1946,6 +1950,15 @@
 			path = UserSearch;
 			sourceTree = "<group>";
 		};
+		CEE65C7B199BAB6B006A2265 /* Notification */ = {
+			isa = PBXGroup;
+			children = (
+				CEE65C7D199BAB9C006A2265 /* UpdateInfoCell.h */,
+				CEE65C7E199BAB9C006A2265 /* UpdateInfoCell.m */,
+			);
+			path = Notification;
+			sourceTree = "<group>";
+		};
 		CEFF103D1966F91200E84675 /* Detail */ = {
 			isa = PBXGroup;
 			children = (
@@ -2270,6 +2283,7 @@
 				CE71A96D1963F72C00ADB5B0 /* ThemeController.m in Sources */,
 				CE695FD21906A85200D464E4 /* LoginController.m in Sources */,
 				7F2A5BD61734FB3800551439 /* DataSource.m in Sources */,
+				CEE65C7F199BAB9C006A2265 /* UpdateInfoCell.m in Sources */,
 				7F2A5BD71734FB3800551439 /* ADVCustomTheme.m in Sources */,
 				7F2A5BD81734FB3800551439 /* ADVDefaultTheme.m in Sources */,
 				CE6960341906ACB800D464E4 /* AFURLRequestSerialization.m in Sources */,

@@ -70,6 +70,10 @@
         
         Brander *brander = [self.photo.branderArray objectAtIndex: count - i];
         
+        if (!brander.iconurl) {
+            return NO;
+        }
+        
         [self loadImage:brander.iconurl fileName:brander.token ImageView:imageView];
     
         if (i >= 9) {

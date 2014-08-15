@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "FollowerItemCell.h"
+#import "UpdateInfoCell.h"
 #import "UploadController.h"
 #import "FollowingProfileController.h"
 
@@ -20,5 +20,7 @@
 
 @property (atomic, retain) UIRefreshControl *refreshControl;
 @property (retain) UploadController *uploadController;
+
+@property (strong) NSMutableDictionary *updateDictionary;
 
 @end

@@ -992,8 +992,226 @@
     return YES;
 }
 
-- (BOOL)getLatestUpdate
+- (BOOL)getLatestUpdate:(NSDictionary *)updateDictionary
 {
+    if (!self.userUUID) {
+        
+        return NO;
+    }
+    
+    NSDictionary *data = @{@"user_uuid":self.userUUID};
+    
+    NSString *api = [NSString stringWithFormat:API_USER_GET_NOTIFY, API_BASE_URL, API_BASE_VERSION];
+    NSDictionary *parameters = data;
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    
+    NSString* token = [self getToken];
+    
+    manager.requestSerializer = [AFHTTPRequestSerializer serializer];
+    [manager.requestSerializer setValue:token forHTTPHeaderField:@"X-AUTH-KEY"];
+    
+    [manager POST:api parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+        NSLog(@"JSON: %@", responseObject);
+        
+        NSString *status = [(NSDictionary *)responseObject objectForKey:@"status"];
+        
+        if ([status isEqualToString:@"success"]) {
+            
+            NSDictionary *data = [responseObject objectForKey:@"data"];
+            
+            @try {
+                
+                
+                NSMutableArray *commentsArray = [[NSMutableArray alloc] init];
+                NSMutableArray *branderArray = [[NSMutableArray alloc] init];
+                
+                NSArray *$imageArray = [data objectForKey:@"comments"];
+                
+                for (NSDictionary *item in $imageArray) {
+                    
+                    Image *image = [[Image alloc] init];
+                    
+                    image.imageUUID = [item objectForKey:@"image_uuid"];
+                    image.name = [item objectForKey:@"name"];
+                    image.description = [item objectForKey:@"description"];
+                    
+                    image.width = [[item objectForKey:@"width"] integerValue];
+                    image.height = [[item objectForKey:@"height"] integerValue];
+                    
+                    NSInteger timestamp = [[item objectForKey:@"create_date"] integerValue];
+                    NSDate *date = [NSDate dateWithTimeIntervalSince1970:timestamp];
+                    
+                    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+                    
+                    formatter.timeZone = [NSTimeZone defaultTimeZone];
+                    formatter.dateStyle = NSDateFormatterLongStyle;
+                    
+                    image.created = [formatter stringFromDate:date];
+                    
+                    timestamp = [[item objectForKey:@"modified_date"] integerValue];
+                    date = [NSDate dateWithTimeIntervalSince1970:timestamp];
+                    
+                    image.modified = [formatter stringFromDate:date];
+                    image.fileName = [item objectForKey:@"file_name"];
+                    image.url = [NSString stringWithFormat:@"%@%@", URL_BASE_IMAGE, image.fileName];
+                    
+                    
+                    image.thumbnailName = [item objectForKey:@"thumbnail"];
+                    image.thumbnail = [NSString stringWithFormat:@"%@%@", URL_BASE_IMAGE, image.thumbnailName];
+                    
+                    image.userUUID = [item objectForKey:@"user_uuid"];
+                    image.username = [item objectForKey:@"username"];
+                    image.usertoken = [item objectForKey:@"user_token"];
+                    
+                    image.usericon = [NSString stringWithFormat:FB_PROFILE_ICON, image.usertoken];
+                    
+                    image.branderCount = [[item objectForKey:@"brander_count"] integerValue];
+                    image.enableBrandIt = [[item objectForKey:@"enable_brander"] integerValue];
+                    
+                    NSArray *resultArray = [item objectForKey:@"branders"];
+                    
+                    if ([resultArray count] <= 0) {
+                        
+                    } else {
+                        
+                        image.branderArray = [[NSMutableArray alloc] init];
+                        
+                        
+                        for (NSDictionary *item2 in resultArray) {
+                            
+                            Brander *brander = [[Brander alloc] init];
+                            
+                            brander.userUUID = [item2 objectForKey:@"user_uuid"];
+                            brander.username = [item2 objectForKey:@"username"];
+                            brander.fullname = [item2 objectForKey:@"fullname"];
+                            brander.iconurl = [item2 objectForKey:@"facebook_icon"];
+                            brander.token = [item2 objectForKey:@"facebook_token"];
+                            
+                            
+                            [image.branderArray addObject:brander];
+                            
+                        }
+                        
+                    }
+                    
+                    [commentsArray addObject:image];
+                    
+                }
+                
+                
+                $imageArray = [data objectForKey:@"branders"];
+                
+                for (NSDictionary *item in $imageArray) {
+                    
+                    Image *image = [[Image alloc] init];
+                    
+                    image.imageUUID = [item objectForKey:@"image_uuid"];
+                    image.name = [item objectForKey:@"name"];
+                    image.description = [item objectForKey:@"description"];
+                    
+                    image.width = [[item objectForKey:@"width"] integerValue];
+                    image.height = [[item objectForKey:@"height"] integerValue];
+                    
+                    NSInteger timestamp = [[item objectForKey:@"create_date"] integerValue];
+                    NSDate *date = [NSDate dateWithTimeIntervalSince1970:timestamp];
+                    
+                    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+                    
+                    formatter.timeZone = [NSTimeZone defaultTimeZone];
+                    formatter.dateStyle = NSDateFormatterLongStyle;
+                    
+                    image.created = [formatter stringFromDate:date];
+                    
+                    timestamp = [[item objectForKey:@"modified_date"] integerValue];
+                    date = [NSDate dateWithTimeIntervalSince1970:timestamp];
+                    
+                    image.modified = [formatter stringFromDate:date];
+                    image.fileName = [item objectForKey:@"file_name"];
+                    image.url = [NSString stringWithFormat:@"%@%@", URL_BASE_IMAGE, image.fileName];
+                    
+                    
+                    image.thumbnailName = [item objectForKey:@"thumbnail"];
+                    image.thumbnail = [NSString stringWithFormat:@"%@%@", URL_BASE_IMAGE, image.thumbnailName];
+                    
+                    image.userUUID = [item objectForKey:@"user_uuid"];
+                    image.username = [item objectForKey:@"username"];
+                    image.usertoken = [item objectForKey:@"user_token"];
+                    
+                    image.usericon = [NSString stringWithFormat:FB_PROFILE_ICON, image.usertoken];
+                    
+                    image.branderCount = [[item objectForKey:@"brander_count"] integerValue];
+                    image.enableBrandIt = [[item objectForKey:@"enable_brander"] integerValue];
+                    
+                    NSArray *resultArray = [item objectForKey:@"branders"];
+                    
+                    if ([resultArray count] <= 0) {
+                        
+                    } else {
+                        
+                        image.branderArray = [[NSMutableArray alloc] init];
+                        
+                        
+                        for (NSDictionary *item2 in resultArray) {
+                            
+                            Brander *brander = [[Brander alloc] init];
+                            
+                            brander.userUUID = [item2 objectForKey:@"user_uuid"];
+                            brander.username = [item2 objectForKey:@"username"];
+                            brander.fullname = [item2 objectForKey:@"fullname"];
+                            brander.iconurl = [item2 objectForKey:@"facebook_icon"];
+                            brander.token = [item2 objectForKey:@"facebook_token"];
+                            
+                            
+                            [image.branderArray addObject:brander];
+                            
+                        }
+                        
+                    }
+                    
+                    [branderArray addObject:image];
+                    
+                }
+                
+                [updateDictionary setValue:commentsArray forKey:@"comments"];
+                [updateDictionary setValue:branderArray forKey:@"branders"];
+
+                //NSLog(@"update = %d", [commentsArray count]);
+                
+                
+                self.returnCode = 0;
+                self.errorMessage = @"";
+                
+            }
+            
+            @catch (NSException *e) {
+                
+                self.returnCode = 0;
+                self.errorMessage = @"";
+                
+            }
+            
+            [self.delegate onCallback:0];
+            return;
+            
+        }
+        
+        self.returnCode = 1;
+        self.errorMessage = [responseObject objectForKey:@"message"];
+        [(self.delegate) onCallback:0];
+        
+        return;
+
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        
+        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+        
+        NSLog(@"Error: %@", operation.response);
+        NSLog(@"Error: %@", operation.responseObject);
+    }];
     
     return YES;
 }
