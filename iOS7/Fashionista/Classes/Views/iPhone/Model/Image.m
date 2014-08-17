@@ -46,6 +46,8 @@
             
             NSDictionary *data = [responseObject objectForKey:@"data"];
             
+            User *user = [User getInstance];
+            
             @try {
                 
                 NSArray *$imageArray = [data objectForKey:@"images"];
@@ -110,6 +112,9 @@
                             brander.iconurl = [item2 objectForKey:@"facebook_icon"];
                             brander.token = [item2 objectForKey:@"facebook_token"];
                             
+                            if ([brander.userUUID isEqualToString:user.userUUID]) {
+                                image.enableBrandIt = 0;
+                            }
                             
                             [image.branderArray addObject:brander];
                             

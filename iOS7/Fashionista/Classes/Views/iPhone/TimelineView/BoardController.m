@@ -273,6 +273,7 @@
     if (photo.brandIt == 1) {
         [cell onBrandButtonTouched];
         photo.brandIt = 0;
+        photo.enableBrandIt = 0;
     }
     
     return cell;

@@ -265,6 +265,9 @@
         self.token = [result stringForColumn:@"token"];
         self.userUUID = [result stringForColumn:@"user_uuid"];
         
+        self.icon = self.token;
+        self.iconurl = [NSString stringWithFormat:FB_PROFILE_ICON, self.token];
+        
         AppConfig *config = [AppConfig getInstance];
         config.userIsLogin = 1;
         config.uuid = self.userUUID;
