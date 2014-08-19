@@ -285,6 +285,7 @@
 		CE1FD0CD1976994700E39076 /* down4-256.png in Resources */ = {isa = PBXBuildFile; fileRef = CE1FD0CC1976994700E39076 /* down4-256.png */; };
 		CE247C831970EF6600678543 /* BrandListView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE247C821970EF6600678543 /* BrandListView.m */; };
 		CE247C871970F57200678543 /* FollowerItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CE247C861970F57200678543 /* FollowerItemCell.m */; };
+		CE29F24819A370CF00E531AF /* NotificationDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE29F24719A370CF00E531AF /* NotificationDetailController.m */; };
 		CE31DC1619701C3B003DFC08 /* FollowersController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE31DC1519701C3B003DFC08 /* FollowersController.m */; };
 		CE31DC1A19701DCB003DFC08 /* FollowingController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE31DC1919701DCB003DFC08 /* FollowingController.m */; };
 		CE31DC1D19701F89003DFC08 /* FollowInitController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE31DC1C19701F89003DFC08 /* FollowInitController.m */; };
@@ -727,6 +728,8 @@
 		CE247C821970EF6600678543 /* BrandListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrandListView.m; sourceTree = "<group>"; };
 		CE247C851970F57200678543 /* FollowerItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FollowerItemCell.h; sourceTree = "<group>"; };
 		CE247C861970F57200678543 /* FollowerItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FollowerItemCell.m; sourceTree = "<group>"; };
+		CE29F24619A370CF00E531AF /* NotificationDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationDetailController.h; sourceTree = "<group>"; };
+		CE29F24719A370CF00E531AF /* NotificationDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationDetailController.m; sourceTree = "<group>"; };
 		CE31DC1419701C3B003DFC08 /* FollowersController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FollowersController.h; sourceTree = "<group>"; };
 		CE31DC1519701C3B003DFC08 /* FollowersController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FollowersController.m; sourceTree = "<group>"; };
 		CE31DC1819701DCB003DFC08 /* FollowingController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FollowingController.h; sourceTree = "<group>"; };
@@ -1903,6 +1906,8 @@
 		CE7CA1CB199A15A500527080 /* Notification */ = {
 			isa = PBXGroup;
 			children = (
+				CE29F24619A370CF00E531AF /* NotificationDetailController.h */,
+				CE29F24719A370CF00E531AF /* NotificationDetailController.m */,
 				CE7CA1CD199A16A000527080 /* NotificationController.h */,
 				CE7CA1CE199A16A000527080 /* NotificationController.m */,
 			);
@@ -2356,6 +2361,7 @@
 				CEFF10461966FE0800E84675 /* CommentCell.m in Sources */,
 				AA0E679617CBF19F00AA877F /* PSTCollectionViewLayout.m in Sources */,
 				7FA7DD7B17384D3000A50E20 /* NGTabBarItem.m in Sources */,
+				CE29F24819A370CF00E531AF /* NotificationDetailController.m in Sources */,
 				7FA7DD7C17384D3000A50E20 /* UINavigationController+NGTabBarNavigationDelegate.m in Sources */,
 				7FA7DD7D17384D3000A50E20 /* UIViewController+NGTabBarItem.m in Sources */,
 				7FA7DD7F17384D3000A50E20 /* FacingView.m in Sources */,

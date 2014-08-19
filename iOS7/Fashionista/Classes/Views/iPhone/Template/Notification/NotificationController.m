@@ -221,16 +221,22 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     currentIndex = indexPath;
-#if false
-    
-    User *follower = [self.followingArray objectAtIndex:indexPath.row];
     
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil];
     
-    FollowingProfileController *vc = [storyboard instantiateViewControllerWithIdentifier:@"following_profile"];
-    vc.user = follower;
-    [self.navigationController pushViewController:vc animated:YES];
-#endif
+    Detail2Controller *detailVC = [storyboard instantiateViewControllerWithIdentifier:@"notification_detail"];
+    NSString *key = @"comments";
+    
+    if (indexPath.section == 1) {
+        key = @"branders";
+    }
+    
+    NSArray *commentArray = [self.updateDictionary objectForKey:key];
+    
+    Image *image = [commentArray objectAtIndex:indexPath.row];
+    detailVC.photo = image;
+    
+    [self.navigationController pushViewController:detailVC animated:YES];
 }
 
 
