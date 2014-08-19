@@ -178,7 +178,6 @@
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     
-    NSLog(@"%d", buttonIndex);
     
     User* user = [User getInstance];
     
@@ -401,6 +400,14 @@
         return 80;
     }
     
+    if (indexPath.row == 0) {
+        return 0;
+    }
+    
+    if (indexPath.row == 1) {
+        return 0;
+    }
+    
     return 44;
 }
 
@@ -430,6 +437,7 @@
             [cell.buttonAction setEnabled:YES];
         }
         
+        [cell setHidden:YES];
         return cell;
     }
     
@@ -443,6 +451,8 @@
         [cell.textComment setTintColor:[UIColor lightGrayColor]];
         
         [cell setBackgroundColor:[UIColor whiteColor]];
+        
+        [cell setHidden:YES];
         return cell;
     }
     
