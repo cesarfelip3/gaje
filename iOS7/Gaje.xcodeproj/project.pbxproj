@@ -331,7 +331,6 @@
 		CE69604D1906AF6D00D464E4 /* Develop.txt in Resources */ = {isa = PBXBuildFile; fileRef = CE69604C1906AF6D00D464E4 /* Develop.txt */; };
 		CE6C1386197A33D600523B13 /* Note.m in Sources */ = {isa = PBXBuildFile; fileRef = CE6C1385197A33D600523B13 /* Note.m */; };
 		CE6C138B197A34A100523B13 /* NotesController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE6C138A197A34A100523B13 /* NotesController.m */; };
-		CE6E69E71908046D007EA7B0 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE6E69E61908046D007EA7B0 /* FacebookSDK.framework */; };
 		CE71A96A1963EF0800ADB5B0 /* Theme.m in Sources */ = {isa = PBXBuildFile; fileRef = CE71A9691963EF0800ADB5B0 /* Theme.m */; };
 		CE71A96D1963F72C00ADB5B0 /* ThemeController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE71A96C1963F72C00ADB5B0 /* ThemeController.m */; };
 		CE7CA1CF199A16A000527080 /* NotificationController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE7CA1CE199A16A000527080 /* NotificationController.m */; };
@@ -350,6 +349,7 @@
 		CEBEBE8019228A7200A0057F /* UploadInitController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEBEBE7F19228A7200A0057F /* UploadInitController.m */; };
 		CEBEBE8319228A8A00A0057F /* UploadController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEBEBE8219228A8A00A0057F /* UploadController.m */; };
 		CECD2FD7198A87E400DB020C /* UserSearchDelegateController.m in Sources */ = {isa = PBXBuildFile; fileRef = CECD2FD6198A87E400DB020C /* UserSearchDelegateController.m */; };
+		CEE1011919A4F58400878734 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE1011819A4F58400878734 /* FacebookSDK.framework */; };
 		CEE4CBFD197F7B0800B19317 /* FollowerProfileCommandCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE4CBFC197F7B0800B19317 /* FollowerProfileCommandCell.m */; };
 		CEE65C7F199BAB9C006A2265 /* UpdateInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE65C7E199BAB9C006A2265 /* UpdateInfoCell.m */; };
 		CEF41B03198911D20077DD22 /* ProfileItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CEF41B02198911D20077DD22 /* ProfileItemCell.m */; };
@@ -812,7 +812,6 @@
 		CE6C1385197A33D600523B13 /* Note.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Note.m; sourceTree = "<group>"; };
 		CE6C1389197A34A100523B13 /* NotesController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotesController.h; sourceTree = "<group>"; };
 		CE6C138A197A34A100523B13 /* NotesController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotesController.m; sourceTree = "<group>"; };
-		CE6E69E61908046D007EA7B0 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		CE71A9681963EF0800ADB5B0 /* Theme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Theme.h; sourceTree = "<group>"; };
 		CE71A9691963EF0800ADB5B0 /* Theme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Theme.m; sourceTree = "<group>"; };
 		CE71A96B1963F72C00ADB5B0 /* ThemeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThemeController.h; sourceTree = "<group>"; };
@@ -842,6 +841,7 @@
 		CEBEBE8219228A8A00A0057F /* UploadController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UploadController.m; sourceTree = "<group>"; };
 		CECD2FD5198A87E400DB020C /* UserSearchDelegateController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserSearchDelegateController.h; sourceTree = "<group>"; };
 		CECD2FD6198A87E400DB020C /* UserSearchDelegateController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserSearchDelegateController.m; sourceTree = "<group>"; };
+		CEE1011819A4F58400878734 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		CEE4CBFB197F7B0800B19317 /* FollowerProfileCommandCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FollowerProfileCommandCell.h; sourceTree = "<group>"; };
 		CEE4CBFC197F7B0800B19317 /* FollowerProfileCommandCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FollowerProfileCommandCell.m; sourceTree = "<group>"; };
 		CEE65C7D199BAB9C006A2265 /* UpdateInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UpdateInfoCell.h; sourceTree = "<group>"; };
@@ -871,12 +871,12 @@
 				CE6960431906ADE500D464E4 /* libsqlite3.0.dylib in Frameworks */,
 				CE69603D1906ACD500D464E4 /* CFNetwork.framework in Frameworks */,
 				7F0107A8166BE639000425BE /* CoreText.framework in Frameworks */,
-				CE6E69E71908046D007EA7B0 /* FacebookSDK.framework in Frameworks */,
 				7F9F7D9516517FF600514B27 /* QuartzCore.framework in Frameworks */,
 				7F9F7D9316517FE800514B27 /* MapKit.framework in Frameworks */,
 				7F9F7D9116517FE100514B27 /* CoreLocation.framework in Frameworks */,
 				7FA4DA7E164AC7DC00556574 /* UIKit.framework in Frameworks */,
 				7FA4DA80164AC7DC00556574 /* Foundation.framework in Frameworks */,
+				CEE1011919A4F58400878734 /* FacebookSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1380,9 +1380,9 @@
 		7FA4DA7C164AC7DC00556574 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CEE1011819A4F58400878734 /* FacebookSDK.framework */,
 				CEB427CA19252EFE0072B1D6 /* MobileCoreServices.framework */,
 				CEB427C819252EDE0072B1D6 /* AssetsLibrary.framework */,
-				CE6E69E61908046D007EA7B0 /* FacebookSDK.framework */,
 				CE6960461906AE8400D464E4 /* Security.framework */,
 				CE6960441906AE5400D464E4 /* SystemConfiguration.framework */,
 				CE6960421906ADE500D464E4 /* libsqlite3.0.dylib */,
