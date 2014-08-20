@@ -13,6 +13,9 @@
 
 @interface MenuViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate>
 
+
+@property (nonatomic, strong) NSMutableArray       *menu;
+
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (assign, nonatomic) id<MenuViewControllerDelegate> delegate;
 @property (strong, nonatomic) IBOutlet UISearchBar *searchBar;

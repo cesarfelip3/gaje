@@ -10,6 +10,7 @@
 #import "LoginController.h"
 #import "Image.h"
 #import "Brander.h"
+#import "MenuViewController.h"
 
 @implementation User
 
@@ -1207,6 +1208,77 @@
         
         return;
 
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        
+        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+        
+        NSLog(@"Error: %@", operation.response);
+        NSLog(@"Error: %@", operation.responseObject);
+    }];
+    
+    return YES;
+}
+
+//
+
+- (BOOL)getNumberOfLatestUpdate
+{
+    if (!self.userUUID) {
+        
+        return NO;
+    }
+    
+    NSDictionary *data = @{@"user_uuid":self.userUUID};
+    
+    NSString *api = [NSString stringWithFormat:API_USER_NUMBER_NOTIFY, API_BASE_URL, API_BASE_VERSION];
+    NSDictionary *parameters = data;
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    
+    NSString* token = [self getToken];
+    
+    manager.requestSerializer = [AFHTTPRequestSerializer serializer];
+    [manager.requestSerializer setValue:token forHTTPHeaderField:@"X-AUTH-KEY"];
+    
+    [manager POST:api parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+        NSLog(@"JSON: %@", responseObject);
+        
+        NSString *status = [(NSDictionary *)responseObject objectForKey:@"status"];
+        
+        if ([status isEqualToString:@"success"]) {
+            
+            NSInteger total = [[[responseObject objectForKey:@"data"] objectForKey:@"total"] integerValue];
+            
+            AppConfig *config = [AppConfig getInstance];
+            config.numberOfNotifications = total;
+            
+            NSDictionary *item = ((MenuViewController *)(self.menuVC)).menu[1][@"rows"][3];
+            
+#if true
+            NSString *title = [item objectForKey:@"title"];
+            
+            if ([title isEqualToString:@"Notification"]) {
+                
+                AppConfig *config = [AppConfig getInstance];
+                
+                title = [NSString stringWithFormat:@"Notifications(%ld)", (long)config.numberOfNotifications];
+                item = @{@"image":@"", @"title":title};
+                
+                //((MenuViewController *)(self.menuVC)).menu[1][@"rows"][3] = item;
+            }
+#endif
+            
+        }
+        
+        self.returnCode = 1;
+        self.errorMessage = [responseObject objectForKey:@"message"];
+        [(self.delegate) onCallback:0];
+        
+        return;
+        
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         

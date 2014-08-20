@@ -139,6 +139,8 @@ static AppDelegate *sharedDelegate;
             config.userIsLogin = 1;
             config.token = token;
             $user.returnCode = 0;
+            
+            
             return;
         
         }
@@ -170,6 +172,10 @@ static AppDelegate *sharedDelegate;
     
     AppConfig *config = [AppConfig getInstance];
     config.userIsLogin = 1;
+    
+    //User *user = [User getInstance];
+    user.menuVC = self.menuVC;
+    [user getNumberOfLatestUpdate];
     
 #if true
     
@@ -558,6 +564,9 @@ sizeOfItemForViewController:(UIViewController *)viewController
     [FBSession.activeSession handleDidBecomeActive];
     
     
+    User *user = [User getInstance];
+    user.menuVC = self.menuVC;
+    [user getNumberOfLatestUpdate];
     
 }
 

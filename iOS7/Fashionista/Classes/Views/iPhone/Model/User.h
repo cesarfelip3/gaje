@@ -20,6 +20,8 @@
 @interface User : Model
 
 @property (atomic, retain) id<NetworkCallbackDelegate> delegate;
+@property (strong) id menuVC;
+
 @property (atomic, retain) NSString *delegateType;
 
 @property (atomic, assign) NSInteger userId;
@@ -78,5 +80,6 @@
 
 - (BOOL)prepareNotification;
 - (BOOL)getLatestUpdate:(NSDictionary *)updateDictionary;
+- (BOOL)getNumberOfLatestUpdate;
 
 @end

@@ -23,6 +23,8 @@
 @property (atomic, assign) NSInteger fbstage;
 @property (atomic, strong) NSString *fbfrom;
 
+@property (assign) NSInteger numberOfNotifications;
+
 @property (atomic, strong) NSString *userSearchKeyword;
 
 @property (atomic, assign) BOOL applicationLaunched;

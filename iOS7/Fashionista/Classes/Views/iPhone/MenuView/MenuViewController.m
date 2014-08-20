@@ -10,10 +10,10 @@
 #import "DataSource.h"
 #import "AppDelegate.h"
 #import "Utils.h"
+#import "User.h"
 
 @interface MenuViewController ()
 
-@property (nonatomic, strong) NSArray       *menu;
 @property (nonatomic, strong) NSIndexPath   *currentSelection;
 
 @end
@@ -31,7 +31,7 @@
 {
     [super viewDidLoad];
     
-    self.menu = [DataSource menu];
+    self.menu = [[NSMutableArray alloc] initWithArray:[DataSource menu]];
     [self.tableView reloadData];
     self.tableView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"menu-background.png"]];
     [self.searchBar setBackgroundImage:[UIImage imageNamed:@"menu-searchBackground"]];
@@ -59,6 +59,13 @@
     
     [self.view addGestureRecognizer:tap];
     [tap setCancelsTouchesInView:NO];
+    
+    
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [self.tableView reloadData];
 }
 
 - (IBAction)dismissKeyboard:(id)sender
@@ -135,6 +142,18 @@
     cell.backgroundColor = [UIColor clearColor];
     NSDictionary *item = self.menu[indexPath.section][@"rows"][indexPath.row];
     
+#if true
+    NSString *title = [item objectForKey:@"title"];
+    
+    if ([title isEqualToString:@"Notification"]) {
+        
+        AppConfig *config = [AppConfig getInstance];
+        
+        title = [NSString stringWithFormat:@"Notifications(%ld)", (long)config.numberOfNotifications];
+        item = @{@"image":@"", @"title":title};
+    }
+#endif
+    
     UIImageView *imgRow = (UIImageView *)[cell viewWithTag:1];
     UIImage *imgRowImage = nil;
     if (item[@"image"]) {
@@ -144,7 +163,7 @@
     UILabel *lblText = (UILabel *)[cell viewWithTag:2];
     lblText.text = item[@"title"];
     lblText.font = [UIFont fontWithName:@"Avenir-Heavy" size:17];
-
+    
     return cell;
 }
 

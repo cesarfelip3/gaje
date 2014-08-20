@@ -27,6 +27,7 @@
 
 #define API_USER_PRE_NOTIFY     @"%@%@user/notification/prepare"
 #define API_USER_GET_NOTIFY     @"%@%@user/notification/latest"
+#define API_USER_NUMBER_NOTIFY  @"%@%@user/notification/count"
 
 #define API_IMAGE_UPLOAD        @"%@%@image/upload"
 #define API_IMAGE_LATEST        @"%@%@image/latest"
