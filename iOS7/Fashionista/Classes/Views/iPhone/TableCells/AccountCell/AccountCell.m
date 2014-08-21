@@ -55,6 +55,8 @@
     
     self.imageVBkg.image = imgCover;
     
+    //[self.imageVBkg setAlpha:0.6];
+    
     _lblTitle.text = data[@"name"];
     _lblTitle.font = [UIFont fontWithName:@"Avenir-Heavy" size:17];
     

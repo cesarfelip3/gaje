@@ -40,8 +40,7 @@
     
     [ADVThemeManager customizeTimelineView:self.view];
     
-    UIImageView *titleImageV = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"navigation-title"]];
-    self.navigationItem.titleView = titleImageV;
+    UIImageView *titleImageV = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"navigation-title"]];    self.navigationItem.titleView = titleImageV;
     
     if ([[NSUserDefaults standardUserDefaults] integerForKey:@"NavigationType"] == ADVNavigationTypeMenu) {
         UIButton *menuButton = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -136,7 +135,6 @@
         AccountCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
         
         cell.data = _account;
-        
         return cell;
     }
     

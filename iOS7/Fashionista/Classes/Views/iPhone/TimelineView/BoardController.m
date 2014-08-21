@@ -37,6 +37,8 @@
     
     [ADVThemeManager customizeTimelineView:self.view];
     UIImageView *titleImageV = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"navigation-title"]];
+    
+    
     self.navigationItem.titleView = titleImageV;
     
     if ([[NSUserDefaults standardUserDefaults] integerForKey:@"NavigationType"] == ADVNavigationTypeMenu) {
