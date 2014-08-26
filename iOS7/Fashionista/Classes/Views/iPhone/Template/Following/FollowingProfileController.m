@@ -185,7 +185,7 @@
         } else {
             cell.buttonFollow.tag = 1;
             [cell.buttonFollow setHidden:NO];
-            [cell.buttonFollow setTitle:@"Follow" forState:UIControlStateNormal];
+            [cell.buttonFollow setTitle:@"Track" forState:UIControlStateNormal];
         }
         
         

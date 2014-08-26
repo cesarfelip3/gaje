@@ -122,7 +122,7 @@
     Image *photo = [self.imageArray objectAtIndex:button.tag];
     self.currentPhoto = photo;
     
-    UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:@"" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:@"Follow" otherButtonTitles:@"Brand",@"block photos from this user", nil];
+    UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:@"" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:@"Track" otherButtonTitles:@"Brand",@"block photos from this user", nil];
     
     [sheet showInView:self.view];
 }
