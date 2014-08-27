@@ -129,12 +129,6 @@
 - (BOOL)onCallback:(NSInteger)type
 {
     NSLog(@"returned");
-    
-    if ([self.resultArray count] == 0) {
-        
-        
-    }
-    
     [self.refreshControl endRefreshing];
     [self.tableView reloadData];
     return YES;
@@ -186,7 +180,7 @@
         
         UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"InfoCell"];
         
-        [cell.textLabel setText:@"User not found"];
+        [cell.textLabel setText:@"Not found any user"];
         return cell;
     }
     

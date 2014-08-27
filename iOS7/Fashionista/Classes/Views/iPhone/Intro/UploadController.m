@@ -398,19 +398,14 @@
     if (self.photo.returnCode > 0) {
         message = self.photo.errorMessage;
     }
-
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"your photo has stuck" message:message delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+#if false
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:message delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
     
     [alert show];
-
+#endif
     
-    //[[iToast makeText:message] show];
+    [[iToast makeText:message] show];
     return YES;
-}
-
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
-{
-    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 //==============================

@@ -148,9 +148,13 @@
 
     if (section == 0) {
         return @"Comments just added";
-    } else {
+    }
+    
+    if (section == 1) {
         return @"Brander just added";
     }
+    
+    return @"You just got track";
     
 }
 
@@ -158,11 +162,13 @@
     
     NSString *key = @"comments";
     
-    if (section == 0) {
-    
-    } else {
-    
+    if (section == 1) {
         key = @"branders";
+    }
+    
+    if (section == 2) {
+    
+        key = @"followers";
     }
     
     return [[self.updateDictionary objectForKey:key] count];
@@ -199,6 +205,19 @@
         
     }
     
+    if (indexPath.section == 2) {
+        
+        NSArray *followerArray = [self.updateDictionary objectForKey:@"followers"];
+        
+        User *follower = [followerArray objectAtIndex:indexPath.row];
+        
+        [cell.info setText:[NSString stringWithFormat:@"%@ just tracked you", follower.username]];
+        
+        NSString *url = [NSString stringWithFormat:FB_PROFILE_ICON, follower.token];
+        [cell loadImage:url fileName:follower.token];
+        
+    }
+    
     //User *follower = [self.followingArray objectAtIndex:indexPath.row];
     
     //cell.follower = follower;
@@ -229,6 +248,10 @@
     
     if (indexPath.section == 1) {
         key = @"branders";
+    }
+    
+    if (indexPath.section == 2) {
+        return;
     }
     
     NSArray *commentArray = [self.updateDictionary objectForKey:key];

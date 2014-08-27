@@ -1179,8 +1179,53 @@
                     
                 }
                 
+                NSArray *resultArray = [data objectForKey:@"followers"];
+                NSMutableArray *followerArray = [[NSMutableArray alloc] init];
+                
+                for (NSDictionary *item in resultArray) {
+                    
+                    User *follower = [[User alloc] init];
+                    
+                    follower.userUUID = [item objectForKey:@"user_uuid"];
+                    follower.username = [item objectForKey:@"username"];
+                    follower.fullname = [item objectForKey:@"fullname"];
+                    
+                    follower.token = [item objectForKey:@"facebook_token"];
+                    follower.icon = follower.token;
+                    follower.iconurl = [item objectForKey:@"facebook_icon"];
+                    follower.isMutual = [[item objectForKey:@"is_mutual"] integerValue];
+                    
+                    NSDictionary *image = [item objectForKey:@"image"];
+                    
+                    if ([image count] > 0) {
+                        
+                        if (!follower.imageArray) {
+                            
+                            follower.imageArray = [[NSMutableArray alloc] init];
+                            
+                        }
+                        
+                        Image *_image = [[Image alloc] init];
+                        
+                        _image.name = [image objectForKey:@"name"];
+                        _image.description = [image objectForKey:@"description"];
+                        _image.fileName = [image objectForKey:@"file_name"];
+                        _image.thumbnailName = [image objectForKey:@"thumbnail"];
+                        _image.thumbnail = [NSString stringWithFormat:@"%@%@", URL_BASE_IMAGE, _image.thumbnailName];
+                        
+                        _image.width = [[image objectForKey:@"width"] integerValue];
+                        _image.height = [[image objectForKey:@"height"] integerValue];
+                        
+                        [follower.imageArray addObject:_image];
+                        
+                    }
+                    
+                    [followerArray addObject:follower];
+                }
+                
                 [updateDictionary setValue:commentsArray forKey:@"comments"];
                 [updateDictionary setValue:branderArray forKey:@"branders"];
+                [updateDictionary setValue:followerArray forKey:@"followers"];
 
                 //NSLog(@"update = %d", [commentsArray count]);
                 

@@ -122,7 +122,7 @@
         [self.user addFollow:values Token:@""];
         
         self.user.isMutual = 1;
-        [button setTitle:@"Following" forState:UIControlStateNormal];
+        [button setTitle:@"Tracking" forState:UIControlStateNormal];
         [self.tableView reloadData];
         
     } else {
@@ -182,7 +182,7 @@
             
             cell.buttonFollow.tag = 1;
             [cell.buttonFollow setHidden:NO];
-            [cell.buttonFollow setTitle:@"Following" forState:UIControlStateNormal];
+            [cell.buttonFollow setTitle:@"Tracking" forState:UIControlStateNormal];
             
         } else {
             
