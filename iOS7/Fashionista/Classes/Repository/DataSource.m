@@ -77,11 +77,11 @@
                              @"image": @"" //@"menu-icon4"
                              },
                          @{
-                             @"title": @"Followers",
+                             @"title": @"Tracked",
                              @"image": @"" //@"menu-icon3"
                              },
                          @{
-                             @"title": @"Following",
+                             @"title": @"Tracking",
                              @"image": @"" //@"menu-icon3"
                              },
                          @{

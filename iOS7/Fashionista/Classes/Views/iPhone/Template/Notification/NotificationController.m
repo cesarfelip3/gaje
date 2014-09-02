@@ -147,14 +147,14 @@
 {
 
     if (section == 0) {
-        return @"Comments just added";
+        return @"Line dropped";
     }
     
     if (section == 1) {
-        return @"Brander just added";
+        return @"Branded";
     }
     
-    return @"You just got track";
+    return @"Tracked";
     
 }
 
