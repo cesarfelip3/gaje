@@ -17,6 +17,7 @@
 #import "TimelineCell.h"
 
 #import "User.h"
+#import "User+UserApi.h"
 
 @interface FollowingProfileController (){
     NSIndexPath *currentIndex;

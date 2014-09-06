@@ -15,6 +15,9 @@
 #import "BranderItemCell.h"
 #import "Brander.h"
 
+#import "User+UserApi.h"
+#import "Image+ImageApi.h"
+
 @interface Detail2Controller ()
 
 @end
@@ -276,9 +279,9 @@
     if ([user.delegateType isEqualToString:@"block_user"]) {
         
         user.delegateType = @"";
-        user.returnCode == 0 ? [self.navigationController popToRootViewControllerAnimated:YES] : nil;
+        type == 0 ? [self.navigationController popToRootViewControllerAnimated:YES] : nil;
         
-        if (user.returnCode > 0) {
+        if (type > 0) {
             
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:user.errorMessage delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
             

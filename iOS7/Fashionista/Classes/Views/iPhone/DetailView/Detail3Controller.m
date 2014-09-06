@@ -16,6 +16,9 @@
 #import "BranderItemCell.h"
 #import "Brander.h"
 
+#import "User+UserApi.h"
+#import "Image+ImageApi.h"
+
 @interface Detail3Controller ()
 
 @end

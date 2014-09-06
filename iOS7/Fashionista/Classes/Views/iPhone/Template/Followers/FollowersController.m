@@ -16,6 +16,8 @@
 #import "Utils.h"
 #import "Detail2Controller.h"
 
+#import "User+UserApi.h"
+
 @interface FollowersController () {
 
     NSIndexPath *currentIndex;
@@ -170,7 +172,9 @@
         UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"InfoCell"];
         
         [cell setBackgroundColor:[UIColor clearColor]];
-        [cell.textLabel setText:@"You are not followed by anyone now"];
+        [cell.textLabel setFont:[UIFont systemFontOfSize:12]];
+        [cell.textLabel setTextColor:[UIColor lightGrayColor]];
+        [cell.textLabel setText:@"None tracked you, but you can pull to see update"];
         return cell;
     }
     
@@ -192,6 +196,11 @@
 #pragma mark - Table view delegate
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    if ([self.followerArray count] == 0 && self.view.tag == 1) {
+        return 20;
+    }
+    
     return 60;
 }
 

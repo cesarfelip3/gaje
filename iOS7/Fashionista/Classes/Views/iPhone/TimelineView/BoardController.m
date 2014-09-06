@@ -14,7 +14,8 @@
 #import "AppDelegate.h"
 #import "Utils.h"
 #import "Detail2Controller.h"
-
+#import "User+UserApi.h"
+#import "Image+ImageApi.h"
 
 @interface BoardController () {
     NSIndexPath *currentIndex;
@@ -67,6 +68,10 @@
     
     self.imageArray = [[NSMutableArray alloc] init];
     self.photo = [[Image alloc] init];
+    
+    
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
 }
 
 - (IBAction)onRefresh:(id)sender
@@ -204,8 +209,6 @@
     }
     
     [self.refreshControl endRefreshing];
-    self.tableView.delegate = self;
-    self.tableView.dataSource = self;
     [self.tableView reloadData];
     return YES;
 }
@@ -283,6 +286,10 @@
 
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    if ([self.imageArray count] <= 0) {
+        return 0;
+    }
     
     Image *photo = [self.imageArray objectAtIndex:indexPath.row];
     NSInteger height = 280 * photo.height / photo.width;

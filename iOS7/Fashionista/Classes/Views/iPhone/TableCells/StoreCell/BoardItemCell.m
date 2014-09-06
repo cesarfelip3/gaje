@@ -14,6 +14,7 @@
 #import "Global.h"
 #import "User.h"
 #import "Brander.h"
+#import "Image+ImageApi.h"
 
 @implementation BoardItemCell
 
@@ -186,6 +187,7 @@
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         
+        NSLog(@"%@", error);
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
         
     }];

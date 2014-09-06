@@ -17,6 +17,8 @@
 #import "Utils.h"
 #import "Detail2Controller.h"
 
+#import "User+UserApi.h"
+
 @interface UserSearchResultController () {
     
     NSIndexPath *currentIndex;

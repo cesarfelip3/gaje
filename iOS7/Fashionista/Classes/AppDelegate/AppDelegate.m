@@ -17,6 +17,7 @@
 #import "Bootstrap.h"
 
 #import "User.h"
+#import "User+UserApi.h"
 
 static AppDelegate *sharedDelegate;
 
@@ -25,20 +26,24 @@ static AppDelegate *sharedDelegate;
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     
+    // prepare configuration here
+    // prepare db
+    
     Bootstrap *bootstrap = [Bootstrap getInstance];
     [bootstrap bootstrap];
+ 
     
     AppConfig *config = [AppConfig getInstance];
-    
-    
     config.fbfrom = @"application";
+    
+    // we saved user credential after being login
+    // we see if we have it
     
     User *user = [User getInstance];
     [user auth];
     
-    [user prepareNotification];
-    
-#if true
+    // only if user authorized == returned user
+    // then it will load the main UI
     
     if (config.userIsLogin == 1) {
     
@@ -47,12 +52,11 @@ static AppDelegate *sharedDelegate;
 
         if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
             //self.mainVC = (((UINavigationController *)self.window.rootViewController).viewControllers)[0];
+            
         } else {
             
             UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil];
-            
             self.mainVC = [storyboard instantiateInitialViewController];
-            
             self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
             
             if (![[NSUserDefaults standardUserDefaults] valueForKey:@"NavigationType"]) {
@@ -71,17 +75,16 @@ static AppDelegate *sharedDelegate;
             self.window.backgroundColor = [UIColor blackColor];
             [self.window makeKeyAndVisible];
         }
-    } else {
-        
     }
     
     [FBLoginView class];
-#endif
     
     return YES;
 }
 
-#if true
+
+#pragma here we have FB SDK required interface
+
 - (BOOL)application:(UIApplication *)application
             openURL:(NSURL *)url
   sourceApplication:(NSString *)sourceApplication
@@ -95,11 +98,10 @@ static AppDelegate *sharedDelegate;
     // You can add your app-specific url handling code here if needed
     return wasHandled;
 }
-#endif
 
-//===============================
-//
-//===============================
+// FB login error
+// do nothing
+
 - (void) loginView:(FBLoginView *)loginView handleError:(NSError *)error
 {
     AppConfig *config = [AppConfig getInstance];
@@ -107,7 +109,26 @@ static AppDelegate *sharedDelegate;
     
     NSLog(@"FB Login error %@", error);
     
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"We have encounter a Facebook login/logout error, we recommend that you check your facebook credential or try it later, if the error persist, please contact with us for further help" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    [alert show];
+    
 }
+
+// FB login success
+//
+
+- (void) loginViewShowingLoggedInUser:(FBLoginView *)loginView
+{
+    
+    AppConfig *config = [AppConfig getInstance];
+    config.fbstage = 2;
+    NSLog(@"FB Login");
+    
+}
+
+// FB, get user info
+// only if we get user info successfully, we will allow
+// continue use
 
 - (void) loginViewFetchedUserInfo:(FBLoginView *)loginView user:(id<FBGraphUser>)user
 {
@@ -116,6 +137,7 @@ static AppDelegate *sharedDelegate;
     // here we store user id, but only one of them
     // suppose there are different FB ids
     // and we only retain the last one
+    // to remember that this time, we have facebook token as the only unique identifier
     
     if (user) {
         
@@ -138,47 +160,51 @@ static AppDelegate *sharedDelegate;
             AppConfig *config = [AppConfig getInstance];
             config.userIsLogin = 1;
             config.token = token;
-            $user.returnCode = 0;
-            
-            
             return;
-        
+            
         }
         
+        // here we added user to local storage
+        // then we will call service to add it remotely
+        // without saving it, we can't use service correclty
+        
         [$user add];
-        NSDictionary *data = @{@"username":username, @"email":email, @"fullname":fullname, @"facebook_token":token, @"facebook_icon": [NSString stringWithFormat:FB_PROFILE_ICON, token], @"location":$user.location};
+        NSDictionary *data = @{
+                               @"username":username,
+                               @"email":email,
+                               @"fullname":fullname,
+                               @"facebook_token":token,
+                               @"facebook_icon": [NSString stringWithFormat:FB_PROFILE_ICON, token],
+                               @"location":$user.location
+                               };
+        
+        
         $user.delegate = self;
         [$user login:data];
         
         [self.loginView setHidden:YES];
     }
-    
-    
 }
 
 - (BOOL)onCallback:(NSInteger)type
 {
-    User *user = [User getInstance];
+    AppConfig *config = [AppConfig getInstance];
     
-    if (user.returnCode > 0) {
-    
+    if (type > 0) {
         
         [self.loginView setHidden:NO];
         
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:user.errorMessage delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"We have encoutered an issue to sync your user account with our service, you may have to logout and try it later, if the error persist, please contact with us for further help" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [alert show];
         return NO;
+    
+    } else {
+        
+        config.userIsLogin = 1;
     }
     
-    AppConfig *config = [AppConfig getInstance];
-    config.userIsLogin = 1;
-    
-    //User *user = [User getInstance];
-    user.menuVC = self.menuVC;
-    [user getNumberOfLatestUpdate];
-    
-#if true
-    
+    // if failed to sync the user account
+    // we will stay at intro UI
     
     if (config.userIsLogin != 1) {
         
@@ -192,13 +218,13 @@ static AppDelegate *sharedDelegate;
     }
     
     
+    //
+    
     if (config.userIsLogin == 1 && [config.fbfrom isEqualToString:@"application"]) {
         
         
         [ADVThemeManager customizeAppAppearance];
-        // Override point for customization after application launch.
         
-#if true
         if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
             //self.mainVC = (((UINavigationController *)self.window.rootViewController).viewControllers)[0];
         } else {
@@ -225,25 +251,10 @@ static AppDelegate *sharedDelegate;
             self.window.backgroundColor = [UIColor blackColor];
             [self.window makeKeyAndVisible];
         }
-#endif
-    } else {
-        
     }
     
     [FBLoginView class];
-    
-#endif
-    
     return YES;
-}
-
-- (void) loginViewShowingLoggedInUser:(FBLoginView *)loginView
-{
-    
-    AppConfig *config = [AppConfig getInstance];
-    config.fbstage = 2;
-    NSLog(@"FB Login");
-
 }
 
 - (void) loginViewShowingLoggedOutUser:(FBLoginView *)loginView
@@ -307,6 +318,7 @@ static AppDelegate *sharedDelegate;
                       cancelButtonTitle:@"OK"
                       otherButtonTitles:nil] show];
 }
+
 //===============================
 //
 //===============================
@@ -563,10 +575,6 @@ sizeOfItemForViewController:(UIViewController *)viewController
     NSLog(@"app = become active");
     [FBSession.activeSession handleDidBecomeActive];
     
-    
-    User *user = [User getInstance];
-    user.menuVC = self.menuVC;
-    [user getNumberOfLatestUpdate];
     
 }
 

@@ -8,6 +8,7 @@
 
 #import "UploadController.h"
 #import "ThemeController.h"
+#import "Image+ImageApi.h"
 
 @interface UploadController ()
 
@@ -395,7 +396,7 @@
     NSString *message = @"Your photo is uploaded successfully";
     self.photo.delegate = nil;
     
-    if (self.photo.returnCode > 0) {
+    if (type > 0) {
         message = self.photo.errorMessage;
     }
 #if false

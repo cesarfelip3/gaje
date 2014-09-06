@@ -14,6 +14,7 @@
 #import "Global.h"
 #import "User.h"
 #import "Brander.h"
+#import "Image+ImageApi.h"
 
 @implementation ProfileItemCell
 
