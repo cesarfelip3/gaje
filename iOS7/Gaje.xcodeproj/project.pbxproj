@@ -1000,12 +1000,12 @@
 				CE828FCA1923D7BB0040A18C /* Data */,
 				CE695FEE1906AA7500D464E4 /* Model */,
 				CE695FCF1906A82500D464E4 /* Intro */,
-				CE695FCE1906A7D100D464E4 /* Template */,
+				CE695FCE1906A7D100D464E4 /* Main */,
 			);
 			path = iPhone;
 			sourceTree = "<group>";
 		};
-		7F2A5AE01734FB3800551439 /* DetailView */ = {
+		7F2A5AE01734FB3800551439 /* Detail */ = {
 			isa = PBXGroup;
 			children = (
 				7F2A5AE11734FB3800551439 /* DetailViewController.h */,
@@ -1015,8 +1015,7 @@
 				CEBABB3F197161720054710E /* Detail3Controller.h */,
 				CEBABB40197161720054710E /* Detail3Controller.m */,
 			);
-			name = DetailView;
-			path = ../DetailView;
+			path = Detail;
 			sourceTree = "<group>";
 		};
 		7F2A5AE91734FB3800551439 /* Elements */ = {
@@ -1025,8 +1024,7 @@
 				7F2A5AEA1734FB3800551439 /* ElementsViewController.h */,
 				7F2A5AEB1734FB3800551439 /* ElementsViewController.m */,
 			);
-			name = Elements;
-			path = ../Elements;
+			path = Elements;
 			sourceTree = "<group>";
 		};
 		7F2A5B111734FB3800551439 /* Resources */ = {
@@ -1084,18 +1082,16 @@
 				7F2A5D341735024000551439 /* NGTestTabBarController.h */,
 				7F2A5D351735024000551439 /* NGTestTabBarController.m */,
 			);
-			name = Tabbar;
-			path = ../Tabbar;
+			path = Tabbar;
 			sourceTree = "<group>";
 		};
-		7F2A5D601736D2D100551439 /* AccountView */ = {
+		7F2A5D601736D2D100551439 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
 				7F2A5D611736D2D300551439 /* AccountViewController.h */,
 				7F2A5D621736D2D300551439 /* AccountViewController.m */,
 			);
-			name = AccountView;
-			path = ../AccountView;
+			path = Profile;
 			sourceTree = "<group>";
 		};
 		7F2A5D6F1736E16C00551439 /* Board */ = {
@@ -1104,18 +1100,16 @@
 				7F2A5D701736E16E00551439 /* BoardController.h */,
 				7F2A5D711736E16E00551439 /* BoardController.m */,
 			);
-			name = Board;
-			path = ../TimelineView;
+			path = Board;
 			sourceTree = "<group>";
 		};
-		7F2A5D731736E17400551439 /* FavoritesView */ = {
+		7F2A5D731736E17400551439 /* Theme */ = {
 			isa = PBXGroup;
 			children = (
 				7F2A5D741736E17500551439 /* WeekThemeController.h */,
 				7F2A5D751736E17500551439 /* WeekThemeController.m */,
 			);
-			name = FavoritesView;
-			path = ../FavoritesView;
+			path = Theme;
 			sourceTree = "<group>";
 		};
 		7F2A5D7B1736E1A000551439 /* TableCells */ = {
@@ -1129,8 +1123,7 @@
 				7F2A5D7C1736E1A100551439 /* TimelineCell */,
 				7F2A5D931736F03F00551439 /* Board */,
 			);
-			name = TableCells;
-			path = ../TableCells;
+			path = TableCells;
 			sourceTree = "<group>";
 		};
 		7F2A5D7C1736E1A100551439 /* TimelineCell */ = {
@@ -1404,14 +1397,13 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		7FA7DCC81737A0F700A50E20 /* MenuView */ = {
+		7FA7DCC81737A0F700A50E20 /* SideMenu */ = {
 			isa = PBXGroup;
 			children = (
 				7FA7DCC91737A0F700A50E20 /* MenuViewController.h */,
 				7FA7DCCA1737A0F700A50E20 /* MenuViewController.m */,
 			);
-			name = MenuView;
-			path = ../MenuView;
+			path = SideMenu;
 			sourceTree = "<group>";
 		};
 		7FA7DCD01737B78300A50E20 /* NavigationSelectView */ = {
@@ -1420,18 +1412,16 @@
 				7FA7DCD11737B78300A50E20 /* NavigationSelectViewController.h */,
 				7FA7DCD21737B78300A50E20 /* NavigationSelectViewController.m */,
 			);
-			name = NavigationSelectView;
-			path = ../NavigationSelectView;
+			path = NavigationSelectView;
 			sourceTree = "<group>";
 		};
-		7FA7DCD31737B78300A50E20 /* SettingsView */ = {
+		7FA7DCD31737B78300A50E20 /* Setting */ = {
 			isa = PBXGroup;
 			children = (
 				7FA7DCD41737B78300A50E20 /* SettingsViewController.h */,
 				7FA7DCD51737B78300A50E20 /* SettingsViewController.m */,
 			);
-			name = SettingsView;
-			path = ../SettingsView;
+			path = Setting;
 			sourceTree = "<group>";
 		};
 		7FA7DCEA17384D2B00A50E20 /* Library */ = {
@@ -1809,26 +1799,26 @@
 			path = Following;
 			sourceTree = "<group>";
 		};
-		CE695FCE1906A7D100D464E4 /* Template */ = {
+		CE695FCE1906A7D100D464E4 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				CE7CA1CB199A15A500527080 /* Notification */,
-				CECD2FD3198A878B00DB020C /* UserSearch */,
-				CE6C1388197A348100523B13 /* Notes */,
-				CE31DC1719701DA6003DFC08 /* Following */,
-				CE31DC1219701BF4003DFC08 /* Followers */,
-				7FA7DCC81737A0F700A50E20 /* MenuView */,
-				7F2A5D331735024000551439 /* Tabbar */,
+				CECD2FD3198A878B00DB020C /* Search */,
 				7F2A5D6F1736E16C00551439 /* Board */,
-				7F2A5D731736E17400551439 /* FavoritesView */,
-				7F2A5AE01734FB3800551439 /* DetailView */,
-				7F2A5AE91734FB3800551439 /* Elements */,
-				7F2A5D601736D2D100551439 /* AccountView */,
-				7FA7DCD31737B78300A50E20 /* SettingsView */,
-				7FA7DCD01737B78300A50E20 /* NavigationSelectView */,
+				7F2A5D731736E17400551439 /* Theme */,
+				7FA7DCD31737B78300A50E20 /* Setting */,
+				CE6C1388197A348100523B13 /* Note */,
+				CE31DC1219701BF4003DFC08 /* Followers */,
+				CE31DC1719701DA6003DFC08 /* Following */,
+				CE7CA1CB199A15A500527080 /* Notification */,
+				7FA7DCC81737A0F700A50E20 /* SideMenu */,
+				7F2A5AE01734FB3800551439 /* Detail */,
+				7F2A5D601736D2D100551439 /* Profile */,
 				7F2A5D7B1736E1A000551439 /* TableCells */,
+				7F2A5AE91734FB3800551439 /* Elements */,
+				7FA7DCD01737B78300A50E20 /* NavigationSelectView */,
+				7F2A5D331735024000551439 /* Tabbar */,
 			);
-			path = Template;
+			path = Main;
 			sourceTree = "<group>";
 		};
 		CE695FCF1906A82500D464E4 /* Intro */ = {
@@ -1920,13 +1910,13 @@
 			path = fmdb;
 			sourceTree = "<group>";
 		};
-		CE6C1388197A348100523B13 /* Notes */ = {
+		CE6C1388197A348100523B13 /* Note */ = {
 			isa = PBXGroup;
 			children = (
 				CE6C1389197A34A100523B13 /* NotesController.h */,
 				CE6C138A197A34A100523B13 /* NotesController.m */,
 			);
-			name = Notes;
+			path = Note;
 			sourceTree = "<group>";
 		};
 		CE7CA1CB199A15A500527080 /* Notification */ = {
@@ -1968,7 +1958,7 @@
 			path = Image;
 			sourceTree = "<group>";
 		};
-		CECD2FD3198A878B00DB020C /* UserSearch */ = {
+		CECD2FD3198A878B00DB020C /* Search */ = {
 			isa = PBXGroup;
 			children = (
 				CECD2FD5198A87E400DB020C /* UserSearchDelegateController.h */,
@@ -1978,7 +1968,7 @@
 				CE40D07A198B506F00069817 /* UserSearchResultController.h */,
 				CE40D07B198B506F00069817 /* UserSearchResultController.m */,
 			);
-			path = UserSearch;
+			path = Search;
 			sourceTree = "<group>";
 		};
 		CEE65C7B199BAB6B006A2265 /* Notification */ = {
