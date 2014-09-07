@@ -30,7 +30,7 @@
 		7F2A5D361735024000551439 /* NGTestTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F2A5D351735024000551439 /* NGTestTabBarController.m */; };
 		7F2A5D411736808E00551439 /* Avenir LT 85 Heavy.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7F2A5D401736808B00551439 /* Avenir LT 85 Heavy.ttf */; };
 		7F2A5D591736C02B00551439 /* Cabin-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7F2A5D581736C02B00551439 /* Cabin-Bold.otf */; };
-		7F2A5D631736D2D300551439 /* AccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F2A5D621736D2D300551439 /* AccountViewController.m */; };
+		7F2A5D631736D2D300551439 /* ProfileController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F2A5D621736D2D300551439 /* ProfileController.m */; };
 		7F2A5D661736D46F00551439 /* Personal-Account.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7F2A5D641736D46F00551439 /* Personal-Account.plist */; };
 		7F2A5D671736D46F00551439 /* User-Account.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7F2A5D651736D46F00551439 /* User-Account.plist */; };
 		7F2A5D721736E16E00551439 /* BoardController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F2A5D711736E16E00551439 /* BoardController.m */; };
@@ -300,6 +300,7 @@
 		CE54CFB01967CCFD005C1FFE /* CommentItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CE54CFAF1967CCFD005C1FFE /* CommentItemCell.m */; };
 		CE54CFB3196807DA005C1FFE /* BranderItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CE54CFB2196807DA005C1FFE /* BranderItemCell.m */; };
 		CE54CFB619680CDA005C1FFE /* Brander.m in Sources */ = {isa = PBXBuildFile; fileRef = CE54CFB519680CDA005C1FFE /* Brander.m */; };
+		CE63423B19BC99B800BAA335 /* ProfileDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE63423A19BC99B800BAA335 /* ProfileDetailController.m */; };
 		CE695FCD1906A76200D464E4 /* local.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = CE695FCC1906A76200D464E4 /* local.sqlite */; };
 		CE695FD21906A85200D464E4 /* LoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE695FD11906A85200D464E4 /* LoginController.m */; };
 		CE695FDA1906A91100D464E4 /* intro.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE695FD91906A91100D464E4 /* intro.storyboard */; };
@@ -355,7 +356,7 @@
 		CEE4CBFD197F7B0800B19317 /* FollowerProfileCommandCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE4CBFC197F7B0800B19317 /* FollowerProfileCommandCell.m */; };
 		CEE65C7F199BAB9C006A2265 /* UpdateInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE65C7E199BAB9C006A2265 /* UpdateInfoCell.m */; };
 		CEF41B03198911D20077DD22 /* ProfileItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CEF41B02198911D20077DD22 /* ProfileItemCell.m */; };
-		CEFF103B1966CE3000E84675 /* Detail2Controller.m in Sources */ = {isa = PBXBuildFile; fileRef = CEFF103A1966CE3000E84675 /* Detail2Controller.m */; };
+		CEFF103B1966CE3000E84675 /* BoardDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEFF103A1966CE3000E84675 /* BoardDetailController.m */; };
 		CEFF10401966F95D00E84675 /* CommandCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CEFF103F1966F95D00E84675 /* CommandCell.m */; };
 		CEFF10431966F97200E84675 /* TabbarCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CEFF10421966F97200E84675 /* TabbarCell.m */; };
 		CEFF10461966FE0800E84675 /* CommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CEFF10451966FE0800E84675 /* CommentCell.m */; };
@@ -405,8 +406,8 @@
 		7F2A5D351735024000551439 /* NGTestTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NGTestTabBarController.m; sourceTree = "<group>"; };
 		7F2A5D401736808B00551439 /* Avenir LT 85 Heavy.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Avenir LT 85 Heavy.ttf"; sourceTree = "<group>"; };
 		7F2A5D581736C02B00551439 /* Cabin-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Cabin-Bold.otf"; sourceTree = "<group>"; };
-		7F2A5D611736D2D300551439 /* AccountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountViewController.h; sourceTree = "<group>"; };
-		7F2A5D621736D2D300551439 /* AccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountViewController.m; sourceTree = "<group>"; };
+		7F2A5D611736D2D300551439 /* ProfileController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileController.h; sourceTree = "<group>"; };
+		7F2A5D621736D2D300551439 /* ProfileController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileController.m; sourceTree = "<group>"; };
 		7F2A5D641736D46F00551439 /* Personal-Account.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Personal-Account.plist"; sourceTree = "<group>"; };
 		7F2A5D651736D46F00551439 /* User-Account.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "User-Account.plist"; sourceTree = "<group>"; };
 		7F2A5D701736E16E00551439 /* BoardController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoardController.h; sourceTree = "<group>"; };
@@ -756,6 +757,8 @@
 		CE54CFB2196807DA005C1FFE /* BranderItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BranderItemCell.m; sourceTree = "<group>"; };
 		CE54CFB419680CDA005C1FFE /* Brander.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Brander.h; sourceTree = "<group>"; };
 		CE54CFB519680CDA005C1FFE /* Brander.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Brander.m; sourceTree = "<group>"; };
+		CE63423919BC99B800BAA335 /* ProfileDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileDetailController.h; sourceTree = "<group>"; };
+		CE63423A19BC99B800BAA335 /* ProfileDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileDetailController.m; sourceTree = "<group>"; };
 		CE695FCC1906A76200D464E4 /* local.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = local.sqlite; sourceTree = "<group>"; };
 		CE695FD01906A85200D464E4 /* LoginController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginController.h; sourceTree = "<group>"; };
 		CE695FD11906A85200D464E4 /* LoginController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginController.m; sourceTree = "<group>"; };
@@ -854,8 +857,8 @@
 		CEE65C7E199BAB9C006A2265 /* UpdateInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UpdateInfoCell.m; sourceTree = "<group>"; };
 		CEF41B01198911D20077DD22 /* ProfileItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileItemCell.h; sourceTree = "<group>"; };
 		CEF41B02198911D20077DD22 /* ProfileItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileItemCell.m; sourceTree = "<group>"; };
-		CEFF10391966CE3000E84675 /* Detail2Controller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Detail2Controller.h; sourceTree = "<group>"; };
-		CEFF103A1966CE3000E84675 /* Detail2Controller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Detail2Controller.m; sourceTree = "<group>"; };
+		CEFF10391966CE3000E84675 /* BoardDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoardDetailController.h; sourceTree = "<group>"; };
+		CEFF103A1966CE3000E84675 /* BoardDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoardDetailController.m; sourceTree = "<group>"; };
 		CEFF103E1966F95D00E84675 /* CommandCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommandCell.h; sourceTree = "<group>"; };
 		CEFF103F1966F95D00E84675 /* CommandCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommandCell.m; sourceTree = "<group>"; };
 		CEFF10411966F97200E84675 /* TabbarCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabbarCell.h; sourceTree = "<group>"; };
@@ -1010,8 +1013,6 @@
 			children = (
 				7F2A5AE11734FB3800551439 /* DetailViewController.h */,
 				7F2A5AE21734FB3800551439 /* DetailViewController.m */,
-				CEFF10391966CE3000E84675 /* Detail2Controller.h */,
-				CEFF103A1966CE3000E84675 /* Detail2Controller.m */,
 				CEBABB3F197161720054710E /* Detail3Controller.h */,
 				CEBABB40197161720054710E /* Detail3Controller.m */,
 			);
@@ -1088,8 +1089,10 @@
 		7F2A5D601736D2D100551439 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
-				7F2A5D611736D2D300551439 /* AccountViewController.h */,
-				7F2A5D621736D2D300551439 /* AccountViewController.m */,
+				CE63423919BC99B800BAA335 /* ProfileDetailController.h */,
+				CE63423A19BC99B800BAA335 /* ProfileDetailController.m */,
+				7F2A5D611736D2D300551439 /* ProfileController.h */,
+				7F2A5D621736D2D300551439 /* ProfileController.m */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -1099,6 +1102,8 @@
 			children = (
 				7F2A5D701736E16E00551439 /* BoardController.h */,
 				7F2A5D711736E16E00551439 /* BoardController.m */,
+				CEFF10391966CE3000E84675 /* BoardDetailController.h */,
+				CEFF103A1966CE3000E84675 /* BoardDetailController.m */,
 			);
 			path = Board;
 			sourceTree = "<group>";
@@ -2326,7 +2331,7 @@
 				7F2A5D361735024000551439 /* NGTestTabBarController.m in Sources */,
 				CEBEBE8319228A8A00A0057F /* UploadController.m in Sources */,
 				CE54CFB01967CCFD005C1FFE /* CommentItemCell.m in Sources */,
-				7F2A5D631736D2D300551439 /* AccountViewController.m in Sources */,
+				7F2A5D631736D2D300551439 /* ProfileController.m in Sources */,
 				CE695FE31906A98A00D464E4 /* HelpController.m in Sources */,
 				CE69603B1906ACB800D464E4 /* FMResultSet.m in Sources */,
 				7F2A5D721736E16E00551439 /* BoardController.m in Sources */,
@@ -2354,6 +2359,7 @@
 				7FA7DD6D17384D3000A50E20 /* UIImage+iPhone5.m in Sources */,
 				7FA7DD6E17384D3000A50E20 /* UIImage+StackBlur.m in Sources */,
 				AA0E679817CBF19F00AA877F /* PSTGridLayoutInfo.m in Sources */,
+				CE63423B19BC99B800BAA335 /* ProfileDetailController.m in Sources */,
 				CE695FF11906AAA700D464E4 /* AppConfig.m in Sources */,
 				7FA7DD6F17384D3000A50E20 /* UINavigationBar+CustomImage.m in Sources */,
 				CE6960361906ACB800D464E4 /* AFURLSessionManager.m in Sources */,
@@ -2408,7 +2414,7 @@
 				CE695FFD1906AAFF00D464E4 /* Image.m in Sources */,
 				7FA7DD9B17384D3000A50E20 /* PushNoAnim.m in Sources */,
 				CE31DC1A19701DCB003DFC08 /* FollowingController.m in Sources */,
-				CEFF103B1966CE3000E84675 /* Detail2Controller.m in Sources */,
+				CEFF103B1966CE3000E84675 /* BoardDetailController.m in Sources */,
 				CE54CFB619680CDA005C1FFE /* Brander.m in Sources */,
 				CE6960381906ACB800D464E4 /* FMDatabaseAdditions.m in Sources */,
 				CE31DC1619701C3B003DFC08 /* FollowersController.m in Sources */,
