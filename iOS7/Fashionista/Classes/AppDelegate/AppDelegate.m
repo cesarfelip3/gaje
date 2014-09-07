@@ -46,6 +46,22 @@ static AppDelegate *sharedDelegate;
     // then it will load the main UI
     
     if (config.userIsLogin == 1) {
+        
+        NSDictionary *data = @{
+                               @"username":user.username,
+                               @"email":user.email,
+                               @"fullname":user.fullname,
+                               @"facebook_token":user.token,
+                               @"facebook_icon": [NSString stringWithFormat:FB_PROFILE_ICON, user.token],
+                               @"location":user.location
+                               };
+        
+        
+        user.delegate = self;
+        [user login:data];
+    }
+    
+    if (config.userIsLogin == 1) {
     
         [ADVThemeManager customizeAppAppearance];
         // Override point for customization after application launch.
@@ -398,11 +414,19 @@ sizeOfItemForViewController:(UIViewController *)viewController
 
 
 - (void)togglePaperFold:(id)sender {
+    
     if (_foldVC.paperFoldView.state == PaperFoldStateLeftUnfolded) {
         [_foldVC.paperFoldView setPaperFoldState:PaperFoldStateDefault animated:YES];
     } else {
         [_foldVC.paperFoldView setPaperFoldState:PaperFoldStateLeftUnfolded animated:YES];
     }
+    
+    // lets check notification
+    
+    User *user = [User getInstance];
+    
+    user.menuVC = _menuVC;
+    [user getNumberOfLatestUpdate];
 }
 
 

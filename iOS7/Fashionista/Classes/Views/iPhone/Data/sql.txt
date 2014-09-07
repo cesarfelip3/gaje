@@ -15,5 +15,6 @@ CREATE TABLE "user" (
     "zipcode" TEXT NOT NULL  DEFAULT '',
     "phone" TEXT NOT NULL  DEFAULT '',
     "token" TEXT NOT NULL  DEFAULT '',
-    "picture" TEXT NOT NULL  DEFAULT ''
+    "picture" TEXT NOT NULL  DEFAULT '',
+    "location" TEXT NOT NULL  DEFAULT ''
 );
