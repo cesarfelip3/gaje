@@ -15,7 +15,7 @@
 
 @class ThemeController;
 
-@interface UploadController : UITableViewController <UITextFieldDelegate, UITextViewDelegate, NetworkCallbackDelegate, UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+@interface UploadController : UITableViewController <UITextFieldDelegate, UITextViewDelegate, NetworkCallbackDelegate, UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIAlertViewDelegate>
 
 @property (retain) IBOutlet UITableView *tableViewThemeList;
 @property (retain) IBOutlet UIBarButtonItem *chooseButton;

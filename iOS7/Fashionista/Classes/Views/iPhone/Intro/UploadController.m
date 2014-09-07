@@ -399,14 +399,19 @@
     if (type > 0) {
         message = self.photo.errorMessage;
     }
-#if false
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:message delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+#if true
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:message delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
     
     [alert show];
 #endif
     
-    [[iToast makeText:message] show];
+    //[[iToast makeText:message] show];
     return YES;
+}
+
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
+{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 //==============================
