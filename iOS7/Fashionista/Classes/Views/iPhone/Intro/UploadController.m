@@ -374,7 +374,7 @@
         }
         
         if (self.image) {
-            NSString *fileName = [[NSUUID UUID] UUIDString];
+            NSString *fileName = @"upload_gajeapp";// [[NSUUID UUID] UUIDString];
             fileName = [NSString stringWithFormat:@"%@.jpg", fileName];
             
             self.photo.fileName = fileName;
