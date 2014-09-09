@@ -19,3 +19,10 @@ CREATE TABLE "user" (
     "location" TEXT NOT NULL  DEFAULT '',
     "theme_uuid" TEXT NOT NULL DEFAULT ''
 );
+
+DROP TABLE "update";
+CREATE TABLE "update" (
+    "update_id" INTEGER PRIMARY KEY NOT NULL ,
+    "type" TEXT NOT NULL  DEFAULT '',
+    "status" INTEGER NOT NULL  DEFAULT '0'
+);
