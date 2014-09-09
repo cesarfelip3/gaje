@@ -45,3 +45,6 @@ Notification ==>
     Latest brander // == unread brander?
     Latest following (optional)
     
+    A bug from loadImage, the progress bar is mis-used...
+    
+    
