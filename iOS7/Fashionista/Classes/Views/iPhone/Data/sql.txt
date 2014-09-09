@@ -16,5 +16,6 @@ CREATE TABLE "user" (
     "phone" TEXT NOT NULL  DEFAULT '',
     "token" TEXT NOT NULL  DEFAULT '',
     "picture" TEXT NOT NULL  DEFAULT '',
-    "location" TEXT NOT NULL  DEFAULT ''
+    "location" TEXT NOT NULL  DEFAULT '',
+    "theme_uuid" TEXT NOT NULL DEFAULT ''
 );
