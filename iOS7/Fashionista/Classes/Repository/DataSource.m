@@ -77,11 +77,11 @@
                              @"image": @"" //@"menu-icon4"
                              },
                          @{
-                             @"title": @"Tracked",
+                             @"title": @"Tracking",
                              @"image": @"" //@"menu-icon3"
                              },
                          @{
-                             @"title": @"Tracking",
+                             @"title": @"Tracks",
                              @"image": @"" //@"menu-icon3"
                              },
                          @{

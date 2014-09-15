@@ -393,7 +393,7 @@
 - (BOOL)onCallback:(NSInteger)type
 {
     
-    NSString *message = @"Your photo is uploaded successfully";
+    NSString *message = @"Your photo has been uploaded successfully";
     self.photo.delegate = nil;
     
     if (type > 0) {

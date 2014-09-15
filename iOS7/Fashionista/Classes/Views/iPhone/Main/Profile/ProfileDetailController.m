@@ -342,7 +342,7 @@
         NSString* comment = [NSString stringWithFormat:@"lines droped(%u)", [self.commentArray count]];
         [cell.tabbar setTitle:comment forSegmentAtIndex:0];
         
-        comment = [NSString stringWithFormat:@"branded(%d)", self.photo.branderCount];
+        comment = [NSString stringWithFormat:@"brands(%d)", self.photo.branderCount];
         [cell.tabbar setTitle:comment forSegmentAtIndex:1];
         
         [cell.tabbar addTarget:self action:@selector(onTabChanged:) forControlEvents:UIControlEventValueChanged];
