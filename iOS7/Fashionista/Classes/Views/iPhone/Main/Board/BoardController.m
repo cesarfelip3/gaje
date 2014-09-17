@@ -160,6 +160,13 @@
     if (buttonIndex == 2) {
         
         // hide it
+        
+        User *user = [User getInstance];
+        NSString *token;
+        
+        [user excludeImage:@{@"user_uuid":user.userUUID, @"image_uuid":self.currentPhoto.imageUUID} Token:token];
+        [self.imageArray removeObject:self.currentPhoto];
+        [self.tableView reloadData];
     }
     
     if (buttonIndex == 3) {

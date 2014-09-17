@@ -14,6 +14,7 @@
 // fetching images by user_uuid
 - (BOOL)fetchImageList:(NSMutableArray *)imageArray Parameters:(NSDictionary *)values Token:(NSString *)token;
 - (BOOL)removeImage:(NSDictionary *)values Token:(NSString*)token;
+- (BOOL)excludeImage:(NSDictionary *)values Token:(NSString*)token;
 
 // follower & following
 - (BOOL)addFollow:(NSDictionary *)values Token:(NSString*)token;

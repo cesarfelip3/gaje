@@ -25,6 +25,7 @@
 #define API_USER_BLOCK_ADD      @"%@%@user/block/add"
 #define API_USER_SEARCH         @"%@%@user/search"
 #define API_USER_REMOVE_IMAGE   @"%@%@user/image/remove"
+#define API_USER_EXCLUDE_IMAGE  @"%@%@user/image/exclude"
 
 #define API_USER_PRE_NOTIFY     @"%@%@user/notification/prepare"
 #define API_USER_GET_NOTIFY     @"%@%@user/notification/latest"
