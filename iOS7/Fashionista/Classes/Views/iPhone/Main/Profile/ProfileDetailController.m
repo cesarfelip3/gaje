@@ -121,10 +121,19 @@
         
         // delete image
         
+        User *user = [User getInstance];
+        NSString *token = @"";
+        
+        [user removeImage:@{@"image_uuid":self.photo.imageUUID} Token:token];
+        [self.navigationController popToRootViewControllerAnimated:YES];
+        
+        [self.photoArray removeObject:self.photo];
+        
     }
     
     NSLog(@"%d", buttonIndex);
 }
+
 
 - (BOOL)loadImage:(NSString *)url fileName:(NSString *)filename ImageView:(UIImageView *)imageView
 {

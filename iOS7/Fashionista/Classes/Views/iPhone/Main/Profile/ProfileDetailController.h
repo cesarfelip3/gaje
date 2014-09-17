@@ -24,6 +24,7 @@
 @property (nonatomic, retain) DiskCache *cache;
 @property (strong, nonatomic) Image *photo;
 
+@property (strong, atomic) NSMutableArray *photoArray;
 @property (strong, atomic) NSMutableArray *commentArray;
 @property (strong, atomic) NSMutableArray *branderArray;
 

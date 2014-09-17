@@ -7,7 +7,7 @@
 //
 
 #import "ProfileController.h"
-#import "BoardDetailController.h"
+#import "ProfileDetailController.h"
 
 #import "AppDelegate.h"
 #import "ADVTheme.h"
@@ -175,10 +175,11 @@
     
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil];
     
-    BoardDetailController *detailVC = [storyboard instantiateViewControllerWithIdentifier:@"home_detail3"];
+    ProfileDetailController *detailVC = [storyboard instantiateViewControllerWithIdentifier:@"home_detail3"];
     
     Image *photo = [self.imageArray objectAtIndex:currentIndex.row - 1];
     detailVC.photo = photo;
+    detailVC.photoArray = self.imageArray;
     
     [self.navigationController pushViewController:detailVC animated:YES];
 }
@@ -189,10 +190,6 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"showDetail"]) {
-        BoardDetailController *detailVC = segue.destinationViewController;
-        
-        Image *photo = [self.imageArray objectAtIndex:currentIndex.row];
-        detailVC.photo = photo;
     }
 }
 
