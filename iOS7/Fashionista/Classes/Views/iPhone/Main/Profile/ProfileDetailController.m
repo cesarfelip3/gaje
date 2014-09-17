@@ -52,15 +52,21 @@
     self.navigationItem.title = @"Details";
     [self.navigationController.navigationBar setOpaque:NO];
     
+    //delete button
+    
+    UIButton *btnSearch = [UIButton buttonWithType:UIButtonTypeCustom];
+    btnSearch.frame = CGRectMake(0, 0, 30, 30);
+    [btnSearch setImage:[UIImage imageNamed:@"cancel-128"] forState:UIControlStateNormal];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:btnSearch];
+    
+    [btnSearch addTarget:self action:@selector(onTopButtonTouched:) forControlEvents:UIControlEventTouchUpInside];
+    
+    //
+    
     UIImageView *background = [[UIImageView alloc] init];
     UIImage *image = [UIImage imageNamed:@"background"];
     
     background.image = image;
-    //[self.tableView setBackgroundColor:[UIColor lightGrayColor]];
-    //[self.tableView.tableHeaderView setBackgroundColor:[UIColor lightGrayColor]];
-    
-    //[self.tableView setBackgroundColor:[UIColor colorWithRed:224/255.0 green:224/255.0 blue:225/255.0 alpha:0.8]];
-    //[self.tableView.tableHeaderView setBackgroundColor:[UIColor colorWithRed:224/255.0 green:224/255.0 blue:225/255.0 alpha:0.8]];
     
     [self.tableView setBackgroundColor:[UIColor whiteColor]];
     [self.tableView.tableHeaderView setBackgroundColor:[UIColor whiteColor]];
@@ -91,6 +97,33 @@
     
     self.progress.progress = 0;
     
+}
+
+- (IBAction)onTopButtonTouched:(id)sender
+{
+    
+    NSLog(@"button touched");
+    
+    UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:@"Delete it?" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Yes", nil];
+    
+    [sheet showInView:self.view];
+    
+    
+    return;
+}
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    
+    // todo 09.17
+    
+    if (buttonIndex == 0) {
+        
+        // delete image
+        
+    }
+    
+    NSLog(@"%d", buttonIndex);
 }
 
 - (BOOL)loadImage:(NSString *)url fileName:(NSString *)filename ImageView:(UIImageView *)imageView

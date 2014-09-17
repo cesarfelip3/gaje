@@ -127,7 +127,7 @@
     Image *photo = [self.imageArray objectAtIndex:button.tag];
     self.currentPhoto = photo;
     
-    UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:@"" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:@"Track" otherButtonTitles:@"Brand",@"block photos from this user", nil];
+    UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:@"" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:@"Track" otherButtonTitles:@"Brand", @"Hide it", @"block photos from this user", nil];
     
     [sheet showInView:self.view];
 }
@@ -155,7 +155,14 @@
         [self.tableView reloadData];
     }
     
+    // @todo 09.17
+    
     if (buttonIndex == 2) {
+        
+        // hide it
+    }
+    
+    if (buttonIndex == 3) {
         
         
         User *user = [User getInstance];

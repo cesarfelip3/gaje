@@ -13,7 +13,7 @@
 #import "Global.h"
 #import "User.h"
 
-@interface ProfileDetailController : UITableViewController <UITextFieldDelegate, NetworkCallbackDelegate>
+@interface ProfileDetailController : UITableViewController <UITextFieldDelegate, NetworkCallbackDelegate, UIActionSheetDelegate>
 
 
 @property (strong, nonatomic) IBOutlet UIImageView *imageBkg;

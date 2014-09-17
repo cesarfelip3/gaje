@@ -294,6 +294,7 @@
 		CE31DC2119703325003DFC08 /* Icon-Small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE31DC2019703325003DFC08 /* Icon-Small@2x.png */; };
 		CE31DC231970352C003DFC08 /* Icon-120.png in Resources */ = {isa = PBXBuildFile; fileRef = CE31DC221970352C003DFC08 /* Icon-120.png */; };
 		CE31DC25197035BB003DFC08 /* Icon-80.png in Resources */ = {isa = PBXBuildFile; fileRef = CE31DC24197035BB003DFC08 /* Icon-80.png */; };
+		CE33332219C9F26C0004AAAF /* settings-128.png in Resources */ = {isa = PBXBuildFile; fileRef = CE33332119C9F26C0004AAAF /* settings-128.png */; };
 		CE40D078198B4F4100069817 /* UserSearchProfileController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE40D077198B4F4100069817 /* UserSearchProfileController.m */; };
 		CE40D07C198B506F00069817 /* UserSearchResultController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE40D07B198B506F00069817 /* UserSearchResultController.m */; };
 		CE54CFAC1967C49E005C1FFE /* Comment.m in Sources */ = {isa = PBXBuildFile; fileRef = CE54CFAB1967C49E005C1FFE /* Comment.m */; };
@@ -746,6 +747,7 @@
 		CE31DC2019703325003DFC08 /* Icon-Small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small@2x.png"; sourceTree = "<group>"; };
 		CE31DC221970352C003DFC08 /* Icon-120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-120.png"; sourceTree = "<group>"; };
 		CE31DC24197035BB003DFC08 /* Icon-80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-80.png"; sourceTree = "<group>"; };
+		CE33332119C9F26C0004AAAF /* settings-128.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settings-128.png"; sourceTree = "<group>"; };
 		CE40D076198B4F4100069817 /* UserSearchProfileController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserSearchProfileController.h; sourceTree = "<group>"; };
 		CE40D077198B4F4100069817 /* UserSearchProfileController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserSearchProfileController.m; sourceTree = "<group>"; };
 		CE40D07A198B506F00069817 /* UserSearchResultController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserSearchResultController.h; sourceTree = "<group>"; };
@@ -1959,6 +1961,7 @@
 		CEB427C11925211E0072B1D6 /* Image */ = {
 			isa = PBXGroup;
 			children = (
+				CE33332119C9F26C0004AAAF /* settings-128.png */,
 				CE90B86219BF558F004CDC54 /* edit_user-128.png */,
 				CEB427C619252BBC0072B1D6 /* cancel-128.png */,
 				CEB427C41925297A0072B1D6 /* upload-128.png */,
@@ -2132,6 +2135,7 @@
 				7F53DA6817396CDC0032E53D /* collection-prod6-image1@2x.png in Resources */,
 				7F53DA6917396CDC0032E53D /* coverflow-background.png in Resources */,
 				7F53DA6A17396CDC0032E53D /* coverflow-background@2x.png in Resources */,
+				CE33332219C9F26C0004AAAF /* settings-128.png in Resources */,
 				7F53DA6B17396CDC0032E53D /* coverflow-image1.png in Resources */,
 				7F53DA6C17396CDC0032E53D /* coverflow-image1@2x.png in Resources */,
 				7F53DA6D17396CDC0032E53D /* coverflow-image2.png in Resources */,

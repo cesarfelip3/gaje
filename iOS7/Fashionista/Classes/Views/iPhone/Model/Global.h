@@ -24,6 +24,7 @@
 #define API_USER_FOLLOWIN_LIST  @"%@%@user/following/list"
 #define API_USER_BLOCK_ADD      @"%@%@user/block/add"
 #define API_USER_SEARCH         @"%@%@user/search"
+#define API_USER_REMOVE_IMAGE   @"%@%@user/image/remove"
 
 #define API_USER_PRE_NOTIFY     @"%@%@user/notification/prepare"
 #define API_USER_GET_NOTIFY     @"%@%@user/notification/latest"
@@ -36,6 +37,7 @@
 #define API_IMAGE_COMMENT_LIST  @"%@%@image/comment/list"
 #define API_IMAGE_BRANDER_ADD   @"%@%@image/brander/add"
 #define API_IMAGE_BRANDER_LIST  @"%@%@image/brander/list"
+
 
 #define API_THEME_LIST      @"%@%@theme/list"
 #define API_NOTE_LIST       @"%@%@note/list"

@@ -152,6 +152,63 @@
     return YES;
 }
 
+// block
+
+- (BOOL)removeImage:(NSDictionary *)values Token:(NSString*)token
+{
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    
+    token = [self getToken];
+    
+    manager.requestSerializer = [AFHTTPRequestSerializer serializer];
+    [manager.requestSerializer setValue:token forHTTPHeaderField:@"X-AUTH-KEY"];
+    
+    NSDictionary *parameters = values;
+    
+    [manager POST:[NSString stringWithFormat:API_USER_REMOVE_IMAGE, API_BASE_URL, API_BASE_VERSION] parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+        
+        
+    } success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        NSLog(@"Success: %@", responseObject);
+        
+        NSString *status = [responseObject objectForKey:@"status"];
+        
+        NSInteger type = 0;
+        if ([status isEqualToString:@"success"]) {
+            
+            //self.uploadedImageId = [responseObject objectForKey:@"id"];
+            
+        } else {
+            
+            self.errorMessage = [responseObject objectForKey:@"message"];
+            type = 1;
+        }
+        
+        
+        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+        
+        [(self.delegate) onCallback:type];
+        
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        
+        NSLog(@"Error: %@", error);
+        NSLog(@"error : %@", [operation responseObject]);
+        
+        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+        
+        self.errorMessage = @"Network failed";
+        
+        [(self.delegate) onCallback:1];
+        
+    }];
+    
+    return YES;
+    
+}
+
 //===========================
 //
 //===========================
