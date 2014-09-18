@@ -284,6 +284,7 @@
 		CE07F21D19AEEFC100BC7776 /* User+UserApi.m in Sources */ = {isa = PBXBuildFile; fileRef = CE07F21C19AEEFC100BC7776 /* User+UserApi.m */; };
 		CE1C5DC91977EC2700B8F459 /* iToast.m in Sources */ = {isa = PBXBuildFile; fileRef = CE1C5DC81977EC2700B8F459 /* iToast.m */; };
 		CE1FD0CD1976994700E39076 /* down4-256.png in Resources */ = {isa = PBXBuildFile; fileRef = CE1FD0CC1976994700E39076 /* down4-256.png */; };
+		CE23466F19CAF782002D8251 /* NotificationProfileController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE23466E19CAF782002D8251 /* NotificationProfileController.m */; };
 		CE247C831970EF6600678543 /* BrandListView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE247C821970EF6600678543 /* BrandListView.m */; };
 		CE247C871970F57200678543 /* FollowerItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CE247C861970F57200678543 /* FollowerItemCell.m */; };
 		CE29F24819A370CF00E531AF /* NotificationDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE29F24719A370CF00E531AF /* NotificationDetailController.m */; };
@@ -731,6 +732,8 @@
 		CE1C5DC71977EC2700B8F459 /* iToast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iToast.h; sourceTree = "<group>"; };
 		CE1C5DC81977EC2700B8F459 /* iToast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iToast.m; sourceTree = "<group>"; };
 		CE1FD0CC1976994700E39076 /* down4-256.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "down4-256.png"; sourceTree = "<group>"; };
+		CE23466D19CAF781002D8251 /* NotificationProfileController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationProfileController.h; sourceTree = "<group>"; };
+		CE23466E19CAF782002D8251 /* NotificationProfileController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationProfileController.m; sourceTree = "<group>"; };
 		CE247C811970EF6600678543 /* BrandListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrandListView.h; sourceTree = "<group>"; };
 		CE247C821970EF6600678543 /* BrandListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrandListView.m; sourceTree = "<group>"; };
 		CE247C851970F57200678543 /* FollowerItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FollowerItemCell.h; sourceTree = "<group>"; };
@@ -1932,6 +1935,8 @@
 		CE7CA1CB199A15A500527080 /* Notification */ = {
 			isa = PBXGroup;
 			children = (
+				CE23466D19CAF781002D8251 /* NotificationProfileController.h */,
+				CE23466E19CAF782002D8251 /* NotificationProfileController.m */,
 				CE29F24619A370CF00E531AF /* NotificationDetailController.h */,
 				CE29F24719A370CF00E531AF /* NotificationDetailController.m */,
 				CE7CA1CD199A16A000527080 /* NotificationController.h */,
@@ -2335,6 +2340,7 @@
 				CEBABB3B19712D0C0054710E /* FollowerProfileItemCell.m in Sources */,
 				CE695FF71906AACC00D464E4 /* DiskCache.m in Sources */,
 				CE6960351906ACB800D464E4 /* AFURLResponseSerialization.m in Sources */,
+				CE23466F19CAF782002D8251 /* NotificationProfileController.m in Sources */,
 				7F2A5BF11734FB3800551439 /* main.m in Sources */,
 				7F2A5D361735024000551439 /* NGTestTabBarController.m in Sources */,
 				CEBEBE8319228A8A00A0057F /* UploadController.m in Sources */,

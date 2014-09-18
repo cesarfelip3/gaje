@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "UpdateInfoCell.h"
 #import "UploadController.h"
-#import "FollowingProfileController.h"
+#import "NotificationProfileController.h"
 
 @interface NotificationController : UIViewController <UITableViewDataSource, UITableViewDelegate, NetworkCallbackDelegate>
 

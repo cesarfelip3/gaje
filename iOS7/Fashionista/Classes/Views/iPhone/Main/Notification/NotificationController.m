@@ -273,6 +273,28 @@
     }
     
     if (indexPath.section == 2) {
+        
+        
+        NSArray *followerArray = [self.updateDictionary objectForKey:@"followers"];
+        
+        User *follower = [followerArray objectAtIndex:indexPath.row];
+        
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil];
+        
+        NotificationProfileController *vc = [storyboard instantiateViewControllerWithIdentifier:@"following_profile"];
+        vc.user = follower;
+        
+        User *user = [User getInstance];
+        
+        NSDictionary *values = @{@"follow_uuid":follower.userUUID, @"user_uuid":user.userUUID, @"type":@"followers"};
+        
+        if ([values count] > 0) {
+            
+            [[User getInstance] markItRead:values];
+        }
+        
+        [self.navigationController pushViewController:vc animated:YES];
+        
         return;
     }
     
