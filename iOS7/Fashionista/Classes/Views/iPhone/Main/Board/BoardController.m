@@ -163,8 +163,12 @@
         
         User *user = [User getInstance];
         NSString *token;
+        NSDictionary *values = @{@"user_uuid":user.userUUID, @"image_uuid":self.currentPhoto.imageUUID};
         
-        [user excludeImage:@{@"user_uuid":user.userUUID, @"image_uuid":self.currentPhoto.imageUUID} Token:token];
+        NSLog(@"%@", values);
+        
+        user.delegate = nil;
+        [user excludeImage:values Token:token];
         [self.imageArray removeObject:self.currentPhoto];
         [self.tableView reloadData];
     }

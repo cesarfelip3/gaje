@@ -21,13 +21,22 @@
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     
     token = [self getToken];
+    User *user = [User getInstance];
+    
+    NSString *uuid = user.userUUID;
     
     manager.requestSerializer = [AFHTTPRequestSerializer serializer];
     [manager.requestSerializer setValue:token forHTTPHeaderField:@"X-AUTH-KEY"];
     
     
+    
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
     NSDictionary *parameters = @{@"user_uuid":@""};
+    
+    if (user.userUUID) {
+        
+        parameters = @{@"user_uuid":uuid};
+    }
     
     [manager POST:[NSString stringWithFormat:API_IMAGE_LATEST, API_BASE_URL, API_BASE_VERSION] parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
         
