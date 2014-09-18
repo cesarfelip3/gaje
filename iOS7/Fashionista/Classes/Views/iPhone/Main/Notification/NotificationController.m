@@ -286,7 +286,7 @@
         
         User *user = [User getInstance];
         
-        NSDictionary *values = @{@"follow_uuid":follower.userUUID, @"user_uuid":user.userUUID, @"type":@"followers"};
+        NSDictionary *values = @{@"follower_uuid":follower.userUUID, @"user_uuid":user.userUUID, @"type":@"followers"};
         
         if ([values count] > 0) {
             
