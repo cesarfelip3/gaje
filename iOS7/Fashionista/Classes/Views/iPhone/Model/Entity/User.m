@@ -33,15 +33,15 @@
     self.errorMessage = @"";
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
     
+    NSString *api = [NSString stringWithFormat:API_USER_LOGIN, API_BASE_URL, API_BASE_VERSION];
+    NSDictionary *parameters = data;
+    
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     
     NSString* token = [self getToken];
     
     manager.requestSerializer = [AFHTTPRequestSerializer serializer];
     [manager.requestSerializer setValue:token forHTTPHeaderField:@"X-AUTH-KEY"];
-    
-    NSString *api = [NSString stringWithFormat:API_USER_LOGIN, API_BASE_URL, API_BASE_VERSION];
-    NSDictionary *parameters = data;
     
     [manager POST:api parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         

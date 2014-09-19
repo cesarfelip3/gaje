@@ -23,14 +23,18 @@
     [manager.requestSerializer setValue:token forHTTPHeaderField:@"X-AUTH-KEY"];
     
     NSDictionary *parameters = values;
-    NSString *url = [NSString stringWithFormat:API_USER_IMAGE_LIST, API_BASE_URL, API_BASE_VERSION];
     
+#if false
     [manager POST:url parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
         
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
         
     } success:^(AFHTTPRequestOperation *operation, id responseObject) {
+#endif
         
+    NSString *api = [NSString stringWithFormat:API_USER_IMAGE_LIST, API_BASE_URL, API_BASE_VERSION];
+    [manager POST:api parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    
         NSString *status = [(NSDictionary *)responseObject objectForKey:@"status"];
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
         
@@ -166,11 +170,17 @@
     
     NSDictionary *parameters = values;
     
+#if false
     [manager POST:[NSString stringWithFormat:API_USER_REMOVE_IMAGE, API_BASE_URL, API_BASE_VERSION] parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
         
         
     } success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
+#endif
+   
+    NSString *api = [NSString stringWithFormat:API_USER_REMOVE_IMAGE, API_BASE_URL, API_BASE_VERSION];
+    [manager POST:api parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    
         NSLog(@"Success: %@", responseObject);
         
         NSString *status = [responseObject objectForKey:@"status"];
@@ -222,11 +232,16 @@
     [manager.requestSerializer setValue:token forHTTPHeaderField:@"X-AUTH-KEY"];
     
     NSDictionary *parameters = values;
-    
+
+#if false
     [manager POST:[NSString stringWithFormat:API_USER_EXCLUDE_IMAGE, API_BASE_URL, API_BASE_VERSION] parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
         
         
     } success:^(AFHTTPRequestOperation *operation, id responseObject) {
+#endif
+        
+    NSString *api = [NSString stringWithFormat:API_USER_EXCLUDE_IMAGE, API_BASE_URL, API_BASE_VERSION];
+    [manager POST:api parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
         NSLog(@"Success: %@", responseObject);
         
@@ -281,12 +296,17 @@
     [manager.requestSerializer setValue:token forHTTPHeaderField:@"X-AUTH-KEY"];
     
     NSDictionary *parameters = values;
-    
+
+#if false
     [manager POST:[NSString stringWithFormat:API_USER_FOLLOW, API_BASE_URL, API_BASE_VERSION] parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
         
         
     } success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        
+#endif
+
+    NSString *api = [NSString stringWithFormat:API_USER_FOLLOW, API_BASE_URL, API_BASE_VERSION];
+    [manager POST:api parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    
         NSLog(@"Success: %@", responseObject);
         
         NSString *status = [responseObject objectForKey:@"status"];
@@ -330,12 +350,17 @@
     [manager.requestSerializer setValue:token forHTTPHeaderField:@"X-AUTH-KEY"];
     
     NSDictionary *parameters = values;
-    
+
+#if false
     [manager POST:[NSString stringWithFormat:API_USER_UNFOLLOW, API_BASE_URL, API_BASE_VERSION] parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
         
         
     } success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        
+#endif
+    
+    NSString *api = [NSString stringWithFormat:API_USER_UNFOLLOW, API_BASE_URL, API_BASE_VERSION];
+    [manager POST:api parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    
         NSLog(@"Success: %@", responseObject);
         
         NSString *status = [responseObject objectForKey:@"status"];
@@ -382,11 +407,16 @@
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
     
     NSDictionary *parameters = values;
-    
+
+#if false
     [manager POST:[NSString stringWithFormat:API_USER_FOLLOWER_LIST, API_BASE_URL, API_BASE_VERSION] parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
         
         
     } success:^(AFHTTPRequestOperation *operation, id responseObject) {
+#endif
+
+    NSString *api = [NSString stringWithFormat:API_USER_FOLLOWER_LIST, API_BASE_URL, API_BASE_VERSION];
+    [manager POST:api parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
         NSString *status = [(NSDictionary *)responseObject objectForKey:@"status"];
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
@@ -500,12 +530,17 @@
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
     
     NSDictionary *parameters = values;
-    
+
+#if false
     [manager POST:[NSString stringWithFormat:API_USER_FOLLOWIN_LIST, API_BASE_URL, API_BASE_VERSION] parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
         
         
     } success:^(AFHTTPRequestOperation *operation, id responseObject) {
+#endif
         
+    NSString *api = [NSString stringWithFormat:API_USER_FOLLOWIN_LIST, API_BASE_URL, API_BASE_VERSION];
+    [manager POST:api parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    
         NSString *status = [(NSDictionary *)responseObject objectForKey:@"status"];
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
         
@@ -617,12 +652,17 @@
     [manager.requestSerializer setValue:token forHTTPHeaderField:@"X-AUTH-KEY"];
     
     NSDictionary *parameters = values;
-    
+
+#if false
     [manager POST:[NSString stringWithFormat:API_USER_BLOCK_ADD, API_BASE_URL, API_BASE_VERSION] parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
         
         
     } success:^(AFHTTPRequestOperation *operation, id responseObject) {
+#endif
         
+    NSString *api = [NSString stringWithFormat:API_USER_BLOCK_ADD, API_BASE_URL, API_BASE_VERSION];
+    [manager POST:api parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    
         NSLog(@"Success: %@", responseObject);
         
         NSString *status = [responseObject objectForKey:@"status"];
@@ -667,12 +707,17 @@
     
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
     NSDictionary *parameters = values;
-    
+
+#if false
     [manager POST:[NSString stringWithFormat:API_USER_SEARCH, API_BASE_URL, API_BASE_VERSION] parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
         
         
     } success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        
+#endif
+
+    NSString *api = [NSString stringWithFormat:API_USER_SEARCH, API_BASE_URL, API_BASE_VERSION];
+    [manager POST:api parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    
         NSString *status = [(NSDictionary *)responseObject objectForKey:@"status"];
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
         
@@ -765,7 +810,7 @@
     
     manager.requestSerializer = [AFHTTPRequestSerializer serializer];
     [manager.requestSerializer setValue:token forHTTPHeaderField:@"X-AUTH-KEY"];
-    
+
     [manager POST:api parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
@@ -1043,7 +1088,7 @@
     
     manager.requestSerializer = [AFHTTPRequestSerializer serializer];
     [manager.requestSerializer setValue:token forHTTPHeaderField:@"X-AUTH-KEY"];
-    
+
     [manager POST:api parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];

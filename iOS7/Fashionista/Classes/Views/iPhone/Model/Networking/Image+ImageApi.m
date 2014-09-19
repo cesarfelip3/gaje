@@ -28,8 +28,6 @@
     manager.requestSerializer = [AFHTTPRequestSerializer serializer];
     [manager.requestSerializer setValue:token forHTTPHeaderField:@"X-AUTH-KEY"];
     
-    
-    
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
     NSDictionary *parameters = @{@"user_uuid":@""};
     
@@ -38,10 +36,9 @@
         parameters = @{@"user_uuid":uuid};
     }
     
-    [manager POST:[NSString stringWithFormat:API_IMAGE_LATEST, API_BASE_URL, API_BASE_VERSION] parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
-        
-        
-    } success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    NSString *api = [NSString stringWithFormat:API_IMAGE_LATEST, API_BASE_URL, API_BASE_VERSION];
+
+    [manager POST:api parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
         NSString *status = [(NSDictionary *)responseObject objectForKey:@"status"];
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
@@ -205,11 +202,9 @@
     
     NSDictionary *parameters = values;
     
-    [manager POST:[NSString stringWithFormat:API_IMAGE_COMMENT_ADD, API_BASE_URL, API_BASE_VERSION] parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
-        
-        
-    } success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        
+    NSString *api = [NSString stringWithFormat:API_IMAGE_COMMENT_ADD, API_BASE_URL, API_BASE_VERSION];
+    [manager POST:api parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+
         NSLog(@"Success: %@", responseObject);
         
         NSString *status = [responseObject objectForKey:@"status"];
@@ -259,10 +254,15 @@
     
     NSDictionary *parameters = @{@"image_uuid":self.imageUUID};
     
+#if false
     [manager POST:[NSString stringWithFormat:API_IMAGE_COMMENT_LIST, API_BASE_URL, API_BASE_VERSION] parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
         
         
     } success:^(AFHTTPRequestOperation *operation, id responseObject) {
+#endif
+        
+    NSString *api = [NSString stringWithFormat:API_IMAGE_COMMENT_LIST, API_BASE_URL, API_BASE_VERSION];
+    [manager POST:api parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
         NSString *status = [(NSDictionary *)responseObject objectForKey:@"status"];
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
@@ -363,41 +363,46 @@
     
     NSDictionary *parameters = values;
     
+#if false
     [manager POST:[NSString stringWithFormat:API_IMAGE_BRANDER_ADD, API_BASE_URL, API_BASE_VERSION] parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
         
         
     } success:^(AFHTTPRequestOperation *operation, id responseObject) {
+#endif
+    
+    NSString *api = [NSString stringWithFormat:API_IMAGE_BRANDER_ADD, API_BASE_URL, API_BASE_VERSION];
+    [manager POST:api parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
-        NSLog(@"Success: %@", responseObject);
-        
-        NSString *status = [responseObject objectForKey:@"status"];
-        
-        if ([status isEqualToString:@"success"]) {
+            NSLog(@"Success: %@", responseObject);
             
-            //self.uploadedImageId = [responseObject objectForKey:@"id"];
+            NSString *status = [responseObject objectForKey:@"status"];
             
-        }
-        
-        
-        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-        [self changeUploadStatus:@"1"];
-        
-        [(self.delegate) onCallback:0];
-        
-        
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        
-        //NSLog(@"Error: %@", error);
-        NSLog(@"%@", [operation responseObject]);
-        
-        
-        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-        
-        self.errorMessage = @"Network failed";
-        
-        [(self.delegate) onCallback:0];
-        
-    }];
+            if ([status isEqualToString:@"success"]) {
+                
+                //self.uploadedImageId = [responseObject objectForKey:@"id"];
+                
+            }
+            
+            
+            [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+            [self changeUploadStatus:@"1"];
+            
+            [(self.delegate) onCallback:0];
+            
+            
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            
+            //NSLog(@"Error: %@", error);
+            NSLog(@"%@", [operation responseObject]);
+            
+            
+            [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+            
+            self.errorMessage = @"Network failed";
+            
+            [(self.delegate) onCallback:0];
+            
+        }];
     
     return YES;
     
@@ -420,10 +425,15 @@
     
     NSDictionary *parameters = @{@"image_uuid":self.imageUUID};
     
+#if false
     [manager POST:[NSString stringWithFormat:API_IMAGE_BRANDER_LIST, API_BASE_URL, API_BASE_VERSION] parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
         
         
     } success:^(AFHTTPRequestOperation *operation, id responseObject) {
+#endif
+        
+    NSString *api = [NSString stringWithFormat:API_IMAGE_BRANDER_LIST, API_BASE_URL, API_BASE_VERSION];
+    [manager POST:api parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
         NSString *status = [(NSDictionary *)responseObject objectForKey:@"status"];
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];

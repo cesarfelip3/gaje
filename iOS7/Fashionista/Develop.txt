@@ -1,6 +1,19 @@
 Develop
 =========
 
+issue
+======
+
+2014.09.19
+
+notification/update ==> markItRead
+NotificationController ==> bug
+
+
+Uploading with progress not working ==>
+
+
+
 API
 =====
 
