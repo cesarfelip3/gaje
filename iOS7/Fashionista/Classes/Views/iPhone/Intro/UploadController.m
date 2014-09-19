@@ -247,7 +247,7 @@
         AppConfig *config = [AppConfig getInstance];
         
         if (self.photo.description == nil) {
-            self.photo.description = @"";
+            self.photo.desc = @"";
         }
         
         if (self.photo.name == nil) {
@@ -449,14 +449,14 @@
 
 - (BOOL)textViewShouldEndEditing:(UITextView *)textView
 {
-    self.photo.description = textView.text;
+    self.photo.desc = textView.text;
     [textView resignFirstResponder];
     return YES;
 }
 
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
 {
-    self.photo.description = textView.text;
+    self.photo.desc = textView.text;
     if ([text isEqualToString:@"\n"]) {
         [textView resignFirstResponder];
     }

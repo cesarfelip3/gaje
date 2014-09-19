@@ -10,7 +10,9 @@
 
 @implementation NSIndexPath (PSTCollectionViewAdditions)
 
-#if __IPHONE_OS_VERSION_MIN_REQUIRED < 60000
+#if false
+
+//__IPHONE_OS_VERSION_MIN_REQUIRED < 60000 AND false
 
 // Simple NSIndexPath addition to allow using "item" instead of "row".
 + (NSIndexPath *)indexPathForItem:(NSInteger)item inSection:(NSInteger)section {

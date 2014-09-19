@@ -12,22 +12,34 @@
 	<dict>
 		<key>7DAB971B-E151-46B4-A74F-F30A86588EF4</key>
 		<string>https://github.com/cesarfelip3/gaje.git</string>
+		<key>9F2E75EA9AAE0A6E0EB7C32EBC73854334144D08</key>
+		<string>https://github.com/cesarfelip3/gaje.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>iOS7/Gaje.xcodeproj/project.xcworkspace</string>
+	<string>iOS7/Gaje.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>7DAB971B-E151-46B4-A74F-F30A86588EF4</key>
+		<string>../../../../ios_gaje</string>
+		<key>9F2E75EA9AAE0A6E0EB7C32EBC73854334144D08</key>
 		<string>../../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/cesarfelip3/gaje.git</string>
 	<key>IDESourceControlProjectVersion</key>
-	<integer>110</integer>
+	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>7DAB971B-E151-46B4-A74F-F30A86588EF4</string>
+	<string>9F2E75EA9AAE0A6E0EB7C32EBC73854334144D08</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>9F2E75EA9AAE0A6E0EB7C32EBC73854334144D08</string>
+			<key>IDESourceControlWCCName</key>
+			<string>gaje</string>
+		</dict>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>

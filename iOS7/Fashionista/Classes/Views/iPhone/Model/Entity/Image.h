@@ -26,7 +26,7 @@
 @property (atomic, retain) NSString *usericon;
 
 @property (atomic, retain) NSString *name;
-@property (atomic, retain) NSString *description;
+@property (atomic, retain) NSString *desc;
 @property (atomic, retain) NSString *tags;
 @property (atomic, assign) NSInteger height;
 @property (atomic, assign) NSInteger width;

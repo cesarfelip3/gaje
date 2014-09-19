@@ -70,7 +70,7 @@
                     
                     theme.themeUUID = [item objectForKey:@"theme_uuid"];
                     theme.name = [item objectForKey:@"name"];
-                    theme.description = [item objectForKey:@"description"];
+                    theme.desc = [item objectForKey:@"description"];
                     
                     if (i == 0) {
                         

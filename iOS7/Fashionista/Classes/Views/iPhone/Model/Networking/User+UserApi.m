@@ -51,7 +51,7 @@
                     
                     image.imageUUID = [item objectForKey:@"image_uuid"];
                     image.name = [item objectForKey:@"name"];
-                    image.description = [item objectForKey:@"description"];
+                    image.desc = [item objectForKey:@"description"];
                     
                     image.width = [[item objectForKey:@"width"] integerValue];
                     image.height = [[item objectForKey:@"height"] integerValue];
@@ -431,7 +431,7 @@
                         Image *_image = [[Image alloc] init];
                         
                         _image.name = [image objectForKey:@"name"];
-                        _image.description = [image objectForKey:@"description"];
+                        _image.desc = [image objectForKey:@"description"];
                         _image.fileName = [image objectForKey:@"file_name"];
                         _image.thumbnailName = [image objectForKey:@"thumbnail"];
                         _image.thumbnail = [NSString stringWithFormat:@"%@%@", URL_BASE_IMAGE, _image.thumbnailName];
@@ -549,7 +549,7 @@
                         Image *_image = [[Image alloc] init];
                         
                         _image.name = [image objectForKey:@"name"];
-                        _image.description = [image objectForKey:@"description"];
+                        _image.desc = [image objectForKey:@"description"];
                         _image.fileName = [image objectForKey:@"file_name"];
                         _image.thumbnailName = [image objectForKey:@"thumbnail"];
                         _image.thumbnail = [NSString stringWithFormat:@"%@%@", URL_BASE_IMAGE, _image.thumbnailName];
@@ -791,7 +791,7 @@
                     
                     image.imageUUID = [item objectForKey:@"image_uuid"];
                     image.name = [item objectForKey:@"name"];
-                    image.description = [item objectForKey:@"description"];
+                    image.desc = [item objectForKey:@"description"];
                     
                     image.width = [[item objectForKey:@"width"] integerValue];
                     image.height = [[item objectForKey:@"height"] integerValue];
@@ -868,7 +868,7 @@
                     
                     image.imageUUID = [item objectForKey:@"image_uuid"];
                     image.name = [item objectForKey:@"name"];
-                    image.description = [item objectForKey:@"description"];
+                    image.desc = [item objectForKey:@"description"];
                     
                     image.width = [[item objectForKey:@"width"] integerValue];
                     image.height = [[item objectForKey:@"height"] integerValue];
@@ -965,7 +965,7 @@
                         Image *_image = [[Image alloc] init];
                         
                         _image.name = [image objectForKey:@"name"];
-                        _image.description = [image objectForKey:@"description"];
+                        _image.desc = [image objectForKey:@"description"];
                         _image.fileName = [image objectForKey:@"file_name"];
                         _image.thumbnailName = [image objectForKey:@"thumbnail"];
                         _image.thumbnail = [NSString stringWithFormat:@"%@%@", URL_BASE_IMAGE, _image.thumbnailName];

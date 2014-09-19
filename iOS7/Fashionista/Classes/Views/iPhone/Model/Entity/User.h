@@ -26,7 +26,7 @@
 @property (atomic, assign) NSInteger userId;
 @property (atomic, retain) NSString *userUUID;
 @property (atomic, retain) NSString *username;
-@property (atomic, retain) NSString *description;
+@property (atomic, retain) NSString *desc;
 
 @property (atomic, retain) NSString *firstname;
 @property (atomic, retain) NSString *lastname;

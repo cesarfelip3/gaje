@@ -16,7 +16,7 @@
 @property (atomic, assign) NSInteger *noteId;
 @property (atomic, retain) NSString *noteUUID;
 @property (atomic, retain) NSString *name;
-@property (atomic, retain) NSString *description;
+@property (atomic, retain) NSString *desc;
 @property (atomic, assign) BOOL selected;
 
 @property (atomic, assign) NSString *errorMessage;

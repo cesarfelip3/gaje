@@ -64,7 +64,7 @@
                     
                     image.imageUUID = [item objectForKey:@"image_uuid"];
                     image.name = [item objectForKey:@"name"];
-                    image.description = [item objectForKey:@"description"];
+                    image.desc = [item objectForKey:@"description"];
                     
                     image.width = [[item objectForKey:@"width"] integerValue];
                     image.height = [[item objectForKey:@"height"] integerValue];

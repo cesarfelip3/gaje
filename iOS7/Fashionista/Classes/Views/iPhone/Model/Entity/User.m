@@ -134,7 +134,7 @@
     }
     
     self.username = [self escape:self.username];
-    self.description = [self escape:self.description];
+    self.desc = [self escape:self.desc];
     self.fullname = [self escape:self.fullname];
     self.email = [self escape:self.email];
     self.city = [self escape:self.city];
@@ -155,7 +155,7 @@
     
     [self.db executeUpdateWithFormat:@"DELETE FROM user WHERE token=%@", self.token];
     
-    [self.db executeUpdateWithFormat:@"INSERT INTO user (user_uuid, username, description, fullname, email, token, location, theme_uuid) VALUES (%@, %@, %@, %@, %@, %@, %@, %@);", self.userUUID, self.username, self.description, self.fullname, self.email, self.token, self.location, self.themeUUID];
+    [self.db executeUpdateWithFormat:@"INSERT INTO user (user_uuid, username, description, fullname, email, token, location, theme_uuid) VALUES (%@, %@, %@, %@, %@, %@, %@, %@);", self.userUUID, self.username, self.desc, self.fullname, self.email, self.token, self.location, self.themeUUID];
     
     
     return YES;
@@ -168,7 +168,7 @@
     }
     
     self.username = [self escape:self.username];
-    self.description = [self escape:self.description];
+    self.desc = [self escape:self.desc];
     self.fullname = [self escape:self.fullname];
     self.email = [self escape:self.email];
     self.city = [self escape:self.city];
@@ -181,7 +181,7 @@
     self.token = [self escape:self.token];
     self.phone = [self escape:self.phone];
     
-    [self.db executeUpdateWithFormat:@"UPDATE user SET username=%@, description=%@, fullname=%@, email=%@, city=%@, state=%@, country=%@, address=%@, zipcode＝%@, phone=%@, picture=%@, token=%@ WHERE user_id=%ld", self.username, self.description, self.fullname, self.email, self.city, self.state, self.country, self.address, self.postcode, self.phone, self.icon, self.token, (long)(self.userId)];
+    [self.db executeUpdateWithFormat:@"UPDATE user SET username=%@, description=%@, fullname=%@, email=%@, city=%@, state=%@, country=%@, address=%@, zipcode＝%@, phone=%@, picture=%@, token=%@ WHERE user_id=%ld", self.username, self.desc, self.fullname, self.email, self.city, self.state, self.country, self.address, self.postcode, self.phone, self.icon, self.token, (long)(self.userId)];
     
     return YES;
 }
@@ -245,7 +245,7 @@
         
         self.userId = [result intForColumn:@"user_id"];
         self.username = [result stringForColumn:@"username"];
-        self.description = [result stringForColumn:@"description"];
+        self.desc = [result stringForColumn:@"description"];
         
         self.email = [result stringForColumn:@"email"];
         
@@ -293,7 +293,7 @@
         
         self.userId = [result intForColumn:@"user_id"];
         self.username = [result stringForColumn:@"username"];
-        self.description = [result stringForColumn:@"description"];
+        self.desc = [result stringForColumn:@"description"];
         
         self.email = [result stringForColumn:@"email"];
         

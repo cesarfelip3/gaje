@@ -70,7 +70,7 @@
                     
                     note.noteUUID = [item objectForKey:@"note_uuid"];
                     note.name = [item objectForKey:@"name"];
-                    note.description = [item objectForKey:@"description"];
+                    note.desc = [item objectForKey:@"description"];
                     
                     if (i == 0) {
                         
