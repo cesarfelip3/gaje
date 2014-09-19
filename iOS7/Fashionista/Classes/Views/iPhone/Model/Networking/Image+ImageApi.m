@@ -530,6 +530,74 @@
 
 - (BOOL)upload:(NSDictionary *)values ProgressBar:(UIProgressView *)progressBar
 {
+    // @{@"file_path":filePath, @"file_name":self.photo.fileName, @"name":self.photo.name, @"description":self.photo.description, @"user_uuid":config.uuid, @"theme_array":themes};
+    
+    NSString *filePath = [values objectForKey:@"file_path"];
+    NSString *fileName = [values objectForKey:@"file_name"];
+    NSString *name = [values objectForKey:@"name"];
+    NSString *desc = [values objectForKey:@"description"];
+    NSString *user_uuid = [values objectForKey:@"user_uuid"];
+    NSString *theme_array = [values objectForKey:@"theme_array"];
+    
+    self.progress = progressBar;
+    
+    if (self.progress.tag == 1) {
+        return YES;
+    }
+    
+    self.progress.progress = 0;
+    self.progress.tag = 1;
+    
+    
+    // form file name and parameter name would be determined by the web API
+    NSDictionary *parameters =
+    [NSDictionary dictionaryWithObjectsAndKeys:
+     [FSNData withDataPath:filePath fileName:fileName],     @"fileinfo",
+     user_uuid, @"user_uuid",
+     name, @"name",
+     desc, @"description",
+     theme_array, @"theme_array",
+     nil];
+    
+    NSString *api = [NSString stringWithFormat:API_IMAGE_UPLOAD, API_BASE_URL, API_BASE_VERSION];
+    NSURL *url = [NSURL URLWithString:api];
+    
+    FSNConnection *connection =
+    [FSNConnection withUrl:url
+                    method:FSNRequestMethodPOST
+                   headers:nil
+                parameters:parameters
+                parseBlock:^id(FSNConnection *c, NSError **error) {
+                    
+                    NSLog(@"%@", [c.responseData dictionaryFromJSONWithError:error]);
+                    return [c.responseData dictionaryFromJSONWithError:error];
+                }
+                completionBlock:^(FSNConnection *c) {
+                    
+                    NSLog(@"%@", c.parseResult);
+                    
+                    NSDictionary *result = (NSDictionary *)(c.parseResult);
+                    NSString *status = [result objectForKey:@"status"];
+                    
+                    if ([status isEqualToString:@"success"]) {
+                        
+                        [self.delegate onCallback:0];
+                        
+                    } else {
+                        
+                        [self.delegate onCallback:1];
+                    }
+                    
+                }
+                progressBlock:^(FSNConnection *c) {
+                    
+                    self.progress.progress = c.uploadProgress;
+                    
+                }];
+    
+    [connection start];
+    
+#if false
     self.progress = progressBar;
     
     if (self.progress.tag == 1) {
@@ -595,6 +663,8 @@
                forKeyPath:@"fractionCompleted"
                   options:NSKeyValueObservingOptionNew
                   context:NULL];
+    
+#endif
     
     return YES;
 }

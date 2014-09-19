@@ -7,6 +7,7 @@
 //
 
 #import "Image.h"
+#import "FSNConnection.h"
 
 @interface Image (ImageApi)
 
