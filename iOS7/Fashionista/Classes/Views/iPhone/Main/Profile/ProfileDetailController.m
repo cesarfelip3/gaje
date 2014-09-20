@@ -96,7 +96,7 @@
     self.branderArray = [[NSMutableArray alloc] init];
     
     self.progress.progress = 0;
-    
+    [self.progress setHidden:YES];
 }
 
 - (IBAction)onTopButtonTouched:(id)sender
@@ -137,7 +137,6 @@
 
 - (BOOL)loadImage:(NSString *)url fileName:(NSString *)filename ImageView:(UIImageView *)imageView
 {
-    [self.progress setHidden:NO];
     
     if (!self.cache) {
         self.cache = [DiskCache getInstance];
@@ -155,6 +154,8 @@
         }
     }
     
+    self.progress.progress = 0;
+    [self.progress setHidden:NO];
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
     
     NSURLRequest *request = [[NSURLRequest alloc] initWithURL:[[NSURL alloc] initWithString:[url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]]];
