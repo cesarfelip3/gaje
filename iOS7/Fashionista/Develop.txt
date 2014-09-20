@@ -18,10 +18,9 @@ Networking
 6. Loading Image Detail
 7. Comment on it
 
-
-
-
-
+xcodebuild -showsdks
+xcodebuild -arch i386 -sdk xxxxxx
+http://cocoamanifest.net/articles/2011/12/running-your-ios-app-in-the-simulator-from-the-command-line.html
 
 API
 =====
