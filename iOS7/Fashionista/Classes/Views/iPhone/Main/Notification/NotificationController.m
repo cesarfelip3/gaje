@@ -308,11 +308,11 @@
     NSDictionary *values;
     
     if ([key isEqualToString:@"comments"]) {
-        values = @{@"uuid":image.commentUUID, @"image_uuid":image.imageUUID, @"type":@"comment"};
+        values = @{@"uuid":image.commentUUID, @"image_uuid":image.imageUUID, @"type":@"comments"};
     }
     
     if ([key isEqualToString:@"branders"]) {
-        values = @{@"uuid":image.branderUUID, @"image_uuid":image.imageUUID, @"type":@"brander"};
+        values = @{@"uuid":image.branderUUID, @"image_uuid":image.imageUUID, @"type":@"branders"};
     }
     
     if ([values count] > 0) {

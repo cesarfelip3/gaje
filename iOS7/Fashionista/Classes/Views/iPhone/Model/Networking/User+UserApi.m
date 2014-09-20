@@ -30,11 +30,11 @@
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
         
     } success:^(AFHTTPRequestOperation *operation, id responseObject) {
-#endif
+#else
         
     NSString *api = [NSString stringWithFormat:API_USER_IMAGE_LIST, API_BASE_URL, API_BASE_VERSION];
     [manager POST:api parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
-    
+#endif
         NSString *status = [(NSDictionary *)responseObject objectForKey:@"status"];
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
         
@@ -1114,6 +1114,8 @@
                 
                 title = [NSString stringWithFormat:@"Notifications(%ld)", (long)config.numberOfNotifications];
                 item = @{@"image":@"", @"title":title};
+                
+                [[self.menuVC tableView] reloadData];
                 
                 //((MenuViewController *)(self.menuVC)).menu[1][@"rows"][3] = item;
             }

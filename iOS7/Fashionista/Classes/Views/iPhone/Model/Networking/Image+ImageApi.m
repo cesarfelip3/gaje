@@ -10,8 +10,6 @@
 
 @implementation Image (ImageApi)
 
-
-
 - (BOOL)fetchLatest:(NSMutableArray *)imageArray Token:(NSString *)token
 {
     
@@ -532,6 +530,8 @@
 {
     // @{@"file_path":filePath, @"file_name":self.photo.fileName, @"name":self.photo.name, @"description":self.photo.description, @"user_uuid":config.uuid, @"theme_array":themes};
     
+#if false
+    
     NSString *filePath = [values objectForKey:@"file_path"];
     NSString *fileName = [values objectForKey:@"file_name"];
     NSString *name = [values objectForKey:@"name"];
@@ -597,7 +597,7 @@
     
     [connection start];
     
-#if false
+#else
     self.progress = progressBar;
     
     if (self.progress.tag == 1) {
