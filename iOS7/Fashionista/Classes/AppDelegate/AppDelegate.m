@@ -29,6 +29,8 @@ static AppDelegate *sharedDelegate;
     // prepare configuration here
     // prepare db
     
+    // NSLog(@"application launch");
+    
     Bootstrap *bootstrap = [Bootstrap getInstance];
     [bootstrap bootstrap];
  
@@ -109,7 +111,7 @@ static AppDelegate *sharedDelegate;
     // Call FBAppCall's handleOpenURL:sourceApplication to handle Facebook app responses
     BOOL wasHandled = [FBAppCall handleOpenURL:url sourceApplication:sourceApplication];
     
-    NSLog(@"%d", wasHandled);
+    // NSLog(@"%d", wasHandled);
     
     // You can add your app-specific url handling code here if needed
     return wasHandled;
@@ -123,7 +125,7 @@ static AppDelegate *sharedDelegate;
     AppConfig *config = [AppConfig getInstance];
     config.userIsLogin = 0;
     
-    NSLog(@"FB Login error %@", error);
+    // NSLog(@"FB Login error");
     
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"We have encounter a Facebook login/logout error, we recommend that you check your facebook credential or try it later, if the error persist, please contact with us for further help" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
     [alert show];
@@ -138,7 +140,7 @@ static AppDelegate *sharedDelegate;
     
     AppConfig *config = [AppConfig getInstance];
     config.fbstage = 2;
-    NSLog(@"FB Login");
+    // NSLog(@"FB Login OK");
     
 }
 
@@ -148,7 +150,7 @@ static AppDelegate *sharedDelegate;
 
 - (void) loginViewFetchedUserInfo:(FBLoginView *)loginView user:(id<FBGraphUser>)user
 {
-    NSLog(@"FB user = %@", user);
+    // NSLog(@"FB User");
     
     // here we store user id, but only one of them
     // suppose there are different FB ids
@@ -178,13 +180,15 @@ static AppDelegate *sharedDelegate;
             config.token = token;
             return;
             
+        } else {
+        
+            // here we added user to local storage
+            // then we will call service to add it remotely
+            // without saving it, we can't use service correclty
+        
+            [$user add];
         }
         
-        // here we added user to local storage
-        // then we will call service to add it remotely
-        // without saving it, we can't use service correclty
-        
-        [$user add];
         NSDictionary *data = @{
                                @"username":username,
                                @"email":email,
@@ -199,7 +203,11 @@ static AppDelegate *sharedDelegate;
         [$user login:data];
         
         [self.loginView setHidden:YES];
+        return;
     }
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"We have encounter a Facebook login/logout error, we recommend that you check your facebook credential or try it later, if the error persist, please contact with us for further help" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    [alert show];
 }
 
 - (BOOL)onCallback:(NSInteger)type
@@ -210,7 +218,7 @@ static AppDelegate *sharedDelegate;
         
         [self.loginView setHidden:NO];
         
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"We have encoutered an issue to sync your user account with our service, you may have to logout and try it later, if the error persist, please contact with us for further help" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"We have encoutered an issue to sync your user account with our service, you may have to logout in setting and try it later, if the error persist, please contact with us for further help" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [alert show];
         return NO;
     
@@ -278,7 +286,7 @@ static AppDelegate *sharedDelegate;
     AppConfig *config = [AppConfig getInstance];
     config.fbstage = 1;
     
-    NSLog(@"FB Logout");
+    // NSLog(@"FB Logout");
     
     if (config.userIsLogin != 1) {
         return;
@@ -596,7 +604,7 @@ sizeOfItemForViewController:(UIViewController *)viewController
 {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
     
-    NSLog(@"app = become active");
+    // NSLog(@"app = become active");
     [FBSession.activeSession handleDidBecomeActive];
     
     

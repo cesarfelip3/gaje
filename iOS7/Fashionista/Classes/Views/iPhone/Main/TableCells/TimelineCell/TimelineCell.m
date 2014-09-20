@@ -182,7 +182,7 @@
     AFHTTPRequestOperation *requestOperation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
     requestOperation.responseSerializer = [AFImageResponseSerializer serializer];
     [requestOperation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-        //NSLog(@"Response: %@", responseObject);
+        //// NSLog(@"Response: %@", responseObject);
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
         
         UIImage *image = responseObject;

@@ -68,7 +68,7 @@
     
     
     NSString *url = self.user.iconurl;
-    NSLog(@"profile icon url = %@", url);
+    // NSLog(@"profile icon url = %@", url);
     
     self.imageVAvatar.contentMode = UIViewContentModeScaleAspectFit;
     [self loadImage:url fileName:self.user.token];
@@ -98,7 +98,7 @@
     AFHTTPRequestOperation *requestOperation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
     requestOperation.responseSerializer = [AFImageResponseSerializer serializer];
     [requestOperation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-        //NSLog(@"Response: %@", responseObject);
+        //// NSLog(@"Response: %@", responseObject);
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
         
         UIImage *image = responseObject;

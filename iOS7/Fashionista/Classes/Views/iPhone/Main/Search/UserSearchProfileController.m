@@ -104,7 +104,7 @@
 
 - (BOOL)onCallback:(NSInteger)type
 {
-    NSLog(@"returned");
+    // NSLog(@"returned");
     [self.refreshControl endRefreshing];
     [self.tableView reloadData];
     return YES;
@@ -128,7 +128,7 @@
         
     } else {
         
-        UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:@"" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:@"Unfollow" otherButtonTitles:nil];
+        UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:@"" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:@"Untrack" otherButtonTitles:nil];
         [sheet showInView:self.view];
     }
 }

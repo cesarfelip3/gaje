@@ -54,7 +54,7 @@
     self.tableView.tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 10)];
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 10)];
     
-    NSLog(@"cmeara");
+    // NSLog(@"cmeara");
     
     self.photo = [[Image alloc] init];
     self.followingArray = [[NSMutableArray alloc] init];
@@ -101,7 +101,7 @@
 
 - (IBAction)onCameraButtonTouched:(id)sender
 {
-    NSLog(@"camera");
+    // NSLog(@"camera");
     
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"upload" bundle:nil];
     UIViewController *controller = [storyboard instantiateViewControllerWithIdentifier:@"upload_home"];
@@ -113,7 +113,7 @@
 
 - (BOOL)onCallback:(NSInteger)type
 {
-    NSLog(@"returned");
+    // NSLog(@"returned");
     self.view.tag = 1;
     
     [self.refreshControl endRefreshing];

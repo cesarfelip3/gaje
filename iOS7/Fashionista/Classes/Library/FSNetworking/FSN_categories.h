@@ -21,7 +21,7 @@
 
 // internal logging, conditionally enabled
 #if FSN_LOG
-#define FSNLog(...) NSLog(@"FSN: " __VA_ARGS__)
+#define FSNLog(...) // NSLog(@"FSN: " __VA_ARGS__)
 #define FSNErr(...) fprintf(stderr, "%s\n", [[NSString stringWithFormat:__VA_ARGS__] UTF8String])
 #else
 #define FSNLog(...) ((void)0)
@@ -30,14 +30,14 @@
 
 // internal verbose logging, conditionally enabled
 #if FSN_LOG_VERBOSE
-#define FSNVerbose(...) NSLog(@"FSNV: " __VA_ARGS__)
+#define FSNVerbose(...) // NSLog(@"FSNV: " __VA_ARGS__)
 #else
 #define FSNVerbose(...) ((void)0)
 #endif
 
 // always log errors
-#define FSNLogError0(string)        NSLog(@"ERROR: %s: " string, __FUNCTION__)
-#define FSNLogError(format, ...)    NSLog(@"ERROR: %s: " format, __FUNCTION__, __VA_ARGS__)
+#define FSNLogError0(string)        // NSLog(@"ERROR: %s: " string, __FUNCTION__)
+#define FSNLogError(format, ...)    // NSLog(@"ERROR: %s: " format, __FUNCTION__, __VA_ARGS__)
 
 
 // shorthand for the cocoa init idiom

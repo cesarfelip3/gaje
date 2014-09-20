@@ -23,7 +23,7 @@
 
 - (void)setup
 {
-    NSLog(@"InitController.setup");
+    // NSLog(@"InitController.setup");
     
 #if false
     [[UINavigationBar appearance] setTitleTextAttributes:

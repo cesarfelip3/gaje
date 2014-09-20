@@ -105,7 +105,7 @@
 
 - (BOOL)onCallback:(NSInteger)type
 {
-    NSLog(@"returned");
+    // NSLog(@"returned");
     self.view.tag = 1;
     [self.refreshControl endRefreshing];
     [self.tableView reloadData];
@@ -119,7 +119,7 @@
     
     if (button.tag == 0) {
         
-        UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:@"" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:@"Unfollow" otherButtonTitles:nil];
+        UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:@"" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:@"Untrack" otherButtonTitles:nil];
         [sheet showInView:self.view];
     
     } else {
@@ -201,7 +201,7 @@
     //CGRect tableRect = cell.imageVBkg.frame;
     //tableRect.origin.y = 0;
     //cell.imageVBkg.frame = tableRect;
-    //NSLog(@"%d", indexPath.row - 1);
+    //// NSLog(@"%d", indexPath.row - 1);
     cell.photo = [self.imageArray objectAtIndex:indexPath.row - 2];
     
     NSDictionary *item = self.account[@"timeline"][0];

@@ -802,7 +802,7 @@
                 }
             }
             else {
-                NSLog(@"Unknown formart for StringStartsWithH (%d) %s:%d", sqlite3_value_type(aargv[0]), __FUNCTION__, __LINE__);
+                // NSLog(@"Unknown formart for StringStartsWithH (%d) %s:%d", sqlite3_value_type(aargv[0]), __FUNCTION__, __LINE__);
                 sqlite3_result_null(context);
             }
         }];
@@ -811,7 +811,7 @@
         FMResultSet *ars = [adb executeQuery:@"select * from ftest where StringStartsWithH(foo)"];
         while ([ars next]) {
             rowCount++;
-            NSLog(@"Does %@ start with 'h'?", [rs stringForColumnIndex:0]);
+            // NSLog(@"Does %@ start with 'h'?", [rs stringForColumnIndex:0]);
         }
         FMDBQuickCheck(rowCount == 2);
     }];

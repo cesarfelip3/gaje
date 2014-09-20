@@ -1,16 +1,25 @@
 Develop
 =========
 
-issue
-======
 
-2014.09.19
+Networking
+==========
 
-notification/update ==> markItRead
-NotificationController ==> bug
+1. FB Login ==> FB ERROR ==> Alert
+2. FB OK
+3. Service Login
+
+4. Loading latest Image Data
+5. Loading Each Image
+
+6. Brand it
+7. 
+
+6. Loading Image Detail
+7. Comment on it
 
 
-Uploading with progress not working ==>
+
 
 
 

@@ -81,7 +81,7 @@
 - (BOOL)onCallback:(NSInteger)type
 {
     
-    NSLog(@"note array = %@", self.noteArray);
+    // NSLog(@"note array = %@", self.noteArray);
     
     if ([self.noteArray count] > 0) {
         self.note = [self.noteArray objectAtIndex:0];

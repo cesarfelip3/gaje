@@ -62,7 +62,7 @@
     
     User *user = [User getInstance];
     
-    NSLog(@"user = %@", user.token);
+    // NSLog(@"user = %@", user.token);
     
     self.account = [DataSource userAccount];
     [self.account setValue:user.username forKey:@"name"];
@@ -109,7 +109,7 @@
 
 - (BOOL)onCallback:(NSInteger)type
 {
-    NSLog(@"returned");
+    // NSLog(@"returned");
     [self.refreshControl endRefreshing];
     [self.tableView reloadData];
     return YES;
@@ -145,7 +145,7 @@
     CGRect tableRect = cell.imageVBkg.frame;
     tableRect.origin.y = 0;
     cell.imageVBkg.frame = tableRect;
-    NSLog(@"%d", indexPath.row - 1);
+    // NSLog(@"%d", indexPath.row - 1);
     cell.photo = [self.imageArray objectAtIndex:indexPath.row - 1];
     
     NSDictionary *item = self.account[@"timeline"][0];

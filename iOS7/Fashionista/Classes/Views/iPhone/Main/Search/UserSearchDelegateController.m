@@ -43,19 +43,19 @@
 
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
 {
-    NSLog(@"change");  
+    // NSLog(@"change");  
 }
 
 - (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
 {
-    NSLog(@"cancel");
+    // NSLog(@"cancel");
     searchBar.showsCancelButton = NO;
    [searchBar resignFirstResponder];
 }
 
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
 {
-    NSLog(@"search");
+    // NSLog(@"search");
     [searchBar resignFirstResponder];
     
     //

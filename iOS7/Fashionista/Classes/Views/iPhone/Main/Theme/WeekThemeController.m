@@ -81,7 +81,7 @@
 - (BOOL)onCallback:(NSInteger)type
 {
     
-    NSLog(@"theme array = %@", self.themeArray);
+    // NSLog(@"theme array = %@", self.themeArray);
     
     if ([self.themeArray count] > 0) {
         self.theme = [self.themeArray objectAtIndex:0];

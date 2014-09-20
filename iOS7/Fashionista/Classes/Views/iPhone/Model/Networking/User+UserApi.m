@@ -38,7 +38,7 @@
         NSString *status = [(NSDictionary *)responseObject objectForKey:@"status"];
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
         
-        NSLog(@"User.fetchImageList : %@", responseObject);
+        // NSLog(@"User.fetchImageList : %@", responseObject);
         
         if ([status isEqualToString:@"success"]) {
             
@@ -106,7 +106,7 @@
                         
                     }
                     
-                    //NSLog(@"icon = %@", image.usericon);
+                    //// NSLog(@"icon = %@", image.usericon);
                     [_result addObject:image];
                 }
                 
@@ -143,8 +143,8 @@
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-        NSLog(@"%@", [operation responseObject]);
-        NSLog(@"%@", error);
+        // NSLog(@"%@", [operation responseObject]);
+        // NSLog(@"%@", error);
         
         self.errorMessage = @"Network failed";
         
@@ -181,7 +181,7 @@
     NSString *api = [NSString stringWithFormat:API_USER_REMOVE_IMAGE, API_BASE_URL, API_BASE_VERSION];
     [manager POST:api parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
     
-        NSLog(@"Success: %@", responseObject);
+        // NSLog(@"Success: %@", responseObject);
         
         NSString *status = [responseObject objectForKey:@"status"];
         
@@ -204,8 +204,8 @@
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         
-        NSLog(@"Error: %@", error);
-        NSLog(@"error : %@", [operation responseObject]);
+        // NSLog(@"Error: %@", error);
+        // NSLog(@"error : %@", [operation responseObject]);
         
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
         
@@ -243,7 +243,7 @@
     NSString *api = [NSString stringWithFormat:API_USER_EXCLUDE_IMAGE, API_BASE_URL, API_BASE_VERSION];
     [manager POST:api parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
-        NSLog(@"Success: %@", responseObject);
+        // NSLog(@"Success: %@", responseObject);
         
         NSString *status = [responseObject objectForKey:@"status"];
         
@@ -266,8 +266,8 @@
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         
-        NSLog(@"Error: %@", error);
-        NSLog(@"error : %@", [operation responseObject]);
+        // NSLog(@"Error: %@", error);
+        // NSLog(@"error : %@", [operation responseObject]);
         
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
         
@@ -307,7 +307,7 @@
     NSString *api = [NSString stringWithFormat:API_USER_FOLLOW, API_BASE_URL, API_BASE_VERSION];
     [manager POST:api parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
     
-        NSLog(@"Success: %@", responseObject);
+        // NSLog(@"Success: %@", responseObject);
         
         NSString *status = [responseObject objectForKey:@"status"];
         
@@ -325,7 +325,7 @@
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         
-        NSLog(@"Error: %@", error);
+        // NSLog(@"Error: %@", error);
           
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
         
@@ -361,7 +361,7 @@
     NSString *api = [NSString stringWithFormat:API_USER_UNFOLLOW, API_BASE_URL, API_BASE_VERSION];
     [manager POST:api parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
     
-        NSLog(@"Success: %@", responseObject);
+        // NSLog(@"Success: %@", responseObject);
         
         NSString *status = [responseObject objectForKey:@"status"];
         
@@ -379,7 +379,7 @@
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         
-        NSLog(@"Error: %@", error);
+        // NSLog(@"Error: %@", error);
           
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
         
@@ -421,7 +421,7 @@
         NSString *status = [(NSDictionary *)responseObject objectForKey:@"status"];
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
         
-        NSLog(@"%@", responseObject);
+        // NSLog(@"%@", responseObject);
         
         if ([status isEqualToString:@"success"]) {
             
@@ -504,8 +504,8 @@
         
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
           
-        NSLog(@"%@", [operation responseObject]);
-        //NSLog(@"%@", error);
+        // NSLog(@"%@", [operation responseObject]);
+        //// NSLog(@"%@", error);
         
         self.errorMessage = @"Network failed";
         [self.delegate onCallback:1];
@@ -544,7 +544,7 @@
         NSString *status = [(NSDictionary *)responseObject objectForKey:@"status"];
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
         
-        NSLog(@"%@", responseObject);
+        // NSLog(@"%@", responseObject);
         
         if ([status isEqualToString:@"success"]) {
             
@@ -626,8 +626,8 @@
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-        NSLog(@"%@", [operation responseObject]);
-        //NSLog(@"%@", error);
+        // NSLog(@"%@", [operation responseObject]);
+        //// NSLog(@"%@", error);
         
         self.errorMessage = @"Network failed";
         
@@ -663,7 +663,7 @@
     NSString *api = [NSString stringWithFormat:API_USER_BLOCK_ADD, API_BASE_URL, API_BASE_VERSION];
     [manager POST:api parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
     
-        NSLog(@"Success: %@", responseObject);
+        // NSLog(@"Success: %@", responseObject);
         
         NSString *status = [responseObject objectForKey:@"status"];
         
@@ -681,8 +681,8 @@
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         
-        NSLog(@"Error: %@", error);
-        NSLog(@"error : %@", [operation responseObject]);
+        // NSLog(@"Error: %@", error);
+        // NSLog(@"error : %@", [operation responseObject]);
           
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
         
@@ -721,7 +721,7 @@
         NSString *status = [(NSDictionary *)responseObject objectForKey:@"status"];
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
         
-        NSLog(@"%@", responseObject);
+        // NSLog(@"%@", responseObject);
         
         if ([status isEqualToString:@"success"]) {
             
@@ -778,8 +778,8 @@
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-        NSLog(@"%@", [operation responseObject]);
-        //NSLog(@"%@", error);
+        // NSLog(@"%@", [operation responseObject]);
+        //// NSLog(@"%@", error);
         
         self.errorMessage = @"Network failed";
         [self.delegate onCallback:1];
@@ -814,7 +814,7 @@
     [manager POST:api parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-        NSLog(@"JSON: %@", responseObject);
+        // NSLog(@"JSON: %@", responseObject);
         
         NSString *status = [(NSDictionary *)responseObject objectForKey:@"status"];
         
@@ -1029,7 +1029,7 @@
                 [updateDictionary setValue:branderArray forKey:@"branders"];
                 [updateDictionary setValue:followerArray forKey:@"followers"];
                 
-                //NSLog(@"update = %d", [commentsArray count]);
+                //// NSLog(@"update = %d", [commentsArray count]);
                 
                 
                 
@@ -1060,8 +1060,8 @@
         
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
         
-        NSLog(@"Error: %@", operation.response);
-        NSLog(@"Error: %@", operation.responseObject);
+        // NSLog(@"Error: %@", operation.response);
+        // NSLog(@"Error: %@", operation.responseObject);
     }];
     
     return YES;
@@ -1092,7 +1092,7 @@
     [manager POST:api parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-        NSLog(@"JSON: %@", responseObject);
+        // NSLog(@"JSON: %@", responseObject);
         
         NSString *status = [(NSDictionary *)responseObject objectForKey:@"status"];
         
@@ -1128,8 +1128,8 @@
         
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
         
-        NSLog(@"Error: %@", operation.response);
-        NSLog(@"Error: %@", operation.responseObject);
+        // NSLog(@"Error: %@", operation.response);
+        // NSLog(@"Error: %@", operation.responseObject);
     }];
     
     return YES;
@@ -1160,14 +1160,14 @@
     
     [manager POST:api parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
-        NSLog(@"JSON: %@", responseObject);
+        // NSLog(@"JSON: %@", responseObject);
         
         return;
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         
-        NSLog(@"Error: %@", operation.response);
-        NSLog(@"Error: %@", operation.responseObject);
+        // NSLog(@"Error: %@", operation.response);
+        // NSLog(@"Error: %@", operation.responseObject);
     }];
     
     return YES;

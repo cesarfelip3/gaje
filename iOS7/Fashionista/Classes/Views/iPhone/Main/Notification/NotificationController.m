@@ -110,7 +110,7 @@
 
 - (BOOL)onCallback:(NSInteger)type
 {
-    NSLog(@"returned");
+    // NSLog(@"returned");
     self.view.tag = 1;
     
     [self.refreshControl endRefreshing];

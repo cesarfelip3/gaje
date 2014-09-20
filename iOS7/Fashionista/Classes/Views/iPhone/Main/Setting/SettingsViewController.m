@@ -65,14 +65,14 @@
 - (void) loginView:(FBLoginView *)loginView handleError:(NSError *)error
 {
     
-    NSLog(@"FB Login error");
+    // NSLog(@"FB Login error");
     
 }
 
 
 - (void) loginViewShowingLoggedInUser:(FBLoginView *)loginView
 {
-    NSLog(@"FB Login");
+    // NSLog(@"FB Login");
 }
 
 - (void) loginViewShowingLoggedOutUser:(FBLoginView *)loginView
@@ -82,7 +82,7 @@
     [user logout];
     
     
-    NSLog(@"FB Logout");
+    // NSLog(@"FB Logout");
     
 }
 

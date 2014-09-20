@@ -19,7 +19,7 @@ NSString *stringForMimeType(MimeType type) {
         case MimeType_application_json: return @"application/json";
         case MimeType_unknown:          return nil;
         default:
-            NSLog(@"ERROR: FSNData: unknown MimeType: %d", type);
+            // NSLog(@"ERROR: FSNData: unknown MimeType: %d", type);
             
             // do not return "application/octet-stream"; instead, let the recipient guess
             // http://en.wikipedia.org/wiki/Internet_media_type

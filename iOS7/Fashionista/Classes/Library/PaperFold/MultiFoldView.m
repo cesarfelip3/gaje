@@ -391,7 +391,7 @@
             // this drills in to the next subfold in a cascading effect depending on the number of available folds
             
             //[self unfoldView:nextFoldView toFraction:adjustedFraction];
-            //NSLog(@"%@ %f", foldView, foldView.frame.origin.x);
+            //// NSLog(@"%@ %f", foldView, foldView.frame.origin.x);
             [self unfoldView:nextFoldView toFraction:adjustedFraction withOffset:foldView.frame.origin.x];
         }
     }

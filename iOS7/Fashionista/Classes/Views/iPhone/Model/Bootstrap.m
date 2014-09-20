@@ -38,7 +38,7 @@
     NSString *databasePath = [[[NSBundle mainBundle] bundlePath] stringByAppendingPathComponent:@"local.sqlite"];
     NSString *toPath = [NSString stringWithFormat:@"%@/%@", document, @"local.sqlite" ];
     
-    //NSLog(@"data = %@", databasePath);
+    //// NSLog(@"data = %@", databasePath);
     
     self.config.dbPath = nil;
     

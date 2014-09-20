@@ -286,21 +286,21 @@
 
 - (void)foldDidOpened
 {
-    //NSLog(@"opened");
+    //// NSLog(@"opened");
     [self.contentView setHidden:NO];
     [self showFolds:NO];
 }
 
 - (void)foldDidClosed
 {
-    //NSLog(@"closed");
+    //// NSLog(@"closed");
     [self.contentView setHidden:NO];
     [self showFolds:YES];
 }
 
 - (void)foldWillOpen
 {
-    //NSLog(@"transition - opening");
+    //// NSLog(@"transition - opening");
     //[self drawScreenshotOnFolds];
     [self.contentView setHidden:YES];
     [self showFolds:YES];
@@ -308,7 +308,7 @@
 
 - (void)foldWillClose
 {
-    //NSLog(@"transition - closing");
+    //// NSLog(@"transition - closing");
     [self drawScreenshotOnFolds];
     [_contentView setHidden:YES];
     [self showFolds:YES];

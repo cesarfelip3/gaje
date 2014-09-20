@@ -84,10 +84,10 @@
 
 - (IBAction)onTopbarButtonTouched:(id)sender
 {
-    NSLog(@"choose");
+    // NSLog(@"choose");
     
-    NSLog(@"name = %@", self.photo.name);
-    NSLog(@"description = %@", self.photo.description);
+    // NSLog(@"name = %@", self.photo.name);
+    // NSLog(@"description = %@", self.photo.description);
     
     if (self.photo.name == nil || [self.photo.name isEqualToString:@""]) {
 #if false
@@ -106,13 +106,13 @@
     
     for (Theme *theme in self.themeArray) {
         
-        NSLog(@"selected = %d", theme.selected);
+        // NSLog(@"selected = %d", theme.selected);
         if (theme.selected) {
             themes = [themes stringByAppendingString:[NSString stringWithFormat:@"%@,", theme.themeUUID]];
         }
     }
     
-    NSLog(@"themes = %@", themes);
+    // NSLog(@"themes = %@", themes);
     
     if ([themes isEqualToString:@""]) {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"Select at least one theme for your image" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
@@ -134,10 +134,10 @@
 - (IBAction)onBottombarButtonTouched:(id)sender
 {
     
-    NSLog(@"choose");
+    // NSLog(@"choose");
     
-    NSLog(@"name = %@", self.photo.name);
-    NSLog(@"description = %@", self.photo.description);
+    // NSLog(@"name = %@", self.photo.name);
+    // NSLog(@"description = %@", self.photo.description);
     
     if (self.photo.name == nil || [self.photo.name isEqualToString:@""]) {
         
@@ -181,7 +181,7 @@
         imagePicker.allowsEditing = NO;
         imagePicker.showsCameraControls = YES;
         
-        NSLog(@"navigation controller = %@", self.navigationController);
+        // NSLog(@"navigation controller = %@", self.navigationController);
         [self.navigationController presentViewController:imagePicker animated:YES completion:nil];
     }
     

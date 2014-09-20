@@ -102,7 +102,7 @@
 - (IBAction)onTopButtonTouched:(id)sender
 {
     
-    NSLog(@"button touched");
+    // NSLog(@"button touched");
     
     UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:@"Delete it?" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Yes", nil];
     
@@ -131,7 +131,7 @@
         
     }
     
-    NSLog(@"%d", buttonIndex);
+    // NSLog(@"%d", buttonIndex);
 }
 
 
@@ -162,7 +162,7 @@
     AFHTTPRequestOperation *requestOperation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
     requestOperation.responseSerializer = [AFImageResponseSerializer serializer];
     [requestOperation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-        //NSLog(@"Response: %@", responseObject);
+        //// NSLog(@"Response: %@", responseObject);
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
         
         UIImage *image = responseObject;
@@ -190,7 +190,7 @@
     [requestOperation setDownloadProgressBlock:^(NSUInteger __unused bytesWritten,
                                                  long long totalBytesWritten,
                                                  long long totalBytesExpectedToWrite) {
-        //NSLog(@"%2.2f", (float)(totalBytesWritten) / totalBytesExpectedToWrite);
+        //// NSLog(@"%2.2f", (float)(totalBytesWritten) / totalBytesExpectedToWrite);
         self.progress.hidden = NO;
         self.progress.progress = (float)(totalBytesWritten) / totalBytesExpectedToWrite;
         
@@ -209,7 +209,7 @@
 - (IBAction)onButtonFollowTouched:(id)sender
 {
     
-    NSLog(@"on button brand touched");
+    // NSLog(@"on button brand touched");
     
     //UIButton *button = (UIButton*)sender;
     
@@ -223,7 +223,7 @@
 - (IBAction)onButtonBrandTouched:(id)sender
 {
     
-    NSLog(@"on button brand touched");
+    // NSLog(@"on button brand touched");
     
     //UIButton *button = (UIButton*)sender;
     
@@ -237,7 +237,7 @@
 {
     
     UISegmentedControl *tabbar = (UISegmentedControl *)sender;
-    NSLog(@"tab changed = %d", tabbar.selectedSegmentIndex);
+    // NSLog(@"tab changed = %d", tabbar.selectedSegmentIndex);
     
     if (tabbar.selectedSegmentIndex == 1) {
         

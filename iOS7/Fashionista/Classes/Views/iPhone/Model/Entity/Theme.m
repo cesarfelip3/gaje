@@ -48,7 +48,7 @@
         NSString *status = [(NSDictionary *)responseObject objectForKey:@"status"];
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
         
-        NSLog(@"%@", responseObject);
+        // NSLog(@"%@", responseObject);
         
         if ([status isEqualToString:@"success"]) {
             
@@ -115,8 +115,8 @@
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
            
         
-        NSLog(@"%@", error);
-        NSLog(@"%@", [operation responseObject]);
+        // NSLog(@"%@", error);
+        // NSLog(@"%@", [operation responseObject]);
         
         self.errorMessage = @"We encounter a network issue, you may check your network connectity or try it later";
         

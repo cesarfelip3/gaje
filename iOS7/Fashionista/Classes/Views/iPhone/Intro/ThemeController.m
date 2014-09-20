@@ -54,7 +54,7 @@
         
         if ([self.themeArray count] > 0) {
  
-            NSLog(@"themeArray = %@", self.themeArray);
+            // NSLog(@"themeArray = %@", self.themeArray);
             [self.tableView reloadData];
             
         }

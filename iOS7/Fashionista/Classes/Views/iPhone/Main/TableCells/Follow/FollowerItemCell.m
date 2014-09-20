@@ -106,7 +106,7 @@
 
 - (IBAction)onBrandButtonTouched:(id)sender {
     
-    NSLog(@"brand clicked");
+    // NSLog(@"brand clicked");
     
     
 #if false
@@ -140,7 +140,7 @@
     AFHTTPRequestOperation *requestOperation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
     requestOperation.responseSerializer = [AFImageResponseSerializer serializer];
     [requestOperation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-        //NSLog(@"Response: %@", responseObject);
+        //// NSLog(@"Response: %@", responseObject);
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
         
         UIImage *image = responseObject;

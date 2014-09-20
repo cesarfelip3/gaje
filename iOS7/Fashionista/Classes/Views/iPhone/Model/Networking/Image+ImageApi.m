@@ -41,7 +41,7 @@
         NSString *status = [(NSDictionary *)responseObject objectForKey:@"status"];
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
         
-        NSLog(@"%@", responseObject);
+        // NSLog(@"%@", responseObject);
         
         if ([status isEqualToString:@"success"]) {
             
@@ -114,7 +114,7 @@
                         
                     }
                     
-                    //NSLog(@"icon = %@", image.usericon);
+                    //// NSLog(@"icon = %@", image.usericon);
                     [tempImageArray addObject:image];
                 }
                 
@@ -151,8 +151,8 @@
         
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
         
-        NSLog(@"%@", [operation responseObject]);
-        NSLog(@"%@", error);
+        // NSLog(@"%@", [operation responseObject]);
+        // NSLog(@"%@", error);
         
         self.errorMessage = @"Network failed";
         
@@ -203,7 +203,7 @@
     NSString *api = [NSString stringWithFormat:API_IMAGE_COMMENT_ADD, API_BASE_URL, API_BASE_VERSION];
     [manager POST:api parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
 
-        NSLog(@"Success: %@", responseObject);
+        // NSLog(@"Success: %@", responseObject);
         
         NSString *status = [responseObject objectForKey:@"status"];
         
@@ -221,7 +221,7 @@
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         
-        NSLog(@"Error: %@", error);
+        // NSLog(@"Error: %@", error);
         
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
         
@@ -265,7 +265,7 @@
         NSString *status = [(NSDictionary *)responseObject objectForKey:@"status"];
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
         
-        NSLog(@"%@", responseObject);
+        // NSLog(@"%@", responseObject);
         
         if ([status isEqualToString:@"success"]) {
             
@@ -333,7 +333,7 @@
         
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
         
-        NSLog(@"%@", error);
+        // NSLog(@"%@", error);
         
         self.errorMessage = @"Network failed";
         
@@ -371,7 +371,7 @@
     NSString *api = [NSString stringWithFormat:API_IMAGE_BRANDER_ADD, API_BASE_URL, API_BASE_VERSION];
     [manager POST:api parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
-            NSLog(@"Success: %@", responseObject);
+            // NSLog(@"Success: %@", responseObject);
             
             NSString *status = [responseObject objectForKey:@"status"];
             
@@ -390,8 +390,8 @@
             
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             
-            //NSLog(@"Error: %@", error);
-            NSLog(@"%@", [operation responseObject]);
+            //// NSLog(@"Error: %@", error);
+            // NSLog(@"%@", [operation responseObject]);
             
             
             [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
@@ -436,7 +436,7 @@
         NSString *status = [(NSDictionary *)responseObject objectForKey:@"status"];
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
         
-        NSLog(@"%@", responseObject);
+        // NSLog(@"%@", responseObject);
         
         if ([status isEqualToString:@"success"]) {
             
@@ -494,7 +494,7 @@
         
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
         
-        NSLog(@"%@", error);
+        // NSLog(@"%@", error);
         
         self.errorMessage = @"Network failed";
         
@@ -515,7 +515,7 @@
     if ([keyPath isEqualToString:@"fractionCompleted"]) {
         
         NSProgress *progress = (NSProgress *)object;
-        ////NSLog(@"Progress… %f", progress.fractionCompleted);
+        ////// NSLog(@"Progress… %f", progress.fractionCompleted);
         dispatch_async(dispatch_get_main_queue(), ^{
             self.progress.progress = progress.fractionCompleted;//(float)(progress.completedUnitCount / progress.totalUnitCount);
         });
@@ -569,12 +569,12 @@
                 parameters:parameters
                 parseBlock:^id(FSNConnection *c, NSError **error) {
                     
-                    NSLog(@"%@", [c.responseData dictionaryFromJSONWithError:error]);
+                    // NSLog(@"%@", [c.responseData dictionaryFromJSONWithError:error]);
                     return [c.responseData dictionaryFromJSONWithError:error];
                 }
                 completionBlock:^(FSNConnection *c) {
                     
-                    NSLog(@"%@", c.parseResult);
+                    // NSLog(@"%@", c.parseResult);
                     
                     NSDictionary *result = (NSDictionary *)(c.parseResult);
                     NSString *status = [result objectForKey:@"status"];
@@ -629,8 +629,8 @@
         
         if (error) {
             
-            NSLog(@"%@", response);
-            NSLog(@"%@", responseObject);
+            // NSLog(@"%@", response);
+            // NSLog(@"%@", responseObject);
             
             
             self.errorMessage = [responseObject objectForKey:@"message"];
@@ -640,7 +640,7 @@
             
         } else {
             
-            NSLog(@"Success: %@", responseObject);
+            // NSLog(@"Success: %@", responseObject);
             
             NSDictionary *data = [responseObject objectForKey:@"data"];
             

@@ -57,7 +57,7 @@
     
     [btnSearch addTarget:self action:@selector(onCameraButtonTouched:) forControlEvents:UIControlEventTouchDown];
     
-    NSLog(@"board controller == viewDidLoad");
+    // NSLog(@"board controller == viewDidLoad");
     
     self.refreshControl = [[UIRefreshControl alloc] init];    
     [self.refreshControl addTarget:self action:@selector(onRefresh:) forControlEvents:UIControlEventValueChanged];
@@ -111,7 +111,7 @@
 
 - (IBAction)onCameraButtonTouched:(id)sender
 {
-    NSLog(@"camera");
+    // NSLog(@"camera");
     
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"upload" bundle:nil];
     UIViewController *controller = [storyboard instantiateViewControllerWithIdentifier:@"upload_home"];
@@ -135,7 +135,7 @@
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     
-    NSLog(@"%d", buttonIndex);
+    // NSLog(@"%d", buttonIndex);
     
     User* user = [User getInstance];
     
@@ -165,7 +165,7 @@
         NSString *token;
         NSDictionary *values = @{@"user_uuid":user.userUUID, @"image_uuid":self.currentPhoto.imageUUID};
         
-        NSLog(@"%@", values);
+        // NSLog(@"%@", values);
         
         user.delegate = nil;
         [user excludeImage:values Token:token];
@@ -192,7 +192,7 @@
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     
-    NSLog(@"ALERT %d", buttonIndex);
+    // NSLog(@"ALERT %d", buttonIndex);
     
     if (buttonIndex == 1) {
         
@@ -208,7 +208,7 @@
 
 - (BOOL)onCallback:(NSInteger)type
 {
-    NSLog(@"returned");
+    // NSLog(@"returned");
     
     User *user = [User getInstance];
     

@@ -30,11 +30,8 @@
 - (void)initCache {
     NSString *document = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
     
-    NSLog(@"%@", [NSString stringWithFormat:@"%@/cache/image", document]);
-    
     if ([[NSFileManager defaultManager] fileExistsAtPath:[NSString stringWithFormat:@"%@/cache/image", document]]) {
         _imageCachePath = [NSString stringWithFormat:@"%@/cache/image", document];
-        NSLog(@"%@", _imageCachePath);
         return;
     }
     
@@ -55,7 +52,7 @@
                                                     attributes:nil
                                                          error:&error])
     {
-        NSLog(@"Create directory error: %@", error);
+        // NSLog(@"Create directory error: %@", error);
     }
 }
 

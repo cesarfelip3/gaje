@@ -70,7 +70,7 @@
     
     user.iconurl = [NSString stringWithFormat:FB_PROFILE_ICON, user.token];
     NSString *url = user.iconurl;
-    NSLog(@"profile icon url = %@", url);
+    // NSLog(@"profile icon url = %@", url);
     
     self.imageVAvatar.contentMode = UIViewContentModeScaleAspectFit;
     [self loadImage:url fileName:user.token];
@@ -100,7 +100,7 @@
     AFHTTPRequestOperation *requestOperation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
     requestOperation.responseSerializer = [AFImageResponseSerializer serializer];
     [requestOperation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-        //NSLog(@"Response: %@", responseObject);
+        //// NSLog(@"Response: %@", responseObject);
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
         
         UIImage *image = responseObject;

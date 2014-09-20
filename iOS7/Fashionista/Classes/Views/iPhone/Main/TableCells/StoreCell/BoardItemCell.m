@@ -116,7 +116,7 @@
 
 - (BOOL)onBrandButtonTouched {
     
-    NSLog(@"brand clicked");
+    // NSLog(@"brand clicked");
     
     // 280 / 10 = 28
     
@@ -173,7 +173,7 @@
     AFHTTPRequestOperation *requestOperation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
     requestOperation.responseSerializer = [AFImageResponseSerializer serializer];
     [requestOperation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-        //NSLog(@"Response: %@", responseObject);
+        //// NSLog(@"Response: %@", responseObject);
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
         
         UIImage *image = responseObject;
@@ -187,7 +187,7 @@
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         
-        NSLog(@"%@", error);
+        // NSLog(@"%@", error);
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
         
     }];

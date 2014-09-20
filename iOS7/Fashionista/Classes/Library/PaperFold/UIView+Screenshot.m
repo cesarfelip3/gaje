@@ -71,7 +71,7 @@
     
     if (UIGraphicsGetCurrentContext()==nil)
     {
-        NSLog(@"UIGraphicsGetCurrentContext() is nil. You may have a UIView with CGRectZero");
+        // NSLog(@"UIGraphicsGetCurrentContext() is nil. You may have a UIView with CGRectZero");
         return nil;
     }
     else

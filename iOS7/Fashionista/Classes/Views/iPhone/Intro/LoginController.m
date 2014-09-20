@@ -88,13 +88,13 @@
     AppConfig *config = [AppConfig getInstance];
     config.userIsLogin = 0;
     
-    NSLog(@"FB Login error");
+    // NSLog(@"FB Login error");
     
 }
 
 - (void) loginViewFetchedUserInfo:(FBLoginView *)loginView user:(id<FBGraphUser>)user
 {
-    NSLog(@"FB user = %@", user);
+    // NSLog(@"FB user = %@", user);
     
     // here we store user id, but only one of them
     // suppose there are different FB ids
@@ -126,7 +126,7 @@
     AppConfig *config = [AppConfig getInstance];
     config.userIsLogin = 1;
     
-    NSLog(@"FB Login");
+    // NSLog(@"FB Login");
 }
 
 - (void) loginViewShowingLoggedOutUser:(FBLoginView *)loginView
@@ -135,7 +135,7 @@
     [user logout];
     
     
-    NSLog(@"FB Logout");
+    // NSLog(@"FB Logout");
     
 }
 
