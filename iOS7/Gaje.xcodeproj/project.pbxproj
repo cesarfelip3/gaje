@@ -2069,7 +2069,7 @@
 				ORGANIZATIONNAME = AppDesignVault;
 				TargetAttributes = {
 					7FA4DA78164AC7DC00556574 = {
-						DevelopmentTeam = B3HENJNTL4;
+						DevelopmentTeam = F37QM8U49Y;
 						SystemCapabilities = {
 							com.apple.InterAppAudio = {
 								enabled = 0;
@@ -2514,7 +2514,8 @@
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Cesar-Felipe Silva (89CZMQY5NA)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: GAJE LLC (F37QM8U49Y)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -2543,7 +2544,8 @@
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Cesar-Felipe Silva (B3HENJNTL4)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: GAJE LLC (F37QM8U49Y)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
