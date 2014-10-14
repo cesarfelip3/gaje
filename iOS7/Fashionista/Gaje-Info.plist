@@ -35,9 +35,13 @@
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>None</string>
+			<key>CFBundleURLIconFile</key>
+			<string></string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>fb1438002113108119</string>
+				<string>fb829338623767075</string>
 			</array>
 		</dict>
 	</array>
@@ -46,7 +50,7 @@
 	<key>FacebookAppID</key>
 	<string>829338623767075</string>
 	<key>FacebookDisplayName</key>
-	<string>Gaje App</string>
+	<string>Gaje</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>UIAppFonts</key>

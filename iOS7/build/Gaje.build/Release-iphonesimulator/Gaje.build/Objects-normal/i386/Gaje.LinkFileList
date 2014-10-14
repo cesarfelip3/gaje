@@ -13,7 +13,6 @@
 /Volumes/DOS/work.current/work.ios/gaje/iOS7/build/Gaje.build/Release-iphonesimulator/Gaje.build/Objects-normal/i386/Note.o
 /Volumes/DOS/work.current/work.ios/gaje/iOS7/build/Gaje.build/Release-iphonesimulator/Gaje.build/Objects-normal/i386/AFHTTPSessionManager.o
 /Volumes/DOS/work.current/work.ios/gaje/iOS7/build/Gaje.build/Release-iphonesimulator/Gaje.build/Objects-normal/i386/DetailViewController.o
-/Volumes/DOS/work.current/work.ios/gaje/iOS7/build/Gaje.build/Release-iphonesimulator/Gaje.build/Objects-normal/i386/FMDatabaseQueue.o
 /Volumes/DOS/work.current/work.ios/gaje/iOS7/build/Gaje.build/Release-iphonesimulator/Gaje.build/Objects-normal/i386/BrandListView.o
 /Volumes/DOS/work.current/work.ios/gaje/iOS7/build/Gaje.build/Release-iphonesimulator/Gaje.build/Objects-normal/i386/FollowingProfileController.o
 /Volumes/DOS/work.current/work.ios/gaje/iOS7/build/Gaje.build/Release-iphonesimulator/Gaje.build/Objects-normal/i386/PSTCollectionView.o
@@ -29,7 +28,6 @@
 /Volumes/DOS/work.current/work.ios/gaje/iOS7/build/Gaje.build/Release-iphonesimulator/Gaje.build/Objects-normal/i386/CommentItemCell.o
 /Volumes/DOS/work.current/work.ios/gaje/iOS7/build/Gaje.build/Release-iphonesimulator/Gaje.build/Objects-normal/i386/ProfileController.o
 /Volumes/DOS/work.current/work.ios/gaje/iOS7/build/Gaje.build/Release-iphonesimulator/Gaje.build/Objects-normal/i386/HelpController.o
-/Volumes/DOS/work.current/work.ios/gaje/iOS7/build/Gaje.build/Release-iphonesimulator/Gaje.build/Objects-normal/i386/FMResultSet.o
 /Volumes/DOS/work.current/work.ios/gaje/iOS7/build/Gaje.build/Release-iphonesimulator/Gaje.build/Objects-normal/i386/BoardController.o
 /Volumes/DOS/work.current/work.ios/gaje/iOS7/build/Gaje.build/Release-iphonesimulator/Gaje.build/Objects-normal/i386/SettingCell.o
 /Volumes/DOS/work.current/work.ios/gaje/iOS7/build/Gaje.build/Release-iphonesimulator/Gaje.build/Objects-normal/i386/NSIndexPath+PSTCollectionViewAdditions.o
@@ -84,6 +82,7 @@
 /Volumes/DOS/work.current/work.ios/gaje/iOS7/build/Gaje.build/Release-iphonesimulator/Gaje.build/Objects-normal/i386/NGTabBarItem.o
 /Volumes/DOS/work.current/work.ios/gaje/iOS7/build/Gaje.build/Release-iphonesimulator/Gaje.build/Objects-normal/i386/NotificationDetailController.o
 /Volumes/DOS/work.current/work.ios/gaje/iOS7/build/Gaje.build/Release-iphonesimulator/Gaje.build/Objects-normal/i386/UINavigationController+NGTabBarNavigationDelegate.o
+/Volumes/DOS/work.current/work.ios/gaje/iOS7/build/Gaje.build/Release-iphonesimulator/Gaje.build/Objects-normal/i386/FMResultSet.o
 /Volumes/DOS/work.current/work.ios/gaje/iOS7/build/Gaje.build/Release-iphonesimulator/Gaje.build/Objects-normal/i386/UIViewController+NGTabBarItem.o
 /Volumes/DOS/work.current/work.ios/gaje/iOS7/build/Gaje.build/Release-iphonesimulator/Gaje.build/Objects-normal/i386/AFHTTPRequestOperationManager.o
 /Volumes/DOS/work.current/work.ios/gaje/iOS7/build/Gaje.build/Release-iphonesimulator/Gaje.build/Objects-normal/i386/FacingView.o
@@ -94,6 +93,8 @@
 /Volumes/DOS/work.current/work.ios/gaje/iOS7/build/Gaje.build/Release-iphonesimulator/Gaje.build/Objects-normal/i386/MultiFoldView.o
 /Volumes/DOS/work.current/work.ios/gaje/iOS7/build/Gaje.build/Release-iphonesimulator/Gaje.build/Objects-normal/i386/iToast.o
 /Volumes/DOS/work.current/work.ios/gaje/iOS7/build/Gaje.build/Release-iphonesimulator/Gaje.build/Objects-normal/i386/Detail3Controller.o
+/Volumes/DOS/work.current/work.ios/gaje/iOS7/build/Gaje.build/Release-iphonesimulator/Gaje.build/Objects-normal/i386/FMDatabasePool.o
+/Volumes/DOS/work.current/work.ios/gaje/iOS7/build/Gaje.build/Release-iphonesimulator/Gaje.build/Objects-normal/i386/FMDatabaseQueue.o
 /Volumes/DOS/work.current/work.ios/gaje/iOS7/build/Gaje.build/Release-iphonesimulator/Gaje.build/Objects-normal/i386/ProfileItemCell.o
 /Volumes/DOS/work.current/work.ios/gaje/iOS7/build/Gaje.build/Release-iphonesimulator/Gaje.build/Objects-normal/i386/PaperFoldNavigationController.o
 /Volumes/DOS/work.current/work.ios/gaje/iOS7/build/Gaje.build/Release-iphonesimulator/Gaje.build/Objects-normal/i386/PaperFoldSwipeHintView.o
@@ -105,7 +106,6 @@
 /Volumes/DOS/work.current/work.ios/gaje/iOS7/build/Gaje.build/Release-iphonesimulator/Gaje.build/Objects-normal/i386/TouchThroughUIView.o
 /Volumes/DOS/work.current/work.ios/gaje/iOS7/build/Gaje.build/Release-iphonesimulator/Gaje.build/Objects-normal/i386/UIView+Screenshot.o
 /Volumes/DOS/work.current/work.ios/gaje/iOS7/build/Gaje.build/Release-iphonesimulator/Gaje.build/Objects-normal/i386/RCSwitch.o
-/Volumes/DOS/work.current/work.ios/gaje/iOS7/build/Gaje.build/Release-iphonesimulator/Gaje.build/Objects-normal/i386/FMDatabasePool.o
 /Volumes/DOS/work.current/work.ios/gaje/iOS7/build/Gaje.build/Release-iphonesimulator/Gaje.build/Objects-normal/i386/RCSwitchOnOff.o
 /Volumes/DOS/work.current/work.ios/gaje/iOS7/build/Gaje.build/Release-iphonesimulator/Gaje.build/Objects-normal/i386/Image.o
 /Volumes/DOS/work.current/work.ios/gaje/iOS7/build/Gaje.build/Release-iphonesimulator/Gaje.build/Objects-normal/i386/AFURLSessionManager.o
@@ -114,13 +114,13 @@
 /Volumes/DOS/work.current/work.ios/gaje/iOS7/build/Gaje.build/Release-iphonesimulator/Gaje.build/Objects-normal/i386/BoardDetailController.o
 /Volumes/DOS/work.current/work.ios/gaje/iOS7/build/Gaje.build/Release-iphonesimulator/Gaje.build/Objects-normal/i386/Brander.o
 /Volumes/DOS/work.current/work.ios/gaje/iOS7/build/Gaje.build/Release-iphonesimulator/Gaje.build/Objects-normal/i386/AFURLConnectionOperation.o
-/Volumes/DOS/work.current/work.ios/gaje/iOS7/build/Gaje.build/Release-iphonesimulator/Gaje.build/Objects-normal/i386/FMDatabaseAdditions.o
 /Volumes/DOS/work.current/work.ios/gaje/iOS7/build/Gaje.build/Release-iphonesimulator/Gaje.build/Objects-normal/i386/FollowersController.o
 /Volumes/DOS/work.current/work.ios/gaje/iOS7/build/Gaje.build/Release-iphonesimulator/Gaje.build/Objects-normal/i386/PSTGridLayoutItem.o
-/Volumes/DOS/work.current/work.ios/gaje/iOS7/build/Gaje.build/Release-iphonesimulator/Gaje.build/Objects-normal/i386/FMDatabase.o
 /Volumes/DOS/work.current/work.ios/gaje/iOS7/build/Gaje.build/Release-iphonesimulator/Gaje.build/Objects-normal/i386/Image+ImageApi.o
+/Volumes/DOS/work.current/work.ios/gaje/iOS7/build/Gaje.build/Release-iphonesimulator/Gaje.build/Objects-normal/i386/FMDatabase.o
 /Volumes/DOS/work.current/work.ios/gaje/iOS7/build/Gaje.build/Release-iphonesimulator/Gaje.build/Objects-normal/i386/SMPageControl.o
 /Volumes/DOS/work.current/work.ios/gaje/iOS7/build/Gaje.build/Release-iphonesimulator/Gaje.build/Objects-normal/i386/SSDrawingUtilities.o
+/Volumes/DOS/work.current/work.ios/gaje/iOS7/build/Gaje.build/Release-iphonesimulator/Gaje.build/Objects-normal/i386/FMDatabaseAdditions.o
 /Volumes/DOS/work.current/work.ios/gaje/iOS7/build/Gaje.build/Release-iphonesimulator/Gaje.build/Objects-normal/i386/SSTextField.o
 /Volumes/DOS/work.current/work.ios/gaje/iOS7/build/Gaje.build/Release-iphonesimulator/Gaje.build/Objects-normal/i386/ItemCollectionCell.o
 /Volumes/DOS/work.current/work.ios/gaje/iOS7/build/Gaje.build/Release-iphonesimulator/Gaje.build/Objects-normal/i386/MasterViewController_iPad.o

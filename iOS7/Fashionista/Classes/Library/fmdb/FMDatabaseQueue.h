@@ -41,7 +41,7 @@
         [db executeUpdate:@"INSERT INTO myTable VALUES (?)", [NSNumber numberWithInt:2]];
         [db executeUpdate:@"INSERT INTO myTable VALUES (?)", [NSNumber numberWithInt:3]];
 
-        if (whWarningSomethingWrongHappened) {
+        if (whoopsSomethingWrongHappened) {
             *rollback = YES;
             return;
         }
@@ -68,7 +68,12 @@
     int                 _openFlags;
 }
 
+/** Path of database */
+
 @property (atomic, retain) NSString *path;
+
+/** Open flags */
+
 @property (atomic, readonly) int openFlags;
 
 ///----------------------------------------------------
