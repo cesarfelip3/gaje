@@ -87,7 +87,7 @@
     // NSLog(@"choose");
     
     // NSLog(@"name = %@", self.photo.name);
-    // NSLog(@"description = %@", self.photo.description);
+    // NSLog(@"description = %@", self.photo.desc);
     
     if (self.photo.name == nil || [self.photo.name isEqualToString:@""]) {
 #if false
@@ -137,7 +137,7 @@
     // NSLog(@"choose");
     
     // NSLog(@"name = %@", self.photo.name);
-    // NSLog(@"description = %@", self.photo.description);
+    // NSLog(@"description = %@", self.photo.desc);
     
     if (self.photo.name == nil || [self.photo.name isEqualToString:@""]) {
         
@@ -246,7 +246,7 @@
         NSString *filePath = [cache getImagePath:self.photo.fileName];
         AppConfig *config = [AppConfig getInstance];
         
-        if (self.photo.description == nil) {
+        if (self.photo.desc == nil) {
             self.photo.desc = @"";
         }
         
@@ -264,7 +264,7 @@
             }
         }
         
-        NSDictionary *data = @{@"file_path":filePath, @"file_name":self.photo.fileName, @"name":self.photo.name, @"description":self.photo.description, @"user_uuid":config.uuid, @"theme_array":themes};
+        NSDictionary *data = @{@"file_path":filePath, @"file_name":self.photo.fileName, @"name":self.photo.name, @"description":self.photo.desc, @"user_uuid":config.uuid, @"theme_array":themes};
         
         self.photo.delegate = self;
         [self.photo upload:data ProgressBar:self.progressBar];

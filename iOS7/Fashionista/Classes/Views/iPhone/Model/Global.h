@@ -39,6 +39,8 @@
 #define API_IMAGE_BRANDER_ADD   @"%@%@image/brander/add"
 #define API_IMAGE_BRANDER_LIST  @"%@%@image/brander/list"
 
+#define API_IMAGE_BRANDER_TOP  @"%@%@image/brander/top"
+
 
 #define API_THEME_LIST      @"%@%@theme/list"
 #define API_NOTE_LIST       @"%@%@note/list"

@@ -86,7 +86,7 @@
     if ([self.noteArray count] > 0) {
         self.note = [self.noteArray objectAtIndex:0];
         self.titleLabel.text = self.note.name;
-        self.contentTextView.text = self.note.description;
+        self.contentTextView.text = self.note.desc;
     }
     
     return YES;

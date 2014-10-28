@@ -86,7 +86,7 @@
     if ([self.themeArray count] > 0) {
         self.theme = [self.themeArray objectAtIndex:0];
         self.titleLabel.text = self.theme.name;
-        self.contentTextView.text = self.theme.description;
+        self.contentTextView.text = self.theme.desc;
     }
     
     return YES;
