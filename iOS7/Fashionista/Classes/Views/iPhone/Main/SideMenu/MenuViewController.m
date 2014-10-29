@@ -61,6 +61,7 @@
     [tap setCancelsTouchesInView:NO];
     
     
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 50)];
 }
 
 - (void)viewDidAppear:(BOOL)animated

@@ -23,5 +23,6 @@
 - (BOOL)addBrander:(NSDictionary *)values Token:(NSString*)token;
 - (BOOL)fetchBranderList:(NSMutableArray *)branderArray Token:(NSString *)token;
 
+- (BOOL)fetchLatestTopBrander:(NSMutableArray *)imageArray Token:(NSString *)token;
 
 @end

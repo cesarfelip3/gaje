@@ -473,12 +473,15 @@ sizeOfItemForViewController:(UIViewController *)viewController
                     controllerIdentifier = @"AccountNav";
                     break;
                 case 1:
-                    controllerIdentifier = @"FollowersNav";
+                    controllerIdentifier = @"TopBrandsNav";
                     break;
                 case 2:
-                    controllerIdentifier = @"FollowingNav";
+                    controllerIdentifier = @"FollowersNav";
                     break;
                 case 3:
+                    controllerIdentifier = @"FollowingNav";
+                    break;
+                case 4:
                     controllerIdentifier = @"NotifyNav";
                     break;
                 default:

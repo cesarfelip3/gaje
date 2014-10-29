@@ -65,7 +65,7 @@
                             @{
                                 @"title": @"Notes",
                                 @"image": @"" //@"menu-icon5"
-                                },
+                                }
 
                             ]
                  },
@@ -75,6 +75,10 @@
                          @{
                              @"title": @"Profile",
                              @"image": @"" //@"menu-icon4"
+                             },
+                        @{
+                             @"title": @"Top Branded",
+                             @"image": @"" //@"menu-icon5"
                              },
                          @{
                              @"title": @"Tracking",

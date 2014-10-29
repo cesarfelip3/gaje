@@ -299,6 +299,8 @@
 		CE31DC231970352C003DFC08 /* Icon-120.png in Resources */ = {isa = PBXBuildFile; fileRef = CE31DC221970352C003DFC08 /* Icon-120.png */; };
 		CE31DC25197035BB003DFC08 /* Icon-80.png in Resources */ = {isa = PBXBuildFile; fileRef = CE31DC24197035BB003DFC08 /* Icon-80.png */; };
 		CE33332219C9F26C0004AAAF /* settings-128.png in Resources */ = {isa = PBXBuildFile; fileRef = CE33332119C9F26C0004AAAF /* settings-128.png */; };
+		CE3968431A011AD400672BEA /* TopBrandsController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3968411A011AD400672BEA /* TopBrandsController.m */; };
+		CE3968441A011AD400672BEA /* TopBrandsDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3968421A011AD400672BEA /* TopBrandsDetailController.m */; };
 		CE40D078198B4F4100069817 /* UserSearchProfileController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE40D077198B4F4100069817 /* UserSearchProfileController.m */; };
 		CE40D07C198B506F00069817 /* UserSearchResultController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE40D07B198B506F00069817 /* UserSearchResultController.m */; };
 		CE54CFAC1967C49E005C1FFE /* Comment.m in Sources */ = {isa = PBXBuildFile; fileRef = CE54CFAB1967C49E005C1FFE /* Comment.m */; };
@@ -760,6 +762,10 @@
 		CE31DC221970352C003DFC08 /* Icon-120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-120.png"; sourceTree = "<group>"; };
 		CE31DC24197035BB003DFC08 /* Icon-80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-80.png"; sourceTree = "<group>"; };
 		CE33332119C9F26C0004AAAF /* settings-128.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settings-128.png"; sourceTree = "<group>"; };
+		CE39683F1A011AD400672BEA /* TopBrandsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopBrandsController.h; sourceTree = "<group>"; };
+		CE3968401A011AD400672BEA /* TopBrandsDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopBrandsDetailController.h; sourceTree = "<group>"; };
+		CE3968411A011AD400672BEA /* TopBrandsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopBrandsController.m; sourceTree = "<group>"; };
+		CE3968421A011AD400672BEA /* TopBrandsDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopBrandsDetailController.m; sourceTree = "<group>"; };
 		CE40D076198B4F4100069817 /* UserSearchProfileController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserSearchProfileController.h; sourceTree = "<group>"; };
 		CE40D077198B4F4100069817 /* UserSearchProfileController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserSearchProfileController.m; sourceTree = "<group>"; };
 		CE40D07A198B506F00069817 /* UserSearchResultController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserSearchResultController.h; sourceTree = "<group>"; };
@@ -1836,9 +1842,21 @@
 			path = Following;
 			sourceTree = "<group>";
 		};
+		CE39683D1A011A7700672BEA /* TopBrands */ = {
+			isa = PBXGroup;
+			children = (
+				CE39683F1A011AD400672BEA /* TopBrandsController.h */,
+				CE3968411A011AD400672BEA /* TopBrandsController.m */,
+				CE3968401A011AD400672BEA /* TopBrandsDetailController.h */,
+				CE3968421A011AD400672BEA /* TopBrandsDetailController.m */,
+			);
+			path = TopBrands;
+			sourceTree = "<group>";
+		};
 		CE695FCE1906A7D100D464E4 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				CE39683D1A011A7700672BEA /* TopBrands */,
 				CECD2FD3198A878B00DB020C /* Search */,
 				7F2A5D6F1736E16C00551439 /* Board */,
 				7F2A5D731736E17400551439 /* Theme */,
@@ -2388,6 +2406,7 @@
 				CEAD66F319CD3A5A00231202 /* AFURLResponseSerialization.m in Sources */,
 				CE71A96A1963EF0800ADB5B0 /* Theme.m in Sources */,
 				CE1A077F19CC91F40089D5A0 /* FSNData.m in Sources */,
+				CE3968431A011AD400672BEA /* TopBrandsController.m in Sources */,
 				7FA7DCCB1737A0F700A50E20 /* MenuViewController.m in Sources */,
 				7FA7DCD61737B78300A50E20 /* NavigationSelectViewController.m in Sources */,
 				7FA7DCD71737B78300A50E20 /* SettingsViewController.m in Sources */,
@@ -2441,6 +2460,7 @@
 				CEF7E6D019ECBC3F009C5632 /* FMDatabasePool.m in Sources */,
 				CEF7E6D119ECBC3F009C5632 /* FMDatabaseQueue.m in Sources */,
 				CEF41B03198911D20077DD22 /* ProfileItemCell.m in Sources */,
+				CE3968441A011AD400672BEA /* TopBrandsDetailController.m in Sources */,
 				7FA7DD8217384D3000A50E20 /* PaperFoldNavigationController.m in Sources */,
 				7FA7DD8417384D3000A50E20 /* PaperFoldSwipeHintView.m in Sources */,
 				CEBABB3719712A670054710E /* FollowerProfileController.m in Sources */,
