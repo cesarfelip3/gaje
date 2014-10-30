@@ -93,7 +93,7 @@
         
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
         
-        NSLog(@"Error: %@", operation.response);
+        //NSLog(@"Error: %@", operation.response);
         NSLog(@"Error: %@", operation.responseObject);
         
         NSString *message = [operation.responseObject objectForKey:@"message"];
@@ -103,9 +103,23 @@
             self.errorMessage = message;
             //return;
         }
+        
+        NSDictionary *data = [operation.responseObject objectForKey:@"data"];
+        
+        if ([data count] >= 1) {
             
-        self.errorMessage = [NSString stringWithFormat:@"We got unknow error from server, and networking functionality in app will be not available, you can go 'setting' page and try to re-connect to the server, if there are any question, please send us email %@", CONTACT_EMAIL];
-        [self.delegate onCallback:1];
+            NSInteger disabled = [[data objectForKey:@"disabled"] integerValue];
+            
+            if (disabled == 1) {
+                [self logout];
+                self.errorMessage = [operation.responseObject objectForKey:@"message"];
+                [self.delegate onCallback:1];
+            }
+        } else {
+            
+            self.errorMessage = [NSString stringWithFormat:@"We got unknow error from server, and networking functionality in app will be not available, you can go 'setting' page and try to re-connect to the server, if there are any question, please send us email %@", CONTACT_EMAIL];
+            [self.delegate onCallback:1];
+        }
         
     }];
     

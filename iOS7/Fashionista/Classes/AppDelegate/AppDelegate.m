@@ -217,8 +217,9 @@ static AppDelegate *sharedDelegate;
     if (type > 0) {
         
         [self.loginView setHidden:NO];
+        User *user = [User getInstance];
         
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"We have encoutered an issue to sync your user account with our service, you may have to logout in setting and try it later, if the error persist, please contact with us for further help" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:user.errorMessage delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [alert show];
         return NO;
     
