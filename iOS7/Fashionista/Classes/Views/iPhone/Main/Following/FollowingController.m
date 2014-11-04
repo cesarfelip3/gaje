@@ -170,7 +170,7 @@
         [cell setBackgroundColor:[UIColor clearColor]];
         [cell.textLabel setFont:[UIFont systemFontOfSize:12]];
         [cell.textLabel setTextColor:[UIColor lightGrayColor]];
-        [cell.textLabel setText:@"Are you tracking anyone else?"];
+        [cell.textLabel setText:@"You are not tracking anyone at the moment, pull to update"];
         return cell;
     }
     
