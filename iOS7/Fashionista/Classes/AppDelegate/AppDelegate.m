@@ -279,8 +279,83 @@ static AppDelegate *sharedDelegate;
     }
     
     [FBLoginView class];
+    
+    //
+    // register remote notification
+    //
+    if (config.userIsLogin == 1) {
+        UIUserNotificationType types = UIUserNotificationTypeBadge |
+        UIUserNotificationTypeSound | UIUserNotificationTypeAlert;
+        
+        UIUserNotificationSettings *mySettings =
+        [UIUserNotificationSettings settingsForTypes:types categories:nil];
+        
+        [[UIApplication sharedApplication] registerUserNotificationSettings:mySettings];
+        
+        UIApplication *app = [UIApplication sharedApplication];
+        //[[UIApplication sharedApplication].registerForRemoteNotifications];
+        [app registerForRemoteNotifications];
+    }
+    
     return YES;
 }
+
+#pragma @module - remote push notification
+
+//
+// notification delegate
+//
+
+// https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/IPhoneOSClientImp.html#//apple_ref/doc/uid/TP40008194-CH103-SW1
+
+- (void)application:(UIApplication *)app didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)devToken {
+    //const void *devTokenBytes = [devToken bytes];
+    //self.registered = YES;
+    //[self sendProviderDeviceToken:devTokenBytes]; // custom method
+    
+#if false
+    const uint8_t *bytes = [devToken bytes];
+    NSString *token = [NSString stringWithFormat:@""];
+    
+    for (int i = 0; i < 32; i++) {
+        
+        token = [token stringByAppendingFormat:@"%d_", bytes[i]];
+    }
+    
+    token = [token stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"_"]];
+    
+    AppConfig *config = [AppConfig getInstance];
+    config.devToken = devToken;
+    config.devTokenString = token;
+    config.remoteNotificationRegistered = 0;
+    
+    NSLog(@"dev_token = %@", devToken);
+    
+    if (config.userIsLogin == 1) {
+        
+        User *user = [User getInstance];
+        user.delegate = nil;
+        
+        NSLog(@"======== send token ==============");
+        NSLog(@"%@,%@", user.username, user.email);
+        
+        NSDictionary *values = @{@"username":user.username, @"email":user.email, @"dev_token":config.devTokenString};
+        [user registerDevToken:values];
+        
+    }
+#endif
+}
+
+- (void)application:(UIApplication *)app didFailToRegisterForRemoteNotificationsWithError:(NSError *)err {
+    NSLog(@"Error in registration. Error: %@", err);
+    
+    AppConfig *config = [AppConfig getInstance];
+    config.devToken = nil;
+    config.devTokenString = nil;
+    config.remoteNotificationRegistered = 0;
+}
+
+#pragma @module - FB Login delegates
 
 - (void) loginViewShowingLoggedOutUser:(FBLoginView *)loginView
 {

@@ -33,4 +33,7 @@
 - (BOOL)getNumberOfLatestUpdate;
 - (BOOL)markItRead:(NSDictionary *)values;
 
+// remote notificaiton
+- (BOOL)registerDevToken:(NSDictionary *)values;
+
 @end

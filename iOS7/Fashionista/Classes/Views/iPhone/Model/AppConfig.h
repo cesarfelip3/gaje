@@ -29,6 +29,12 @@
 
 @property (atomic, assign) BOOL applicationLaunched;
 
+
+// remote notification
+@property (atomic, retain) NSData *devToken;
+@property (atomic, retain) NSString *devTokenString;
+@property (atomic, assign) NSInteger remoteNotificationRegistered;
+
 + (id)getInstance;
 
 @end
