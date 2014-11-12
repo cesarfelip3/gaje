@@ -35,5 +35,6 @@
 
 // remote notificaiton
 - (BOOL)registerDevToken:(NSDictionary *)values;
+- (BOOL)enableAPN:(NSDictionary *)values;
 
 @end

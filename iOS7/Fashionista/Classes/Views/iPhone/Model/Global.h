@@ -39,7 +39,10 @@
 #define API_IMAGE_BRANDER_ADD   @"%@%@image/brander/add"
 #define API_IMAGE_BRANDER_LIST  @"%@%@image/brander/list"
 
-#define API_IMAGE_BRANDER_TOP  @"%@%@image/brander/top"
+#define API_IMAGE_BRANDER_TOP   @"%@%@image/brander/top"
+
+#define API_APN_REGISTER        @"%@%@apn/register"
+#define API_APN_ENABLE          @"%@%@apn/enable"
 
 
 #define API_THEME_LIST      @"%@%@theme/list"

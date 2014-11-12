@@ -1026,10 +1026,9 @@
         return NO;
     }
     
-    NSDictionary *data = @{@"user_uuid":self.userUUID};
     
-    NSString *api = [NSString stringWithFormat:API_USER_GET_NOTIFY, API_BASE_URL, API_BASE_VERSION];
-    NSDictionary *parameters = data;
+    NSString *api = [NSString stringWithFormat:API_APN_REGISTER, API_BASE_URL, API_BASE_VERSION];
+    NSDictionary *parameters = values;
     
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     
@@ -1041,18 +1040,14 @@
     [manager POST:api parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-        // NSLog(@"JSON: %@", responseObject);
+        NSLog(@"JSON: %@", responseObject);
         
         NSString *status = [(NSDictionary *)responseObject objectForKey:@"status"];
         
         if ([status isEqualToString:@"success"]) {
             
-            NSDictionary *data = [responseObject objectForKey:@"data"];
+            
         }
-        
-        
-        self.errorMessage = [responseObject objectForKey:@"message"];
-        [(self.delegate) onCallback:0];
         
         return;
         
@@ -1061,14 +1056,55 @@
         
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
         
-        // NSLog(@"Error: %@", operation.response);
-        // NSLog(@"Error: %@", operation.responseObject);
+        NSLog(@"Error: %@", operation.response);
+        NSLog(@"Error: %@", operation.responseObject);
     }];
     
     return YES;
 }
    
+- (BOOL)enableAPN:(NSDictionary *)values
+{
+    if (!self.userUUID) {
+        return NO;
+    }
     
+    
+    NSString *api = [NSString stringWithFormat:API_APN_ENABLE, API_BASE_URL, API_BASE_VERSION];
+    NSDictionary *parameters = values;
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    
+    NSString* token = [self getToken];
+    
+    manager.requestSerializer = [AFHTTPRequestSerializer serializer];
+    [manager.requestSerializer setValue:token forHTTPHeaderField:@"X-AUTH-KEY"];
+    
+    [manager POST:api parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+        NSLog(@"JSON: %@", responseObject);
+        
+        NSString *status = [(NSDictionary *)responseObject objectForKey:@"status"];
+        
+        if ([status isEqualToString:@"success"]) {
+            
+            
+        }
+        
+        return;
+        
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        
+        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+        
+        NSLog(@"Error: %@", operation.response);
+        NSLog(@"Error: %@", operation.responseObject);
+    }];
+    
+    return YES;
+}
     
 
 #if true

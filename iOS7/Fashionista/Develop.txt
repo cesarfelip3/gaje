@@ -9,6 +9,10 @@ it will send the information to remote device from APN...
 
 Then what's new? What's not?
 
+In background or not running...
+
+why can't generate .pem?
+
 
 Networking
 ==========

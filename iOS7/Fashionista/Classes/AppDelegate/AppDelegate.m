@@ -63,6 +63,20 @@ static AppDelegate *sharedDelegate;
         [user login:data];
     }
     
+    //
+    // handle remote notification
+    //
+    if (config.userIsLogin == 1) {
+        UILocalNotification *notification =
+        [launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey];
+        
+        if (notification) {
+            //NSString *itemName = [localNotif.userInfo objectForKey:ToDoItemKey];
+            //[viewController displayItem:itemName];  // custom method
+            application.applicationIconBadgeNumber = notification.applicationIconBadgeNumber - 1;
+        }
+    }
+    
     if (config.userIsLogin == 1) {
     
         [ADVThemeManager customizeAppAppearance];
@@ -323,13 +337,13 @@ static AppDelegate *sharedDelegate;
     //self.registered = YES;
     //[self sendProviderDeviceToken:devTokenBytes]; // custom method
     
-#if false
+#if true
     const uint8_t *bytes = [devToken bytes];
     NSString *token = [NSString stringWithFormat:@""];
     
     for (int i = 0; i < 32; i++) {
         
-        token = [token stringByAppendingFormat:@"%d_", bytes[i]];
+        token = [token stringByAppendingFormat:@"%0x", bytes[i]];
     }
     
     token = [token stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"_"]];
@@ -340,16 +354,14 @@ static AppDelegate *sharedDelegate;
     config.remoteNotificationRegistered = 0;
     
     NSLog(@"dev_token = %@", devToken);
+    NSLog(@"dev_token = %@", token);
     
     if (config.userIsLogin == 1) {
         
         User *user = [User getInstance];
         user.delegate = nil;
         
-        NSLog(@"======== send token ==============");
-        NSLog(@"%@,%@", user.username, user.email);
-        
-        NSDictionary *values = @{@"username":user.username, @"email":user.email, @"dev_token":config.devTokenString};
+        NSDictionary *values = @{@"user_uuid":user.userUUID, @"token":config.devTokenString};
         [user registerDevToken:values];
         
     }
@@ -363,6 +375,16 @@ static AppDelegate *sharedDelegate;
     config.devToken = nil;
     config.devTokenString = nil;
     config.remoteNotificationRegistered = 0;
+}
+
+- (void)application:(UIApplication *)application handleActionWithIdentifier:(NSString *)identifier forRemoteNotification:(NSDictionary *)userInfo completionHandler:(void (^)())completionHandler
+{
+    
+}
+
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler
+{
+    
 }
 
 #pragma @module - FB Login delegates
@@ -680,13 +702,29 @@ sizeOfItemForViewController:(UIViewController *)viewController
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
     
+    AppConfig *config = [AppConfig getInstance];
     
-    
+    if (config.userIsLogin == 1) {
+        
+        NSDictionary *values = @{@"user_uuid":[[User getInstance] userUUID], @"enable":@"1"};
+        [[User getInstance] enableAPN:values];
+    }    
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application
 {
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+    
+#if 0
+    AppConfig *config = [AppConfig getInstance];
+    
+    if (config.userIsLogin == 1) {
+        
+        NSDictionary *values = @{@"user_uuid":[[User getInstance] userUUID], @"enable":@"1"};
+        [[User getInstance] enableAPN:values];
+    }
+#endif
+    
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application
