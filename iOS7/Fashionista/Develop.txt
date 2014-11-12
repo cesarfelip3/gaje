@@ -12,6 +12,11 @@ Then what's new? What's not?
 In background or not running...
 
 why can't generate .pem?
+hhvm 3+ didn't support socket SSL!!
+
+Now the issue is that ==
+
+We need more in app to handle remote notificaiton!
 
 
 Networking
