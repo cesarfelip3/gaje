@@ -354,7 +354,7 @@
         <!--Elements-->
         <scene sceneID="T70-ho-rYQ">
             <objects>
-                <tabBarController storyboardIdentifier="" title="Elements" id="ETW-4A-0xx" customClass="CustomTabBarViewController" sceneMemberID="viewController">
+                <tabBarController title="Elements" id="ETW-4A-0xx" customClass="CustomTabBarViewController" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="3Oj-MN-EXA"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="wdi-hU-0hi">

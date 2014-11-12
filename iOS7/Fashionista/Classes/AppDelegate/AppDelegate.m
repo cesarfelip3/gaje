@@ -284,17 +284,27 @@ static AppDelegate *sharedDelegate;
     // register remote notification
     //
     if (config.userIsLogin == 1) {
-        UIUserNotificationType types = UIUserNotificationTypeBadge |
-        UIUserNotificationTypeSound | UIUserNotificationTypeAlert;
         
-        UIUserNotificationSettings *mySettings =
-        [UIUserNotificationSettings settingsForTypes:types categories:nil];
+        if ([[UIApplication sharedApplication] respondsToSelector:@selector(registerUserNotificationSettings:)]) {
+            
+            UIUserNotificationType types = UIUserNotificationTypeBadge |
+            UIUserNotificationTypeSound | UIUserNotificationTypeAlert;
+            
+            UIUserNotificationSettings *mySettings =
+            [UIUserNotificationSettings settingsForTypes:types categories:nil];
+            [[UIApplication sharedApplication] registerUserNotificationSettings:mySettings];
+            
+            UIApplication *app = [UIApplication sharedApplication];
+            //[[UIApplication sharedApplication].registerForRemoteNotifications];
+            [app registerForRemoteNotifications];
+            
+        } else {
+            
+            [[UIApplication sharedApplication] registerForRemoteNotificationTypes: (UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
+        }
         
-        [[UIApplication sharedApplication] registerUserNotificationSettings:mySettings];
         
-        UIApplication *app = [UIApplication sharedApplication];
-        //[[UIApplication sharedApplication].registerForRemoteNotifications];
-        [app registerForRemoteNotifications];
+        
     }
     
     return YES;

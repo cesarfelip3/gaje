@@ -1,6 +1,14 @@
 Develop
 =========
 
+Remote Notification
+===================
+
+When the new comment, brand or any other update coming and user was at background or not running at all,
+it will send the information to remote device from APN...
+
+Then what's new? What's not?
+
 
 Networking
 ==========
