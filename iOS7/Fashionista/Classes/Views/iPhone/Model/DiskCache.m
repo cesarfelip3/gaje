@@ -28,7 +28,7 @@
 }
 
 - (void)initCache {
-    NSString *document = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+    NSString *document = NSTemporaryDirectory();
     
     if ([[NSFileManager defaultManager] fileExistsAtPath:[NSString stringWithFormat:@"%@/cache/image", document]]) {
         _imageCachePath = [NSString stringWithFormat:@"%@/cache/image", document];

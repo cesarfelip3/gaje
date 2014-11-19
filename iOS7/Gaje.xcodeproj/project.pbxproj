@@ -2588,7 +2588,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer: Grant Fawson (ZBEH28NAJ5)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Grant Fawson (ZBEH28NAJ5)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -2601,7 +2601,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = Gaje;
-				PROVISIONING_PROFILE = "ce5f3b76-c442-40a9-9384-1afa360d947f";
+				PROVISIONING_PROFILE = "63cb1b1a-03a3-417f-a30b-01f06b93604e";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -2624,7 +2624,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = Gaje;
-				PROVISIONING_PROFILE = "ce5f3b76-c442-40a9-9384-1afa360d947f";
+				PROVISIONING_PROFILE = "63cb1b1a-03a3-417f-a30b-01f06b93604e";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
