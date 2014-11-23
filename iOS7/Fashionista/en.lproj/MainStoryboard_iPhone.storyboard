@@ -55,17 +55,21 @@
                                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         </label>
-                                                        <button hidden="YES" opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="C5o-A6-uMw">
-                                                            <rect key="frame" x="155" y="4" width="81" height="35"/>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="C5o-A6-uMw">
+                                                            <rect key="frame" x="185" y="0.0" width="44" height="44"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                                            <state key="normal" title="200 Brands">
+                                                            <inset key="contentEdgeInsets" minX="15" minY="10" maxX="5" maxY="10"/>
+                                                            <state key="normal" image="facebook-128.png">
                                                                 <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                             </state>
                                                             <state key="highlighted">
                                                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             </state>
+                                                            <connections>
+                                                                <action selector="onShareButtonTouched:" destination="HKE-gs-owS" eventType="touchDown" id="Qr0-HK-Wj0"/>
+                                                            </connections>
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="NBr-EK-VzE">
                                                             <rect key="frame" x="227" y="0.0" width="44" height="44"/>
@@ -148,7 +152,7 @@
                                         <connections>
                                             <outlet property="brandContainer" destination="DL5-Vk-bKh" id="D8H-D9-Mi7"/>
                                             <outlet property="btnAction" destination="NBr-EK-VzE" id="fw7-Dx-aDp"/>
-                                            <outlet property="btnBrand" destination="C5o-A6-uMw" id="lTl-Tt-qQY"/>
+                                            <outlet property="btnFBshare" destination="C5o-A6-uMw" id="6GS-Rr-yi6"/>
                                             <outlet property="imageVAvatar" destination="RY0-eG-Pct" id="oiz-9a-DOa"/>
                                             <outlet property="imageVBkg" destination="azB-JO-dVc" id="hzK-4y-HQV"/>
                                             <outlet property="imageVImage" destination="cMo-E3-HTL" id="m4D-QS-Kg4"/>
@@ -2667,6 +2671,7 @@
     </scenes>
     <resources>
         <image name="down4-256.png" width="128" height="128"/>
+        <image name="facebook-128.png" width="128" height="128"/>
         <image name="list-item-cart.png" width="23" height="22"/>
         <image name="list-item-love.png" width="22" height="20"/>
         <image name="menu-separator.png" width="273" height="2"/>

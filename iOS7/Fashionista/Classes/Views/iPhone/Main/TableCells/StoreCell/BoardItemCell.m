@@ -15,6 +15,7 @@
 #import "User.h"
 #import "Brander.h"
 #import "Image+ImageApi.h"
+#import <FacebookSDK/FacebookSDK.h>
 
 @implementation BoardItemCell
 
@@ -111,6 +112,39 @@
     [self.brandContainer loadBranderIcons];
     
     return;
+    
+}
+
+- (IBAction)onShareButtonTouched:(id)sender
+{
+    NSLog(@"sharebutton pressed");
+    return;
+    
+    if ([FBDialogs canPresentShareDialogWithPhotos]) {
+        
+        FBPhotoParams *params = [[FBPhotoParams alloc] init];
+        
+        // Note that params.photos can be an array of images.  In this example
+        // we only use a single image, wrapped in an array.
+        params.photos = NULL;
+        
+        [FBDialogs presentShareDialogWithPhotoParams:params
+                                         clientState:nil
+                                             handler:^(FBAppCall *call,
+                                                       NSDictionary *results,
+                                                       NSError *error) {
+                                                 if (error) {
+                                                     NSLog(@"Error: %@",
+                                                           error.description);
+                                                 } else {
+                                                     NSLog(@"Success!");
+                                                 }
+                                             }];
+        
+    } else {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"To share photo to Facebook, you will have to install Facebook app on your iOS device." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alert show];
+    }
     
 }
 

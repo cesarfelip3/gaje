@@ -354,6 +354,7 @@
 		CEBEBE8019228A7200A0057F /* UploadInitController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEBEBE7F19228A7200A0057F /* UploadInitController.m */; };
 		CEBEBE8319228A8A00A0057F /* UploadController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEBEBE8219228A8A00A0057F /* UploadController.m */; };
 		CECD2FD7198A87E400DB020C /* UserSearchDelegateController.m in Sources */ = {isa = PBXBuildFile; fileRef = CECD2FD6198A87E400DB020C /* UserSearchDelegateController.m */; };
+		CED3DCA71A22875A00E6BF07 /* facebook-128.png in Resources */ = {isa = PBXBuildFile; fileRef = CED3DCA61A22875A00E6BF07 /* facebook-128.png */; };
 		CEDA27C819BB67AB0052ED72 /* Image+ImageApi.m in Sources */ = {isa = PBXBuildFile; fileRef = CEDA27C719BB67AB0052ED72 /* Image+ImageApi.m */; };
 		CEE4CBFD197F7B0800B19317 /* FollowerProfileCommandCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE4CBFC197F7B0800B19317 /* FollowerProfileCommandCell.m */; };
 		CEE65C7F199BAB9C006A2265 /* UpdateInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE65C7E199BAB9C006A2265 /* UpdateInfoCell.m */; };
@@ -860,6 +861,7 @@
 		CEBEBE8219228A8A00A0057F /* UploadController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UploadController.m; sourceTree = "<group>"; };
 		CECD2FD5198A87E400DB020C /* UserSearchDelegateController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserSearchDelegateController.h; sourceTree = "<group>"; };
 		CECD2FD6198A87E400DB020C /* UserSearchDelegateController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserSearchDelegateController.m; sourceTree = "<group>"; };
+		CED3DCA61A22875A00E6BF07 /* facebook-128.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "facebook-128.png"; sourceTree = "<group>"; };
 		CEDA27C619BB67AB0052ED72 /* Image+ImageApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Image+ImageApi.h"; sourceTree = "<group>"; };
 		CEDA27C719BB67AB0052ED72 /* Image+ImageApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Image+ImageApi.m"; sourceTree = "<group>"; };
 		CEE4CBFB197F7B0800B19317 /* FollowerProfileCommandCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FollowerProfileCommandCell.h; sourceTree = "<group>"; };
@@ -1991,6 +1993,7 @@
 		CEB427C11925211E0072B1D6 /* Image */ = {
 			isa = PBXGroup;
 			children = (
+				CED3DCA61A22875A00E6BF07 /* facebook-128.png */,
 				CE33332119C9F26C0004AAAF /* settings-128.png */,
 				CE90B86219BF558F004CDC54 /* edit_user-128.png */,
 				CEB427C619252BBC0072B1D6 /* cancel-128.png */,
@@ -2234,6 +2237,7 @@
 				7F53DA9617396CDC0032E53D /* list-item-background@2x.png in Resources */,
 				7F53DA9717396CDC0032E53D /* list-item-cart.png in Resources */,
 				7F53DA9817396CDC0032E53D /* list-item-cart@2x.png in Resources */,
+				CED3DCA71A22875A00E6BF07 /* facebook-128.png in Resources */,
 				7F53DA9917396CDC0032E53D /* list-item-detail-bottom.png in Resources */,
 				7F53DA9A17396CDC0032E53D /* list-item-detail-bottom@2x.png in Resources */,
 				7F53DA9B17396CDC0032E53D /* list-item-detail-image1.png in Resources */,
