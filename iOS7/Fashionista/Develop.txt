@@ -1,6 +1,11 @@
 Develop
 =========
 
+Sharing photo
+=============
+
+https://developers.facebook.com/docs/ios/share
+
 Remote Notification
 ===================
 
