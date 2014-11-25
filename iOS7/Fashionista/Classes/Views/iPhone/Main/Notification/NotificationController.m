@@ -194,7 +194,7 @@
         
         Image *image = [commentArray objectAtIndex:indexPath.row];
         
-        [cell.info setText:[NSString stringWithFormat:@"%@ just added a comment on your image", image.username]];
+        [cell.info setText:[NSString stringWithFormat:@"%@ dropped you a line", image.username]];
         
         NSString *url = [NSString stringWithFormat:FB_PROFILE_ICON, image.usertoken];
         [cell loadImage:url fileName:image.usertoken];
@@ -213,7 +213,7 @@
         
         Image *image = [commentArray objectAtIndex:indexPath.row];
         
-        [cell.info setText:[NSString stringWithFormat:@"%@ just brands your image", image.username]];
+        [cell.info setText:[NSString stringWithFormat:@"%@ branded your photo.", image.username]];
         
         NSString *url = [NSString stringWithFormat:FB_PROFILE_ICON, image.usertoken];
         [cell loadImage:url fileName:image.usertoken];
@@ -233,7 +233,7 @@
         
         User *follower = [followerArray objectAtIndex:indexPath.row];
         
-        [cell.info setText:[NSString stringWithFormat:@"%@ just tracks you", follower.username]];
+        [cell.info setText:[NSString stringWithFormat:@"%@ is tracking you.", follower.username]];
         
         NSString *url = [NSString stringWithFormat:FB_PROFILE_ICON, follower.token];
         [cell loadImage:url fileName:follower.token];
