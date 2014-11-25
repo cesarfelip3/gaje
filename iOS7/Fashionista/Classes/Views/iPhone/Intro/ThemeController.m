@@ -77,21 +77,43 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [self.themeArray count];
+    if ([self.themeArray count] == 0) {
+        return 0;
+    }
+    return 2;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.row == 0) {
+        return 44;
+    }
+    
+    return 44;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell_theme_item" forIndexPath:indexPath];
     
-    Theme *theme = [self.themeArray objectAtIndex:[indexPath row]];
+    Theme *theme = [self.themeArray objectAtIndex:0];
     
-    [cell.textLabel setText:theme.name];
+    if (indexPath.row == 0) {
+        [cell.textLabel setText:theme.name];
     
-    if (theme.selected) {
-        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+        if (theme.selected) {
+            cell.accessoryType = UITableViewCellAccessoryCheckmark;
+        } else {
+            cell.accessoryType = UITableViewCellAccessoryNone;
+        }
     } else {
-        cell.accessoryType = UITableViewCellAccessoryNone;
+        
+        [cell.textLabel setFont:[UIFont systemFontOfSize:12]];
+        [cell.textLabel setFrame:CGRectMake(0, 0, 320, 44)];
+        [cell.textLabel setNumberOfLines:0];
+        [cell.textLabel setLineBreakMode:NSLineBreakByCharWrapping];
+        [cell.textLabel setText:theme.desc];
+        
     }
     return cell;
 }

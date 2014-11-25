@@ -57,11 +57,12 @@
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:btnSearch];
 #endif
     
-    self.tableView.tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 10)];
-    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 10)];
+   // self.tableView.tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 10)];
+    //self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 10)];
     
     [self.titleLabel setText:@""];
     self.contentTextView.text = @"";
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -85,8 +86,11 @@
     
     if ([self.themeArray count] > 0) {
         self.theme = [self.themeArray objectAtIndex:0];
+        
+        NSLog(@"%@", self.theme);
+        
         self.titleLabel.text = self.theme.name;
-        self.contentTextView.text = self.theme.desc;
+        [self.contentTextView setText:self.theme.desc];
     }
     
     return YES;
