@@ -412,6 +412,13 @@
         
         NSLog(@"cell height = %f", height);
         
+        if ([self.photo.name isEqualToString:@""] && [self.photo.desc isEqualToString:@""]) {
+            [cell hideAll];
+            return 0;
+        }
+        
+        [cell showAll];
+        
         return height;
         
     }
@@ -521,7 +528,7 @@
     [cell setBackgroundColor:[UIColor whiteColor]];
     
     NSInteger count = [self.branderArray count];
-    NSInteger row = count - (indexPath.row - 3) - 1;
+    NSInteger row = count - (indexPath.row - 3);
     
     Brander *brander = [self.branderArray objectAtIndex:row];
     cell.username.text = brander.username;

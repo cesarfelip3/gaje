@@ -14,5 +14,7 @@
 @property (strong) IBOutlet UILabel *photoDesc;
 
 - (CGFloat)setPhotoInfoText:(NSString *)title Description:(NSString *)description;
+- (void)hideAll;
+- (void)showAll;
 
 @end

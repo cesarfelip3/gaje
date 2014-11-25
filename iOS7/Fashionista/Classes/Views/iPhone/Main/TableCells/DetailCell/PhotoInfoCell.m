@@ -42,4 +42,16 @@
     return height;
 }
 
+- (void)hideAll
+{
+    [self.photoDesc setFrame:CGRectMake(self.photoDesc.frame.origin.x, self.photoDesc.frame.origin.y, self.photoDesc.frame.size.width, 0)];
+    [self.photoTitle setFrame:CGRectMake(self.photoTitle.frame.origin.x, self.photoTitle.frame.origin.y, self.photoTitle.frame.size.width, 0)];
+}
+
+- (void)showAll
+{
+    [self.photoDesc setFrame:CGRectMake(self.photoDesc.frame.origin.x, self.photoDesc.frame.origin.y, self.photoDesc.frame.size.width, 44)];
+    [self.photoTitle setFrame:CGRectMake(self.photoTitle.frame.origin.x, self.photoTitle.frame.origin.y, self.photoTitle.frame.size.width, 21)];
+}
+
 @end
