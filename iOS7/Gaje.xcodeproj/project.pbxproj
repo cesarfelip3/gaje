@@ -290,6 +290,7 @@
 		CE23466F19CAF782002D8251 /* NotificationProfileController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE23466E19CAF782002D8251 /* NotificationProfileController.m */; };
 		CE247C831970EF6600678543 /* BrandListView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE247C821970EF6600678543 /* BrandListView.m */; };
 		CE247C871970F57200678543 /* FollowerItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CE247C861970F57200678543 /* FollowerItemCell.m */; };
+		CE27F6BD1A24DB2F00C9019E /* PhotoInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CE27F6BC1A24DB2F00C9019E /* PhotoInfoCell.m */; };
 		CE29F24819A370CF00E531AF /* NotificationDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE29F24719A370CF00E531AF /* NotificationDetailController.m */; };
 		CE31DC1619701C3B003DFC08 /* FollowersController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE31DC1519701C3B003DFC08 /* FollowersController.m */; };
 		CE31DC1A19701DCB003DFC08 /* FollowingController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE31DC1919701DCB003DFC08 /* FollowingController.m */; };
@@ -750,6 +751,8 @@
 		CE247C821970EF6600678543 /* BrandListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = BrandListView.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		CE247C851970F57200678543 /* FollowerItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FollowerItemCell.h; sourceTree = "<group>"; };
 		CE247C861970F57200678543 /* FollowerItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = FollowerItemCell.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		CE27F6BB1A24DB2F00C9019E /* PhotoInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoInfoCell.h; sourceTree = "<group>"; };
+		CE27F6BC1A24DB2F00C9019E /* PhotoInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoInfoCell.m; sourceTree = "<group>"; };
 		CE29F24619A370CF00E531AF /* NotificationDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationDetailController.h; sourceTree = "<group>"; };
 		CE29F24719A370CF00E531AF /* NotificationDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationDetailController.m; sourceTree = "<group>"; };
 		CE31DC1419701C3B003DFC08 /* FollowersController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FollowersController.h; sourceTree = "<group>"; };
@@ -2047,6 +2050,8 @@
 		CEFF103D1966F91200E84675 /* Detail */ = {
 			isa = PBXGroup;
 			children = (
+				CE27F6BB1A24DB2F00C9019E /* PhotoInfoCell.h */,
+				CE27F6BC1A24DB2F00C9019E /* PhotoInfoCell.m */,
 				CEFF103E1966F95D00E84675 /* CommandCell.h */,
 				CEFF103F1966F95D00E84675 /* CommandCell.m */,
 				CEFF10411966F97200E84675 /* TabbarCell.h */,
@@ -2444,6 +2449,7 @@
 				CECD2FD7198A87E400DB020C /* UserSearchDelegateController.m in Sources */,
 				7FA7DD7717384D3000A50E20 /* CustomTabBarViewController.m in Sources */,
 				CEFF10401966F95D00E84675 /* CommandCell.m in Sources */,
+				CE27F6BD1A24DB2F00C9019E /* PhotoInfoCell.m in Sources */,
 				7FA7DD7917384D3000A50E20 /* NGTabBar.m in Sources */,
 				7FA7DD7A17384D3000A50E20 /* NGTabBarController.m in Sources */,
 				CE7CA1CF199A16A000527080 /* NotificationController.m in Sources */,

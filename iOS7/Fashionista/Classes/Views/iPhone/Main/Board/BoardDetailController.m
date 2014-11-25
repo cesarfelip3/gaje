@@ -356,19 +356,21 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if (self.currentTab == 0) {
-        return 3 + [self.commentArray count];
+        return 4 + [self.commentArray count];
     }
     
-    return 3 + [self.branderArray count];
+    return 4 + [self.branderArray count];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.row >= 3) {
+    CGFloat height;
+    
+    if (indexPath.row >= 4) {
         
         if (self.currentTab == 0) {
             NSInteger count = [self.commentArray count];
-            NSInteger row = count - (indexPath.row - 3) - 1;
+            NSInteger row = count - (indexPath.row - 3);
             
             Comment *comment = [self.commentArray objectAtIndex:row];
             
@@ -387,7 +389,7 @@
             [cell.content sizeThatFits:CGSizeMake(260, 40)];
             [cell.content sizeToFit];
             
-            CGFloat height = cell.content.frame.size.height + cell.content.frame.origin.y > 60 ? cell.content.frame.size.height + cell.content.frame.origin.y : 60;
+            height = cell.content.frame.size.height + cell.content.frame.origin.y > 60 ? cell.content.frame.size.height + cell.content.frame.origin.y : 60;
             
             if (height > 60) {
                 return height + 10;
@@ -399,6 +401,19 @@
         }
         
         return 80;
+    }
+    
+    if (indexPath.row == 1) {
+        
+        PhotoInfoCell *cell;
+        cell = [self.tableView dequeueReusableCellWithIdentifier:@"cell_detail_info_item"];
+        
+        height = [cell setPhotoInfoText:self.photo.name Description:self.photo.desc];
+        
+        NSLog(@"cell height = %f", height);
+        
+        return height;
+        
     }
     
     return 44;
@@ -434,6 +449,17 @@
     }
     
     if (indexPath.row == 1) {
+        PhotoInfoCell *cell;
+        cell = [self.tableView dequeueReusableCellWithIdentifier:@"cell_detail_info_item"];
+        [cell setPhotoInfoText:self.photo.name Description:self.photo.desc];
+        
+        //[cell setBackgroundColor:[UIColor groupTableViewBackgroundColor]];
+        [cell.photoTitle setTextColor:[UIColor brownColor]];
+        
+        return cell;
+    }
+    
+    if (indexPath.row == 2) {
         
         CommentCell* cell = [tableView dequeueReusableCellWithIdentifier:identifierComment forIndexPath:indexPath];
         cell.textComment.text = @"drop a line";
@@ -446,7 +472,7 @@
         return cell;
     }
     
-    if (indexPath.row == 2) {
+    if (indexPath.row == 3) {
         
         TabbarCell* cell = [tableView dequeueReusableCellWithIdentifier:identifierTabbar forIndexPath:indexPath];
         [cell setBackgroundColor:[UIColor whiteColor]];
@@ -475,7 +501,7 @@
         //cell.usericon.frame = CGRectMake(15, 10, 40, 30);
         
         NSInteger count = [self.commentArray count];
-        NSInteger row = count - (indexPath.row - 3) - 1;
+        NSInteger row = count - (indexPath.row - 3);
         
         Comment *comment = [self.commentArray objectAtIndex:row];
         [cell.content setText:comment.content];
