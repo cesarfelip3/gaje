@@ -326,19 +326,19 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if (self.currentTab == 0) {
-        return 1 + [self.commentArray count];
+        return 2 + [self.commentArray count];
     }
     
-    return 1 + [self.branderArray count];
+    return 2 + [self.branderArray count];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.row >= 1) {
+    if (indexPath.row >= 2) {
         
         if (self.currentTab == 0) {
             NSInteger count = [self.commentArray count];
-            NSInteger row = count - (indexPath.row - 3) - 1;
+            NSInteger row = count - (indexPath.row - 2) - 1;
             
             Comment *comment = [self.commentArray objectAtIndex:row];
             
@@ -371,6 +371,26 @@
         return 90;
     }
     
+    if (indexPath.row == 0) {
+        
+        PhotoInfoCell *cell;
+        cell = [self.tableView dequeueReusableCellWithIdentifier:@"cell_detail_info_item"];
+        
+        CGFloat height = [cell setPhotoInfoText:self.photo.name Description:self.photo.desc];
+        
+        NSLog(@"cell height = %f", height);
+        
+        if ([self.photo.name isEqualToString:@""] && [self.photo.desc isEqualToString:@""]) {
+            [cell hideAll];
+            return 0;
+        }
+        
+        [cell showAll];
+        
+        return height;
+        
+    }
+    
     return 44;
 }
 
@@ -379,6 +399,17 @@
     NSString *identifierTabbar = @"cell_detail_tabbar";
     
     if (indexPath.row == 0) {
+        PhotoInfoCell *cell;
+        cell = [self.tableView dequeueReusableCellWithIdentifier:@"cell_detail_info_item"];
+        [cell setPhotoInfoText:self.photo.name Description:self.photo.desc];
+        
+        //[cell setBackgroundColor:[UIColor groupTableViewBackgroundColor]];
+        [cell.photoTitle setTextColor:[UIColor brownColor]];
+        
+        return cell;
+    }
+    
+    if (indexPath.row == 1) {
         
         TabbarCell* cell = [tableView dequeueReusableCellWithIdentifier:identifierTabbar forIndexPath:indexPath];
         [cell setBackgroundColor:[UIColor whiteColor]];
@@ -405,7 +436,7 @@
         //cell.usericon.frame = CGRectMake(15, 10, 40, 30);
         
         NSInteger count = [self.commentArray count];
-        NSInteger row = count - (indexPath.row - 3) - 1;
+        NSInteger row = count - (indexPath.row - 2) - 1;
         
         Comment *comment = [self.commentArray objectAtIndex:row];
         [cell.content setText:comment.content];
@@ -426,7 +457,7 @@
     [cell setBackgroundColor:[UIColor whiteColor]];
     
     NSInteger count = [self.branderArray count];
-    NSInteger row = count - (indexPath.row - 1) - 1;
+    NSInteger row = count - (indexPath.row - 2) - 1;
     
     Brander *brander = [self.branderArray objectAtIndex:row];
     cell.username.text = brander.username;

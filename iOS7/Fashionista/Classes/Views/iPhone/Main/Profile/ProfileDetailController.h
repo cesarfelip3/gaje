@@ -12,6 +12,7 @@
 #import "AFNetworking.h"
 #import "Global.h"
 #import "User.h"
+#import "PhotoInfoCell.h"
 
 @interface ProfileDetailController : UITableViewController <UITextFieldDelegate, NetworkCallbackDelegate, UIActionSheetDelegate>
 
