@@ -118,7 +118,6 @@
 - (IBAction)onShareButtonTouched:(id)sender
 {
     NSLog(@"sharebutton pressed");
-    return;
     
     if ([FBDialogs canPresentShareDialogWithPhotos]) {
         
@@ -126,7 +125,17 @@
         
         // Note that params.photos can be an array of images.  In this example
         // we only use a single image, wrapped in an array.
-        params.photos = NULL;
+        
+        UIImage *image = [self.cache getImage:self.photo.thumbnailName];
+        
+        if (image == nil) {
+         
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"Please wait the image displayed first" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alert show];
+            return;
+        }
+        
+        params.photos = @[image];
         
         [FBDialogs presentShareDialogWithPhotoParams:params
                                          clientState:nil
