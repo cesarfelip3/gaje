@@ -77,7 +77,7 @@
                              @"image": @"" //@"menu-icon4"
                              },
                         @{
-                             @"title": @"Top Branded",
+                             @"title": @"Top Brands",
                              @"image": @"" //@"menu-icon5"
                              },
                          @{

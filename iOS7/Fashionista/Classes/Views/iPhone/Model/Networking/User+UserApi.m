@@ -284,7 +284,7 @@
     NSString *api = [NSString stringWithFormat:API_USER_FOLLOW, API_BASE_URL, API_BASE_VERSION];
     [manager POST:api parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
     
-        // NSLog(@"Success: %@", responseObject);
+        NSLog(@"Success: %@", responseObject);
         
         NSString *status = [responseObject objectForKey:@"status"];
         
@@ -302,7 +302,7 @@
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         
-        // NSLog(@"Error: %@", error);
+        NSLog(@"Error: %@", error);
           
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
         
@@ -386,7 +386,7 @@
         NSString *status = [(NSDictionary *)responseObject objectForKey:@"status"];
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
         
-        // NSLog(@"%@", responseObject);
+        NSLog(@"%@", responseObject);
         
         if ([status isEqualToString:@"success"]) {
             
@@ -469,8 +469,8 @@
         
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
           
-        // NSLog(@"%@", [operation responseObject]);
-        //// NSLog(@"%@", error);
+        NSLog(@"%@", [operation responseObject]);
+        NSLog(@"%@", error);
         
         self.errorMessage = @"Network failed";
         [self.delegate onCallback:1];
@@ -503,7 +503,7 @@
         NSString *status = [(NSDictionary *)responseObject objectForKey:@"status"];
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
         
-        // NSLog(@"%@", responseObject);
+        NSLog(@"%@", responseObject);
         
         if ([status isEqualToString:@"success"]) {
             
@@ -585,8 +585,8 @@
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-        // NSLog(@"%@", [operation responseObject]);
-        //// NSLog(@"%@", error);
+        NSLog(@"%@", [operation responseObject]);
+        NSLog(@"%@", error);
         
         self.errorMessage = @"Network failed";
         
