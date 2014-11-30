@@ -378,7 +378,7 @@
         
         CGFloat height = [cell setPhotoInfoText:self.photo.name Description:self.photo.desc];
         
-        NSLog(@"cell height = %f", height);
+        //NSLog(@"cell height = %f", height);
         
         if ([self.photo.name isEqualToString:@""] && [self.photo.desc isEqualToString:@""]) {
             [cell hideAll];
