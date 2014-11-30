@@ -58,6 +58,7 @@
     self.imageVStage.image = [UIImage imageNamed:@"list-item-stage"];
     
     self.imageVImage.image = nil;
+    self.imageVAvatar.image = nil;
     
     [self loadImage:self.photo.thumbnail fileName:self.photo.thumbnailName ImageView:self.imageVImage];
     [self loadImage:self.photo.usericon fileName:[NSString stringWithFormat:@"%@.jpg", self.photo.usertoken] ImageView:self.imageVAvatar];
