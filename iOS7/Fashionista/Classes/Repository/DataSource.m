@@ -81,11 +81,11 @@
                              @"image": @"" //@"menu-icon5"
                              },
                          @{
-                             @"title": @"Tracking",
+                             @"title": @"Tracks",
                              @"image": @"" //@"menu-icon3"
                              },
                          @{
-                             @"title": @"Tracks",
+                             @"title": @"Tracking",
                              @"image": @"" //@"menu-icon3"
                              },
                          @{

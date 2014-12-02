@@ -10,6 +10,7 @@
 #import "BoardItemCell.h"
 #import "UploadController.h"
 #import "Brander.h"
+#import "BoardThemeItemCell.h"
 
 @interface BoardController : UIViewController <UITableViewDataSource, UITableViewDelegate, StoreCellDelegate, NetworkCallbackDelegate, UIActionSheetDelegate, UIAlertViewDelegate>
 

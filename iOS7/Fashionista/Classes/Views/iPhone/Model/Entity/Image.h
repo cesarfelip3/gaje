@@ -39,6 +39,7 @@
 
 @property (atomic, retain) NSString *created;
 @property (atomic, retain) NSString *modified;
+@property (assign) NSInteger isTracking;
 
 // table relationship properties
 

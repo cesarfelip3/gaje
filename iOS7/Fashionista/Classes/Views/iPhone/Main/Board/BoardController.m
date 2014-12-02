@@ -126,8 +126,13 @@
     
     Image *photo = [self.imageArray objectAtIndex:button.tag];
     self.currentPhoto = photo;
+    UIActionSheet *sheet;
     
-    UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:@"" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:@"Track" otherButtonTitles:@"Brand", @"Hide it", @"block photos from this user", nil];
+    if (self.currentPhoto.isTracking == 0) {
+        sheet = [[UIActionSheet alloc] initWithTitle:@"" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:@"Track" otherButtonTitles:@"Brand", @"Hide it", @"block photos from this user", nil];
+    } else {
+        sheet = [[UIActionSheet alloc] initWithTitle:@"" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:@"Tracking" otherButtonTitles:@"Brand", @"Hide it", @"block photos from this user", nil];
+    }
     
     [sheet showInView:self.view];
 }
@@ -141,8 +146,17 @@
     
     if (buttonIndex == 0) {
         
-        NSDictionary *values = @{@"user_followed_uuid":self.currentPhoto.userUUID, @"user_following_uuid":user.userUUID};
-        [user addFollow:values Token:@""];
+        if (self.currentPhoto.isTracking == 1) {
+            
+            
+        } else {
+            
+            NSDictionary *values = @{@"user_followed_uuid":self.currentPhoto.userUUID, @"user_following_uuid":user.userUUID};
+            user.delegate = nil;
+            [user addFollow:values Token:@""];
+            self.currentPhoto.isTracking = 1;
+            
+        }
     }
     
     if (buttonIndex == 1) {
@@ -264,14 +278,27 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    return [self.imageArray count];
+    return 1 + [self.imageArray count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    if (indexPath.row == 0) {
+        
+        BoardThemeItemCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ThemeCell"];
+        
+        CGRect tableRect = cell.imageVBkg.frame;
+        tableRect.origin.y = 0;
+        cell.imageVBkg.frame = tableRect;
+        [cell setData:@{}];
+        
+        return cell;
+    }
+    
     NSString *CellIdentifier = @"StoreCell";
     BoardItemCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
-    Image *photo = [self.imageArray objectAtIndex:indexPath.row];
+    Image *photo = [self.imageArray objectAtIndex:indexPath.row - 1];
     
     cell.delegate = self;
     cell.photo = photo;
@@ -310,7 +337,11 @@
         return 0;
     }
     
-    Image *photo = [self.imageArray objectAtIndex:indexPath.row];
+    if (indexPath.row == 0) {
+        return 44;
+    }
+    
+    Image *photo = [self.imageArray objectAtIndex:indexPath.row - 1];
     NSInteger height = 280 * photo.height / photo.width;
     
     return height + 240 - 185;
@@ -325,7 +356,7 @@
     
     BoardDetailController *detailVC = [storyboard instantiateViewControllerWithIdentifier:@"home_detail"];
     
-    Image *photo = [self.imageArray objectAtIndex:currentIndex.row];
+    Image *photo = [self.imageArray objectAtIndex:currentIndex.row - 1];
     detailVC.photo = photo;
     
     [self.navigationController pushViewController:detailVC animated:YES];

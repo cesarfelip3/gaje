@@ -41,7 +41,7 @@
         NSString *status = [(NSDictionary *)responseObject objectForKey:@"status"];
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
         
-        // NSLog(@"%@", responseObject);
+        NSLog(@"%@", responseObject);
         
         if ([status isEqualToString:@"success"]) {
             
@@ -84,6 +84,7 @@
                     
                     image.branderCount = [[item objectForKey:@"brander_count"] integerValue];
                     image.enableBrandIt = [[item objectForKey:@"enable_brander"] integerValue];
+                    image.isTracking = [[item objectForKey:@"is_tracking"] integerValue];
                     
                     NSArray *resultArray = [item objectForKey:@"branders"];
                     
@@ -118,10 +119,15 @@
                     [tempImageArray addObject:image];
                 }
                 
+                NSDictionary *theme = [data objectForKey:@"theme"];
+                
                 [imageArray removeAllObjects];
                 for (Image *image in tempImageArray) {
                     [imageArray addObject:image];
                 }
+                
+                AppConfig *config = [AppConfig getInstance];
+                config.theme = [theme objectForKey:@"name"];
                 
                 
                 self.errorMessage = @"";

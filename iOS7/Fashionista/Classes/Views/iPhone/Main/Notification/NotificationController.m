@@ -153,11 +153,11 @@
 {
 
     if (section == 0) {
-        return @"Line dropped";
+        return @"Line Dropped";
     }
     
     if (section == 1) {
-        return @"brands";
+        return @"Brands";
     }
     
     return @"Tracking";

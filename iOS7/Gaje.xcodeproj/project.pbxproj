@@ -302,6 +302,7 @@
 		CE33332219C9F26C0004AAAF /* settings-128.png in Resources */ = {isa = PBXBuildFile; fileRef = CE33332119C9F26C0004AAAF /* settings-128.png */; };
 		CE3968431A011AD400672BEA /* TopBrandsController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3968411A011AD400672BEA /* TopBrandsController.m */; };
 		CE3968441A011AD400672BEA /* TopBrandsDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3968421A011AD400672BEA /* TopBrandsDetailController.m */; };
+		CE3A4A551A2D77E30060ACE1 /* BoardThemeItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3A4A541A2D77E30060ACE1 /* BoardThemeItemCell.m */; };
 		CE40D078198B4F4100069817 /* UserSearchProfileController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE40D077198B4F4100069817 /* UserSearchProfileController.m */; };
 		CE40D07C198B506F00069817 /* UserSearchResultController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE40D07B198B506F00069817 /* UserSearchResultController.m */; };
 		CE54CFAC1967C49E005C1FFE /* Comment.m in Sources */ = {isa = PBXBuildFile; fileRef = CE54CFAB1967C49E005C1FFE /* Comment.m */; };
@@ -770,6 +771,8 @@
 		CE3968401A011AD400672BEA /* TopBrandsDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopBrandsDetailController.h; sourceTree = "<group>"; };
 		CE3968411A011AD400672BEA /* TopBrandsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopBrandsController.m; sourceTree = "<group>"; };
 		CE3968421A011AD400672BEA /* TopBrandsDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopBrandsDetailController.m; sourceTree = "<group>"; };
+		CE3A4A531A2D77E30060ACE1 /* BoardThemeItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoardThemeItemCell.h; sourceTree = "<group>"; };
+		CE3A4A541A2D77E30060ACE1 /* BoardThemeItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoardThemeItemCell.m; sourceTree = "<group>"; };
 		CE40D076198B4F4100069817 /* UserSearchProfileController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserSearchProfileController.h; sourceTree = "<group>"; };
 		CE40D077198B4F4100069817 /* UserSearchProfileController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserSearchProfileController.m; sourceTree = "<group>"; };
 		CE40D07A198B506F00069817 /* UserSearchResultController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserSearchResultController.h; sourceTree = "<group>"; };
@@ -1187,6 +1190,8 @@
 				7F2A5D951736F04000551439 /* BoardItemCell.m */,
 				CE247C811970EF6600678543 /* BrandListView.h */,
 				CE247C821970EF6600678543 /* BrandListView.m */,
+				CE3A4A531A2D77E30060ACE1 /* BoardThemeItemCell.h */,
+				CE3A4A541A2D77E30060ACE1 /* BoardThemeItemCell.m */,
 			);
 			name = Board;
 			path = StoreCell;
@@ -2410,6 +2415,7 @@
 				CEAD66F019CD3A5A00231202 /* AFSecurityPolicy.m in Sources */,
 				7F2A5D791736E17500551439 /* WeekThemeController.m in Sources */,
 				AA0E679517CBF19F00AA877F /* PSTCollectionViewItemKey.m in Sources */,
+				CE3A4A551A2D77E30060ACE1 /* BoardThemeItemCell.m in Sources */,
 				7F2A5D7F1736E1A100551439 /* TimelineCell.m in Sources */,
 				7F2A5D831736E1B300551439 /* AccountCell.m in Sources */,
 				AA0E679117CBF19F00AA877F /* PSTCollectionViewCell.m in Sources */,
