@@ -22,7 +22,8 @@ hhvm 3+ didn't support socket SSL!!
 Now the issue is that ==
 
 We need more in app to handle remote notificaiton!
-
+http://stackoverflow.com/questions/21250510/generate-pem-file-used-to-setup-apple-push-notification
+openssl pkcs12 -in pushcert.p12 -out pushcert.pem -nodes -clcerts
 
 Networking
 ==========
