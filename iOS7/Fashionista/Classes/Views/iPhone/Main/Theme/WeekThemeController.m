@@ -87,7 +87,7 @@
     if ([self.themeArray count] > 0) {
         self.theme = [self.themeArray objectAtIndex:0];
         
-        NSLog(@"%@", self.theme);
+        //NSLog(@"%@", self.theme);
         
         self.titleLabel.text = self.theme.name;
         [self.contentTextView setText:self.theme.desc];

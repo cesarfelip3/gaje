@@ -46,7 +46,7 @@
     [manager POST:api parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-        NSLog(@"User.login: %@", responseObject);
+        //NSLog(@"User.login: %@", responseObject);
         
         NSString *status = [responseObject objectForKey:@"status"];
         
@@ -94,7 +94,7 @@
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
         
         //NSLog(@"Error: %@", operation.response);
-        NSLog(@"Error: %@", operation.responseObject);
+        //NSLog(@"Error: %@", operation.responseObject);
         
         NSString *message = [operation.responseObject objectForKey:@"message"];
         

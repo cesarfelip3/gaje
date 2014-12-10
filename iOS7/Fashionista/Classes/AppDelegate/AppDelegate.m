@@ -82,10 +82,10 @@ static AppDelegate *sharedDelegate;
         [ADVThemeManager customizeAppAppearance];
         // Override point for customization after application launch.
 
-        if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
+        if (true || [[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
             //self.mainVC = (((UINavigationController *)self.window.rootViewController).viewControllers)[0];
             
-        } else {
+        //} else {
             
             UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil];
             self.mainVC = [storyboard instantiateInitialViewController];
@@ -264,9 +264,9 @@ static AppDelegate *sharedDelegate;
         
         [ADVThemeManager customizeAppAppearance];
         
-        if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
+        if (true || [[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
             //self.mainVC = (((UINavigationController *)self.window.rootViewController).viewControllers)[0];
-        } else {
+        //} else {
             
             UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil];
             
@@ -353,8 +353,8 @@ static AppDelegate *sharedDelegate;
     config.devTokenString = token;
     config.remoteNotificationRegistered = 0;
     
-    NSLog(@"dev_token = %@", devToken);
-    NSLog(@"dev_token = %@", token);
+    //NSLog(@"dev_token = %@", devToken);
+    //NSLog(@"dev_token = %@", token);
     
     if (config.userIsLogin == 1) {
         
@@ -369,7 +369,7 @@ static AppDelegate *sharedDelegate;
 }
 
 - (void)application:(UIApplication *)app didFailToRegisterForRemoteNotificationsWithError:(NSError *)err {
-    NSLog(@"Error in registration. Error: %@", err);
+    //NSLog(@"Error in registration. Error: %@", err);
     
     AppConfig *config = [AppConfig getInstance];
     config.devToken = nil;

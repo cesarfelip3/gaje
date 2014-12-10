@@ -87,7 +87,9 @@
     //
     
     self.branderArray = [[NSMutableArray alloc] init];
-    [self.tableView reloadData];
+    [self.tableView reloadData];    
+    self.progress.progress = 0;
+    [self.progress setHidden:YES];
     
 }
 

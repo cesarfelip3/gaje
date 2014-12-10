@@ -309,7 +309,7 @@
     [cell setData:@{}];
     
     [cell.btnAction addTarget:self action:@selector(onActionButtonTouched:) forControlEvents:UIControlEventTouchDown];
-    cell.btnAction.tag = indexPath.row;
+    cell.btnAction.tag = indexPath.row - 1;
     
     User *user = [User getInstance];
     

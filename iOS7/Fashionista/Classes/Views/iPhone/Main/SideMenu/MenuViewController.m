@@ -145,7 +145,7 @@
     
 #if true
     NSString *title = [item objectForKey:@"title"];
-    NSLog(@"%@", title);
+    //NSLog(@"%@", title);
     
     if ([title isEqualToString:@"Notification"]) {
         

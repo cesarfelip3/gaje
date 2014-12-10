@@ -41,7 +41,7 @@
         NSString *status = [(NSDictionary *)responseObject objectForKey:@"status"];
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
         
-        NSLog(@"%@", responseObject);
+        //NSLog(@"%@", responseObject);
         
         if ([status isEqualToString:@"success"]) {
             

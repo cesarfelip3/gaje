@@ -118,7 +118,7 @@
 
 - (IBAction)onShareButtonTouched:(id)sender
 {
-    NSLog(@"sharebutton pressed");
+    //NSLog(@"sharebutton pressed");
     
     if ([FBDialogs canPresentShareDialogWithPhotos]) {
         
