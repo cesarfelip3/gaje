@@ -14,7 +14,7 @@
 #define API_BASE_URL        @"http://www.gajeapp.com/gajeweb/"
 #define API_BASE_VERSION    @"api/v1/"
 
-#define FB_PROFILE_ICON     @"http://graph.facebook.com/%@/picture?type=large"
+#define FB_PROFILE_ICON     @"http://graph.facebook.com/%@/picture?type=square"
 
 #define API_USER_LOGIN          @"%@%@user/add"
 #define API_USER_IMAGE_LIST     @"%@%@user/image/latest"

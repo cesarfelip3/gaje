@@ -161,6 +161,19 @@
     return [self.followingArray count];
 }
 
+#pragma mark - Table view delegate
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    if ([self.followingArray count] == 0 && self.view.tag == 1) {
+        
+        return 20;
+    }
+    
+    return 60;
+}
+
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     if ([self.followingArray count] == 0 && self.view.tag == 1) {
@@ -190,18 +203,6 @@
     [cell setData];
     
     return cell;
-}
-
-#pragma mark - Table view delegate
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    if ([self.followingArray count] == 0 && self.view.tag == 1) {
-        
-        return 20;
-    }
-    
-    return 60;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
