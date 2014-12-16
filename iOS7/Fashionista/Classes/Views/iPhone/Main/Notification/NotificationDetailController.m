@@ -403,11 +403,11 @@
     }
     
     if (indexPath.row == 0) {
-        return 0;
+        return 44;
     }
     
     if (indexPath.row == 1) {
-        return 0;
+        return 44;
     }
     
     return 44;
