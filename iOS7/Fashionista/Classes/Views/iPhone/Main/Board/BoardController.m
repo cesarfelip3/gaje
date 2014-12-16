@@ -327,6 +327,18 @@
         photo.enableBrandIt = 0;
     }
     
+    if (photo.name == nil || [[photo.name stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] isEqualToString:@""]) {
+        
+        [cell.labelTitle setHidden:YES];
+        
+    } else {
+    
+        [cell.labelTitle setHidden:NO];
+        [cell.labelTitle setText:photo.name];
+        cell.labelTitle.frame = CGRectMake(40, 280 * photo.height / photo.width + 240 - 185 - 18, 280, 21);
+        
+    }
+    
     return cell;
 }
 
@@ -344,7 +356,11 @@
     Image *photo = [self.imageArray objectAtIndex:indexPath.row - 1];
     NSInteger height = 280 * photo.height / photo.width;
     
-    return height + 240 - 185;
+    if (photo.name == nil || [[photo.name stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] isEqualToString:@""]) {
+        return height + 240 - 185;
+    }
+    
+    return height + 240 - 185 + 58;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {

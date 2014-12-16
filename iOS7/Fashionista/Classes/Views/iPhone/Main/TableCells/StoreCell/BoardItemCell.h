@@ -26,6 +26,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *lblTitle;
 @property (strong, nonatomic) IBOutlet UILabel *lblValue;
 
+@property (strong, nonatomic) IBOutlet UILabel *labelTitle;
 @property (strong, nonatomic) IBOutlet UIButton *btnBrand;
 @property (strong, nonatomic) IBOutlet UIButton *btnAction;
 

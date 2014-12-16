@@ -56,6 +56,13 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="240"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Wjm-xG-CG4">
+                                                    <rect key="frame" x="35" y="110" width="280" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <color key="textColor" red="0.60000002384185791" green="0.40000000596046448" blue="0.20000000298023224" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" id="cMo-E3-HTL">
                                                     <rect key="frame" x="30" y="6" width="280" height="185"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -188,6 +195,7 @@
                                             <outlet property="imageVBkg" destination="azB-JO-dVc" id="hzK-4y-HQV"/>
                                             <outlet property="imageVImage" destination="cMo-E3-HTL" id="m4D-QS-Kg4"/>
                                             <outlet property="imageVStage" destination="tXb-4O-ScK" id="M4j-s0-bfK"/>
+                                            <outlet property="labelTitle" destination="Wjm-xG-CG4" id="SZs-XW-LES"/>
                                             <outlet property="lblTitle" destination="1AN-dS-DsD" id="uaM-lW-qcZ"/>
                                             <outlet property="lblValue" destination="9Vi-gb-Ceg" id="e4q-JT-wwW"/>
                                         </connections>
