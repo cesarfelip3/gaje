@@ -78,8 +78,10 @@
     User *user = [User getInstance];
     user.delegate = self;
     
-    NSDictionary *values = @{@"user_uuid":user.userUUID};
-    [user fetchFollowingList:values ResultArray:self.followingArray Token:@""];
+    [user getLatestUpdate:self.updateDictionary];
+    
+    //NSDictionary *values = @{@"user_uuid":user.userUUID};
+    //[user fetchFollowingList:values ResultArray:self.followingArray Token:@""];
     
 }
 
