@@ -403,7 +403,7 @@
     }
     
     if (indexPath.row == 0) {
-        return 44;
+        return 0;
     }
     
     if (indexPath.row == 1) {
@@ -454,7 +454,6 @@
         
         [cell setBackgroundColor:[UIColor whiteColor]];
         
-        [cell setHidden:YES];
         return cell;
     }
     

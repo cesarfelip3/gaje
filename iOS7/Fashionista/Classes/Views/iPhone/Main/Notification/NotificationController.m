@@ -317,7 +317,7 @@
     
     if ([values count] > 0) {
         
-        [[User getInstance] markItRead:values];
+        //[[User getInstance] markItRead:values];
     }
     
     
