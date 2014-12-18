@@ -86,8 +86,15 @@ static AppDelegate *sharedDelegate;
             //self.mainVC = (((UINavigationController *)self.window.rootViewController).viewControllers)[0];
             
         //} else {
+            UIStoryboard *storyboard;
+            if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
             
-            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil];
+                storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil];
+            
+            } else {
+                storyboard = [UIStoryboard storyboardWithName:@"iPad" bundle:nil];
+            }
+            
             self.mainVC = [storyboard instantiateInitialViewController];
             self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
             
@@ -268,7 +275,14 @@ static AppDelegate *sharedDelegate;
             //self.mainVC = (((UINavigationController *)self.window.rootViewController).viewControllers)[0];
         //} else {
             
-            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil];
+            UIStoryboard *storyboard;
+            if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
+                
+                storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil];
+                
+            } else {
+                storyboard = [UIStoryboard storyboardWithName:@"iPad" bundle:nil];
+            }
             
             self.mainVC = [storyboard instantiateInitialViewController];
             

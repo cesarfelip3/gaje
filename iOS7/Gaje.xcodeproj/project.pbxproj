@@ -360,6 +360,7 @@
 		CEDA27C819BB67AB0052ED72 /* Image+ImageApi.m in Sources */ = {isa = PBXBuildFile; fileRef = CEDA27C719BB67AB0052ED72 /* Image+ImageApi.m */; };
 		CEE4CBFD197F7B0800B19317 /* FollowerProfileCommandCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE4CBFC197F7B0800B19317 /* FollowerProfileCommandCell.m */; };
 		CEE65C7F199BAB9C006A2265 /* UpdateInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE65C7E199BAB9C006A2265 /* UpdateInfoCell.m */; };
+		CEEA25FA1A42653500EC77E9 /* iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEEA25F91A42653500EC77E9 /* iPad.storyboard */; };
 		CEF41B03198911D20077DD22 /* ProfileItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CEF41B02198911D20077DD22 /* ProfileItemCell.m */; };
 		CEF7E6C119ECBAC4009C5632 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEF7E6C019ECBAC4009C5632 /* FacebookSDK.framework */; };
 		CEF7E6CE19ECBC3F009C5632 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = CEF7E6C419ECBC3F009C5632 /* FMDatabase.m */; };
@@ -874,6 +875,7 @@
 		CEE4CBFC197F7B0800B19317 /* FollowerProfileCommandCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FollowerProfileCommandCell.m; sourceTree = "<group>"; };
 		CEE65C7D199BAB9C006A2265 /* UpdateInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UpdateInfoCell.h; sourceTree = "<group>"; };
 		CEE65C7E199BAB9C006A2265 /* UpdateInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UpdateInfoCell.m; sourceTree = "<group>"; };
+		CEEA25F91A42653500EC77E9 /* iPad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = iPad.storyboard; sourceTree = "<group>"; };
 		CEF41B01198911D20077DD22 /* ProfileItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileItemCell.h; sourceTree = "<group>"; };
 		CEF41B02198911D20077DD22 /* ProfileItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileItemCell.m; sourceTree = "<group>"; };
 		CEF7E6C019ECBAC4009C5632 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
@@ -932,6 +934,7 @@
 				CE31DC1E1970330B003DFC08 /* Icon@2x.png */,
 				7F2A5B0A1734FB3800551439 /* MainStoryboard_iPad.storyboard */,
 				7F2A5B0C1734FB3800551439 /* MainStoryboard_iPhone.storyboard */,
+				CEEA25F91A42653500EC77E9 /* iPad.storyboard */,
 				CE69604C1906AF6D00D464E4 /* Develop.txt */,
 				7F2A5A511734FB3700551439 /* Classes */,
 				7F2A5B111734FB3800551439 /* Resources */,
@@ -2253,6 +2256,7 @@
 				7F53DA9B17396CDC0032E53D /* list-item-detail-image1.png in Resources */,
 				7F53DA9C17396CDC0032E53D /* list-item-detail-image1@2x.png in Resources */,
 				7F53DA9F17396CDC0032E53D /* list-item-detail-stage.png in Resources */,
+				CEEA25FA1A42653500EC77E9 /* iPad.storyboard in Resources */,
 				7F53DAA017396CDC0032E53D /* list-item-detail-stage@2x.png in Resources */,
 				7F53DAA117396CDC0032E53D /* list-item-like.png in Resources */,
 				7F53DAA217396CDC0032E53D /* list-item-like@2x.png in Resources */,
@@ -2617,8 +2621,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = Gaje;
-				PROVISIONING_PROFILE = "21bf25be-c3f4-433e-9f21-009d157222d7";
-				TARGETED_DEVICE_FAMILY = 1;
+				PROVISIONING_PROFILE = "a8404f64-ae29-4944-8dca-6ff773d0a822";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -2641,7 +2645,7 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = Gaje;
 				PROVISIONING_PROFILE = "21bf25be-c3f4-433e-9f21-009d157222d7";
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
