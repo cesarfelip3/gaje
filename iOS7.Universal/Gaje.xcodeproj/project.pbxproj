@@ -328,6 +328,7 @@
 		CE69604D1906AF6D00D464E4 /* Develop.txt in Resources */ = {isa = PBXBuildFile; fileRef = CE69604C1906AF6D00D464E4 /* Develop.txt */; };
 		CE6C1386197A33D600523B13 /* Note.m in Sources */ = {isa = PBXBuildFile; fileRef = CE6C1385197A33D600523B13 /* Note.m */; };
 		CE6C138B197A34A100523B13 /* NotesController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE6C138A197A34A100523B13 /* NotesController.m */; };
+		CE7136421A5249F7008ADE47 /* Notification.m in Sources */ = {isa = PBXBuildFile; fileRef = CE7136411A5249F7008ADE47 /* Notification.m */; };
 		CE71A96A1963EF0800ADB5B0 /* Theme.m in Sources */ = {isa = PBXBuildFile; fileRef = CE71A9691963EF0800ADB5B0 /* Theme.m */; };
 		CE71A96D1963F72C00ADB5B0 /* ThemeController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE71A96C1963F72C00ADB5B0 /* ThemeController.m */; };
 		CE7CA1CF199A16A000527080 /* NotificationController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE7CA1CE199A16A000527080 /* NotificationController.m */; };
@@ -821,6 +822,8 @@
 		CE6C1385197A33D600523B13 /* Note.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Note.m; sourceTree = "<group>"; };
 		CE6C1389197A34A100523B13 /* NotesController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotesController.h; sourceTree = "<group>"; };
 		CE6C138A197A34A100523B13 /* NotesController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotesController.m; sourceTree = "<group>"; };
+		CE7136401A5249F7008ADE47 /* Notification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Notification.h; sourceTree = "<group>"; };
+		CE7136411A5249F7008ADE47 /* Notification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Notification.m; sourceTree = "<group>"; };
 		CE71A9681963EF0800ADB5B0 /* Theme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Theme.h; sourceTree = "<group>"; };
 		CE71A9691963EF0800ADB5B0 /* Theme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Theme.m; sourceTree = "<group>"; };
 		CE71A96B1963F72C00ADB5B0 /* ThemeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThemeController.h; sourceTree = "<group>"; };
@@ -1785,6 +1788,8 @@
 				CE695FFC1906AAFF00D464E4 /* Image.m */,
 				CE695FF81906AAE600D464E4 /* User.h */,
 				CE695FF91906AAE600D464E4 /* User.m */,
+				CE7136401A5249F7008ADE47 /* Notification.h */,
+				CE7136411A5249F7008ADE47 /* Notification.m */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -2486,6 +2491,7 @@
 				CE247C871970F57200678543 /* FollowerItemCell.m in Sources */,
 				CEFF10431966F97200E84675 /* TabbarCell.m in Sources */,
 				7FA7DD8117384D3000A50E20 /* MultiFoldView.m in Sources */,
+				CE7136421A5249F7008ADE47 /* Notification.m in Sources */,
 				CE1C5DC91977EC2700B8F459 /* iToast.m in Sources */,
 				CEBABB41197161720054710E /* Detail3Controller.m in Sources */,
 				CEF7E6D019ECBC3F009C5632 /* FMDatabasePool.m in Sources */,
@@ -2617,7 +2623,7 @@
 		7FA4DAA4164AC7DC00556574 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer: Reed Smith (XH97E9WTN3)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2631,7 +2637,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = Gaje;
-				PROVISIONING_PROFILE = "a3ce99ef-9ddf-4eb9-913f-a2c73ca5aa4c";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
@@ -2640,7 +2646,7 @@
 		7FA4DAA5164AC7DC00556574 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer: Reed Smith (XH97E9WTN3)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2654,7 +2660,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = Gaje;
-				PROVISIONING_PROFILE = "a3ce99ef-9ddf-4eb9-913f-a2c73ca5aa4c";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
