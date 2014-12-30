@@ -24,6 +24,8 @@
 @property (atomic, strong) NSString *fbfrom;
 
 @property (atomic, strong) NSString *theme;
+@property (atomic, strong) NSString *notificationMessage;
+@property (atomic, strong) NSString *notificationUUID;
 
 @property (assign) NSInteger numberOfNotifications;
 

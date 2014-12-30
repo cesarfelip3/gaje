@@ -8,6 +8,7 @@
 
 #import "Bootstrap.h"
 #import "User.h"
+#import "BackgroundTask.h"
 
 @implementation Bootstrap
 
@@ -27,6 +28,7 @@
     [self initScreenSize];
     [self initDiskCache];
     [self initAuth];
+    [self initBackgroundTask];
 }
 
 - (void)initdb {
@@ -104,6 +106,15 @@
     
     config.userIsLogin = 0;
     config.token = @"";
+    
+}
+
+- (void)initBackgroundTask
+{
+    BackgroundTask *task = [BackgroundTask getInstance];
+    [task initTask];
+    
+    
     
 }
 

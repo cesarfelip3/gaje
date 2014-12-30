@@ -11,7 +11,9 @@
 #import "AppConfig.h"
 #import "DiskCache.h"
 
+
 @class User;
+@class BackgroundTask;
 
 @interface Bootstrap : NSObject
 

@@ -309,6 +309,7 @@
 		CE54CFB01967CCFD005C1FFE /* CommentItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CE54CFAF1967CCFD005C1FFE /* CommentItemCell.m */; };
 		CE54CFB3196807DA005C1FFE /* BranderItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CE54CFB2196807DA005C1FFE /* BranderItemCell.m */; };
 		CE54CFB619680CDA005C1FFE /* Brander.m in Sources */ = {isa = PBXBuildFile; fileRef = CE54CFB519680CDA005C1FFE /* Brander.m */; };
+		CE55C79D1A5364F8004542A6 /* BackgroundTask.m in Sources */ = {isa = PBXBuildFile; fileRef = CE55C79C1A5364F8004542A6 /* BackgroundTask.m */; };
 		CE63423B19BC99B800BAA335 /* ProfileDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE63423A19BC99B800BAA335 /* ProfileDetailController.m */; };
 		CE695FCD1906A76200D464E4 /* local.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = CE695FCC1906A76200D464E4 /* local.sqlite */; };
 		CE695FD21906A85200D464E4 /* LoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE695FD11906A85200D464E4 /* LoginController.m */; };
@@ -789,6 +790,8 @@
 		CE54CFB2196807DA005C1FFE /* BranderItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = BranderItemCell.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		CE54CFB419680CDA005C1FFE /* Brander.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Brander.h; sourceTree = "<group>"; };
 		CE54CFB519680CDA005C1FFE /* Brander.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Brander.m; sourceTree = "<group>"; };
+		CE55C79B1A5364F8004542A6 /* BackgroundTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BackgroundTask.h; sourceTree = "<group>"; };
+		CE55C79C1A5364F8004542A6 /* BackgroundTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BackgroundTask.m; sourceTree = "<group>"; };
 		CE63423919BC99B800BAA335 /* ProfileDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileDetailController.h; sourceTree = "<group>"; };
 		CE63423A19BC99B800BAA335 /* ProfileDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileDetailController.m; sourceTree = "<group>"; };
 		CE695FCC1906A76200D464E4 /* local.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = local.sqlite; sourceTree = "<group>"; };
@@ -1790,6 +1793,8 @@
 				CE695FF91906AAE600D464E4 /* User.m */,
 				CE7136401A5249F7008ADE47 /* Notification.h */,
 				CE7136411A5249F7008ADE47 /* Notification.m */,
+				CE55C79B1A5364F8004542A6 /* BackgroundTask.h */,
+				CE55C79C1A5364F8004542A6 /* BackgroundTask.m */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -2460,6 +2465,7 @@
 				7FA7DD7117384D3000A50E20 /* UIVisibleScopeSearchBar.m in Sources */,
 				CE6C138B197A34A100523B13 /* NotesController.m in Sources */,
 				CE6960401906AD2800D464E4 /* Model.m in Sources */,
+				CE55C79D1A5364F8004542A6 /* BackgroundTask.m in Sources */,
 				7FA7DD7217384D3000A50E20 /* ADVGallery.m in Sources */,
 				7FA7DD7317384D3000A50E20 /* ADVGalleryBordered.m in Sources */,
 				7FA7DD7417384D3000A50E20 /* ADVGalleryPlain.m in Sources */,

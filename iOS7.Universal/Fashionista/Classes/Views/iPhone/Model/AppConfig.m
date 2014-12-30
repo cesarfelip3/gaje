@@ -21,6 +21,8 @@
 
 - (id)init {
     if (self = [super init]) {
+        self.notificationMessage = @"";
+        self.notificationUUID = @"";
     }
     return self;
 }

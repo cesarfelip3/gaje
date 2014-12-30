@@ -45,8 +45,9 @@
 #define API_APN_ENABLE          @"%@%@apn/enable"
 
 
-#define API_THEME_LIST      @"%@%@theme/list"
-#define API_NOTE_LIST       @"%@%@note/list"
+#define API_THEME_LIST          @"%@%@theme/list"
+#define API_NOTE_LIST           @"%@%@note/list"
+#define API_NOTIFICATION_LIST   @"%@%@notification/list"
 
 #define CONTACT_EMAIL       @"contact@gaje.com"
 
