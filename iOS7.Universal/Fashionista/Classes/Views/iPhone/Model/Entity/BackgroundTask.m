@@ -8,6 +8,7 @@
 
 #import "BackgroundTask.h"
 #import "Notification.h"
+#import "Setting.h"
 
 @implementation BackgroundTask
 
@@ -25,7 +26,7 @@
 {
     
     
-    self.updateTimer = [NSTimer scheduledTimerWithTimeInterval:10
+    self.updateTimer = [NSTimer scheduledTimerWithTimeInterval:5 * 60
                                                         target:self
                                                       selector:@selector(task)
                                                       userInfo:nil
@@ -38,35 +39,18 @@
     }];
     
     self.data = [[NSMutableArray alloc] init];
+    Setting *model = [Setting getInstance];
+    NSDictionary *data = [model getItem:@"notification_uuid"];
     
-    //
-    
-    CGFloat width = [UIScreen mainScreen].bounds.size.width;
-    
-    self.view = [[UIView alloc] init];
-    self.view.frame = CGRectMake(0, 64, width, 44);
-    [self.view setBackgroundColor:[UIColor whiteColor]];
-    self.view.alpha = 0.8;
-    
-    self.view.layer.masksToBounds = NO;
-    self.view.layer.shadowColor = [UIColor darkGrayColor].CGColor;
-    self.view.layer.shadowOffset = CGSizeMake(-20, 20);
-    self.view.layer.shadowRadius = 2.0f;
-    
-    self.view.layer.borderColor = [UIColor whiteColor].CGColor;
-    self.view.layer.borderWidth = 1;
-    
-    self.messageLabel = [[UILabel alloc] init];
-    self.messageLabel.frame = CGRectMake(0, 0, self.view.frame.size.width, 44);
- 
-    [self.view addSubview:self.messageLabel];
-    
-    
+    if (data != nil && [data objectForKey:@"notification_uuid"]) {
+     
+        AppConfig *config = [AppConfig getInstance];
+        config.notificationUUID = [data objectForKey:@"notification_uuid"];
+    }
 }
 
 - (void)task
 {
-    NSLog(@"hello");
     
     Notification *n = [Notification getInstance];
     
@@ -89,6 +73,13 @@
         }
         
         config.notificationUUID = notification.notificationUUID;
+        
+        Setting *model = [Setting getInstance];
+        if (![model addItem:@"notification_uuid" Value:config.notificationUUID]) {
+            [model updateItem:@"notification_uuid" Value:config.notificationUUID];
+        };
+        
+        //NSLog(@"%@", [model getItem:@"notification_uuid"]);
         
         //[self.messageLabel setText:@"hello world"];
         //[[UIApplication sharedApplication].keyWindow.rootViewController.view addSubview:self.view];

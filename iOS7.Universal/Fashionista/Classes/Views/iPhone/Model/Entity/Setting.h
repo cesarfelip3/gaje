@@ -12,10 +12,13 @@
 
 + (id)getInstance;
 
+@property (atomic, strong) NSString *name;
+@property (atomic, strong) NSString *value;
+
 - (BOOL)addItem:(NSString *)key Value:(NSString *)value;
 - (BOOL)updateItem:(NSString *)key Value:(NSString *)value;
 - (BOOL)removeItem:(NSString *)key;
 
-- (BOOL)getItem:(NSString *)key;
+- (NSDictionary *)getItem:(NSString *)key;
 
 @end
