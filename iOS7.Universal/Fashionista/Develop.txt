@@ -1,6 +1,12 @@
 Develop
 =========
 
+Notify from admin
+=================
+
+We need to save the state of displaying the notification, so we can avoid to display it repeatitivly...
+And that's we need to create another table for it, like config...
+
 Sharing photo
 =============
 

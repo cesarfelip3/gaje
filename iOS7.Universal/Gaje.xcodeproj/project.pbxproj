@@ -310,6 +310,7 @@
 		CE54CFB3196807DA005C1FFE /* BranderItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CE54CFB2196807DA005C1FFE /* BranderItemCell.m */; };
 		CE54CFB619680CDA005C1FFE /* Brander.m in Sources */ = {isa = PBXBuildFile; fileRef = CE54CFB519680CDA005C1FFE /* Brander.m */; };
 		CE55C79D1A5364F8004542A6 /* BackgroundTask.m in Sources */ = {isa = PBXBuildFile; fileRef = CE55C79C1A5364F8004542A6 /* BackgroundTask.m */; };
+		CE55C7A21A5377FB004542A6 /* Setting.m in Sources */ = {isa = PBXBuildFile; fileRef = CE55C7A11A5377FB004542A6 /* Setting.m */; };
 		CE63423B19BC99B800BAA335 /* ProfileDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE63423A19BC99B800BAA335 /* ProfileDetailController.m */; };
 		CE695FCD1906A76200D464E4 /* local.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = CE695FCC1906A76200D464E4 /* local.sqlite */; };
 		CE695FD21906A85200D464E4 /* LoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE695FD11906A85200D464E4 /* LoginController.m */; };
@@ -792,6 +793,8 @@
 		CE54CFB519680CDA005C1FFE /* Brander.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Brander.m; sourceTree = "<group>"; };
 		CE55C79B1A5364F8004542A6 /* BackgroundTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BackgroundTask.h; sourceTree = "<group>"; };
 		CE55C79C1A5364F8004542A6 /* BackgroundTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BackgroundTask.m; sourceTree = "<group>"; };
+		CE55C7A01A5377FB004542A6 /* Setting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Setting.h; sourceTree = "<group>"; };
+		CE55C7A11A5377FB004542A6 /* Setting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Setting.m; sourceTree = "<group>"; };
 		CE63423919BC99B800BAA335 /* ProfileDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileDetailController.h; sourceTree = "<group>"; };
 		CE63423A19BC99B800BAA335 /* ProfileDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileDetailController.m; sourceTree = "<group>"; };
 		CE695FCC1906A76200D464E4 /* local.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = local.sqlite; sourceTree = "<group>"; };
@@ -1795,6 +1798,8 @@
 				CE7136411A5249F7008ADE47 /* Notification.m */,
 				CE55C79B1A5364F8004542A6 /* BackgroundTask.h */,
 				CE55C79C1A5364F8004542A6 /* BackgroundTask.m */,
+				CE55C7A01A5377FB004542A6 /* Setting.h */,
+				CE55C7A11A5377FB004542A6 /* Setting.m */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -2504,6 +2509,7 @@
 				CEF7E6D119ECBC3F009C5632 /* FMDatabaseQueue.m in Sources */,
 				CEF41B03198911D20077DD22 /* ProfileItemCell.m in Sources */,
 				CE3968441A011AD400672BEA /* TopBrandsDetailController.m in Sources */,
+				CE55C7A21A5377FB004542A6 /* Setting.m in Sources */,
 				7FA7DD8217384D3000A50E20 /* PaperFoldNavigationController.m in Sources */,
 				7FA7DD8417384D3000A50E20 /* PaperFoldSwipeHintView.m in Sources */,
 				CEBABB3719712A670054710E /* FollowerProfileController.m in Sources */,
