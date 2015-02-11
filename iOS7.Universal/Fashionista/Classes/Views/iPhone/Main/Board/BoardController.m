@@ -296,10 +296,6 @@
         
         BoardThemeItemCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ThemeCell"];
         
-        CGRect tableRect = cell.imageVBkg.frame;
-        tableRect.origin.y = 0;
-        tableRect.size.height = 44;
-        cell.imageVBkg.frame = tableRect;
         [cell setData:@{}];
         
         return cell;
@@ -340,12 +336,31 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     
+    AppConfig *config = [AppConfig getInstance];
+    
     if ([self.imageArray count] <= 0) {
         return 44;
     }
+
+    NSInteger width2 = [UIScreen mainScreen].bounds.size.width - 50;
+    UILabel *labelTitle = [[UILabel alloc] init];
+    
+    labelTitle.frame = CGRectMake(40, 10, width2, 44);
+    labelTitle.lineBreakMode = NSLineBreakByWordWrapping;
+    labelTitle.numberOfLines = 0;
+    //cell.usericon.frame = CGRectMake(15, 10, 40, 30);
+    [labelTitle setText:config.theme];
+    [labelTitle sizeThatFits:CGSizeMake(width2, 44)];
+    [labelTitle sizeToFit];
+    
+    NSInteger height2 = labelTitle.frame.size.height - 10;
+    
+    if (height2 <= 44) {
+        height2 = 44;
+    }
     
     if (indexPath.row == 0) {
-        return 44;
+        return height2;
     }
     
     Image *photo = [self.imageArray objectAtIndex:indexPath.row - 1];

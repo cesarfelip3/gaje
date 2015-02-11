@@ -69,8 +69,32 @@
     brand = @"";
     
     AppConfig *config = [AppConfig getInstance];
-    [self.labelTitle setText:config.theme];
     
+    NSInteger width2 = [UIScreen mainScreen].bounds.size.width - 50;
+    UILabel *labelTitle = [[UILabel alloc] init];
+    
+    labelTitle.frame = CGRectMake(40, 10, width2, 44);
+    labelTitle.lineBreakMode = NSLineBreakByWordWrapping;
+    labelTitle.numberOfLines = 0;
+    //cell.usericon.frame = CGRectMake(15, 10, 40, 30);
+    
+    [labelTitle setText:config.theme];
+    [labelTitle sizeThatFits:CGSizeMake(width2, 44)];
+    [labelTitle sizeToFit];
+    
+    self.labelTitle.frame = CGRectMake(40, 10, width2, 44);
+    [self.labelTitle setText:config.theme];
+    self.labelTitle.lineBreakMode = NSLineBreakByWordWrapping;
+    self.labelTitle.numberOfLines = 0;
+    [self.labelTitle sizeThatFits:CGSizeMake(width2, 44)];
+    [self.labelTitle sizeToFit];
+    NSInteger height2 = labelTitle.frame.size.height - 10;
+    
+    if (height2 <= 44) {
+        height2 = 44;
+    }
+    
+    self.imageVBkg.frame = CGRectMake(0, 0, self.imageVBkg.frame.size.width, height2);
     return;
     
 }
