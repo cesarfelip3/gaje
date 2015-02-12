@@ -5,14 +5,21 @@ Todo
 ====
 
 - the full description in the photo menu doesn’t show up and it’s sentences are cut off.
-- When I go to someone’s profile and pull down to load their photos.  It deletes all of their pictures and replaces them with mine…
-- The profile pictures are ridiculously blurry, let’s get the resolution as good as it looks on fb.
-- Take the black off of the edges of the gaje logo
-- Make it so that it prompts people to update the app when they click on it.
-- If the title of the photo is long then it doesn’t show up.  It should show.
 
+Never saw :
+- When I go to someone’s profile and pull down to load their photos.  It deletes all of their pictures and replaces them with mine…
 - I want “Join the Bigger Picture” for the log in screen.
 
+
+- Take the black off of the edges of the gaje logo
+
+Can't : 
+- Make it so that it prompts people to update the app when they click on it.
+
+
+- If the title of the photo is long then it doesn’t show up.  It should show.
+
+- The profile pictures are ridiculously blurry, let’s get the resolution as good as it looks on fb. - fixed
 - There is a box that comes up with an error message with the grammar off.  This is what it should say…
 Momentary connection has been lost with the server.  If you have any questions, please send an email to contact@gaje.com. - fixed
 - The “X” to delete things should be red - fixed
