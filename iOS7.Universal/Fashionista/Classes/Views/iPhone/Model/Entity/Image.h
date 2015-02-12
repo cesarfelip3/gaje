@@ -64,4 +64,6 @@
 
 @property (atomic, retain) UIProgressView *progress;
 
+- (UIImage *)crop:(UIImage *)image;
+
 @end
