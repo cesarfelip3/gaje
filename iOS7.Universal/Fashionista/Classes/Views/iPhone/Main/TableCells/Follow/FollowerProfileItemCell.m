@@ -105,9 +105,10 @@
         
         if (image) {
             
+            image = [[User getInstance] crop:image];
             [self.imageVAvatar setImage:image];
             DiskCache *cache = [DiskCache getInstance];
-            [cache addImage:responseObject fileName:filename];
+            [cache addImage:image fileName:filename];
         }
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {

@@ -147,9 +147,16 @@
         
         if (image) {
             
-            [imageView setImage:image];
+            if (imageView == self.imageVAvatar) {
+                
+                image = [[User getInstance] crop:image];
+                [imageView setImage:image];
+                
+            } else {
+                [imageView setImage:image];
+            }
             DiskCache *cache = [DiskCache getInstance];
-            [cache addImage:responseObject fileName:filename];
+            [cache addImage:image fileName:filename];
         }
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {

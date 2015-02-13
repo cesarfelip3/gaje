@@ -72,5 +72,6 @@
 - (BOOL)exits;
 
 - (BOOL)logout;
+- (UIImage *)crop:(UIImage *)image;
 
 @end

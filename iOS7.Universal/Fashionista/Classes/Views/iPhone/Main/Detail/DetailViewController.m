@@ -185,7 +185,7 @@
             _imageBkg.frame = CGRectMake(_imageBkg.frame.origin.x, _imageBkg.frame.origin.y, 300, height + 25);
             
             DiskCache *cache = [DiskCache getInstance];
-            [cache addImage:responseObject fileName:filename];
+            [cache addImage:image fileName:filename];
         }
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {

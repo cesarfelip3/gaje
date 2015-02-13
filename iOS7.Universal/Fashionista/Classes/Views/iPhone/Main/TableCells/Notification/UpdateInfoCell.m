@@ -64,7 +64,7 @@
             
             [self.imageIcon setImage:image];
             DiskCache *cache = [DiskCache getInstance];
-            [cache addImage:responseObject fileName:filename];
+            [cache addImage:image fileName:filename];
         }
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {

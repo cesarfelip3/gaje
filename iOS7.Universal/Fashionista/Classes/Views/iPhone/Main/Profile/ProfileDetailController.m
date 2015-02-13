@@ -173,7 +173,7 @@
             [imageView setImage:image];
             
             DiskCache *cache = [DiskCache getInstance];
-            [cache addImage:responseObject fileName:filename];
+            [cache addImage:image fileName:filename];
         }
         
         self.progress.progress = 0;
