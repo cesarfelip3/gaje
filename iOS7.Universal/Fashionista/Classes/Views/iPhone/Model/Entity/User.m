@@ -339,6 +339,9 @@
         return image;
     }
     
+    width = width * image.scale;
+    height = height * image.scale;
+    
     if (width > height) {
         
         x = (width - height) / 2;
